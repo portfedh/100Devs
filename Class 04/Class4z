@@ -1,0 +1,136 @@
+Become A Software Engineer For Free 2022 (Class 04) - 100Devs
+#############################################################
+https://www.youtube.com/watch?v=Q1Obtn29twk
+Jan 24, 2022
+
+Tweet:
+    https://twitter.com/leonnoel/status/1484292275064631297
+
+Slides:
+    https://slides.com/d/ZS8FIq8/live
+
+Deck:
+    https://slides.com/leonnoel/100devs2-css-the-basics/
+
+Motivation:
+    https://youtu.be/6vuetQSwFW8
+
+Homework:
+    Read: http://learnlayout.com/
+    Do: https://www.typingtest.com/
+    Do: https://www.keybr.com/
+
+Notes:
+
+Golden Rule: Separation of concerns.
+    HTML = Content & Structure
+    CSS = Style
+    JS = Behaviour & Interaction
+
+Where CSS Go:
+    Inline
+        In email.
+    In the head
+        Avoid.
+    In a separate file (Best practice)
+        <link rel="stylesheet" href="css/style.css">
+
+CSS Syntax:
+    
+    Called rules.
+        Example:
+            p {
+                color: red;
+                font-weight: bold;
+            }
+    
+    Selector: parts of the document styled.
+        p
+    
+    Declaration block:
+        { stuff inside curly braces }
+
+        Declarations:
+            color: red;
+            font-weight: bold;
+
+        Property:
+            color:
+
+        Property value
+            red;
+    Cascade:
+        Code is read top to bottom.
+        What comes below overrides what came above.
+
+CSS Color:
+    h1{
+        color: red;
+    }
+    h2{
+        color: #FF0000
+    }
+    p{
+        color: rgba(255,0,0,1);
+    }
+    span{
+        color: hsla(0, 100%, 50%, 1);
+    }
+
+Font family:
+    html
+        <head>
+          <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;
+          400;700&display=swap" rel="stylesheet">
+        </head>
+    css
+        p{
+          font-family: 'Source Sans Pro','Helvetica' sans-serif;
+          font-weight: 700;
+        }
+
+Selection by relationship:
+    parent > child:     section p
+    previous sibling + next sibling: p + p {}
+
+IDs
+    used for selecting distinct elements.
+    Only one id with the same value per document
+
+    <section>
+        <p> Hello! </p>
+        <p id="zebra"> Youtube! </p>
+    <section>
+
+    #zebra { color: red;}
+
+Classes
+    Made to select multiple elements. 
+    Multiple with same value allowed per document. 
+
+    <section>
+        <p class="robot"> Hello! </p>
+        <p id="zebra" class="bob"> Youtube! </p>
+        <p class="bob"> Goodbye! </p>
+    <section>
+
+    .bob { color: blue;}
+
+Specificity
+    !important
+    Inline Style
+        1,000 ponts
+
+    IDs
+        100 points
+
+    Classes
+        10 points
+
+    Tags
+        1 point
+
+Use MDN for research:
+    https://learn.shayhowe.com/html-css/
+
+

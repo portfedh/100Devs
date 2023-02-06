@@ -1,0 +1,182 @@
+
+100 Devs: Class 1
+-----------------
+Jan 18 2022 (1st pass)
+Feb 4 2023 (2nd pass)
+
+Link: 
+https://www.youtube.com/watch?v=o3IIobN4xR0&list=PLBf-QcbaigsJysJ-KFZvLGJvvW-3sfk1S&index=1
+
+Slides
+	https://slides.com/d/kQcNsM4/live
+
+Discord Server
+
+	📝follow-along-materials  -> Ctrl + F -> Class-02 (or class-02, class-03, etc.)
+
+Classes:
+
+	Twitch
+		https://leonnoel.com/twitch
+
+	Twitter
+		https://leonnoel.com/twitter
+
+
+This is a jobs program, not a coding program.
+
+	If underwater basket weaving was a high paying career.
+
+	If you could learn it for free. 
+
+	If it was one of the happiest professions.
+
+	We would be weaving on this stream.
+
+	Learn what you need to learn when you need to.
+
+Class:
+
+Client server model:
+
+	Client makes requests
+
+		Browsers: Open HTML, JS & CSS files
+
+	Server listens and responds
+
+	If you can't do something, Skip it
+
+
+	Leon's Permanent offer:
+
+		I will help you build a custom learning plan
+		
+			I will meet with you every week
+
+		First do the first segment of free codecamp
+
+			HTML & CSS, & first project
+
+		2% got through it. 
+
+			Work on it with a community.
+
+			Managing frustration: Dont give up.
+
+			Consistency: Make a plan.
+
+				Plan your month, week, day.
+
+			Taking care of yourself
+
+HTML Reference
+
+	MDN (Mozila Developers Network)
+
+		All syntax & grammar rules.
+
+		Best thing to use as a reference.
+
+	Reasons to use the right tags
+
+		Content might not render.
+
+		Accesibility devices need it.
+
+		Web Crawlers use them for SEO
+
+
+	Most common tags:
+
+		Heading elements: <h1> Heading 1 </h1>
+						  <h2> Heading 2 </h2>
+						  <h3> Heading 3 </h3>
+						  <h4> Heading 4 </h4>
+						  <h5> Heading 5 </h5>
+						  <h6> Heading 6 </h6>
+
+		Paragraph tag: <p> Paragraph here </p>
+
+		Span tag: <span> small text here </span>
+
+		Preserve whitespace: <pre> dont use this </pre>
+
+		Hyperlink: <a href="www.ios.com"> Click here </a> 
+
+		Unordered list: <ul>
+		                  <li>Item1</li>
+		                  <li>Item2</li>
+		                </ul>
+
+		Ordered list: <ol>
+		                  <li>Item1</li>
+		                  <li>Item2</li>
+		              </ol>
+
+		Divider: <div> text </div> // Used a lot in react
+
+		Section: <section> </section>
+
+		Article: <article> </article>
+
+		Sidebar or extra content: <aside> </aside> // ads uses
+
+		Header: <header> </header>
+
+		Footer: <footer> </footer>
+
+		<br> Creates space. Dont use. </br>
+
+		<hr> Creates a line. Dont use. </hr>
+
+		<em> Looks italizized </em>
+
+		<strong> Looks bold </strong>
+
+		* We choose types for accesibility, not for style. 
+
+		Depricated tags:
+
+			<bold> </bold>
+			<italic> </italic>
+
+
+
+Homework:
+
+	Make a plan: 
+
+		When are you going to study.
+
+		Share calendars: Partners, family.
+
+	Deliver homework one week after its assigned.
+
+	Build: HTML for BBC Website (just what is in the attached image)
+
+	Read
+		https://learn.shayhowe.com/html-css/
+
+	USE: 
+		https://developer.mozilla.org/en-US/docs/Web/HTML
+
+	Build:
+		HTML for BBC Website (just what is in the attached image)
+
+	Community
+		Make it 
+		Bring 3 with you
+
+	Networking
+		Twitter is the best tool to network
+		Tell everyone you are doing it
+
+			You are a software engineer
+			Commited to learning web development over the next 30 weeks
+
+			Network with 3 individuals every week
+			Two coffee chats per week
+
+	Spaced repetition
+		Use ANKI

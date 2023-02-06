@@ -1,0 +1,53 @@
+Become A Software Engineer For Free 2022 (Class 03) - 100Devs
+#############################################################
+https://youtu.be/rdWM6kUImjE
+Jan 18, 2022
+
+Slides:
+	https://slides.com/d/0UVacd4/live
+
+Deck:
+	https://slides.com/leonnoel/100devs2-html-even-more-basics
+
+Motivation:
+	https://www.familyfriendpoems.com/poem/have-you-earned-your-tomorrow-by-edgar-albert-guest
+
+Homework:
+	READ   https://learn.shayhowe.com/
+	READ   https://learnlayout.com/
+	Finish defining sections for these websites:
+		BBC website
+		Khan accademy website
+		Tech crunch website
+
+Notes:
+    Progressive Enhancement:
+        Priorities:
+            Content
+            Presentation
+            Client-side scripting
+        Many places lack access to broadband
+        Lite version of the site for less band
+
+    HTML Content
+    	Headers: things the page needs.
+    	Body: what you can see.
+
+
+    New tags:
+        <nav>  
+            Navigation content at the top of the page
+            List of links used for navigation
+        </nav> 
+
+        <form action= "confirmation.html" method="post">
+          <!-- Data Collection elements go here -->
+        </form>
+            Form input types
+                Text
+                Password
+                Tel
+                Email
+                Button
+                MDN has full list
+
