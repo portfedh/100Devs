@@ -34,25 +34,63 @@ Notes:
         Many places lack access to broadband
         Lite version of the site for less band
 
-    HTML Content
-    	Headers: things the page needs.
-    	Body: what you can see.
+    HTML 
+        <!DOCTYPE html>
+            Lets the browser know what html version you are using
+            html means html5
+
+        <html></html>
+            Root tag (element)
+            Anything inside is a child
+            Elemen
+
+    	<head></head>
+            Child of <html> element
+            Anything the browser the needs to run the page.
+
+    	<body></body>
+            Child of <html> element
+            Eveything we can see and interact with.
+
+        Autogenerate with VS Code
+            Write html and hit tab
+            Select html:5 and hit enter
 
 
     New tags:
-        <nav>  
+
+        <nav></nav>
             Navigation content at the top of the page
             List of links used for navigation
-        </nav> 
+            So SEO ignores the content 
 
         <form action= "confirmation.html" method="post">
           <!-- Data Collection elements go here -->
+          <label for="zebra">First Name:</label>
+          <input id="zebra" type="text">
+          <input type="tel">
+          <input type="email">
+          <!-- inputs look the same in web, but help keyboard on mobile -->
         </form>
-            Form input types
-                Text
-                Password
-                Tel
-                Email
-                Button
-                MDN has full list
+
+        Form input types:
+            Text
+            Password
+            Tel
+            Email
+            Button
+            MDN has full list
+
+    Progressive Enhancement
+
+        The core of our website is our content (html)
+
+        Presentation
+
+        Client side scripting
+
+
+
+
+
 
