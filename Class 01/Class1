@@ -11,15 +11,15 @@ You need a comunity to get there.
 
 Program: Fullstack Web Development.
 
-$ 92,000 per year in the US.
+	$ 92,000 per year in the US.
 
-Happiest paying jobs. 
+	Happiest paying jobs. 
 
-Dont need a degree.
+	Dont need a degree.
 
-Its saturated of people that dont know what theyre doing. 
+	Its saturated of people that dont know what theyre doing. 
 
-Learning to code is not the thing that will get you a job. 
+	Learning to code is not the thing that will get you a job. 
 
 
 Bootcamps spit out generic coders.
@@ -90,6 +90,7 @@ There is a window that is open.
 
 		Take care of yourself
 
+
 	Discord:
 
 		Follow along materials channel. 
@@ -99,6 +100,7 @@ There is a window that is open.
 			Link to check in
 
 			Motivation quotes.
+
 
 	Requirements:
 
@@ -119,6 +121,7 @@ There is a window that is open.
 	
 	Before talking or posting: Is this the nicest & most helpfull thing you can say
 
+
 	How to study:
 
 		Active recall
@@ -126,8 +129,9 @@ There is a window that is open.
 			Take notes as questions
 
 			Use Anki
-
+		
 		Spaced repetition
+
 
 	Goal
 
@@ -142,7 +146,9 @@ There is a window that is open.
 
 		Two kinds of computers:
 
+
 			Clients: Our computers, with browser.
+
 
 			Servers: Computer with code that lets it know what to do and response.
 
@@ -154,11 +160,13 @@ There is a window that is open.
 
 				Golden rule: Separation of concerns.
 
+
 		Model like a kitchen:
 
 			Clients make requests.
 
 			Kitchen brings food back.
+
 
 		They comunicate through networks
 
@@ -171,13 +179,9 @@ There is a window that is open.
 
 			People 'bounce' if something doesnt load in 3 seconds.
 
+
 		HTML5
 
 			Websockets
 
 			Video Audio, etc
-
-
-
-
-

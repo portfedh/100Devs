@@ -5,7 +5,7 @@ Jan 18 2022 (1st pass)
 Feb 4 2023 (2nd pass)
 
 Link: 
-https://www.youtube.com/watch?v=o3IIobN4xR0&list=PLBf-QcbaigsJysJ-KFZvLGJvvW-3sfk1S&index=1
+	https://www.youtube.com/watch?v=o3IIobN4xR0&list=PLBf-QcbaigsJysJ-KFZvLGJvvW-3sfk1S&index=1
 
 Slides
 	https://slides.com/d/kQcNsM4/live
@@ -35,6 +35,7 @@ This is a jobs program, not a coding program.
 
 	Learn what you need to learn when you need to.
 
+
 Class:
 
 Client server model:
@@ -43,9 +44,12 @@ Client server model:
 
 		Browsers: Open HTML, JS & CSS files
 
+
 	Server listens and responds
 
-	If you can't do something, Skip it
+
+	If you can't do something, skip it
+
 
 
 	Leon's Permanent offer:
@@ -70,6 +74,7 @@ Client server model:
 
 			Taking care of yourself
 
+
 HTML Reference
 
 	MDN (Mozila Developers Network)
@@ -78,13 +83,14 @@ HTML Reference
 
 		Best thing to use as a reference.
 
+
 	Reasons to use the right tags:
 
 		Content might not render.
 
 		Accesibility devices need it.
 
-		Web Crawlers use them for SEO
+		Web crawlers use them for SEO
 
 
 	Most common tags:
@@ -169,14 +175,18 @@ Homework:
 		Bring 3 with you
 
 	Networking
+
 		Twitter is the best tool to network
+		
 		Tell everyone you are doing it
 
 			You are a software engineer
 			Commited to learning web development over the next 30 weeks
 
 			Network with 3 individuals every week
+
 			Two coffee chats per week
 
 	Spaced repetition
+	
 		Use ANKI

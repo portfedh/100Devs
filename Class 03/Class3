@@ -5,8 +5,7 @@ Jan 18, 2022 (1st pass)
 Feb 10 2023 (2nd pass)
 
 Link
-https://youtu.be/rdWM6kUImjE
-
+    https://youtu.be/rdWM6kUImjE
 
 Slides:
 	https://slides.com/d/0UVacd4/live
@@ -81,13 +80,13 @@ Notes:
             Button
             MDN has full list
 
-    Progressive Enhancement
+    Progressive Enhancement:
 
         The core of our website is our content (html)
 
-        Presentation
+        Presentation (secondary)
 
-        Client side scripting
+        Client side scripting (terciary)
 
 
 
