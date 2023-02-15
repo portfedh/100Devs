@@ -46,20 +46,49 @@ table {
   border-spacing: 0;
 }
 
-/* My CSS */
+  /* --------------------------
+  My CSS Changes
+  ----------------------------- */
+  
+  /* Border & padding inside box dimensions */
+  *,
+  *:before,
+  *:after {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+  }
 
-.menu {
-    background-color: black;
-    color: white;
+  header {
+  background-color: rgb(238 238 238);
+  height: 100px;
 }
 
-.menu-link {
-    color: white;
+section {
+  border: 1px solid #949599;
+}
+
+nav {
+  height: 30px;
+  border: 1px solid #949599;
+  margin: 0 auto;
+  padding-left: 30px;
+  padding-right: 30px;
+  float: right;
 }
 
 li {
-    display: inline;
-  }
+  display: inline;
+}
+
+.menu {
+  background-color: black;
+  color: white;
+}
+
+.menu-link {
+  color: white;
+}
 
   /* --------------------------
   CSS Notes and Reminders
@@ -82,3 +111,24 @@ ID Selectors (1-0-0):
     #my_id {
         ...
     }
+
+.box_model_properties {
+  height: 100px;
+  width: 400px;
+  padding: 20px; (space between rectangle and border)
+  border: 6px solid #949599;
+  margin: 20px; (space between two elements)
+}
+
+Inline elements 
+  - Only have right and left Margins.
+  - Have padding in all four sides. 
+
+Block elements:
+  - Have margin in all four sides. 
+  - Have padding in all four sides.
+
+img {
+  float: left;
+}
+Positions an element to the left or right of its parent element.
