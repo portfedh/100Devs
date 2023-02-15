@@ -1,0 +1,12 @@
+.menu {
+    background-color: black;
+    color: white;
+}
+
+.menu-link {
+    color: white;
+}
+
+li {
+    display: inline;
+  }
