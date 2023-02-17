@@ -228,31 +228,103 @@ header {
   float: left;
   border: 1px solid;
   height: 200px;
-  width: 22%;
+  width: 67%;
   background-color: #909291;
-  padding-top: 80px;
+  padding-top: 20px;
 }
 
 #box7 {
   float: left;
   border: 1px solid;
-  height: 200px;
-  width: 22%;
+  height: 60px;
+  width: 32%;
   background-color: #909291;
-  padding-top: 80px;
+  padding-top: 20px;
 }
 
 #box8 {
   float: left;
   border: 1px solid;
-  height: 200px;
-  width: 22%;
+  height: 60px;
+  width: 32%;
   background-color: #909291;
-  padding-top: 80px;
+  padding-top: 20px;
+}
+
+#box9 {
+  float: left;
+  border: 1px solid;
+  height: 60px;
+  width: 32%;
+  background-color: #909291;
+  padding-top: 20px;
 }
 
 
-#box9 {
+#box10 {
+  float: left;
+  border: 1px solid;
+  height: 60px;
+  width: 32%;
+  background-color: #909291;
+  padding-top: 20px;
+}
+
+#box11 {
+  float: left;
+  border: 1px solid;
+  height: 10px;
+  width: 32%;
+  background-color: #909291;
+  padding-top: 10px;
+}
+
+#box12 {
+  float: left;
+  border: 1px solid;
+  height: 10px;
+  width: 32%;
+  background-color: #909291;
+  padding-top: 10px;
+}
+
+#box13 {
+  float: left;
+  border: 1px solid;
+  height: 10px;
+  width: 32%;
+  background-color: #909291;
+  padding-top: 10px;
+}
+
+#box14 {
+  float: left;
+  border: 1px solid;
+  height: 10px;
+  width: 32%;
+  background-color: #909291;
+  padding-top: 10px;
+}
+
+#box15 {
+  float: left;
+  border: 1px solid;
+  height: 10px;
+  width: 32%;
+  background-color: #909291;
+  padding-top: 10px;
+}
+
+#box16 {
+  float: left;
+  border: 1px solid;
+  height: 10px;
+  width: 32%;
+  background-color: #909291;
+  padding-top: 10px;
+}
+
+#box17 {
   float: left;
   border: 0px solid;
   height: 200px;
@@ -264,10 +336,7 @@ header {
   font-weight: bold;
   text-align: right;
   font-family:ReithSans,Arial,Helvetica,freesans,sans-serif;
-
-
 }
-
 
 header {
   background-color: rgb(238 238 238);

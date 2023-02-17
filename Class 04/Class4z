@@ -102,8 +102,13 @@ Font family:
           font-weight: 700;
         }
 
+    You need to link to the file first at the head.
+    Then link to the css.
+
 Selection by relationship:
+
     parent > child:     section p
+    
     previous sibling + next sibling: p + p {}
 
 IDs
