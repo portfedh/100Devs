@@ -1,7 +1,11 @@
-Become A Software Engineer For Free 2022 (Class 04) - 100Devs
-#############################################################
-https://www.youtube.com/watch?v=Q1Obtn29twk
-Jan 24, 2022
+100 Devs: Class 4
+-----------------
+
+Jan 24, 2022 (1st pass)
+Feb 17 2023 (2nd pass)
+
+Link:
+    https://www.youtube.com/watch?v=Q1Obtn29twk
 
 Tweet:
     https://twitter.com/leonnoel/status/1484292275064631297
@@ -19,6 +23,10 @@ Homework:
     Read: http://learnlayout.com/
     Do: https://www.typingtest.com/
     Do: https://www.keybr.com/
+    Finish defining sections for these websites:
+        BBC website
+        Khan accademy website
+        Tech crunch website
 
 Notes:
 
@@ -44,21 +52,26 @@ CSS Syntax:
                 font-weight: bold;
             }
     
-    Selector: parts of the document styled.
-        p
+    Rule: The whole thing
+
+    Selector: The part of the document being styled.
+        In this case 'p'
     
     Declaration block:
-        { stuff inside curly braces }
+
+        { Everything inside the curly braces }
 
         Declarations:
-            color: red;
-            font-weight: bold;
+            Each line inside the braces.
+                color: red;
+                font-weight: bold;
 
         Property:
             color:
 
         Property value
             red;
+
     Cascade:
         Code is read top to bottom.
         What comes below overrides what came above.
@@ -117,7 +130,7 @@ Classes
     .bob { color: blue;}
 
 Specificity
-    !important
+
     Inline Style
         1,000 ponts
 

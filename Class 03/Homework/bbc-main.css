@@ -1,3 +1,7 @@
+  /* --------------------------
+  CSS Reset
+  ----------------------------- */
+
 /* http://meyerweb.com/eric/tools/css/reset/ 2. v2.0 | 20110126
   License: none (public domain)
 */
@@ -47,10 +51,10 @@ table {
 }
 
   /* --------------------------
-  My CSS Changes
+  My CSS Changes: General
   ----------------------------- */
   
-  /* Border & padding inside box dimensions */
+  /* Set border & padding inside box dimensions */
   *,
   *:before,
   *:after {
@@ -59,35 +63,222 @@ table {
             box-sizing: border-box;
   }
 
-  header {
-  background-color: rgb(238 238 238);
-  height: 100px;
-}
+/* Remove underline from links */
+li { display: inline; }
+a:link { text-decoration: none; }
+a:visited { text-decoration: none; }
+a:hover { text-decoration: none; }
+a:active { text-decoration: none; }
 
-section {
-  border: 1px solid #949599;
-}
+  /* ---------------------------
+  My CSS Changes: Navigation Bar
+  ----------------------------- */
 
-nav {
+  /* Navigation area */
+  nav {
   height: 30px;
-  border: 1px solid #949599;
-  margin: 0 auto;
+  border: 1px solid #ffffff;
   padding-left: 30px;
   padding-right: 30px;
-  float: right;
+  padding-top: 8px;
+  padding-bottom: 5px;
+  text-align: right;
+  font-family:ReithSans,Arial,Helvetica,freesans,sans-serif;
+  font-size: 11px;
 }
 
-li {
-  display: inline;
-}
-
+/* Navigation Menu */
 .menu {
   background-color: black;
   color: white;
 }
 
+/* Navigation Menu: Float logo */
+.logo {
+  text-align: left;
+  float: left;
+  width: 25%;
+}
+
+/* Navigation Menu: Links in white */
 .menu-link {
   color: white;
+  padding: 8px;
+  width: 50%;
+}
+
+ /* -------------------------------
+  My CSS Changes: Main Advertisement
+  ----------------------------- */
+
+/* Main advertisement section */
+header {
+  background-color: rgb(238 238 238);
+  height: 155px;
+  font-family:ReithSans,Arial,Helvetica,freesans,sans-serif;
+  text-align: right;
+  font-size: 7px;
+  font-weight: bold;
+  padding-top: 7px;
+  padding-right: 5px;
+  color: rgb(80 80 80);
+}
+
+ /* ---------------------------
+  My CSS Changes: Info Bar
+  ----------------------------- */
+
+/* Section Properties */
+#section_bar {
+  height: 35px;
+  border: 0px solid #949599;
+  font-family:ReithSans,Arial,Helvetica,freesans,sans-serif
+}
+  
+/* Welcome Message*/
+#welcome {
+  font-size: 12px;
+  font-weight: bold;
+  color: rgb(80 80 80);
+  float: left;
+  width: 25%;
+  padding-top: 20px;
+}
+
+/* Today's Date*/
+#date {
+  font-size: 12px;
+  font-weight: 60;
+  color: rgb(155 155 155);
+  float: right;
+  padding-top: 20px;
+}
+
+ /* ---------------------------
+  My CSS Changes: Main News Block
+  ----------------------------- */
+
+.area {
+  font-family:ReithSans,Arial,Helvetica,freesans,sans-serif;
+  background: #909291;
+  border-radius: 6px;
+  color: #fff;
+  display: block;
+  padding: 24px 15px;
+  text-align: center;
+  margin: 1px;
+}
+
+#box1 {
+  float: left;
+  width: 49%;
+  height: 200px;
+  padding-top: 90px;
+}
+
+#box2 {
+  float: left;
+  width: 25%;
+  height: 98px;
+  padding-top: 45px;
+}
+
+#box3 {
+  float: left;
+  width: 25%;
+  height: 98px;
+  padding-top: 45px;
+}
+
+#box4 {
+  float: left;
+  width: 25%;
+  height: 98px;
+  padding-top: 45px;
+}
+
+#box5 {
+  float: left;
+  width: 25%;
+  height: 98px;
+  padding-top: 45px;
+}
+
+ /* ---------------------------
+  My CSS Changes: Secondary Bar
+  ----------------------------- */
+
+.news_secondary{
+  clear: both;
+  height: 35px;
+  border: 0px solid #949599;
+  font-size: 12px;
+  font-weight: bold;
+  color: rgb(80 80 80);
+  padding-top: 20px;
+  font-family:ReithSans,Arial,Helvetica,freesans,sans-serif;
+}
+
+ /* ----------------------------------
+  My CSS Changes: Secondary News Block
+  --------------------------------- */
+
+
+#box6 {
+  float: left;
+  border: 1px solid;
+  height: 200px;
+  width: 22%;
+  background-color: #909291;
+  padding-top: 80px;
+}
+
+#box7 {
+  float: left;
+  border: 1px solid;
+  height: 200px;
+  width: 22%;
+  background-color: #909291;
+  padding-top: 80px;
+}
+
+#box8 {
+  float: left;
+  border: 1px solid;
+  height: 200px;
+  width: 22%;
+  background-color: #909291;
+  padding-top: 80px;
+}
+
+
+#box9 {
+  float: left;
+  border: 0px solid;
+  height: 200px;
+  width: 32%;
+  background-color: rgb(238 238 238);
+  padding-top: 10px;
+  color: rgb(80 80 80);
+  font-size: 7px;
+  font-weight: bold;
+  text-align: right;
+  font-family:ReithSans,Arial,Helvetica,freesans,sans-serif;
+
+
+}
+
+
+header {
+  background-color: rgb(238 238 238);
+  height: 155px;
+  font-family:ReithSans,Arial,Helvetica,freesans,sans-serif;
+  text-align: right;
+  font-size: 10px;
+  font-weight: bold;
+  padding-top: 7px;
+  padding-right: 5px;
+  color: rgb(80 80 80);
 }
 
   /* --------------------------
@@ -120,7 +311,7 @@ ID Selectors (1-0-0):
   margin: 20px; (space between two elements)
 }
 
-Inline elements 
+Inline elements:
   - Only have right and left Margins.
   - Have padding in all four sides. 
 
@@ -128,7 +319,42 @@ Block elements:
   - Have margin in all four sides. 
   - Have padding in all four sides.
 
-img {
-  float: left;
-}
-Positions an element to the left or right of its parent element.
+Floats:
+  img {
+    float: left;
+  }
+
+  - Positions an element to the left or right of its parent element.
+  - If no element is present, it wil float to the end of the page.
+  - Width of the element == width of the content within it.
+  - We can change this with "width xx%;" property.
+  - We can also add a margin to improve how it looks.
+  - When you float an inline element, it becomes like a block element.
+
+  Three columns:
+    - Float all three to the left and make width 30%.
+    - Not 1/3 exact because of margins.
+
+  Two columns:
+    - Float one to the left and another to the right.
+    - Make width 63% and 30%. Not to 100 because of margins.
+
+  Float problems:
+    - Proper styles might not render
+    - Margin and padding might be wrong
+    - Unwanted content may wrap around
+
+  Floats were designed to allow content to wrap around an image.
+  To prevent content from wrapping around floated elements we need to 'clear'.
+ 
+  div {
+  clear: left/right/both;
+  }
+  
+  Left clears left floats, right clears right floats, both clears both.
+  You apply it to the element after the float.
+
+  Containing Floats:
+    Floated element resides inside a parent element.
+    Parent element acts as a container, leaving the flow completely normal.
+    
