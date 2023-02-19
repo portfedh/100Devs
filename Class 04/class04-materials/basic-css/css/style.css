@@ -16,8 +16,10 @@ section {
     height: 200px;
     background-color: gray;
     border: solid black;
-    color: white;
+}
 
+p {
+    color: white;
 }
 
 footer {
