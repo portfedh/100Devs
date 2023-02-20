@@ -1,0 +1,66 @@
+
+ /* Background Color */
+body {
+    background-color: hsl(198deg 71% 73%);
+}
+
+ /* General Settings */
+div {
+    border: 5px solid rgb(72 205 49);
+    width: 850px;
+    height: 850px;
+    padding-top: 30px;
+    padding-bottom: 0px;
+    padding-right: 50px;
+    padding-left: 60px;
+    margin: 40px;
+    color: whitesmoke
+}
+
+ /* About us, Twitch, Twitter, Youtube */
+section {
+    left: 50%;
+    height: 50px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+/* Links */
+a {
+    color: rgb(72 205 49);
+}
+
+/* Learn With Leon & Friends */
+h1 {
+    font-family: 'PT Serif','Times New Roman', serif;
+    font-style: italic;
+    text-align: center;
+    font-size: 45px;
+    font-weight: 550;
+}
+
+ /* About us */
+h2 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h3 {
+    color: black;
+    display: inline;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+ /* Loren ipsum */
+p {
+    font-size: 22px;
+    line-height: 1.4;
+}
+
+/* Image */
+
+img {
+    float:right;
+}
