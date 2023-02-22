@@ -50,7 +50,7 @@ Notes:
         User interphase
         The things you interact with and sww
 
-    * { box-sizing: boder-box;}
+    * { box-sizing: border-box;}
         Changes box model so borders are inside width and height
         1/3 1/3 1/3 Floats will fit on a line. 
 
