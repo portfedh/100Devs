@@ -1,0 +1,195 @@
+Learn to code Advanced HTML & CSS
+---------------------------------
+
+https://learn.shayhowe.com/advanced-html-css/
+
+Chapter 3: Complex selectors
+----------------------------
+
+Common selectors
+
+    h1{ ...type selector... }
+    .myClass{ ...Class selector... }
+    .myId{ ...ID selector... }
+
+
+
+Descendant selector
+
+    Matches every element with that ancestor.
+
+        article h2 {...}
+
+            All h2 inside an article are selected.
+
+
+Direct child selector
+    
+    Only a direct child of the ancestor is selected.
+
+        article > pp {...}
+
+
+General Sibling selector
+
+    Select elements that share the same common parent.
+
+        h2 ~ p {...}
+
+
+Adjacent sibling selector
+
+    Select an element that directly follows a siblign.
+
+        h2 + p {...}
+
+
+Attribute present selectors
+    Whether it includes an attribute or not. Regardless of value
+
+    CSS
+        a[target] {...}
+
+    HTML
+     <a href="#" target="_blank">...</a>
+
+
+Attribute equals selector
+
+    Specific and exact matching attribute is present
+
+        CSS
+            a[href="http://google.com/"] {...}
+        HTML
+            <a href="http://google.com/">...</a>
+
+
+Attribute Contains Selector
+
+    Find an element on part but not exact match. 
+
+        CSS
+            a[href*="login"] {...}
+
+        HTML
+            <a href="/login.php">...</a>
+
+
+Attribute begins with  Selector
+
+    a[href^="https://"] {...}
+    <a href="https://chase.com/">...</a>
+
+Attribute Ends With Selector
+
+    a[href$=".pdf"] {...}
+    <a href="/docs/menu.pdf">...</a>
+
+
+Attribute Spaced Selector
+
+    a[rel~="tag"] {...}
+    <a href="#" rel="tag nofollow">...</a>
+
+Attribute Hyphenated Selector
+
+    a[lang|="en"] {...}
+    <a href="#" lang="en-US">...</a>
+
+
+Pseudo-classes
+    Not directly stated within the markup
+    Dinamically populated as a result of user actions.
+    Start with ':'   (pseudo-classes) 
+    Start with '::'   (pseudo-elements) 
+
+Link pseudo-class
+
+    a:link {...}
+    a:visited {...}
+
+User Action Pseudo-classes
+
+    a:hover {...}
+    a:active {...}
+    a:focus {...}
+
+
+User Interface State Pseudo-classes
+
+    input:enabled {...}
+    input:disabled {...}
+    input:checked {...}
+    input:indeterminate {...}
+
+
+Structural & Position Pseudo-classes
+
+    :first-child
+    :last-child
+    :only-child
+
+    :first-of-type
+    :last-of-type
+    :only-of-type
+
+    :nth-child(n)
+    :nth-last-child(n)
+    :nth-of-type(n)
+    :nth-last-of-type(n)
+
+    li:nth-child(3n)
+        Will identify every third list item within a list.
+    li:nth-child(4n+7) 
+        Will identify every fourth list item.
+        Starting with the seventh list item.
+
+    Odd and even keyword values may be used. 
+
+
+Target Pseudo-class
+
+    The fragment identifier within a URI can be recognized by the hash character, #, and what directly follows it.
+
+    Fragment identifiers are most commonly seen when using on page links, or linking to another part of the same page.
+
+    section:target {...}
+
+    <section id="hello">...</section>
+
+
+Empty Pseudo-class
+
+    Selectrs elements that do not contain children or text
+
+        div:empty {...}
+
+
+Negation Pseudo-class
+
+    div:not(.awesome) {...}
+    :not(div) {...}
+
+Textual Pseudo-elements
+
+    :first-letter
+    :first-line
+
+Generated Content Pseudo-elements
+
+    :before
+    :after
+
+Fragment Pseudo-element
+
+    Identifies part of the document that has been selected, or highlighted, by a user’s actions.
+
+    ::-moz-selection {
+    background: #ff7b29;
+    }
+    ::selection {
+      background: #ff7b29;
+    }
+
+
+
