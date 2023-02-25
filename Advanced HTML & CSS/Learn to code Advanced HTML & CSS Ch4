@@ -1,0 +1,200 @@
+Learn to code Advanced HTML & CSS
+---------------------------------
+
+https://learn.shayhowe.com/advanced-html-css/
+
+Chapter 4 Responsive Web Design
+-------------------------------
+
+Mobile internet is outpacing general internet growth.
+Soon the majority of internet comsumption will be on mobile devices.
+
+Responsive Overview
+
+    A website suitable to work on every divice and every screen size. 
+
+Responsive vs Adaptive vs Mobile
+
+    Responsive dynamically adapts sites react to changes
+
+    Adaptive are built to preset factors.
+
+    Mobile means a separate website for mobile users.
+
+
+Flexible Layouts
+    
+    Flexible layouts
+
+        Using a flexible grid
+            genmerformula:
+                Result = target / context
+
+        Capable of resizing to any width
+            Resizing may not be enough
+            Text may become to large or too small
+            When this happens we switch to media queries
+        
+        Built in relative length units 
+            percentages
+            em units
+            vw (viewports width)
+            vmin (Minimum of the viewports height and width)
+            vh (Viewports height)
+            vmax (Maximum of the viewports height and width)
+
+    Media queries
+
+        Dont work with Internet Explorer 8 and below
+
+        Ability to specify different styles for individual
+            Browsers
+            Device circumstances
+                screen
+                print
+                tv
+                braile
+                3d-glasses
+            Example:
+                /* @media Rule */
+                @media all and (max-width: 1024px) {...}
+
+        Logical operators
+
+            and
+                @media all and (min-width: 800px) and (max-width: 1024px) {...}
+
+            not
+                @media not screen and (color) {...}
+
+            only
+                @media only screen and (orientation: portrait) {...}
+                Hide stilyes from devices that dont support media queries.
+
+            If media type is not specified, it will default to all. 
+
+
+        Media Features
+
+            Height and Width
+                min-width
+                min-height
+                max-width
+                max-height
+                @media all and (min-width: 320px) and (max-width: 780px) {...}
+                    min & max refer to <= and >=
+
+            Orientation
+                landscape
+                portrait
+                all
+                @media all and (orientation: landscape) {...}
+
+            Aspect Ratio
+                aspect-ratio
+                device-aspect-ratio
+                    width/height pixel ration
+                @media all and (min-device-aspect-ratio: 16/9) {...}
+
+            Pixel Ratio (identify high definition devices)
+                @media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min-device-pixel-ratio: 1.3) {...}
+
+            Resolution Media Feature
+
+                Specifies the resolution of the output device in pixel density
+                @media print and (min-resolution: 300dpi) {...}
+
+            Other Media Features
+                color
+                color-index
+                monochrome
+                grid feature
+                scan
+
+            Identifying breakpoints
+
+                Add media queries when a website starts to break.
+                Not for common device sizes, since they change all the time.
+
+            Mobile First
+
+                Use styles targeting smaller viewports as default.
+                Use media queries as viewport grows.
+                
+                    /* Default styles first then media queries */
+                    @media screen and (min-width: 400px)  {...}
+
+                Can also help so you dont download uneccesary media.
+
+                    /* Media for larger devices */
+                    @media screen and (min-width: 800px) {
+                      body {
+                        background-image: url("bg.png") 50% 50% no-repeat;
+                      }
+                    }
+
+            Viewport
+
+                Identifying the viewport size, scale and resolution of a website.
+
+                The viewport meta tag will tell the browser the intended width of a website.
+                    Uses height or width values.
+                    Will define the height or width of the viewport. 
+
+                    <meta name="viewport" content="width=device-width">
+
+            Viewport Scale
+
+                Control how a website is scaled on a mobile device.
+                    
+                    Properties:
+                        minimum-scale (positive value lower than initial value)
+                        maxiumum-scale (positive value larger than initial value)
+                        initial-scale (should be 1 in a scale 0-10)
+                        user-scalable ('no' will disable zooming)
+
+                    Values above 1 will zoom the website
+                    <meta name="viewport" content="user-scalable=yes">
+
+            Viewport Resolution
+
+                The browser can decide how to scale a website.
+                It uses viewport scale values. 
+
+                If more control is needed, you can use these properties:
+                    target-densitydpi
+                    device-dpi
+                    high-dpi
+                    medium-dpi
+                    low-dpi
+                    actual dpi number
+                    <meta name="viewport" content="target-densitydpi=device-dpi">
+
+
+            Combining Viewport Values
+
+                multiple values are allowed at once.
+                Requires comma separation
+
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+
+            Viewport Rule
+
+                Rather than using a viewport meta tag
+
+                Use a CSS rule:
+
+                @viewport {
+                  width: device-width;
+                  zoom: 1;
+                }
+
+    Flexible media
+
+        Images, videos and other need to be scalable. 
+
+        Use max-width property:
+
+            img, video, canvas {
+              max-width: 100%;
+            }
