@@ -1,0 +1,102 @@
+Learn to code Advanced HTML & CSS
+---------------------------------
+
+https://learn.shayhowe.com/advanced-html-css/
+
+Chapter 5 Preprocessors
+-----------------------
+
+Same tasks need to be completed over and over again. 
+
+Preprocessor is a program that takes one type of data.
+Converts it to another type of data. 
+
+Popular preprocessor lagunagues:
+    Haml
+    Sass
+
+Haml
+    HTML abstraction markup language.
+    Promotes dry and well structured markup. 
+
+    Installation
+        Uses Ruby
+            $ gem install haml
+
+        Files are saved as .haml
+
+    Doctype
+        Haml
+            $ !!! 5
+        Compiled HTML
+            <!DOCTYPE html>
+
+    Declaring Elements
+
+        Elements are initialized with a percent sign %.
+        Indented to identify nesting. 
+        Indentation with one or more spaces. Must be consistent. 
+
+        Haml Example:
+            %body
+                %header
+                    %h1 Hello World
+                %section
+                    %p Lorem ipsum dolor sit amet.
+
+
+        Complied HTML:
+            <body>
+              <header>
+                <h1>Hello World</h1>
+              </header>
+              <section>
+                <p>Lorem ipsum dolor sit amet.</p>
+              </section>
+            </body>
+
+    Handling Text
+
+        Text can ble laced onthe same line as the declared element. 
+        Or indented below the element. 
+        Either or. 
+
+        %body
+            %header
+                %h1
+                    Hello World
+                %section
+                    %p
+                        Loren ipsum dolor sit amet.
+
+    Attributes
+
+        Declared directly after the element using {} or ()
+
+        Haml
+            %img{:src => "shay.jpg", :alt => "Shay Howe"}
+            %img(src="shay.jpg" alt="Shay Howe")
+        Compiled HTML
+            <img src="shay.jpg" alt="Shay Howe">
+
+
+    Classes & Id's
+        Two ways: using . or #
+
+        Haml
+            %section.feature
+            %section.feature.special
+            %section#hello
+            %section#hello.feature(role="region")
+        Compiled HTML
+            <section class="feature"></section>
+            <section class="feature special"></section>
+            <section id="hello"></section>
+            <section class="feature" id="hello" role="region"></section>
+
+    
+        The chapter is a complete guide. For more info, look at at the material.
+
+
+
+
