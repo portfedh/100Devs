@@ -1,7 +1,8 @@
 100 Devs: Class 7
 -----------------
 
-Feb 25 2023
+Date taken:
+    Feb 25 2023
 
 Link:
     https://www.youtube.com/watch?v=k8r3B0JGMt4&t=12s
@@ -23,40 +24,57 @@ Homework:
 
     Read: How to win friends and influence people
 
+    Make 15 minutes of pain responsive (use floats and 3 media queries)
+
+    Read A Guide to Flexbox: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+
+    http://flexboxfroggy.com/
+
 
 
 Notes:
+
     Always keep a starter model template at hand
+
         HTML & CSS
 
 
-    How to network Part 1:
+    How to network, Part 1:
 
-        This is the best time to network
-
-        Goal: Turn a stranger into a friend
+        The Goal: Turn a stranger into a friend
 
         Its not about coding, its about people wanting you on their team.
 
+        This is the best time to network
+
         Dont just click apply
+
 
         Just have linkedin contacts that you know
 
             Add people by using messages
 
-        Steps:
+
+        Levels of closeness:
+
             Meet
+        
             Acquaintance
+        
             Friend
-                Referal
-            Ask for coworker
+                Provide a referal
+        
+            Coworker
+
 
         Go to recurring events
 
-            If you say hello to a person 3 days in a row: 
+            If you say hello to a person 3 days in a row:
+
                 He's an Aquaintance
 
-        Go to meetups
+
+        Go to Meetups
 
             Find where things are posted (local boards)
 
@@ -64,38 +82,46 @@ Notes:
 
             Try in other cities
 
+
         Go to conferences
 
             Volunteer to get in for free
 
             Go with a friend
 
+
         Dont eat alone
 
+        
         Use the discord/twitter/fb comunity
 
+        
         Tell your friends and family
 
-        Who else should I talk too
+        
+        Ask: Who else should I talk too
 
+        
         Send a followup email
 
             Add value
 
             Show you listened
 
-        meet > email> linkedin> twitter
-            one thing per day
-            spaced repetition
+        
+        Meet > email> linkedin> twitter
+            One thing per day
+            Spaced repetition
 
-        cofee chat
-            appreciate getting to know you 
-            Thought a lot about the conversation we had
-            It seems like you are in a place in your career where Id like to be in some years
+        Coffee chats
+            I appreciate getting to know you 
+            Thought the conversation we had it seems like you are in a place in your career where Id like to be in some years
             Open or 15-20 min of your time to how you got to where you are right now
+
             2 weeks later
             I know times are busy, just wanted to ping you to see if your be open to meet for a quick cofee chat
-            last try
+            
+            Last try
             Same. If now answer, drop it.
 
             Go early.
@@ -137,33 +163,32 @@ Notes:
 
         Content decisions:
 
-            Sidebars
-
-            Navigational content
-
             Using media queries
 
-                Option 1: Large to small
-                    Take design
+                Change sidebars
+
+                Change navigational content
+
+                Method 1: Large to small
+
+                    Take a desktop web design
+
                     Shrink until it doesnt look good.
-                    Add media querie
 
-                Option 2: Mobile first
+                    Add media queries and adapt it
 
-                    Preferable
+                Method 2: Mobile first
 
+                    Design it for mobile
 
-        Remember to add to html section in template:
-
-            <meta name="viewport" content="width=device-width, initial-scale=1">
-
-            Media queries dont work in mobile if not. 
+                    Add media queries to enlarge it to desktop and tablet
 
 
+        Media queries wont work in mobile
 
+            You have to add add this to the html section in template:
 
-
-
+                <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
     Flexbox
