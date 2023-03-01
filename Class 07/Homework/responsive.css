@@ -1,0 +1,83 @@
+/* Box Model Hack */
+* {
+    box-sizing: border-box;
+  }
+  
+  /* Clear fix hack */
+  .clearfix:after {
+       content: ".";
+       display: block;
+       clear: both;
+       visibility: hidden;
+       line-height: 0;
+       height: 0;
+  }
+  
+  .clear {
+      clear: both;
+  }
+  
+  /******************************************
+  /* BASE STYLES
+  /*******************************************/
+    body {
+    font-family: "Helvetica", Times, serif;
+    font-size: 19px;
+    color: rgb(68, 66, 66);
+    background-color: rgb(216 216 216);
+  }
+   /******************************************
+  /* LAYOUT
+  /*******************************************/
+  header,footer {
+    background-color: rgb(42 61 86);
+    color: whitesmoke;
+    height: 250px;
+    border: 2px solid black;
+    clear: both;
+    padding: 20px;
+  }
+  section{
+    background-color: rgb(20 165 152);
+    color: whitesmoke;
+    height: 400px;
+    width: 20%;
+    border: 2px solid black;
+    float: left;
+    padding: 20px;
+  }
+  .thickColumn{
+    background-color: white;
+    color: black;
+    width: 40%;
+  }
+  /******************************************
+  /* ADDITIONAL STYLES
+  /*******************************************/
+    /* Small size for Smartphones */
+    @media screen and (max-width: 600px) {
+        section{
+          float: none;
+          width: 100%;
+          height: 150px;
+        }
+        .thickColumn{
+            width: 100%;
+        }
+        header, footer{
+        height: 180px;
+        }
+      }
+    
+      /* Medium size for Tablets */
+      @media (min-width: 601px) and (max-width: 900px){
+        section{
+          width: 50%;
+        }
+        .thickColumn{
+            width: 50%;
+        }
+        .halfColumn{
+            width: 50%;
+        }
+      }

@@ -79,22 +79,39 @@ Flexbox Properties
         }
 
 
-        Items
-            .item{
-                order: 5; /* default is 0 */
+    Items
 
-                flex-grow: 4; /* default 0 */
+        .item{
+            order: 5; /* default is 0 */
 
-                flex-shrink: 3; /* default 1 */
+            flex-grow: 4; /* default 0 */
 
-                flex-basis:  | auto; /* default auto */
+            flex-shrink: 3; /* default 1 */
 
-                flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]
+            flex-basis:  | auto; /* default auto */
 
-                align-self: auto | flex-start | flex-end | center | baseline | stretch;
-}
-            }
+            flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]
 
+            align-self: auto | flex-start | flex-end | center | baseline | stretch;
         }
 
-    Items
+
+
+Flexbox Froggy:
+
+    #pond {
+      display: flex; /* starts flexbox */
+
+    flex-direction: column;
+        /* Options: row, column, row-reverse, column-reverse */
+
+    justify-content: flex-start;
+        /* flex-start, flex-end, space-between, space-arround, space evenly */
+
+    align-items: flex-start;
+        /* flex-start, flex-end, center, baseline, strec */
+
+
+
+
+    }
