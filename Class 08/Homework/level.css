@@ -1,0 +1,176 @@
+/* Box Model Hack */
+* { box-sizing: border-box; }
+  
+  /* Clear fix hack */
+  .clearfix:after {
+       content: ".";
+       display: block;
+       clear: both;
+       visibility: hidden;
+       line-height: 0;
+       height: 0;
+  }
+  
+  .clear { clear: both; }
+  
+/******************************************
+/* HEADER
+/******************************************/
+
+* {
+  /* border: 1px solid black; */
+  font-family: Source Sans Pro;
+}
+
+header {
+    background-color: rgb(102 118 138);
+    color: white;
+    height: 6em;
+    text-align: center;
+}
+
+section{
+    margin-top: 2em;
+}
+
+header section{
+    width: 33.33%;
+    float: left;
+    text-align: center;
+}
+
+header section span{
+    padding: 0 5%;
+}
+
+.donate{
+    height: 2.5em;
+    padding: 0.6% 1.5%;
+    margin: 100px;
+    text-align: center;
+    background-color: rgb(255 255 255);
+    color: rgb(102 118 138);
+    border-radius: 4px;
+}
+
+
+/******************************************
+/* MAIN
+/******************************************/
+
+main {
+    background-color: rgb(102 118 138);
+    color: white;
+    height: 25em;
+
+  }
+
+main span{
+    font-size: 3.5em;
+    font-weight: 600;
+    display: table;
+    margin: 0 auto;
+}
+
+main p{
+    display: table;
+    margin: 0 auto;
+    padding: 1.5em 10em;
+    font-size: 1.3em;
+    text-align: center;
+}
+
+main div{
+    text-align: center;
+    font-size: 2em;
+    font-weight: 100;
+}
+
+/******************************************
+/* Why
+/******************************************/
+
+.why {
+    height: 20em;
+    padding: 2.5em 25em;
+    text-align: center;
+    margin: 0;
+}
+
+.why span{
+    display: table;
+    margin: 0 auto;
+    font-size: 3em;
+    font-weight: 550;
+}
+
+.why p{
+    font-size: 1.4em;
+}
+
+/******************************************
+/* Visit
+/******************************************/
+
+.visit {
+    background-color: rgb(219 224 226);
+    height: 15em;
+    margin: 0;
+  }
+
+.visit > div{
+    width: 50%;
+    float: left;
+    background-color: rgb(219 223 226);
+}
+
+.visit > div > div > span{
+    background-color: rgb(102 118 138);
+    display: table;
+    margin: 4.5em auto 3em auto;
+    padding: 5em 8em;
+}
+
+.gym {
+    text-align: center;
+    font-size: 1.6em;
+    font-weight: 500;
+}
+
+.description {
+    height: 10em;
+    padding: 1em 8em 0 8em;
+    font-size: 1.2em;
+}
+
+.button{
+    height: 3em;
+    padding: 2% 0%;
+    margin: 10px 250px;
+    text-align: center;
+    color: rgb(102 118 138);
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+
+
+
+
+.volunteer {
+    height: 10em;
+}
+
+.contact {
+    background-color: rgb(22 31 42);
+    color: white;
+    height: 10em;
+  }
+
+footer {
+    background-color: rgb(22 31 42);
+    color: white;
+    height: 5em;
+  }
+
+  
