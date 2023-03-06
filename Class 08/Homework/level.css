@@ -151,14 +151,52 @@ main div{
     color: rgb(102 118 138);
     font-size: 1.2em;
     font-weight: 500;
+    border: 1px solid rgb(151 151 151);
+}
+
+/******************************************
+/* Volunteer
+/******************************************/
+
+.volunteer {
+    height: 50em;
+    background-color: white;
+    color: black;
+    padding: 2.5em 22em;
 }
 
 
+.volunteer span{
+    display: table;
+    margin: 8em auto 0 auto;
+    font-size: 3em;
+    font-weight: 550;
+}
+
+.volunteer p{
+    font-size: 1.4em;
+    text-align: center;
+}
 
 
+/******************************************
+/* Footer Nav
+/******************************************/
 
-.volunteer {
-    height: 10em;
+ul {
+    list-style-type: none;
+}
+
+footer {
+    background-color: rgb(22 31 42);
+    font-size: 1.1em;
+    color: white;
+    height: 2em;
+  }
+
+  a:link, a:visited, a:hover, a:active{
+    color: white;
+    text-decoration: none;
 }
 
 .contact {
@@ -167,10 +205,14 @@ main div{
     height: 10em;
   }
 
-footer {
-    background-color: rgb(22 31 42);
-    color: white;
-    height: 5em;
-  }
+.sitemapL {
+    width: 25%;
+    float: left;
+    text-align: left;
+}
 
-  
+.sitemapR {
+    width: 25%;
+    float: right;
+    text-align: right;
+}
