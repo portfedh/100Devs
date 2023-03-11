@@ -1,3 +1,7 @@
+/******************************************
+/* General
+/*****************************************/
+
 /* Box Model Hack */
 * { box-sizing: border-box; }
   
@@ -13,12 +17,8 @@
   
   .clear { clear: both; }
 
-/******************************************
-/* All
-/*****************************************/
-
 * {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     font-family: 'Source Sans Pro', sans-serif;
     background-color: #f5f9fc;
 }
@@ -31,41 +31,8 @@ ul {
     list-style-type: none;
 }
 
-/******************************************
-/* Sections
-/*****************************************/
-
-nav{
-    height: 300px;
-}
-
-section{
-    height: 15em;
-}
-
 div{
     height: 1em;
-}
-
-p{
-    color: #3b4854;
-}
-
-/******************************************
-/* Sections Specific
-/*****************************************/
-
-nav div {
-    float: left;
-    width: 24.7%;
-    margin: 1px;
-    height: 97%;
-    padding: 40px;
-}
-
-section div {
-    margin: 1px;
-    height: 49%;
 }
 
 /******************************************
@@ -87,6 +54,7 @@ header div {
     padding: 15px 20px;
     font-size: 32px;
     font-weight: 600;
+    height: 80px;
 }
 
 header div ul li{
@@ -133,9 +101,9 @@ main{
     margin: 2px;
 }
 
-#computer {
-    height: auto;
-    max-width: 100%;
+#computerImage {
+    height: 100%;
+    object-fit: contain;
   }
 
 h1{
@@ -172,7 +140,7 @@ main div div{
     color: white;
     width: 160px;
     height:40px;
-    margin-top: 6px;
+    margin-top: 5px;
     margin-right: 27%;
     float: left;
 }
@@ -187,8 +155,27 @@ main div div{
     font-size: 18px;
 }
 
+p{
+    color: #3b4854;
+}
+
 /******************************************
 /* Nav
+/*****************************************/
+nav{
+    height: 300px;
+}
+
+nav div {
+    float: left;
+    width: 24.7%;
+    margin: 1px;
+    height: 97%;
+    padding: 40px;
+}
+
+/******************************************
+/* Footer
 /*****************************************/
 
 footer, footer h1, footer p{
@@ -197,15 +184,16 @@ footer, footer h1, footer p{
 
 footer p{
     color: #577186;
-    width: 600px;
-    margin-left: 290px;
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
     font-size: 20px;
 }
 
 
 #NavHeader{
-    padding-right: 1000px;
-    padding-top: 200px;
+    padding-left: 15%;
+    padding-right: 33%;
 }
 
 /******************************************
@@ -214,7 +202,7 @@ footer p{
 
 
 /* Small size for Smartphones */
-@media screen and (max-width: 1900px) {
+@media screen and (max-width: 1100px) {
 
     /* Header changes */
         header{
@@ -232,8 +220,8 @@ footer p{
         }
         .source{
             text-align: center;
+            
         }
-
         .button{
             text-align: center;
             padding: 10px 10px;
@@ -246,84 +234,74 @@ footer p{
 
     /* Main changes */
 
-    main{
-        height: 530px;
+        main{
+            height: 900px;
+            /* background-color: pink; */
+        }
+
+        .mainText {
+            float: none;
+            width: 99%;
+            margin: 2px;
+            height: 50%;
+        }
+        
+        .mainImage{
+            clear: both;
+            float: none;
+            height: 40%;
+            width: 100%;
+            margin-top: 50px;
+            padding: 5px;
+            text-align: center;
+            /* background-color: yellow; */
+        }
+
+        .form{
+            width: 100%;
+            height: 50px;
+            float: none;
+        }
+
+        .button2{
+            width: 100%;
+        }
+
+        h1{
+            margin-top: 25px;
+            padding-left: 10%;
+            padding-right: 10%;
+        }
+
+        #description{
+            padding-left: 5%;
+            padding-right: 5%;
+            /* background-color: lightgreen; */
+        }
+
+        #search{
+            width: 100%;
+            margin-left: 27%;
+            text-align: center;
+        }
+
+        #computerImage {
+            height: 100%;
+            object-fit: contain;
+            background-color: red;
+        }
+
+    /* Nav changes */
+        nav{
+            height: 1000px;
+        }
+
+        nav div {
+            width: 100%;
+            height: 25%;
+        }
+
+    /* Footer changes */
+
     }
 
-    .mainText {
-        float: none;
-        width: 99%;
-        margin: 2px;
-        height: 99%;
-    }
-    
-    .mainImage{
-        clear: both;
-        text-align: right;
-        float: none;
-        height: 99%;
-        width: 99%;
-        margin: 2px;
-    }
-
-    .form{
-        width: 100%;
-        height: 50px;
-        float: none;
-    }
-
-    .button2{
-        width: 100%;
-    }
-
-    h1{
-        margin-top: 25px;
-        padding-left: 10%;
-        padding-right: 10%;
-    }
-    #description{
-        padding-left: 5%;
-        padding-right: 5%;
-    }
-
-    #search{
-        width: 100%;
-        margin-left: 27%;
-        text-align: center;
-    }
-
-
-
-
-
-
-
-
-
-
-
-    /* section{
-        float: none;
-        width: 100%;
-        height: 150px;
-    }
-    .thickColumn{
-        width: 100%;
-    }
-    header, footer{
-    height: 180px;
-    }
-    } */
-
-    /* Medium size for Tablets */
-    /* @media (min-width: 701px) and (max-width: 1000px){
-    section{
-        width: 50%;
-    }
-    .thickColumn{
-        width: 50%;
-    }
-    .halfColumn{
-        width: 50%;
-    }
-    } */
