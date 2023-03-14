@@ -109,7 +109,7 @@ main {
 /*****************************************/
 
 .ServicesSection { 
-    height: 300px;
+    height: 350px;
     /* background-color: orange; */
 }
 
@@ -137,7 +137,6 @@ main {
     margin-bottom: 60px;
 }
 
-
 .EmptyVideoSection{
     width: 25%;
     height: 100%;
@@ -147,13 +146,14 @@ main {
 }
 
 .VideoSectionText {
-    background-color: #f3f4f6;
     /* background-color: red; */
     text-align: left;
     width: 25%;
     height: 97%;
     margin-top: 1px;
     float: left;
+        background-color: #f3f4f6;
+
 }
 
 .VideoSectionText > h1{
@@ -171,7 +171,6 @@ main {
 }
 
 .VideoSectionVideo{
-    height: 280px;
     width: 25%;
     height: 100%;
     float: left;
@@ -181,9 +180,10 @@ main {
 }
 
 .VideoThumbnail{
+    clear: both;
     background-color: #f3f4f6;
     text-align: center;
-    max-width: 100%;
+    width: 100%;
     max-height: 100%;
     float: left;
     object-fit: cover;
