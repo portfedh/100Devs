@@ -3,8 +3,30 @@
 /*****************************************/
 
 * {
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
+
+@media (min-width: 801px) and (max-width: 1427px) {
+    .EmptyVideoSection{
+        width: 0px;
+        height: 0px;
+        /* background-color: purple; */
+    }
+
+    .VideoSectionText {
+        width: 50%;
+        height: auto;
+        /* background-color: cyan; */
+    }
+
+
+    .VideoSectionVideo{
+        width: 49%;
+        height: 100%x;
+        /* background-color: green; */
+    }
+}
+
 
 
 /* Small size for Smartphones */
