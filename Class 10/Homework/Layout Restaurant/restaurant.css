@@ -1,0 +1,116 @@
+/******************************************
+/* General
+/*****************************************/
+
+/* Page settings */
+    * {
+        border: 1px solid black;
+        /* font-family: 'Source Sans Pro', sans-serif; */
+        background-color: gray;
+    }
+
+    a:link, a:visited, a:hover, a:active{
+        text-decoration: none;
+    }
+
+    ul {
+        list-style-type: none;
+    }
+
+    div{
+        height: 1em;
+    }
+
+    /* Box Model Hack */
+    * { box-sizing: border-box; }
+    
+    /* Clear fix hack */
+    .clearfix:after {
+        content: ".";
+        display: block;
+        clear: both;
+        visibility: hidden;
+        line-height: 0;
+        height: 0;
+    }
+
+/******************************************
+/* Header Section
+/*****************************************/
+
+header {
+    background-color: orange;
+    height: 20em;
+}
+
+.headerLogo {
+    background-color: red;
+    float: left;
+    width: 20%;
+    height: auto;
+}
+
+.headerNav {
+    background-color: cyan;
+    float: left;
+    width: 80%;
+    height: auto;
+}
+
+.headerUl {
+    background-color: green;
+    height: auto;
+}
+
+.headerLi {
+    background-color: yellowgreen;
+    width: 16.66%;
+    float: left;
+}
+
+
+/******************************************
+/* Main Section
+/*****************************************/
+
+main {
+    /* background-color: blue; */
+    height: 1em;
+}
+
+
+/******************************************
+/* About Us Section
+/*****************************************/
+
+.aboutUs {
+    /* background-color: blue; */
+    height: 1em;
+}
+
+/******************************************
+/* Order Online Section
+/*****************************************/
+
+.orderOnline {
+    /* background-color: blue; */
+    height: 1em;
+}
+
+/******************************************
+/* Book Table Section
+/*****************************************/
+
+.bookTable {
+    /* background-color: blue; */
+    height: 1em;
+}
+
+/******************************************
+/* Testimonials Section
+/*****************************************/
+
+.testimonials {
+    /* background-color: blue; */
+    height: 1em;
+}
