@@ -5,8 +5,9 @@
 /* Page settings */
     * {
         border: 1px solid black;
-        /* font-family: 'Source Sans Pro', sans-serif; */
-        background-color: gray;
+        /* background-color: lightpink; */
+        font-family: 'Open Sans', sans-serif;
+        /* font-family: 'Yeseva One', cursive; */
     }
 
     a:link, a:visited, a:hover, a:active{
@@ -39,33 +40,70 @@
 /*****************************************/
 
 header {
-    background-color: orange;
-    height: 20em;
+    /* background-color: orange; */
+    height: 7em;
 }
 
-.headerLogo {
-    background-color: red;
+.headerEmptyLeft {
+    /* background-color: grey; */
     float: left;
-    width: 20%;
-    height: auto;
+    width: 10%;
+    height: 100%;
+}
+
+.headerEmptyRight {
+    background-color: grey;
+    float: left;
+    width: 10%;
+    height: 100%;
+}
+
+.headerLogoSection {
+    /* background-color: red; */
+    margin: 1px;
+    float: left;
+    width: 9.9%;
+    height: 98%;
+}
+
+.logo{
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 .headerNav {
-    background-color: cyan;
+    /* background-color: cyan; */
     float: left;
-    width: 80%;
-    height: auto;
+    margin: 1px;
+    width: 69.8%;
+    height: 98%;
 }
 
 .headerUl {
-    background-color: green;
-    height: auto;
+    /* background-color: green; */
+    float: left;
+    margin: 1px;
+    width: 99.8%;
+    height: 98%;
 }
 
 .headerLi {
-    background-color: yellowgreen;
-    width: 16.66%;
-    float: left;
+    /* background-color: yellowgreen; */
+    font-size: 18px;
+    font-weight: 600;
+    padding: 14px;
+    width: auto;
+    float: right;
+}
+
+.orange{
+    color: orange;
+}
+
+.headerLiEnd {
+    width: 20px;
+    height: 100%;
 }
 
 
@@ -74,10 +112,31 @@ header {
 /*****************************************/
 
 main {
-    /* background-color: blue; */
-    height: 1em;
+    /* background-color: lightblue; */
+    display: table;
+    height: 60rem;
+    width: 100%;
 }
 
+.mainDiv{
+    display: table-cell;
+    vertical-align: middle;
+    background-image: url('images/homehero.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: aquamarine;
+
+}
+
+.heroMain{
+    /* background-color: aquamarine; */
+    width: 800px;
+    margin: 0% 0%  0% 10%;
+    padding: 0;
+    font-family: 'Yeseva One', cursive;
+    font-size: 5vw;
+
+}
 
 /******************************************
 /* About Us Section
