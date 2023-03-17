@@ -1,0 +1,93 @@
+/******************************************
+/* Media Queries
+/*****************************************/
+
+* {
+    /* border: 1px solid black; */
+}
+
+/* Medium size for Tablets */
+@media (min-width: 1001px) and (max-width: 1427px) {
+
+    /******************************************
+    /* Header Section
+    /*****************************************/
+        .headerEmptyLeft{
+            width: 0px;
+            height: 0px;
+            /* background-color: purple; */
+        }
+        .headerEmptyRight{
+            width: 0px;
+            height: 0px;
+            /* background-color: purple; */
+        }
+
+        .headerLogoSection {
+            /* background-color: red; */
+            width: 27.8%;
+        }
+
+        .headerNav {
+        /* background-color: cyan; */
+        float: right;
+        }
+
+}
+
+
+
+/* Small size for Smartphones */
+@media screen and (max-width: 1000px) {
+
+    /******************************************
+    /* Header Section
+    /*****************************************/
+
+        .headerEmptyLeft{
+            width: 0px;
+            height: 0px;
+            /* background-color: purple; */
+            }
+        .headerEmptyRight{
+            width: 0px;
+            height: 0px;
+            /* background-color: purple; */
+        }
+        .headerLogoSection {
+            /* background-color: red; */
+            width: 99.5%;
+        }
+        .headerNav {
+            /* background-color: cyan; */
+            width: 99.5%;
+            height: auto;
+        }
+        .headerLi {
+            background-color: orange;
+            color: black;
+            width: 90%;
+            text-align: center;
+            margin-top: 1px;
+            margin-bottom: 1px;
+            margin-right: 10%;
+        }
+
+        .orange{
+            color: white;
+        }
+
+
+    /******************************************
+    /* Main Section
+    /*****************************************/
+    
+        .mainDiv{
+            background-image: url('images/homeherosmall.jpg');
+        }
+
+        .mainHero{
+            /* background-color: aquamarine; */
+            font-size: 7vw;
+        }
+}
