@@ -90,4 +90,36 @@
             /* background-color: aquamarine; */
             font-size: 7vw;
         }
+
+    /******************************************
+    /* About Us Section
+    /*****************************************/
+    .aboutUsImage1 {
+        height: 0;
+        width: 0;
+    }
+
+    .aboutUsText {
+        /* background-color: lightyellow; */
+        width: 100%;
+        height: auto;
+        float: none;
+        padding: 14px;
+    }
+
+    .aboutUsImage2 {
+        /* background-color: lightpink; */
+        width: 100%;
+        float: none;
+        background-image: url('images/discoverstory.png');
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: cover;
+    }
+
+    .aboutUsHero{
+        font-size: 6vw;
+    }
+
+
 }
