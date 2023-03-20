@@ -220,16 +220,89 @@ main {
 /*****************************************/
 
 .orderOnline {
-    /* background-color: blue; */
-    height: 1em;
+    background-color: #f2f6f7;
+    height: auto;
 }
+
+.orderOnlineNow{
+    /* background-color: yellowgreen; */
+    font-size: 22px;
+    font-weight: 600;
+    padding: 30px 14px 14px 14px;
+    width: auto;
+    text-align: center;
+}
+
+.orderOnlineHero{
+    /* background-color: lightcoral; */
+    width: 100%;
+    font-family: 'Yeseva One', cursive;
+    margin: 0% 0%  0% 0%;
+    font-size: 4vw;
+    color: black;
+    text-align: center;
+
+}
+
+.orderOnlineNav {
+    /* background-color: lightgreen; */
+    float: left;
+    margin: 1px;
+    width: 100%;
+    height: auto;
+}
+
+.orderOnlineUl {
+    /* background-color: green; */
+    float: left;
+    margin: 1px;
+    width: 99.8%;
+    height: 98%;
+}
+
+.orderOnlineLi {
+    /* background-color: yellowgreen; */
+    font-size: 22px;
+    font-weight: 500;
+    color: #9797a2;
+    padding: 14px;
+    margin: 2px;
+    margin-top: 40px;
+
+    width: auto;
+    float: left;
+    border-bottom: thin solid #9797a2;
+}
+.orderOnlineEmptyLi {
+    /* background-color: yellowgreen; */
+    color: #f2f6f7;
+    width: 33%;
+    float: left;
+}
+
+.orderOnlineDiv{
+    /* background-color: red; */
+    clear: both;
+    height:auto;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+.orderOnlineImg{
+    /* background-color: aqua; */
+    margin: 30px;
+    width: 300px;
+}
+
+
+
 
 /******************************************
 /* Book Table Section
 /*****************************************/
 
 .bookTable {
-    /* background-color: blue; */
+    /* background-color: #f2f6f7; */
     height: 1em;
 }
 

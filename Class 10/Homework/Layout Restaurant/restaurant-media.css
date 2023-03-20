@@ -121,5 +121,31 @@
         font-size: 6vw;
     }
 
+    /******************************************
+    /* Order Online Section
+    /*****************************************/
+
+    .orderOnlineEmptyLi {
+        width: 0%;
+        float: none;
+    }
+
+    .orderOnlineLi {
+        background-color: yellowgreen;  
+        width: 85%;
+        margin-top: 5px;
+        text-align: center;
+
+    }
+
+    .orderOnlineDiv{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    .orderOnlineImg{
+        background-color: aqua;
+        margin: 50px;
+    }
 
 }
