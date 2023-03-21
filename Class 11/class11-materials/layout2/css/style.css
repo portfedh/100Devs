@@ -29,7 +29,7 @@ body {
 /******************************************
 /* LAYOUT
 /*******************************************/
-header nav > *{
+/* header nav > *{
   float: left;
   width: 10%;
   margin: 0 5%;
@@ -49,8 +49,24 @@ img{
 }
 main > section h1, main > section img{
   margin-top: 200px;
-}  
+}   */
 
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/
+
+nav, ul, main section:first-child{
+  display: flex;
+}
+
+nav, ul, main section{
+  justify-content: space-around;
+}
+
+ul{
+  flex-basis: 30%;
+}
+
+img{
+  width: 30%;
+}

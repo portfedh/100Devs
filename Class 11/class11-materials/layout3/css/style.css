@@ -61,6 +61,8 @@ main section + section section{
   float: left;
   border: 1px solid black;
 } */
+
+
 nav, ul, main{
   display: flex;
   justify-content: space-around;

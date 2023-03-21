@@ -33,6 +33,7 @@
         float: right;
         }
 
+
 }
 
 
@@ -73,7 +74,7 @@
             margin-right: 10%;
         }
 
-        .orange{
+        #headerLiHome{
             color: white;
         }
 
@@ -131,7 +132,7 @@
     }
 
     .orderOnlineLi {
-        background-color: yellowgreen;  
+        /* background-color: yellowgreen;   */
         width: 85%;
         margin-top: 5px;
         text-align: center;
@@ -147,5 +148,10 @@
         background-color: aqua;
         margin: 50px;
     }
+
+    .orange{
+        color: orange;
+    }
+
 
 }

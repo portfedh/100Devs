@@ -46,6 +46,35 @@ Homework:
 
 Notes:
 
+
+    Responsiveness
+        
+        Fluidity
+        
+            Use percentages
+        
+            Use flexbox
+
+        Elasticity
+
+            REMS
+                Looks at the html root element:
+
+                   html{ font-size: 10px; }
+                
+                   .someClass{ font-size: 1rem; }
+
+            EMS
+                Closest parent font size:
+
+                    <div class="someClass">
+                        <p class="subClass"></p>
+                    </div>
+
+                    .someClass{ font-size: 10px; }
+
+                    .subClass{ font-size: 2em; }
+
     
 
 Discord Server
