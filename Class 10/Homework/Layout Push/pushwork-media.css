@@ -1,0 +1,25 @@
+/******************************************
+/* Media Queries
+/*****************************************/
+
+* {
+    /* border: 1px solid black; */
+}
+
+/* Medium size for tablets */
+@media (min-width: 801px) {
+
+}
+ 
+
+
+
+/* Small size for Smartphones */
+@media screen and (max-width: 800px) {
+
+    li{
+        width: 100%;
+        text-align: center;
+        font-size: 15px;
+    }
+    }

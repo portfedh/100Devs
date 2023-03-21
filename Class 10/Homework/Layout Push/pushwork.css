@@ -1,0 +1,109 @@
+/******************************************
+/* General
+/*****************************************/
+
+/* Page settings */
+    * {
+        border: 1px solid black;
+        font-family: 'Source Sans Pro', sans-serif;
+        /* font-family: 'Titillium Web', sans-serif; */
+        font-family: 'Noto Sans', sans-serif;      
+    }
+
+    a:link, a:visited, a:hover, a:active{
+        text-decoration: none;
+    }
+
+    ul {
+        list-style-type: none;
+        height: auto;
+        margin: 0;
+        padding: 0;
+    }
+
+    div{
+        height: 1em;
+    }
+
+    /* Box Model Hack */
+    * { box-sizing: border-box; }
+    
+    /* Clear fix hack */
+    .clearfix:after {
+        content: ".";
+        display: block;
+        clear: both;
+        visibility: hidden;
+        line-height: 0;
+        height: 0;
+    }
+
+    .gray{
+        color: #7e8188;
+    }
+
+/******************************************
+/* Header Section
+/*****************************************/
+header{
+    background-color: #1c2333;
+    color: #f7f7fa;
+    height: 50px;
+}
+
+li{
+    background-color: #1c2333;
+    color: #f7f7fa;
+    width: 7%;
+    float: right;
+    font-size: 11px;
+    font-weight: 600;
+    padding-top: 10px;
+
+}
+
+.headerOn{
+    font-weight: 800;
+}
+
+
+/******************************************
+/* Main Section
+/*****************************************/
+main{
+    background-color: lightcoral;
+
+    height: auto;
+}
+
+.mainText{
+    background-color: lightcyan;
+    background-color: #1c2333;
+    color: #f7f7fa;
+    height: 600px;
+    width: 50%;
+    float: left;
+}
+
+.mainImageDiv{
+    background-color: lightgoldenrodyellow;
+    height: 600px;
+    width: 50%;
+    float: left;
+    text-align: center;
+}
+
+.mainImageImage{
+    max-width: 100%;
+    display: inline-block;
+    margin: auto;
+}
+
+/******************************************
+/* Core Tecnologies Section
+/*****************************************/
+
+/* .coreTecnologies{
+    background-color: #1c2333;
+    color: #f7f7fa;
+} */
