@@ -153,5 +153,40 @@
         color: orange;
     }
 
+    /******************************************
+    /* Book Table Section
+    /*****************************************/
+
+    .bookTableDiv1, .bookTableDiv4{
+        width: 0%;
+    }
+
+    .bookTableDiv2, .bookTableDiv3{
+        width: 100%;
+        text-align: center;
+    }
+
+    /******************************************
+    /* Testimonials Section
+    /*****************************************/
+    
+    .testimonials {
+        margin-left: 0px;
+        background-image: none;
+        background-color: #f2f6f7;
+        padding: 10%;
+    }
+    
+    
+    .testimonialsText{
+        width: 100%;
+    }
+
+    .testimonialsHero{
+        /* background-color: lightcoral; */
+        font-size: 7vw;
+        margin-left: 10%;
+        margin-bottom: 50px;
+    }
 
 }

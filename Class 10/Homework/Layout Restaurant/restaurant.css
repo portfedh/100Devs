@@ -231,6 +231,7 @@ main {
     padding: 30px 14px 14px 14px;
     width: auto;
     text-align: center;
+    color: orange;
 }
 
 .orderOnlineHero{
@@ -241,7 +242,6 @@ main {
     font-size: 4vw;
     color: black;
     text-align: center;
-
 }
 
 .orderOnlineNav {
@@ -303,8 +303,110 @@ main {
 
 .bookTable {
     /* background-color: #f2f6f7; */
-    height: 1em;
+    height: auto;
 }
+
+
+.bookTableHeading{
+    /* background-color: yellowgreen; */
+    font-size: 22px;
+    font-weight: 600;
+    padding: 30px 14px 14px 14px;
+    width: auto;
+    text-align: center;
+    color: orange;
+}
+
+
+.bookTableHero{
+    /* background-color: lightcoral; */
+    width: 100%;
+    font-family: 'Yeseva One', cursive;
+    margin: 0% 0%  0% 0%;
+    font-size: 4vw;
+    color: black;
+    text-align: center;
+}
+
+
+.material-symbols-rounded {
+    display: block;
+    font-size: 100px;
+    color: orange;
+    text-align: center;
+    margin-top: 30px;
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
+}
+
+.bookTableCallNow{
+    /* background-color: yellowgreen; */
+    font-size: 24px;
+    font-weight: 600;
+    width: auto;
+    text-align: center;
+}
+
+.bookTableNumber{
+    /* background-color: yellowgreen; */
+    font-size: 36px;
+    font-weight: 500;
+    width: auto;
+    text-align: center;
+    color: orange;
+}
+
+.bookTableDiv1{
+    width: 16%;
+    height: auto;
+    float: left;
+}
+
+.bookTableDiv2{
+    width: 34%;
+    height: auto;
+    float: left;
+}
+
+.bookTableDiv3{
+    width: 34%;
+    height: auto;
+    float: left;
+}
+
+.bookTableDiv4{
+    width: 16%;
+    height: auto;
+    float: left;
+}
+
+.bookTableImage{
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+.bookTableDiv2Day, .bookTableDiv3Day{
+    /* background-color: yellowgreen; */
+    font-size: 24px;
+    font-weight: 600;
+    width: auto;
+    margin: 0%;
+}
+
+.bookTableDiv2Time, .bookTableDiv3Time{
+    width: 100%;
+    font-family: 'Yeseva One', cursive;
+    margin: 0% 0%  60px 0%;
+    font-size: 28px;
+    color: black;
+}
+
+
 
 /******************************************
 /* Testimonials Section
@@ -312,5 +414,44 @@ main {
 
 .testimonials {
     /* background-color: blue; */
-    height: 1em;
+    background-image: url(images/testimonials.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: auto;
+    clear: both;
+    height: auto;
+    margin-top: 100px;
+    margin-left: 100px;
+}
+
+
+.testimonialsHeading{
+    /* background-color: yellowgreen; */
+    font-size: 22px;
+    font-weight: 600;
+    padding: 30px 14px 14px 14px;
+    width: auto;
+    text-align: left;
+    color: orange;
+}
+
+.testimonialsHero{
+    /* background-color: lightcoral; */
+    width: 100%;
+    font-family: 'Yeseva One', cursive;
+    margin-bottom: 150px;
+    margin-top: 0;
+    font-size: 4vw;
+    color: black;
+    text-align: left;
+}
+
+
+.testimonialsImage{
+    max-width: 100%;
+    height: auto;
+}
+
+.testimonialsText{
+    width: 40%;
 }
