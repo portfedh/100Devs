@@ -17,9 +17,60 @@
 /* Small size for Smartphones */
 @media screen and (max-width: 800px) {
 
+    /******************************************
+    /* Header Section
+    /*****************************************/
+    header{
+        height: 350px;
+    }
+
+    .headerEmptyDiv{
+        height: 10px;
+    }
+
+    ul{
+        margin-top: 40px;
+    }
+
     li{
-        width: 100%;
+        width: 80%;
+        padding-top: 4px;
         text-align: center;
         font-size: 15px;
+        background-color: #9a9ca3;
+        margin: 5px 10% 5px 10%;
     }
+
+    .gray{
+        color:black;
+    }
+
+    /******************************************
+    /* Main Section
+    /*****************************************/
+
+    .mainTextDiv{
+        /* background-color: lightcoral; */
+        width: 100%;
+        height: 350px;
+    }
+
+    .mainTextHeading{
+        margin: 40px auto 20px auto;
+    }
+
+    .mainImageDiv{
+        /* background-color: lightgray; */
+        width: 100%;
+        height: 300px;
+    }
+
+    .mainImageImage{
+        margin: 40px auto 40px auto;
+        border-radius: 0;
+
+    }
+
+    
+
     }
