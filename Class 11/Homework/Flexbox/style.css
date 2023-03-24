@@ -1,0 +1,143 @@
+/******************************************
+/* General
+/*****************************************/
+
+/* Page settings */
+    * {
+        border: 1px solid black;
+        font-family: 'Source Sans Pro', sans-serif;
+    }
+
+    /* Box Model Hack */
+    * { box-sizing: border-box; }
+    
+    /* Clear fix hack */
+    .clearfix:after {
+        content: ".";
+        display: block;
+        clear: both;
+        visibility: hidden;
+        line-height: 0;
+        height: 0;
+    }
+
+    .gray{
+        color: #7e8188;
+    }
+
+/******************************************
+/* Body Section
+/*****************************************/
+
+.container{
+
+    height : 100vh;
+
+    /* ************* */
+    /* Start Flexbox */
+    /* ************* */
+
+    display : flex;
+
+    /* To place some gap between boxes */
+    gap : 25px;
+
+    /* ********************************** */
+    /* Change order and direction or items*/
+    /* ********************************** */
+    flex-direction : row;
+    /* flex-direction : row-reverse; */
+    /* flex-direction : column; */
+    /* flex-direction : column-reverse; */
+
+
+    /* ******************************** */
+    /* Justify content in main axis (x) */
+    /* ******************************** */
+    justify-content: flex-start;
+    /* justify-content: flex-end; */
+    /* justify-content: center; */
+    /* justify-content: space-between; */
+    /* justify-content: space-around; */
+    /* justify-content: space-evenly; */
+
+    /* ******************************* */
+    /* Align content in cross axis (y) */
+    /* ******************************* */
+
+    /* This line is always needed.
+    It resizes with screen changes*/
+
+    flex-wrap: wrap;
+
+    /* For align content to work
+    you need elements on several lines. */
+
+    align-content: flex-start;
+    /* align-content: flex-end; */
+    /* align-content: center; */
+    /* align-content: space-between; */
+    /* align-content: space-around; */
+    /* align-content: stretch; */
+
+    /* ************************************ */
+    /* Distribute content in cross axis (y) */
+    /* ************************************ */
+    /* align-items: flex-start; */
+    /* align-items: flex-end; */
+    /* align-items: center; */
+    /* align-items: stretch; */
+    /* align-items: baseline; */
+ }
+
+
+
+ [class ^="box-"]{
+    /* Code that applies to all boxed */
+    width: 140px;
+    height: 140px;
+    background-color: skyblue;
+    border: 2px solid black;
+    font-size: 65px;
+
+    /* ************************** */
+    /* Centering text with Flexbox */
+    /* ************************** */
+    display : flex;
+    justify-content : center;
+    align-items : center;
+}
+
+
+.box-1{
+
+    /* Flex grow will expand the items on resize */
+    /* You need to eliminate flex-wrap for it to work */
+    flex-grow: 1;
+}
+
+
+.box-2{
+    /* Content that applies to a single container */
+    /* display : flex; */
+
+    /* Move a single item in the container in the y axis */
+
+    /* align-self : flex-start; */
+    align-self : flex-end;
+    /* align-self : center; */
+    /* align-self : stretch; */
+    /* align-self : auto; */
+
+    
+.box-3{
+    flex-grow: 1;
+}
+
+.box-4{
+    flex-grow: 1;
+}
+
+.box-5{
+    flex-grow: 3;
+}

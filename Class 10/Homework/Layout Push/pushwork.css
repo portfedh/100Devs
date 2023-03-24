@@ -4,7 +4,7 @@
 
 /* Page settings */
     * {
-        border: 1px solid black;
+        /* border: 1px solid black; */
         font-family: 'Source Sans Pro', sans-serif;
         /* font-family: 'Titillium Web', sans-serif; */
         font-family: 'Noto Sans', sans-serif;      
@@ -143,21 +143,85 @@ main{
     height: auto;
 }
 
-.howWeHelpTextDiv{
-    background-color: red;
+.howWeHelpTextDiv{ 
+    /* background-color: red; */
+    background-color: #cdcdd1;
     width: 50%;
-    height: 300px;
+    height: 500px;
     float: left;
 }
 
 .howWeHelpImageDiv{
-    background-color: orange;
+    background-color: #cdcdd1;
     width: 50%;
-    height: 300px;
+    height:500px;
     float: left;
 }
 
+.howWeHelpSmallText{
+    width: 70%;
+    margin: 80px auto 0 auto;
+    font-size: 12px;
+    font-weight: 600;
+}
 
+.howWeHelpHeroText{
+    width: 70%;
+    margin: 0 auto 20px auto;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.howWeHelpDescription{
+    width: 70%;
+    margin: 0 auto 10px auto;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.howWeHelpImageBox{
+    width: 30%;
+    height: 200px;
+    margin: 30px 50px 0px 50px;
+    float: left;
+}
+
+.howWeHelpImagePic{
+    background-color: #191f2f;
+    color: white;
+    width: 100%;
+    height: 60%;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    padding-top: 30%;
+    border-radius: 6px 6px 0 0 ;
+}
+
+.howWeHelpImageDescription{
+    background-color: white;
+    width: 100%;
+    height: 40%;
+    border-radius: 0 0 6px 6px;
+}
+
+.howWeHelpImageHeading{
+    height: 30%;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 0;
+    text-align: center;
+    padding-top: 5px;
+}
+
+.howWeHelpImageText{
+    height: 70%;
+    font-size: 12px;
+    font-weight: 500;
+    margin: 0;
+    text-align: center;
+    padding: 8px;
+}
 
 
 

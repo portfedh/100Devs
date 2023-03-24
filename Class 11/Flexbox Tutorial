@@ -1,0 +1,26 @@
+Flexbox Tutorial
+
+Page
+https://www.freecodecamp.org/news/css-flexbox-tutorial-with-cheatsheet/
+
+Date
+23 March 2022
+
+Flexbox Architecture
+
+    Main axis
+        Main-start
+        Main-end
+
+    Cross axis
+        Cross-start
+        Cross-end
+
+We uses flexbox on the parent class of the elements we want to shape
+
+Flexbox is one directional
+    
+    We either work with rows or with columns
+
+Grid allows us to work with rows and columns together
+
