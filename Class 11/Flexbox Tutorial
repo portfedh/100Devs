@@ -1,26 +1,43 @@
-Flexbox Tutorial
+Free Code Camp Flexbox Tutorial
 
 Page
 https://www.freecodecamp.org/news/css-flexbox-tutorial-with-cheatsheet/
 
-Date
+Video
+https://www.youtube.com/watch?v=7YUR0Igl9eU
+
+Date taken
 23 March 2022
 
-Flexbox Architecture
+Notes:
 
-    Main axis
-        Main-start
-        Main-end
+    Flexbox Architecture
 
-    Cross axis
-        Cross-start
-        Cross-end
+        Main axis
+            Main-start
+            Main-end
 
-We uses flexbox on the parent class of the elements we want to shape
+        Cross axis
+            Cross-start
+            Cross-end
 
-Flexbox is one directional
-    
-    We either work with rows or with columns
+    We uses flexbox on the parent class of the elements we want to shape
 
-Grid allows us to work with rows and columns together
+
+    Flexbox is one directional
+        
+        We either work with rows or with columns
+
+        Grid allows us to work with rows and columns together
+
+
+    Flexbox mostly works on the parent container
+
+    Bit it also has properties like align-self that work on the child item level. 
+
+    There is also shorthand to make flexbox easier. 
+
+    There is a flexbox cheat cheat in this tutorial
+
+
 
