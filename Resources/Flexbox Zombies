@@ -1,0 +1,46 @@
+Flexbox Zombies
+
+Pagina:
+-------
+https://mastery.games/flexboxzombies/
+
+Formato:
+-------
+
+
+.container {
+
+    display: flex | inline-flex;
+
+    flex-direction: row | row-reverse | column | column-reverse;
+
+    justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly;
+
+    align-items: flex-start | flex-end | center | stretch | baseline;
+
+    flex-wrap: nowrap | wrap | wrap-reverse;
+
+
+}
+
+
+.item {
+
+    align-self: flex-start | flex-end | center | baseline | stretch;
+
+    flex-grow: 1; (default is 1)
+
+    flex-shrink: 1; (default is 0)
+
+    flex-basis: 50px; (default is auto == width)
+
+    max-width: 50px; (min-width: 50px, can also be percentage % )
+
+    max-height: 50px; (min-height: 50px, can also be percentage % )
+
+    order: 5; (default is 0. Acending order. -1 gets you first)
+
+}
+
+
+* Flex-wrap (wrap content into new line) happens before flex-shrink.
