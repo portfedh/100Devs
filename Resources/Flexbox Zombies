@@ -32,7 +32,7 @@ Formato:
 
     flex-shrink: 1; (default is 0)
 
-    flex-basis: 50px; (default is auto == width)
+    flex-basis: 50px | 50%; (default is: auto == width)
 
     max-width: 50px; (min-width: 50px, can also be percentage % )
 
