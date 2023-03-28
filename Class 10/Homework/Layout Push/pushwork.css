@@ -223,6 +223,45 @@ main{
     padding: 8px;
 }
 
+/******************************************
+/* Who We Are Section
+/*****************************************/
+
+.whoWeAre{
+    height: auto;
+}
+
+
+.whoWeAreImageDiv{
+    /* background-color: aqua; */
+    width: 50%;
+    height: 570px;
+    float: left;
+}
+
+.whoWeAreTextDiv{
+    /* background-color: pink; */
+    width: 50%;
+    height: 570px;
+    float: left;
+}
+
+.whoWeAreImageImage{
+    max-width: 90%;
+    text-align: center;
+    display: block;
+    margin: 10% auto;
+}
+
+.howWeHelpTextButton{
+    padding: 10px;
+    color: #eceef3;
+    margin-left: 15%;
+    font-size: 10px;
+    font-weight: 600;
+    background-color: #1c2333;
+    border-radius: 6px;
+}
 
 
 /******************************************
