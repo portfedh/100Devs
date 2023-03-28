@@ -4,7 +4,7 @@
 
 /* Page settings */
     * {
-        /* border: 1px solid black; */
+        border: 1px solid black;
         font-family: 'Source Sans Pro', sans-serif;
         /* font-family: 'Titillium Web', sans-serif; */
         font-family: 'Noto Sans', sans-serif;      
@@ -229,20 +229,21 @@ main{
 
 .whoWeAre{
     height: auto;
+    background-color: aqua;
 }
 
 
 .whoWeAreImageDiv{
     /* background-color: aqua; */
     width: 50%;
-    height: 570px;
+    height: 450px;
     float: left;
 }
 
 .whoWeAreTextDiv{
     /* background-color: pink; */
     width: 50%;
-    height: 570px;
+    height: 450px;
     float: left;
 }
 
@@ -265,10 +266,14 @@ main{
 
 
 /******************************************
-/* Core Tecnologies Section
+/* How it works
 /*****************************************/
 
-/* .coreTecnologies{
-    background-color: #1c2333;
-    color: #f7f7fa;
-} */
+.howItWorks{
+    clear:both;
+}
+
+.center{
+    text-align: center;
+    margin-top: 20px;
+}
