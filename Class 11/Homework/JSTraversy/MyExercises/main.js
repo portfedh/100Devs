@@ -1,3 +1,27 @@
+console.log(window);
+// Window is the parent object of the browser
+
+// Single element
+console.log(document.getElementById('my-form'));
+console.log(document.querySelector('h1'));
+
+// Multiple Elements
+console.log(document.querySelectorAll('.item')); // Recommended
+console.log(document.getElementsByClassName('item'));
+console.log(document.getElementsByTagName('li'));
+
+// DOM: User interfase
+const ul = document.querySelectorAll('.items');
+ul.remove(); // Remove ul
+ul.lastElementChild.remove(); // Remove last in ul
+ul.firstElementChild.textContent = 'Hello'; // Change value
+ul.children[1].innerText = 'Brad'; // Change value
+ul.firstElementChild.innerHTML = '<h1>Hello</h1>';
+
+
+
+
+
 // LOGGING OUTPUT
 // alert('Hello World'); // Do not use for debugging. Stops script and only strings
 console.log('Hello World');
