@@ -54,7 +54,13 @@ Notes:
 
             Both together: let age = 25
 
+            conventions: camelCase
 
+            \"quote\":  Escapes quotes so they are not interpreted.
+
+            == compares value
+
+            === compares value and type
 
     
 
