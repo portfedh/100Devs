@@ -24,4 +24,8 @@ header, footer {
   width: 100%;
 }
 
+section{
+  flex-grow: 2;
+  min-width: 300px;
+}
 

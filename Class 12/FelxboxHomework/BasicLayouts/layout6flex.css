@@ -24,3 +24,7 @@ header, section, aside, footer {
 header, footer {
   width: 100%;
 }
+
+section {
+  min-width: 200px;
+}

@@ -1,22 +1,18 @@
-code {
-    background: #2db34a;
-    border-radius: 6px;
-    color: #fff;
-    display: block;
-    font: 14px/24px "Source Code Pro", Inconsolata, "Lucida Console", Terminal, "Courier New", Courier;
-    padding: 20px 20px;
-    text-align: center;
-  }
-
-body {
+header, section, aside, footer{
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   flex-wrap: wrap;
 }
 
-header, section, aside, footer {
+code {
+  background: #2db34a;
+  border-radius: 6px;
+  color: #fff;
+  font: 14px/24px "Source Code Pro", Inconsolata, "Lucida Console", Terminal, "Courier New", Courier;
+  padding: 20px 20px;
+  text-align: center;
   flex-grow: 1;
-  width: 100%;
   margin: 10px;
 }
+
