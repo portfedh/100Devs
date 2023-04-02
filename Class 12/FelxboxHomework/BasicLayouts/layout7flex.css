@@ -2,12 +2,12 @@
 
 code, header, footer{
   background: #2db34a;
+  color: hsl(0, 0%, 100%);
   border-radius: 6px;
-  color: #fff;
-  display: block;
   font: 14px/24px "Source Code Pro", Inconsolata, "Lucida Console", Terminal, "Courier New", Courier;
   padding: 24px 15px;
   text-align: center;
+  margin: 10px;
 }
 
 body{
@@ -18,7 +18,7 @@ body{
   flex-wrap: wrap;
 }
 
-header, footer, code, section, aside, .group{
+header, footer, code, .group, .groupText{
   flex-grow: 1;
 }
 
@@ -26,43 +26,28 @@ header, footer{
   width: 100%;
 }
 
-.group, .default{
-  background: #eaeaed;
+.section1{
+  flex-grow: 2;
 }
-/* 
-.default {
-  background: none;
-  color: #666;
+
+.aside1{
+  flex-grow: 1;
 }
-.group:before,
-.group:after {
-  content: "";
-  display: table;
-}
-.group:after {
-  clear: both;
-}
+
 .group {
   background: #eaeaed;
-  border-radius: 6px;
-  clear: both;
-  *zoom: 1;
+  margin: 10px;
+  color: #666;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
 }
-.group,
-header,
-section,
-aside,
-footer {
-  margin: 0 1.5% 24px 1.5%;
+
+.groupDescription{
+  background: #eaeaed;
+  color: #666;
+  padding: 5px;
+  text-align: center;
+  display: block;
+  width: 100%;
 }
-section {
-  float: left;
-  width: 63%;
-}
-aside {
-  float: right;
-  width: 30%;
-}
-footer {
-  margin-bottom: 0;
-} */
