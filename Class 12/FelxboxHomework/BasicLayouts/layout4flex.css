@@ -4,16 +4,19 @@ code {
     color: #fff;
     display: block;
     font: 14px/24px "Source Code Pro", Inconsolata, "Lucida Console", Terminal, "Courier New", Courier;
-    padding: 24px 15px;
+    padding: 20px 20px;
     text-align: center;
   }
-  header,
-  section,
-  aside,
-  footer {
-    margin: 0 1.5% 24px 1.5%;
-    /* Top | Right | Down | Left */
-  }
-  footer {
-    margin-bottom: 0;
-  }
+
+body {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+header, section, aside, footer {
+  flex-grow: 1;
+  width: 100%;
+  margin: 10px;
+}

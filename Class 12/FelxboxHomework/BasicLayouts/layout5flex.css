@@ -7,18 +7,24 @@ code {
   padding: 24px 15px;
   text-align: center;
 }
-header,
-section,
-aside,
-footer {
-  margin: 0 1.5% 24px 1.5%;
-  /* Top | Right | Down | Left */
+
+body{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
+
+header, section, aside, footer {
+  flex-grow: 1;
+  margin: 10px;
+}
+
+header, footer {
+  width: 100%;
+}
+
 section {
-  float: left;
-  width: 30%;
+  flex-grow: 2;
 }
-footer {
-  clear: both;
-  margin-bottom: 0;
-}
+

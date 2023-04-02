@@ -1,6 +1,6 @@
 /* Contained floats are also called clearfix */
 
-code {
+code, header, footer{
   background: #2db34a;
   border-radius: 6px;
   color: #fff;
@@ -9,6 +9,27 @@ code {
   padding: 24px 15px;
   text-align: center;
 }
+
+body{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+header, footer, code, section, aside, .group{
+  flex-grow: 1;
+}
+
+header, footer{
+  width: 100%;
+}
+
+.group, .default{
+  background: #eaeaed;
+}
+/* 
 .default {
   background: none;
   color: #666;
@@ -44,4 +65,4 @@ aside {
 }
 footer {
   margin-bottom: 0;
-}
+} */
