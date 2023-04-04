@@ -1,11 +1,10 @@
-  /* --------------------------
+  /* -----------------------------
   CSS Reset
   ----------------------------- */
-
-/* http://meyerweb.com/eric/tools/css/reset/ 2. v2.0 | 20110126
+/* 
+  http://meyerweb.com/eric/tools/css/reset/ 2. v2.0 | 20110126
   License: none (public domain)
 */
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -51,7 +50,7 @@ table {
 }
 
   /* --------------------------
-  My CSS Changes: General
+             General
   ----------------------------- */
   
   /* Set border & padding inside box dimensions */
@@ -71,7 +70,7 @@ a:hover { text-decoration: none; }
 a:active { text-decoration: none; }
 
   /* ---------------------------
-  My CSS Changes: Navigation Bar
+          Top Menu Bar
   ----------------------------- */
 
   /* Navigation area */
@@ -83,7 +82,7 @@ a:active { text-decoration: none; }
   padding-top: 8px;
   padding-bottom: 5px;
   text-align: right;
-  font-family:ReithSans,Arial,Helvetica,freesans,sans-serif;
+  font-family:Arial,Helvetica,sans-serif;
   font-size: 11px;
 }
 
@@ -91,51 +90,57 @@ a:active { text-decoration: none; }
 .menu {
   background-color: black;
   color: white;
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
 }
 
-/* Navigation Menu: Float logo */
 .logo {
-  text-align: left;
-  float: left;
-  width: 25%;
+  flex-grow: 1;
+  height: auto;
 }
 
-/* Navigation Menu: Links in white */
+.main-menu {
+  flex-grow: 2;
+  height: auto;
+}
+
 .menu-link {
   color: white;
   padding: 8px;
   width: 50%;
 }
 
- /* -------------------------------
-  My CSS Changes: Main Advertisement
+ /* ------------------------------
+         Main Advertisement
   ----------------------------- */
 
 /* Main advertisement section */
 header {
   background-color: rgb(238 238 238);
   height: 155px;
-  font-family:ReithSans,Arial,Helvetica,freesans,sans-serif;
+  font-family:Arial,Helvetica,sans-serif;
   text-align: right;
   font-size: 7px;
   font-weight: bold;
-  padding-top: 7px;
-  padding-right: 5px;
+  padding: 7px 100px 0 300px;
   color: rgb(80 80 80);
 }
 
- /* ---------------------------
-  My CSS Changes: Info Bar
+header p{
+  padding: 15px 30px 0 0;
+}
+
+ /* ------------------------------
+         Welcome Bar
   ----------------------------- */
 
-/* Section Properties */
 #section_bar {
   height: 35px;
   border: 0px solid #949599;
-  font-family:ReithSans,Arial,Helvetica,freesans,sans-serif
+  font-family: Arial,Helvetica,sans-serif
 }
   
-/* Welcome Message*/
 #welcome {
   font-size: 12px;
   font-weight: bold;
@@ -143,15 +148,16 @@ header {
   float: left;
   width: 25%;
   padding-top: 20px;
+  padding-left: 30px;
 }
 
-/* Today's Date*/
 #date {
   font-size: 12px;
   font-weight: 60;
   color: rgb(155 155 155);
   float: right;
   padding-top: 20px;
+  padding-right: 30px;
 }
 
  /* ---------------------------

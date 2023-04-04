@@ -48,7 +48,27 @@ Notes:
 
     Variables
 
-            Declarations: let age
+            Declarations: let age;
+
+                Declaring twice triggers an error.
+
+                first charachter must not be a digit
+
+                use camelCase
+
+                names should describe the data that is trores
+
+                'var' was the past version, substituted by let
+
+                You can create a variable simply by assigning a value without let.
+
+                    If you dont want this to be possible you can add the text
+
+                        "use strict";
+
+                const myBirthday = '18.04.1982'
+
+                    Use capital letters in constants if values are known prior to execution
 
             Assignment: age = 25
 
@@ -62,7 +82,74 @@ Notes:
 
             === compares value and type
 
+
+    Ternary Operator ( ? )
+
+        Shorthand way to write an if-else statement
+
+        condition ? expressionIfTrue : expressionIfFalse
+
+        let num = 5;
+        let result = num > 0 ? "positive" : "non-positive";
+        console.log(result); // output: "positive"
+
+
+    Functions
+
+        Can have default values
+
+        variables inside a function are only available locally.
+
+        Returns values must be in one line or use parenthesis
+
+        Return returns undefined
+
+
+    Function expressions
+
+        // Normal function
+        function sayHi() {
+             alert( "Hello" );
+        }
+
+        // Function Expression
+        let sayHi = function() {
+            alert( "Hello" );
+        };
+
+        Normal functions can be called at any point. JS reads funcions first.
+        Function expressions can be called after being defined. 
+        Function expressions have a semi-colon at the end. 
     
+
+    Arrow functions
+
+        let func = (arg1, arg2, ..., argN) => expression;
+
+        let sum = (a, b) => a + b;
+
+        // Shorter form of:
+
+        let sum = function(a, b) {
+            return a + b;
+        };
+        
+    While functions
+
+        let number = 1;
+        while (number <= 5) {
+          console.log(number);
+          number++;
+        }
+
+    For Loop
+
+        let number;
+        for (number = 1; number <= 5; number++) {
+          console.log(number);
+        }
+
+
 
 Discord Server
 
