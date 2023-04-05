@@ -146,7 +146,7 @@ header p{
   font-weight: bold;
   color: rgb(80 80 80);
   float: left;
-  width: 25%;
+  width: 40%;
   padding-top: 20px;
   padding-left: 30px;
 }
@@ -158,14 +158,19 @@ header p{
   float: right;
   padding-top: 20px;
   padding-right: 30px;
+
 }
 
  /* ---------------------------
-  My CSS Changes: Main News Block
+          News Main
   ----------------------------- */
 
+#main_news{
+  display: flex;
+}
+
 .area {
-  font-family:ReithSans,Arial,Helvetica,freesans,sans-serif;
+  font-family: Arial,Helvetica,sans-serif;
   background: #909291;
   border-radius: 6px;
   color: #fff;
@@ -175,7 +180,70 @@ header p{
   margin: 1px;
 }
 
+.container{
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+.red{
+  /* background-color: red; */
+}
+
 #box1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  height: 200px;
+}
+
+#box2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  width: 40%;
+}
+
+#box3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  width: 40%;
+}
+
+#box4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  width: 25%;
+}
+
+#box5 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  width: 25%;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* #box1 {
   float: left;
   width: 49%;
   height: 200px;
@@ -208,7 +276,7 @@ header p{
   width: 25%;
   height: 98px;
   padding-top: 45px;
-}
+} */
 
  /* ---------------------------
   My CSS Changes: Secondary Bar
