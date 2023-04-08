@@ -1,0 +1,53 @@
+
+100Devs JavaScript Notes
+------------------------
+
+document.querySelector('#submit').addEventListener('click', run)
+
+    // Search for #submit id
+
+    // When the event 'click' happens
+
+    // Execute run funcion
+
+
+const goal = document.querySelector('#myGoal').value;
+
+    // Retrie the current value of "myGoal" 
+
+    // Assign it to the 'goal' variable
+
+
+document.querySelector('#goalOutput').innerText = intro + ' ' + goal;
+
+document.querySelector('#goalOutput').innerText = `${intro} ${goal}`
+
+    // Set the value of 'goalOutput' to 'intro + ' ' + goal'
+
+    // Two alternative ways of doing the same thing
+
+
+  document.querySelector('#placeToYell').innerText = yellText
+
+  let yellThis = new SpeechSynthesisUtterance(yellText);
+
+  synth.speak(yellThis);
+
+    // Get the text from #placeToYell and save it to yellText
+
+    // Create new instance object of SpeechSynthesisUtterance(yellText)
+
+    // Pass object to synth.speak()
+
+    // Browser talks the written text.
+
+
+document.getElementById('purple').onclick = partyPurple
+
+    // When the element with ID "purple" is clicked, the "partyPurple" function will be executed
+
+
+ document.querySelector('body').style.backgroundColor = 'rgba(0,253,81,1)'
+document.querySelector('body').style.color = 'white'
+
+    // Change the body background color and the text color 
