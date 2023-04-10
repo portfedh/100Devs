@@ -47,7 +47,7 @@ document.getElementById('purple').onclick = partyPurple
     // When the element with ID "purple" is clicked, the "partyPurple" function will be executed
 
 
- document.querySelector('body').style.backgroundColor = 'rgba(0,253,81,1)'
+document.querySelector('body').style.backgroundColor = 'rgba(0,253,81,1)'
 document.querySelector('body').style.color = 'white'
 
     // Change the body background color and the text color 
