@@ -51,3 +51,11 @@ document.querySelector('body').style.backgroundColor = 'rgba(0,253,81,1)'
 document.querySelector('body').style.color = 'white'
 
     // Change the body background color and the text color 
+
+
+
+document.querySelector('#claire').style.display = 'none';
+
+    // Hide the id selected (delete it from the DOM)
+
+
