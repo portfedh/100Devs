@@ -2,60 +2,59 @@
 100Devs JavaScript Notes
 ------------------------
 
-document.querySelector('#submit').addEventListener('click', run)
+Search for an element by it's id and execute function when clicked
 
-    // Search for #submit id
-
-    // When the event 'click' happens
-
-    // Execute run funcion
+    document.getElementById('purple').onclick = purpleFunction
 
 
-const goal = document.querySelector('#myGoal').value;
 
-    // Retrie the current value of "myGoal" 
+Search for an element by it's id and execute function when clicked
 
-    // Assign it to the 'goal' variable
+    document.querySelector('#submit').addEventListener('click', runFunction)
 
 
-document.querySelector('#goalOutput').innerText = intro + ' ' + goal;
 
-document.querySelector('#goalOutput').innerText = `${intro} ${goal}`
+Search for an element by it's class and execute function when clicked
 
-    // Set the value of 'goalOutput' to 'intro + ' ' + goal'
+    const myElements = document.querySelectorAll('.myClass');
 
-    // Two alternative ways of doing the same thing
+    myElements.forEach(element => {element.addEventListener('click', runFunction);});
 
+
+
+Hide the id selected (delete it from the DOM)
+
+    document.querySelector('#claire').style.display = 'none';
+
+
+
+Read the curren value of id and assign it to a variable 
+
+    const goal = document.querySelector('#myGoal').value;
+
+
+
+Write text in element by it's id. (Two alternative ways)
+
+    document.querySelector('#goalOutput').innerText = intro + ' ' + goal;
+
+    document.querySelector('#goalOutput').innerText = `${intro} ${goal}`
+
+
+
+Change the body background color and the text color 
+
+    document.querySelector('body').style.backgroundColor = 'rgba(0,253,81,1)'
+    
+    document.querySelector('body').style.color = 'white'
+
+
+Get text and then pass it to a voice synthesizer
 
   document.querySelector('#placeToYell').innerText = yellText
 
   let yellThis = new SpeechSynthesisUtterance(yellText);
 
   synth.speak(yellThis);
-
-    // Get the text from #placeToYell and save it to yellText
-
-    // Create new instance object of SpeechSynthesisUtterance(yellText)
-
-    // Pass object to synth.speak()
-
-    // Browser talks the written text.
-
-
-document.getElementById('purple').onclick = partyPurple
-
-    // When the element with ID "purple" is clicked, the "partyPurple" function will be executed
-
-
-document.querySelector('body').style.backgroundColor = 'rgba(0,253,81,1)'
-document.querySelector('body').style.color = 'white'
-
-    // Change the body background color and the text color 
-
-
-
-document.querySelector('#claire').style.display = 'none';
-
-    // Hide the id selected (delete it from the DOM)
 
 
