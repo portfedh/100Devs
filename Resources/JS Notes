@@ -2,19 +2,207 @@
 100Devs JavaScript Notes
 ------------------------
 
-Search for an element by it's id and execute function when clicked
+Print to console:
+
+    console.log("Hello from JavaScript!");
+
+        "This is\na multiline string".
+
+
+
+Alert in window:
+
+    alert("Hello from JavaScript!");
+
+        Stops program execution.
+
+
+
+Comments:
+
+    /* Multi Line Comment */
+
+    // A one line comment
+
+
+
+Declare variables (use camelCase):
+
+    let x = 10; (Block scope, )
+
+    var x = 10;
+
+    const x = 10; (Block scope)
+
+
+
+Block code:
+
+    Part of a program delimited by {}
+
+    Example:
+
+        let num1 = 0;
+        {
+          num1 = 1; // OK : num1 is declared in the parent block
+          const num2 = 0;
+        }
+        console.log(num1); // OK : num1 is declared in the current block
+        console.log(num2); // Error! num2 is not visible here
+
+
+        Increment a variable (two ways)
+
+            x += 1;
+
+            x++;
+
+
+
+Type conversion:
+
+    let x = Number("5");
+
+    let x = String("5");
+
+
+
+Get input from user:
+
+    const name = prompt("Enter your first name:");
+
+
+
+If Statement:
+
+    if (condition a) {
+
+      // Code to run when the condition a is met
+
+    } else if (condition b){
+
+      // Code to run when the condition b is met
+
+    } else {
+
+      // Code to run when the conditions are false
+
+    }
+
+
+If Statement with AND / OR / NOT operator
+
+    if ( conditionA && conditionB) {
+
+      // Code to run when conditions are is met
+
+      // || for OR conditional
+
+      // !conditionA for NOT
+
+    }
+
+Switch Statement:
+
+    Only relevant code gets executed
+
+    Same as if statement
+
+    Example:
+        const weather = prompt("Question Here");
+        switch (weather) {
+          case "sunny":
+            console.log("Weather is sunny");
+            break;
+          case "windy":
+            console.log("Weather is windy");
+          default:
+            console.log("Invlid answer");
+        }
+
+
+While Loop:
+
+    let number = 1;
+    while (number <= 5) {
+      console.log(number);
+      number++;
+    }
+
+For loop:
+
+    let number;
+    for (number = 1; number <= 5; number++) {
+      console.log(number);
+    }
+
+    for (initialization; condition; final expression) {
+      // code to run while the condition is true
+    }
+
+
+
+Functions
+    
+    function sayHello(name) {
+
+      return "Hello" + name;
+
+    }
+    const hello = sayHello();
+
+    console.log(hello);
+
+
+
+Anonymous functions (TODO)
+
+    const hello = function(name) {
+
+      const message = `Hello, ${name}!`;
+
+      return message;
+
+    };
+
+    const myFunc = function(param1, param2, ...) {
+
+      // Statements using param1, param2, ...
+
+    };
+
+
+
+Arrow functions (TODO)
+
+    const hello = (name) => {
+
+      const message = `Hello, ${name}!`;
+
+      return message;
+
+    };
+
+    const myFunc = (param1, param2, ...) => {
+
+        // Statements using param1, param2, ...
+    };
+
+
+
+Search for an element by it's id and execute function when clicked:
 
     document.getElementById('purple').onclick = purpleFunction
 
 
 
-Search for an element by it's id and execute function when clicked
+Search for an element by it's id and execute function when clicked:
 
     document.querySelector('#submit').addEventListener('click', runFunction)
 
 
 
-Search for an element by it's class and execute function when clicked
+Search for an element by it's class and execute function when clicked:
 
     const myElements = document.querySelectorAll('.myClass');
 
@@ -22,19 +210,19 @@ Search for an element by it's class and execute function when clicked
 
 
 
-Hide the id selected (delete it from the DOM)
+Hide the id selected (delete it from the DOM):
 
     document.querySelector('#claire').style.display = 'none';
 
 
 
-Read the curren value of id and assign it to a variable 
+Read the curren value of id and assign it to a variable:
 
     const goal = document.querySelector('#myGoal').value;
 
 
 
-Write text in element by it's id. (Two alternative ways)
+Write text in element by it's id. (Two alternative ways):
 
     document.querySelector('#goalOutput').innerText = intro + ' ' + goal;
 
@@ -42,14 +230,15 @@ Write text in element by it's id. (Two alternative ways)
 
 
 
-Change the body background color and the text color 
+Change the body background color and the text color:
 
     document.querySelector('body').style.backgroundColor = 'rgba(0,253,81,1)'
     
     document.querySelector('body').style.color = 'white'
 
 
-Get text and then pass it to a voice synthesizer
+
+Get text and then pass it to a voice synthesizer:
 
   document.querySelector('#placeToYell').innerText = yellText
 
