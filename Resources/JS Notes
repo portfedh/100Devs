@@ -2,6 +2,11 @@
 100Devs JavaScript Notes
 ------------------------
 
+** Review closures 
+
+** Review recurssion
+
+
 Print to console:
 
     console.log("Hello from JavaScript!");
@@ -15,6 +20,13 @@ Alert in window:
     alert("Hello from JavaScript!");
 
         Stops program execution.
+
+
+
+Print data type
+
+    console.log(typeof "x")
+        // → string
 
 
 
@@ -101,6 +113,21 @@ If Statement with AND / OR / NOT operator
       // !conditionA for NOT
 
     }
+
+
+
+Ternary Operator
+
+    condition ? expressionIfTrue : expressionIfFalse
+
+    let x = 10;
+
+    let y = x > 5 ? "greater than 5" : "less than or equal to 5";
+
+    console.log(y);
+
+
+
 
 Switch Statement:
 
