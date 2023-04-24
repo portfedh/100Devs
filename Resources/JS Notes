@@ -160,7 +160,7 @@ Ternary Operator
 
     let x = 10;
 
-    let y = x > 5 ? "greater than 5" : "less than or equal to 5";
+    let y = x > 5 ? y = "greater than 5" :  y = "less than or equal to 5";
 
     console.log(y);
 
@@ -174,14 +174,23 @@ Switch Statement:
     Same as if statement
 
     Example:
+
         const weather = prompt("Question Here");
+
         switch (weather) {
+
           case "sunny":
+
             console.log("Weather is sunny");
+
             break;
+
           case "windy":
+
             console.log("Weather is windy");
+
           default:
+
             console.log("Invlid answer");
         }
 
