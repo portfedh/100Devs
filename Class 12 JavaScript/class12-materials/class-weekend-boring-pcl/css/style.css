@@ -1,0 +1,120 @@
+
+/* Box Model Hack */
+*{ 
+  box-sizing: border-box;
+  font-family: 'Ubuntu', sans-serif;
+  /* border: 1px solid black; */
+ }
+
+/******************************************
+/* LAYOUT
+/******************************************/
+
+h1{
+  font-family: 'Noto Serif', serif;
+  padding: 25px 0 25px 0;
+}
+
+h1, form, label, input{
+  text-align: center;
+}
+
+button{
+  display: block;
+  margin: 20px auto auto auto;
+  background-color: #288cba;
+  border: none;
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 5px 10px;
+  border-radius: 6px;
+  transition-duration: 0.4s;
+  cursor:pointer
+}
+
+button:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid #288cba;
+}
+
+
+table{
+  /* border: 1px solid black; */
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 5px solid white;
+  border-left: 5px solid white;
+}
+
+section{
+  display: flex;
+  margin-top: 10px;
+  justify-content: center;
+  padding-top: 25px;
+}
+
+
+#columnTitle{
+  background-color: #f2f3f4;
+  color: #4e5052;
+  border-top: 5px solid white;
+  height: 50px;
+  font-weight: 500;
+}
+  
+#row1{
+  background-color: #f5e5e7;
+  color: #b92032;
+  height: 107px;
+  flex-grow: 1;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#row2{
+  background-color: #f9e3f1;
+  color: #d71484;
+  height: 107px;
+  flex-grow: 1;
+  text-align: center;
+
+  vertical-align: middle;
+}
+
+#row3{
+  background-color: #e8e7ee;
+  color: #4f2f6f;
+  height: 107px;
+  flex-grow: 1;
+  text-align: center;
+
+  vertical-align: middle;
+}
+
+#row4{
+  background-color: #deeff6;
+  color: #1e74ae;
+  height: 107px;
+  flex-grow: 1;
+  text-align: center;
+
+  vertical-align: middle;
+}
+
+#row5{
+  background-color: #eaf4e8;
+  color: #64a745;
+  height: 107px;
+  flex-grow: 1;
+  text-align: center;
+
+  vertical-align: middle;
+}

@@ -1,0 +1,213 @@
+100 Devs: Class 4
+-----------------
+
+Jan 24, 2022 (1st pass)
+Feb 17 2023 (2nd pass)
+
+Link:
+    https://www.youtube.com/watch?v=Q1Obtn29twk
+
+Tweet:
+    https://twitter.com/leonnoel/status/1484292275064631297
+
+Slides:
+    https://slides.com/d/ZS8FIq8/live
+
+Deck:
+    https://slides.com/leonnoel/100devs2-css-the-basics/
+
+Motivation:
+    https://youtu.be/6vuetQSwFW8
+
+Homework:
+    Read: http://learnlayout.com/
+    Do: https://www.typingtest.com/
+    Do: https://www.keybr.com/
+    Finish defining sections for these websites:
+        BBC website
+        Khan accademy website
+        Tech crunch website
+            Try to use css without classes or ID's first.
+
+Notes:
+
+Golden Rule: Separation of concerns.
+    HTML = Content & Structure
+    CSS = Style
+    JS = Behaviour & Interaction
+
+Where CSS can go:
+    Inline
+        In email.
+    In the head
+        Avoid.
+    In a separate file (Best practice)
+        <link rel="stylesheet" href="css/style.css">
+
+CSS Syntax:
+    
+    CSS rules:
+        Example:
+            p {
+                color: red;
+                font-weight: bold;
+            }
+    
+        Rule: The whole thing
+
+        Selector: The part of the document being styled.
+            In this case 'p'
+        
+        Declaration block:
+
+            { Everything inside the curly braces }
+
+        Declarations:
+            Each line inside the braces.
+                color: red;
+                font-weight: bold;
+
+        Property:
+            color:
+
+        Property value
+            red;
+
+    CSS Cascade:
+
+        Code is read top to bottom.
+
+        What comes below overrides what came above.
+
+Changing color with CSS:
+    h1{
+        color: red;
+    }
+    h2{
+        color: #FF0000
+    }
+    p{
+        color: rgba(255,0,0,1);
+    }
+    span{
+        color: hsla(0, 100%, 50%, 1);
+    }
+
+Changing font with CSS:
+
+    html
+        <head>
+          <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;
+          400;700&display=swap" rel="stylesheet">
+        </head>
+
+    css
+        p{
+          font-family: 'Source Sans Pro','Helvetica' sans-serif;
+          font-weight: 700;
+        }
+
+    You need to link to the file first at the head.
+    Then link to the css.
+
+
+Selection by relationship:
+
+    When there is a tag inside a tag:
+
+        <section>
+          <p> Hello </p>
+        </section>
+
+        <section>
+          <article>
+            <p> Hello Twitch </p>
+          </article>
+        </section>
+
+        <section>
+          <p> Otto </p>
+          <p> Gochuki </p>
+        </section>     
+
+    This is a parent child relationship.
+
+        Its represented as:
+
+            parent > child
+
+    We can target all the paragaphs everywhere with:  
+        p {
+            ...
+        }
+
+    If we want the paragraphs inside a section we use:
+
+        section p {
+            color: red;
+        }
+            Goes with any paragraphs nested inside.
+            It will go to any level of deepness.
+            >>> 'Hello' will be red
+            >>> 'Hello Twitch' will also be red.
+
+        section > p {
+            color: red;
+        }
+            Goes exactly one parapgraph inside.
+            >>> 'Hello' will be red
+            >>> 'Hello Twitch' will not be red.
+
+        P + p {
+            color: red;
+        }
+            Selects an element next to its sibling.
+            >>> 'Otto' will not be red
+            >>> 'Gochuki' will be red
+
+IDs
+    used for selecting distinct elements.
+    Only one id with the same value per document
+
+    <section>
+        <p> Hello! </p>
+        <p id="zebra"> Youtube! </p>
+    <section>
+
+    #zebra { color: red;}
+
+Classes
+    Made to select multiple elements. 
+    Multiple with same value allowed per document. 
+
+    <section>
+        <p class="robot"> Hello! </p>
+        <p id="zebra" class="bob"> Youtube! </p>
+        <p class="bob"> Goodbye! </p>
+    <section>
+
+    .bob { color: blue;}
+
+Specificity
+
+    Inline Style
+        1,000 ponts
+        Dont use
+
+    IDs
+        100 points
+
+    Classes
+        10 points
+
+    Tags
+        1 point
+
+    !important
+        In a property
+        Will add 1,000 points
+
+Use MDN for research:
+    https://learn.shayhowe.com/html-css/
+
+

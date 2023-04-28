@@ -1,0 +1,58 @@
+100 Devs: Class 5
+-----------------
+
+Feb 20 2023 (1st pass)
+
+Link:
+    https://www.youtube.com/watch?v=E6Z8cWU_fjI&t=4222s
+
+Tweet:
+    https://twitter.com/leonnoel/status/1486104346227970050
+
+Slides:
+    https://slides.com/d/JPxt7hg/live
+
+Motivation:
+    https://www.youtube.com/watch?v=3sK3wJAxGfs
+    
+Homework:
+
+    https://learn.shayhowe.com/advanced-html-css/
+
+    Finish defining sections for these websites:
+        BBC website
+        Khan accademy website
+        Tech crunch website
+            Try to use css without classes or ID's first.
+
+    Submit layouts and simple Site lab
+        Add to codepen
+        Submit codepen link here
+            https://docs.google.com/forms/d/e/1FAIpQLSeoj-Sfv9cAANrayvCwblFztOkzSmODjwLbPlfltuURbCdvyg/viewform
+
+Notes:
+
+    CSS Id's
+        Can only be used once in an html file.
+
+    !important
+        CSS tag
+        Worth 1,000 points
+
+    You build sites with classes & Id's 
+        If you only use relationship selectors: <h1>
+        And people change the structure, it breaks.
+
+    UX
+        User experience
+        How you move through an application
+    UI
+        User interphase
+        The things you interact with and sww
+
+    * { box-sizing: border-box;}
+        Changes box model so borders are inside width and height
+        1/3 1/3 1/3 Floats will fit on a line. 
+
+    clear: both;
+        So the content wont go below the floated items but after them. 

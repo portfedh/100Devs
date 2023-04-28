@@ -1,0 +1,155 @@
+/******************************************
+/* Media Queries
+/*****************************************/
+
+* {
+    /* border: 1px solid black; */
+}
+
+@media (min-width: 801px) and (max-width: 1427px) {
+    .EmptyVideoSection{
+        width: 0px;
+        height: 0px;
+        /* background-color: purple; */
+    }
+
+    .VideoSectionText {
+        width: 50%;
+        height: auto;
+        /* background-color: cyan; */
+    }
+
+
+    .VideoSectionVideo{
+        width: 49%;
+        height: 100%x;
+        /* background-color: green; */
+    }
+}
+
+
+
+/* Small size for Smartphones */
+@media screen and (max-width: 800px) {
+
+    /* Page changes */
+    
+    /* Header changes */
+
+        header {
+            height: 300px;
+            /* background-color: orange; */
+        }
+
+        .headerLayout { 
+            width: 100%;
+            text-align: center;
+            float: left;
+            /* background-color: yellow; */
+            margin-top: 1px;
+            height: 97%;
+        }
+
+        .headerLayout1 { height: 25%; }
+
+        .headerLayout2 { height: 65%; }
+        
+        .headerLayout3 { height: 15%; }
+
+        .headerLogo { 
+            float: none;
+            width: 100px;
+            margin-left: 35px;
+            margin-top: 5px;
+        }
+
+        .headerMenuItem { 
+            clear:both;
+            width: 90%;
+            float: none;
+            background-color: #f3f4f6;
+            font-weight: 500;
+            height: 16%;
+            margin-right: 30px;
+            display: block;
+        }
+
+    /* Main changes */
+
+    /* Services changes */
+
+        .ServicesSection { 
+            height: 100%;
+            /* background-color: orange; */
+        }
+
+        .aService{
+            padding-top: 20px;
+            padding-left: 5px;
+            padding-right: 5px;
+        
+            text-align: center;
+            float: none;
+            width: 100%;
+            margin-top: 1px;
+            height: 97%;
+            /* background-color: lightblue; */
+        }
+
+    /* Video changes */
+        .VideoSection {
+            /* height: 100%; */
+            height: 900px;
+            margin-bottom: 0;
+            /* background-color: red; */
+        }
+
+        .EmptyVideoSection{
+            width: 0px;
+            height: 0px;
+            /* background-color: purple; */
+        }
+
+        .VideoSectionText {
+            width: 100%;
+            height: auto;
+            /* background-color: cyan; */
+        }
+
+        .VideoSectionVideo{
+            width: 100%;
+            height: 340px;
+            /* background-color: green; */
+        }
+
+    /* Our Team changes */
+    .OurTeam {
+        height: auto;
+        /* background-color: orange; */
+    }
+
+    .aTeamMember {
+        /* background-color: lightblue; */
+        text-align: center;
+        width: 100%;
+        height: 97%;
+        margin-top: 1px;
+        float: none;
+    }
+
+    .empty{
+        height: 50px;
+    }
+
+    /* Offers changes */
+
+    .Offers { 
+        padding-top: 50px;
+        clear: both;
+        height: auto; 
+        /* background-color: orangered; */
+    }
+
+    /* LookBook changes */
+
+    }

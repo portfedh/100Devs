@@ -1,0 +1,31 @@
+code {
+  background: #2db34a;
+  border-radius: 6px;
+  color: #fff;
+  display: block;
+  font: 14px/24px "Source Code Pro", Inconsolata, "Lucida Console", Terminal, "Courier New", Courier;
+  padding: 24px 15px;
+  text-align: center;
+}
+
+body{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+header, section, aside, footer {
+  flex-grow: 1;
+  margin: 10px;
+}
+
+header, footer {
+  width: 100%;
+}
+
+section{
+  flex-grow: 2;
+  min-width: 300px;
+}
+

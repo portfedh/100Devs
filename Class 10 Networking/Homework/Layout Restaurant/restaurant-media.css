@@ -1,0 +1,20 @@
+/******************************************
+/* Media Queries
+/*****************************************/
+
+* {
+    /* border: 1px solid black; */
+}
+
+/* Medium size for Tablets */
+@media (min-width: 1001px){
+
+}
+
+
+
+/* Small size for Smartphones */
+@media screen and (max-width: 1000px) {
+
+
+}

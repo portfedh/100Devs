@@ -1,0 +1,40 @@
+*{
+    border: 1px solid rgb(172 172 172);
+    box-sizing: border-box;
+    background-color: rgb(216 216 216);
+    font-family: "Helvetica", Times, serif;
+}
+nav{
+    height: 600px;
+    width: 20%;
+    padding: 10px;
+    float: left;
+}
+#top_add{
+    height: 100px;
+    padding: 10px;
+}
+#hero{
+    height: 500px;
+    padding: 10px;
+    width: 30%;
+    float: left;
+}
+#headline_area{
+    height: 500px;
+    width: 20%;
+    float: left;
+}
+#headline1, #headline2, #headline3{
+    height: 166px;
+}
+#right_adds{
+    height: 500px;
+}
+#add1{
+    height: 150px;
+}
+#add2{
+    margin-top: 30px;
+    height: 300px;
+}

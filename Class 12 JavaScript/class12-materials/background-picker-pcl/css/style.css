@@ -1,0 +1,143 @@
+/******************************************
+/* HOT GARBAGE - PLEASE DON'T MIMIC THIS CSS
+/*******************************************/
+
+/* Box Model Hack */
+*{
+  box-sizing: border-box;
+  /* border: 1px solid black; */
+  font-family: sans-serif;
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+
+header{
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo{
+  font-size: 20px;
+  font-weight: 400;
+  color: orange;
+  padding: 15px 20px 10px 20px;
+}
+
+nav{
+  display: flex;
+  
+}
+
+ul{
+  display: flex;
+  width: auto;
+  list-style: none;
+  color: gray;
+}
+
+li{
+  padding: 0 20px;
+  margin: 0 10px;
+  font-size: 14px;
+}
+
+/* ****************
+*   Main Section  *
+******************/
+
+main{
+  background-color: #ddebe3;
+  height: 350px;
+  display: flex;
+
+}
+
+.mainPhoto{
+  margin-left: 90px;
+  padding: 30px;
+  height: 350px;
+  /* border: 1px solid black; */
+  /* flex-grow: 1; */
+}
+
+.mainDescription{
+  /* border: 1px solid black; */
+  flex-grow: 1;
+}
+
+#smallText{
+  padding-top: 80px;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 12px;
+  text-align: center;
+}
+
+#heroText{
+  font-family: 'Libre Baskerville', serif;
+  font-size: 25px;
+  font-weight: 700;
+  text-align: center;
+}
+
+#textDescription{
+  font-family: 'Libre Baskerville', serif;
+  font-size: 16px;
+  text-align: center;
+}
+
+
+/* ***************
+*   Bottom Menu  *
+*****************/
+
+section{
+  display: flex;
+  justify-content:space-between;
+  flex-shrink: 1;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
+.menu1, .menu2, .menu3, .menu4, .menu5{
+  width: 100%;
+  height: 100%;
+  flex-shrink: 1;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-right: 20px;
+  margin-left: 20px;
+  /* background-color: aqua; */
+}
+
+
+#photo1, #photo2, #photo3, #photo4, #photo5{
+  width: 100%;
+  height: 100%;
+  border-radius: 20px 20px 0 0;
+  margin: 0;
+  flex-shrink: 1;
+  background-color: lightcoral;
+
+}
+
+#description1, #description2, #description3,
+#description4, #description5 {
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  text-align: center;
+  border-bottom: 1px solid lightgray;
+  border-right: 1px solid lightgray;
+  border-left: 1px solid lightgray;
+  margin: 0;
+  flex-shrink: 1;
+  border-radius: 0 0 10px 10px;
+  /* background-color: lightgreen; */
+}
+
+div {
+  margin: 0;
+}
