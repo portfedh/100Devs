@@ -1,31 +1,14 @@
 Last Update
-    25 Abril 2023
+
+    30 Abril 2023
 
 Progress
 
 Level 1: 100% [==========================================]
-Level 2:   0% [..........................................]
+Level 2:  50% [=====================.....................]
 Level 3:   0% [..........................................]
 Level 4:   0% [..........................................]
 Level 5:   0% [..........................................]
-
-Analisis
---------
-
-    Lista []
-        Numeros en lista 0-9
-        Hasta 1-9 elementos
-        Same digit can appear several times in list
-        Each digit can only be used once
-
-    Functon
-        Largest number
-        Divisible by 3
-        Made from some or all the numbers
-
-    If number divisible by 3 does not exist
-        Return 0
-
 
 
 Direccion
@@ -41,7 +24,7 @@ Directory
     start_here.txt
 
 Commands
-    
+
     $ ls
 
     $ help
