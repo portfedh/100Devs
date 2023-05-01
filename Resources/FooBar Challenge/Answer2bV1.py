@@ -1,0 +1,54 @@
+# Hey, I Already Did That!
+# ========================
+
+# Source = https://github.com/hirenvasani/foobar/blob/master/hey_i_already_did_that.py
+
+# def decimalToBase(dn, db):
+#     '''Convert Desired No(dn) a positive number to desire Base(db)'''
+#     digits = []
+#     while dn > 0:
+#         digits.insert(0, str(dn % db))
+#         dn  = dn / db
+#     return ''.join(digits)
+
+# def baseToDecimal(bn, cb):
+#   '''Convert Base No(bn) a positive number to decimal wrt current Base(cb)'''
+#   n = 0
+#   for d in str(bn):
+#     n = cb * n + int(d)
+#   return n
+
+# def getSubtract(x, y, b):
+#   if b==10:
+#     return int(x) - int(y)
+    
+#   dx=baseToDecimal(x,b)
+#   dy=baseToDecimal(y,b)
+#   dz=dx-dy
+#   return decimalToBase(dz, b)
+
+# def answer(n, b):
+#     arr=[]
+#     while True:
+#         x = "".join(sorted(str(n), reverse=True))
+#         y = "".join(sorted(str(n)))
+#         z = getSubtract(x,y,b)
+
+#         zl = len(str(z))
+#         xl = len(str(x))
+
+#         if (zl) != xl:
+#             z = z * pow(10 ,(xl-zl)) 
+
+#         for index, item in enumerate(arr):
+#           if item == z:
+#             return index + 1
+#             break
+#         arr = [z] + arr
+#         n = z
+
+# #print answer(1211, 10)
+# #1
+
+# print answer(210022, 3)
+# # 3
