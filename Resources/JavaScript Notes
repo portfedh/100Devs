@@ -263,6 +263,62 @@ Arrow functions (TODO)
     };
 
 
+Objects
+
+    const pen = {
+      type: "ballpoint",
+      color: "blue",
+      brand: "Bic"
+    };
+
+    properties: type, color, brand
+    value: ballpoint, blue, Bic
+
+    console.log(pen.type);  // "ballpoint"
+    console.log(`I write with a ${pen.color} ${pen.brand} ${pen.type} pen`);
+
+Modify objects
+
+    pen.color = "red";
+
+Add new information to object
+
+    pen.price = "2.5";  // price was added to object
+
+Example 1: Object + function
+
+    const aurora = {
+      name: "Aurora",
+      health: 150,
+      strength: 25
+    };
+
+    function describe(character) {
+      return `${character.name} has ${character.health} health points and ${character.strength} as strength`;
+    }
+
+    console.log(describe(aurora));
+
+    // Aurora is harmed by an arrow
+    aurora.health -= 20;
+
+    // Aurora equips a strength necklace
+    aurora.strength += 10;
+
+    console.log(describe(aurora));
+
+
+Example 2: Object + method
+
+    const aurora = {
+      name: "Aurora",
+      health: 150,
+      strength: 25
+
+      describe() {
+      return `${this.name} has ${this.health} health points and ${this.strength} as strength`;
+      }
+    };
 
 Search for an element by it's id and execute function when clicked:
 
