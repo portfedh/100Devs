@@ -4,15 +4,12 @@
 
 ** Review closures 
 
-** Review recurssion
-
 
 Print to console:
 
     console.log("Hello from JavaScript!");
 
         "This is\na multiline string".
-
 
 
 Alert in window:
@@ -319,6 +316,82 @@ Example 2: Object + method
       return `${this.name} has ${this.health} health points and ${this.strength} as strength`;
       }
     };
+
+
+
+Array Methods
+
+    arr.push(...items) – adds items to the end,
+
+    arr.pop() – extracts an item from the end,
+    
+    arr.shift() – extracts an item from the beginning,
+    
+    arr.unshift(...items) – adds items to the beginning.
+
+    arr.slice([start], [end]) - new array from another array
+
+    arr.concat(arg1, arg2...) -  new arrays from two arrays
+
+    arr.splice - complex tool:
+
+        Remove elements
+
+            arr.splice(1, 1); // from index 1 remove 1 element (list shortens)
+
+        Replace elements
+
+            let arr = ["I", "study", "JavaScript", "right", "now"];
+
+            // remove 3 first elements and replace them with another
+            arr.splice(0, 3, "Let's", "dance");
+
+            alert( arr ) // now ["Let's", "dance", "right", "now"]
+
+        Make variable with removed elements
+
+            let arr = ["I", "study", "JavaScript", "right", "now"];
+
+                // remove 2 first elements
+                let removed = arr.splice(0, 2);
+
+                alert( removed ); // "I", "study" <-- array of removed myElements  
+
+        Insert withour removals
+
+            let arr = ["I", "study", "JavaScript"];
+
+            // from index 2
+            // delete 0
+            // then insert "complex" and "language"
+            arr.splice(2, 0, "complex", "language");
+
+            alert( arr ); // "I", "study", "complex", "language", "JavaScript"
+
+    For each: 
+
+        arr.forEach(function(item, index, array) {
+          // ... do something with item
+        });
+            Examples:
+
+                ["Bilbo", "Gandalf", "Nazgul"].forEach(alert);
+
+                ["Bilbo", "Gandalf", "Nazgul"].forEach((item, index, array) => {
+                  alert(`${item} is at index ${index} in ${array}`);
+                });
+
+
+    Search in array
+
+        arr.indexOf(item, from) – looks for item and returns the index where it was found.
+
+        arr.lastIndexOf - same as indexOf, but looks for from right to left.
+
+
+Things used in web pages
+========================
+
 
 Search for an element by it's id and execute function when clicked:
 
