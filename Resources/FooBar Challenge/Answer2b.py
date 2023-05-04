@@ -1,8 +1,12 @@
-# Hey, I Already Did That!
-# ========================
 
 # Source = https://github.com/hirenvasani/foobar/blob/master/hey_i_already_did_that.py
 
+
+
+# Hey, I Already Did That!
+# ========================
+
+# Visualize result in = https://pythontutor.com/
 
 # Commander Lambda uses an automated algorithm to assign minions randomly to tasks, in order to keep her minions on their toes. But you've noticed a flaw in the algorithm - it eventually loops back on itself, so that instead of assigning new minions as it iterates, it gets stuck in a cycle of values so that the same minions end up doing the same tasks over and over again. You think proving this to Commander Lambda will help you make a case for your next promotion. 
 # You have worked out that the algorithm has the following process: 
@@ -70,7 +74,7 @@ def solution(number, base):
         subtraction_result = get_subtraction(descending_digits, ascending_digits, base)
 
         ''' Check if the number of digits in the result is == to number of digits in the original number.
-        Add the necessary number of zeroes to to the beginning of the result '''
+        Add the necessary number of zeroes to to the right of the result. EG 999 -> 9990 '''
         subtraction_length = len(str(subtraction_result))
         descending_digits_length = len(str(descending_digits))
         if subtraction_length != descending_digits_length:
@@ -89,3 +93,6 @@ def solution(number, base):
         # If not, add the result to the list and repeat
         results = [subtraction_result] + results
         number = subtraction_result
+
+# solution('1211', 10)
+# solution('210022', 3)
