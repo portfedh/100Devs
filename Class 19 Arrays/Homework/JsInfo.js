@@ -1,3 +1,6 @@
+// https://javascript.info/array-methods
+
+
 /*
 Task 1: camelCase
 
@@ -122,3 +125,95 @@ let sorted = copySorted(arr5);
 
 console.log( arr5 )
 console.log( sorted )
+
+
+/* 
+Task 6: Create an extendable calculator
+
+Implement the method calculate(str) 
+Takes a string like "1 + 2" in the format “NUMBER operator NUMBER” (space-delimited) and returns the result. 
+Should understand plus + and minus -.
+
+let calc = new Calculator;
+alert( calc.calculate("3 + 7") ); // 10
+*/
+
+console.log('Task 6: Create an extendable calculator');
+
+function Calculator() {
+
+    this.calculate = function(text){
+        let splitString = text.split(' ')
+        console.log(splitString)
+    
+        let number1 = parseInt(splitString[0])
+        let symbol = splitString[1]
+        let number2 = parseInt(splitString[2])
+    
+        if (symbol == '+'){
+            console.log(number1 + number2)
+        } else if (symbol == '-'){
+            console.log(number1 - number2)
+        }
+    };
+}
+
+let calc = new Calculator;
+calc.calculate("3 + 7");
+
+
+/* 
+Task 7: Map to names
+
+You have an array of user objects, each one has user.name. 
+Write the code that converts it into an array of names.
+
+let john = { name: "John", age: 25 };
+let pete = { name: "Pete", age: 30 };
+let mary = { name: "Mary", age: 28 };
+
+let users = [ john, pete, mary ];
+let names = ... your code 
+
+//alert( names ); // John, Pete, Mary
+*/
+
+console.log('Task 7: Map to names');
+
+let john = { name: "John", age: 25 };
+let pete = { name: "Pete", age: 30 };
+let mary = { name: "Mary", age: 28 };
+
+let users = [ john, pete, mary ];
+let names = []
+
+for (i=0; i<users.length; i++){
+    names.push(users[i].name);
+}
+console.log(names);
+
+
+/* 
+Task 8: Map to objects
+
+You have an array of user objects, each one has name, surname and id.
+
+Write the code to create another array from it, of objects with 
+id and fullName, 
+where fullName is generated from name and surname.
+*/
+
+console.log('Task 8: Map to objects');
+
+john = { name: "John", surname: "Smith", id: 1 };
+pete = { name: "Pete", surname: "Hunt", id: 2 };
+mary = { name: "Mary", surname: "Key", id: 3 };
+users = [ john, pete, mary ];
+
+let usersMapped = [];
+for(i=0; i<users.length; i++) {
+    let person = {};
+    Object.assign(person, { name: `${users[i].name}  ${users[i].surname}`, id: `${users[i].id}` });
+    usersMapped.push(person);
+};
+console.log(usersMapped);
