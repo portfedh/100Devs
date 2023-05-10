@@ -1,41 +1,46 @@
-def solution(x, y):
-    # Convert strings into integers
-    m = int(x)
-    f = int(y)
-    # Set the number of generations
-    gens = 0
+def solution(matchBombsNeeded, faculaBombsNeeded):
+
+    # Set input as an integer
+    matchBomb = int(matchBombsNeeded)
+    faculaBomb = int(faculaBombsNeeded)
+
+    # Keep track of generations
+    generationsNeeded = 0
+
     # Start inverse replication loop
     while True:
-        # If M and F are equal to 1
-        # return the number of generation passed
-        if m == 1 and f == 1:
-            return str(gens)
-        # If either M or F is less than 1
-        # or they are equal (but not 1, it'd be
-        # captured above) return "impossible"
-        elif m<1 or f<1 or m==f:
+        # Case: End of loop --> Ok
+        # If matchBomb and faculaBomb are equal to 1
+        # We are at the start of the the loop.
+        # Return the number of generation passed as a string
+        if matchBomb == 1 and faculaBomb == 1:
+            return str(generationsNeeded)
+        
+        # Case: End of loop --> Impossible
+        elif matchBomb <= 0 or faculaBomb <= 0:
             return "impossible"
-        # Check which one is larger, perform
-        # the inverse replication and increment
-        # the generation counter
+        
+        # Case: Inverse replication loop
+        # Check which bomb is larger
+        # Make inverse replication 
+        # Increment the generation counter
         else:
-            if m > f:
-                # If the difference is more 
-                # than 10x, calculate a 
-                # multiplication factor and
-                # increase gens accordingly 
-                if m > 10*f:
-                    multi = (int(m/f) -1)
-                    gens += multi
-                    m = m - (multi*f)
+            if matchBomb > faculaBomb:
+                # If the difference is more than 5x, 
+                # Calculate a multiplication factor
+                # And increase generations by result 
+                if matchBomb > (5 * faculaBomb):
+                    multiplicationFactor = (int(matchBomb / faculaBomb) -1)
+                    generationsNeeded += multiplicationFactor
+                    matchBomb = matchBomb - (multiplicationFactor * faculaBomb)
                 else:
-                    m-=f
-                    gens += 1
+                    matchBomb -= faculaBomb
+                    generationsNeeded += 1
             else:
-                if f > 10*m:
-                    multi = (int(f/m) -1)
-                    gens += multi
-                    f = f - (multi*m)
+                if faculaBomb > (5 * matchBomb):
+                    multiplicationFactor = (int(faculaBomb / matchBomb) -1)
+                    generationsNeeded += multiplicationFactor
+                    faculaBomb = faculaBomb - (multiplicationFactor * matchBomb)
                 else:
-                    f-=m
-                    gens += 1
+                    faculaBomb -= matchBomb
+                    generationsNeeded += 1
