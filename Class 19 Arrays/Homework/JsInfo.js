@@ -41,10 +41,10 @@ camelize("list-style-image");
 camelize("-webkit-transition");
 
 
-/* 
+/*
 Task 2: Filter Range
 
-Write a function filterRange(arr, a, b) 
+Write a function filterRange(arr, a, b)
 Looks for elements with values higher or equal to a and lower or equal to b
 Return a result as an array.
 The function should not modify the array. It should return the new array.
@@ -65,11 +65,11 @@ let testArray = [5, 3, 8, 1];
 filterRange(testArray, 1, 4);
 
 
-/* 
+/*
 Task 3: Filter Range "In place"
 
-Write a function filterRangeInPlace(arr, a, b) 
-Gets an array arr and removes all values except those that are between a and b. 
+Write a function filterRangeInPlace(arr, a, b)
+Gets an array arr and removes all values except those that are between a and b.
 The test is: a ≤ arr[i] ≤ b.
 The function should only modify the array. It should not return anything.
 */
@@ -87,7 +87,7 @@ filterRangeInPlace(myTestArray, 1, 4);
 console.log(myTestArray);
 
 
-/* 
+/*
 Task 4: Sort in decreasing order
 
 let arr = [5, 2, 1, -10, 8];
@@ -103,10 +103,10 @@ arr.sort(
     );
 console.log(arr);
 
-/* 
+/*
 Task 5: Copy and sort array
 
-We have an array of strings arr. 
+We have an array of strings arr.
 We’d like to have a sorted copy of it, but keep arr unmodified.
 
 let arr = ["HTML", "JavaScript", "CSS"];
@@ -127,11 +127,11 @@ console.log( arr5 )
 console.log( sorted )
 
 
-/* 
+/*
 Task 6: Create an extendable calculator
 
-Implement the method calculate(str) 
-Takes a string like "1 + 2" in the format “NUMBER operator NUMBER” (space-delimited) and returns the result. 
+Implement the method calculate(str)
+Takes a string like "1 + 2" in the format “NUMBER operator NUMBER” (space-delimited) and returns the result.
 Should understand plus + and minus -.
 
 let calc = new Calculator;
@@ -145,11 +145,11 @@ function Calculator() {
     this.calculate = function(text){
         let splitString = text.split(' ')
         console.log(splitString)
-    
+
         let number1 = parseInt(splitString[0])
         let symbol = splitString[1]
         let number2 = parseInt(splitString[2])
-    
+
         if (symbol == '+'){
             console.log(number1 + number2)
         } else if (symbol == '-'){
@@ -162,10 +162,10 @@ let calc = new Calculator;
 calc.calculate("3 + 7");
 
 
-/* 
+/*
 Task 7: Map to names
 
-You have an array of user objects, each one has user.name. 
+You have an array of user objects, each one has user.name.
 Write the code that converts it into an array of names.
 
 let john = { name: "John", age: 25 };
@@ -173,7 +173,7 @@ let pete = { name: "Pete", age: 30 };
 let mary = { name: "Mary", age: 28 };
 
 let users = [ john, pete, mary ];
-let names = ... your code 
+let names = ... your code
 
 //alert( names ); // John, Pete, Mary
 */
@@ -193,13 +193,13 @@ for (i=0; i<users.length; i++){
 console.log(names);
 
 
-/* 
+/*
 Task 8: Map to objects
 
 You have an array of user objects, each one has name, surname and id.
 
-Write the code to create another array from it, of objects with 
-id and fullName, 
+Write the code to create another array from it, of objects with
+id and fullName,
 where fullName is generated from name and surname.
 */
 
@@ -217,3 +217,65 @@ for(i=0; i<users.length; i++) {
     usersMapped.push(person);
 };
 console.log(usersMapped);
+
+
+/*
+Task 9: Sort users by age
+Write the function sortByAge(users) that gets an array of objects with the age property and sorts them by age.
+*/
+console.log('Task 9: Sort users by age')
+
+john = { name: "John", age: 25 };
+pete = { name: "Pete", age: 30 };
+mary = { name: "Mary", age: 28 };
+arr = [ pete, john, mary ];
+
+function sortByAge(users) {
+    return users.sort((a, b) => a.age - b.age);
+  }
+
+  const sortedArr = sortByAge(arr);
+
+  console.log(sortedArr);
+
+
+/*
+Task 10: Shuffle an array
+
+Write the function shuffle(array) that randomly reorders elements of the array.
+Multiple runs of shuffle may lead to different orders of elements.
+
+*/
+console.log('Task 10: Shuffle an array')
+
+// Original array
+arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// Random number function
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
+function shuffle(array){
+    // Copy original array
+    let originalArray = [...array]
+    // Create new array with shuffled positions
+    let shuffledArray = []
+
+    while(originalArray.length > 0){
+        // Get a random index number to remove from the original array
+        indexNumber = getRandomInt(originalArray.length)
+        // Remove that value
+        arrayValue = originalArray.splice(indexNumber,1)
+        // Add that value to the Shuffled array
+        shuffledArray.push(arrayValue[0])
+    }
+    console.log('Shuffled Array: '+ shuffledArray)
+}
+
+// Testing
+shuffle(arr);
+shuffle(arr);
+shuffle(arr);
+shuffle(arr);
+shuffle(arr);
+
