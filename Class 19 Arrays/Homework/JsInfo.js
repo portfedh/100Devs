@@ -279,3 +279,81 @@ shuffle(arr);
 shuffle(arr);
 shuffle(arr);
 
+
+
+/*
+Task 11: Get average age
+
+Write the function getAverageAge(users) that gets an array of objects with property age and returns the average age.
+The formula for the average is (age1 + age2 + ... + ageN) / N.
+
+*/
+john = { name: "John", age: 25 };
+pete = { name: "Pete", age: 30 };
+mary = { name: "Mary", age: 29 };
+arr = [ john, pete, mary ];
+
+console.log('Task 11: Get average age')
+
+function getAverageAge(users) {
+
+    let ageSum = 0
+    let arrayLength = users.length
+
+    for(i=0; i < users.length; i++){
+        ageSum += users[i].age
+    }
+
+    let averageAge = ageSum / arrayLength
+    console.log('Sum of ages: ' + ageSum)
+    console.log('Array length: ' + arrayLength)
+    console.log('Average age: ' + averageAge)
+    return averageAge
+}
+
+getAverageAge(arr)
+
+/*
+Task 12: Create keyed object from array
+
+Let’s say we received an array of users in the form {id:..., name:..., age:... }.
+Create a function groupById(arr) that creates an object from it, with id as the key, and array items as values.
+
+*/
+
+users = [
+    {id: 'john', name: "John Smith", age: 20},
+    {id: 'ann', name: "Ann Smith", age: 24},
+    {id: 'pete', name: "Pete Peterson", age: 31},
+  ];
+  
+//   let usersById = groupById(users);
+  
+  /*
+  // after the call we should have:
+  
+  usersById = {
+    john: {id: 'john', name: "John Smith", age: 20},
+    ann: {id: 'ann', name: "Ann Smith", age: 24},
+    pete: {id: 'pete', name: "Pete Peterson", age: 31},
+  }
+  */
+
+  console.log('Task 12: Create keyed object from array')
+
+  // Answer using literal notation
+  // =============================
+
+  // Print original Array
+  console.log(users)
+
+  // Create an object
+  let myObject = {}
+
+  // Run a for loop
+  for(i=0; i < users.length; i++){
+    myObject[users[i].name] = users[i]
+  }
+
+  // Print new object
+  console.log(myObject)
