@@ -101,6 +101,7 @@ String concatenation:
     console.log('My fiend's name is: ' + name);
 
 
+
 String interpolation
 
     // Alternative way of string concatenation
