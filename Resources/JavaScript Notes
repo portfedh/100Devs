@@ -212,9 +212,23 @@ For loop:
       // code to run while the condition is true
     }
 
+For Each Loop:
 
+    Example:
+        const array = [5, 6, 7, 8, 8, 10];
 
-Functions
+        array.forEach((element, index) => {
+          console.log(`Element at index ${index}: ${element}`);
+        });
+
+        Element at index 0: 5
+        Element at index 1: 6
+        Element at index 2: 7
+        Element at index 3: 8
+        Element at index 4: 9
+        Element at index 5: 10
+
+Functions:
     
     function sayHello(name) {
 
