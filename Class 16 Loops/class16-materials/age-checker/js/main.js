@@ -29,14 +29,18 @@
 //Take the value from the input
 //Place the result of the conditional in the paragraph
 
+// Execute runFunction  when submit button is clicked
 document.querySelector('#submit').addEventListener('click', runFunction)
 
 function runFunction(){
     console.log('Function executed')
+    // Read input value
     let inputValue = Number(document.querySelector('#danceDanceRevolution').value);
     console.log('Input value: ' + inputValue)
+    // Run checkAge() and get the appropriate text
     let outputText = checkAge(inputValue)
     console.log(outputText)
+    // Write text to the DOM
     document.querySelector('#textHere').innerText = `Your age is ${inputValue}. This means: ${outputText}`
 }
 
