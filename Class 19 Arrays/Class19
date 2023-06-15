@@ -59,12 +59,10 @@ Notes:
             console.log(movies[i]);
         }
 
-
     Iterate with for each function
 
         const movies = ["The Wolf of Wall Street", "Zootopia", "Babysitting"];
         movies.forEach(movie => { console.log(movie); });
-
 
     Add to array (end)
 
@@ -88,8 +86,6 @@ Notes:
         console.log(movies.length); // 2
         console.log(movies[0]); // "Zootopia"
         console.log(movies[1]); // "Babysitting"
-
-
 
 Discord Server
 
