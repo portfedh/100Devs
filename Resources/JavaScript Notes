@@ -434,7 +434,7 @@ Hide the id selected (delete it from the DOM):
 
 
 
-Read the curren value of id and assign it to a variable:
+Read the current value of id and assign it to a variable:
 
     const goal = document.querySelector('#myGoal').value;
 
@@ -453,6 +453,12 @@ Change the body background color and the text color:
     document.querySelector('body').style.backgroundColor = 'rgba(0,253,81,1)'
     
     document.querySelector('body').style.color = 'white'
+
+
+
+Change the image in the DOM:
+
+    document.querySelector('#IdHere').setAttribute("src", 'photo.jpg');
 
 
 
