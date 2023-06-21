@@ -280,7 +280,7 @@ Objects
     const pen = {
       type: "ballpoint",
       color: "blue",
-      brand: "Bic"
+      brand: "Bic",
     };
 
     properties: type, color, brand
@@ -289,9 +289,17 @@ Objects
     console.log(pen.type);  // "ballpoint"
     console.log(`I write with a ${pen.color} ${pen.brand} ${pen.type} pen`);
 
+Access an object
+    console.log(pen.color)
+    console.log(pen[color])
+
 Modify objects
 
     pen.color = "red";
+
+Delete object property
+
+    delete pen.type;
 
 Add new information to object
 
