@@ -113,6 +113,11 @@ String interpolation
     console.log(`My name is ${myName}. My favorite city is ${myCity}.`)
 
 
+Optional chaining
+    The optional chaining ?. 
+    stops the evaluation if the value before ?. is undefined or null and returns undefined.
+
+
 
 
 Get input from user:
@@ -288,6 +293,24 @@ Objects
 
     console.log(pen.type);  // "ballpoint"
     console.log(`I write with a ${pen.color} ${pen.brand} ${pen.type} pen`);
+
+    Memory in variable are copies
+
+        let message = "Hello!";
+        let phrase = message;
+            // Two variables, each has an independent copy of "Hello!"
+
+Memory in objects are rerferences
+
+    let user = { name: "John" };
+
+    let admin = user;
+        // copy the reference
+        // Making changes in one, changes the other
+
+    To copy an object we should use either
+        object.asign
+        structuredClone
 
 Access an object
     console.log(pen.color)
