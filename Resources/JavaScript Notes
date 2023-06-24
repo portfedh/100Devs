@@ -300,17 +300,19 @@ Objects
         let phrase = message;
             // Two variables, each has an independent copy of "Hello!"
 
-Memory in objects are rerferences
+    Memory in objects are rerferences
 
-    let user = { name: "John" };
+        let user = { name: "John" };
 
-    let admin = user;
-        // copy the reference
-        // Making changes in one, changes the other
+        let admin = user;
+            // copy the reference
+            // Making changes in one, changes the other
 
-    To copy an object we should use either
-        object.asign
-        structuredClone
+        To copy an object we should use either
+            object.asign
+            structuredClone
+
+    Setters and getters can change object properties from the outside
 
 Access an object
     console.log(pen.color)
