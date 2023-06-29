@@ -565,3 +565,42 @@ API call templates:
         .catch(err => {
             console.log(`error ${err}`)
         });
+
+    Query parameters are needed to fetch data:
+        const url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita'
+
+    Use postman
+
+        You can call an API with no other code
+
+
+
+Session sorage:
+    
+    Persists as long as you dont close browser
+
+
+
+Local storage:
+
+    Data persists across user sessions
+    Across page refreshes
+    Across clossing browsers
+    Without using a database
+    Stored specific by OS and by browser
+
+    Add data to local storage:
+
+        localStorage.setItem('bestFriend', 'Bob')
+
+    Read data from local storage:
+
+        localStorage.getItem('bestFriend', 'Bob')
+
+    Remove item fom local storage:
+
+        localStorage.removeItem('bestFriend', 'Bob')
+
+    Remove all local storage:
+    
+        localStorage.clear()

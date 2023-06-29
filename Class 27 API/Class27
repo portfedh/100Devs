@@ -28,19 +28,41 @@ Follow allong materials
 
 Notes:
 
+    
+    Query parameters are needed to fetch data:
+        const url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita'
+
     Use postman
+
+        You can call an API with no other code
 
     Session sorage:
         
-        As long as you dont close browser
+        Persists as long as you dont close browser
 
     Local storage:
 
-        Creates across user sessions
+        Data persists across user sessions
         Across page refreshes
         Across clossing browsers
         Without using a database
         Stored specific by OS and by browser
+
+        Add data to local storage:
+
+            localStorage.setItem('bestFriend', 'Bob')
+
+        Read data from local storage:
+
+            localStorage.getItem('bestFriend', 'Bob')
+
+        Remove item fom local storage:
+
+            localStorage.removeItem('bestFriend', 'Bob')
+
+        Remove all local storage:
+        
+            localStorage.clear()
 
 
 Discord Server
