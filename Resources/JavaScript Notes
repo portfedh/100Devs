@@ -206,6 +206,8 @@ While Loop:
       number++;
     }
 
+
+
 For loop:
 
     let number;
@@ -216,6 +218,8 @@ For loop:
     for (initialization; condition; final expression) {
       // code to run while the condition is true
     }
+
+
 
 For Each Loop:
 
@@ -232,6 +236,8 @@ For Each Loop:
         Element at index 3: 8
         Element at index 4: 9
         Element at index 5: 10
+
+
 
 Functions:
     
@@ -314,17 +320,25 @@ Objects
 
     Setters and getters can change object properties from the outside
 
+
+
 Access an object
     console.log(pen.color)
     console.log(pen[color])
+
+
 
 Modify objects
 
     pen.color = "red";
 
+
+
 Delete object property
 
     delete pen.type;
+
+
 
 Add new information to object
 
@@ -365,6 +379,28 @@ Example 2: Object + method
       }
     };
 
+
+
+New object constructor sintax:
+
+        class MakeCar{
+          constructor(carMake,carModel,carColor,numOfDoors){
+            this.make = carMake
+            this.model = carModel
+            this.color = carColor
+            this.doors = numOfDoors
+          }
+          honk(){
+            alert('BEEP BEEP FUCKER')
+          }
+          lock(){
+            alert(`Locked ${this.doors} doors!`)
+          }
+        }
+
+        let hondaCivic = new MakeCar('Honda','Civic','Silver', 4)
+
+        let teslaRoadster = new MakeCar('Tesla','Roadster', 'Red', 2)
 
 
 Array Methods
@@ -504,3 +540,28 @@ Get text and then pass it to a voice synthesizer:
   synth.speak(yellThis);
 
 
+
+API call templates:
+
+    // Example 1
+
+    fetch("https://dog.ceo/api/breeds/image/random")
+    .then(res => res.json()) // parse response as JSON
+    .then(data => {
+      console.log(data)
+    })
+    .catch(err => {
+        console.log(`error ${err}`)
+    });
+
+
+    // Example 2
+
+    fetch(url)
+        .then(res => res.json()) // parse response as JSON
+        .then(data => {
+          console.log(data)
+        })
+        .catch(err => {
+            console.log(`error ${err}`)
+        });

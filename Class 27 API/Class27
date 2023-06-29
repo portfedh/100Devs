@@ -30,8 +30,17 @@ Notes:
 
     Use postman
 
+    Session sorage:
+        
+        As long as you dont close browser
+
     Local storage:
+
         Creates across user sessions
+        Across page refreshes
+        Across clossing browsers
+        Without using a database
+        Stored specific by OS and by browser
 
 
 Discord Server
