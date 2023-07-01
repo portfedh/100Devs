@@ -2,7 +2,8 @@
 <html lang="en">
 	<head>
     	<meta charset="utf-8">
-    	<meta name="description" content="This is where your description goes">
+    	<meta name="description" 
+		content="This is where your description goes">
     	<meta name="keywords" content="one, two, three">
 
 		<title>Title in the tab</title>
@@ -14,13 +15,16 @@
 	<body>
 
 		<h1>Which date?</h1>
-		<input type="text" name="" value="">
-		<button type="button" name="button">Get Picture</button>
-
+		<input id='submitDate' type="date" name="" value="">
+		<button id='submitButton' 
+		type="button" name="button">Get Picture</button>
 		<h2>Name</h2>
-		<img src="" alt="">
+		<img id='nasaImage' src="" alt="">
+		<iframe id="nasaVideo" 
+		width="640" height="360" src="" 
+		frameborder="0" allowfullscreen></iframe>
 		<h3>Description</h3>
-
+		<p id="nasaDescription"></p>
 		<script type="text/javascript" src="js/main.js"></script>
 	</body>
 </html>
