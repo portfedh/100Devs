@@ -584,22 +584,33 @@ Session sorage:
 Local storage:
 
     Data persists across user sessions
-    Across page refreshes
-    Across clossing browsers
-    Without using a database
-    Stored specific by OS and by browser
+
+        Stores data as strings
+
+            You have to transform objects and arrays to strings to save them
+
+            Use JSON.stringify() and JSON.parse()
+
+        Across page refreshes
+
+        Across clossing browsers
+
+        Without using a database
+
+        Stored specific by OS and by browser
 
     Add data to local storage:
 
-        localStorage.setItem('bestFriend', 'Bob')
+        localStorage.setItem('key', 'value')
+        localStorage.setItem('key', 'new value')
 
     Read data from local storage:
 
-        localStorage.getItem('bestFriend', 'Bob')
+        localStorage.getItem('key')
 
     Remove item fom local storage:
 
-        localStorage.removeItem('bestFriend', 'Bob')
+        localStorage.removeItem('key', 'value')
 
     Remove all local storage:
     
