@@ -113,6 +113,7 @@ String interpolation
     console.log(`My name is ${myName}. My favorite city is ${myCity}.`)
 
 
+
 Optional chaining
     The optional chaining ?. 
     stops the evaluation if the value before ?. is undefined or null and returns undefined.
@@ -143,7 +144,7 @@ If Statement:
     }
 
 
-If Statement with AND / OR / NOT operator
+If statement with AND / OR / NOT operator
 
     if ( conditionA && conditionB) {
 
