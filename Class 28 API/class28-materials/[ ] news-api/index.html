@@ -5,7 +5,7 @@
     	<meta name="description" content="A news summary page to monitory useful content.">
     	<meta name="keywords" content="News Summary">
 
-		<title> News Summary Page</title>
+		<title> Your news digest</title>
 
 		<!-- external CSS link -->
 		<link rel="stylesheet" href="css/normalize.css">
@@ -15,20 +15,22 @@
 
 		<h1>News Summary</h1>
 		<div id="search">
-			<h3> A summary of current news: </h3>
+			<h3> Your summary of the news: </h3>
 
 			<form id="myForm">
 	
-				<label for="searchSubject"> Search for the subject you are interested in.</label><br><br>
-				<input type="text" id="searchSubject" name="website" value="Ukraine war"><br><br>
+				<label for="searchSubject"> Search for what you are interested in.</label><br><br>
+				<input type="text" id="searchSubject" name="website" value="" autocomplete="off"><br><br>
 				
 				<button type="button" id="submit-button">Search</button>
 			</form>
 		</div>
 
+		<div id="container">
+		 <h3 id="news-heading"> Current events for:</h3>
 
-		 <h3 id="qr-heading"> Current events in Mexico</h3>
-		 <img id="qr-image" src="" alt="">
+		</div>
+
 
 		<script type="text/javascript" src="js/main.js"></script>
 	</body>
