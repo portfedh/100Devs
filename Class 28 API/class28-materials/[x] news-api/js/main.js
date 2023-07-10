@@ -45,6 +45,7 @@ function readForm(){
   // **********************************
   localStorage.setItem('searchValue', search)
   console.log("Searching for: " + search);
+  document.getElementById("news-heading").textContent = `Current events for: ${searchVal}`;
 
   // Create the url to call the api
   // ******************************
@@ -82,6 +83,13 @@ function readForm(){
         
         // Get a reference to the container to add results
         const container = document.getElementById("container");
+        // Delete any unordered lists
+        if (document.querySelector('ul') == null) {
+            // Pass
+        } else {
+            document.querySelector('ul').remove();
+        }
+        
         // Create an unordered list 
         const ulElement = document.createElement("ul");
         // Append the unordered list to container
