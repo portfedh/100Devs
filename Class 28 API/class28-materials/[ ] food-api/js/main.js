@@ -9,67 +9,129 @@ document.querySelector('#submit-button').addEventListener('click', readForm)
 
 function readForm(){
 
-  // Get the search query
-  // ************************
-  let searchObj = document.getElementById("searchQuery").value.replace(/\s/g, '');
-  console.log(`Search text: ${searchObj}`)
+    // Get the search query
+    // ************************
+    let searchObj = document.getElementById("searchQuery").value.replace(/\s/g, '');
+    console.log(`Search text: ${searchObj}`)
 
-// Get cuisine values
-  let cuisineAfrican = document.getElementById("african").checked;
-  let cuisineAsian = document.getElementById("asian").checked;
-  let cuisineAmerican = document.getElementById("american").checked;
-  let cuisineBritish = document.getElementById("british").checked;
-  let cuisineCajun = document.getElementById("cajun").checked;
-  let cuisineCaribean = document.getElementById("caribbean").checked;
-  let cuisineChinese = document.getElementById("chinese").checked;
-  let cuisineEasternEuropean = document.getElementById("easternEuropean").checked;
-  let cuisineEuropean = document.getElementById("european").checked;
-  let cuisineFrench= document.getElementById("french").checked;
-  let cuisineGerman = document.getElementById("German").checked;
-  let cuisineIndian = document.getElementById("Indian").checked;
-  let cuisineIrish = document.getElementById("Irish").checked;
-  let cuisineItalian = document.getElementById("Italian").checked;
-  let cuisineJapanese = document.getElementById("Japanese").checked;
-  let cuisineJewish = document.getElementById("Jewish").checked;
-  let cuisineKorean = document.getElementById("Korean").checked;
-  let cuisineLatinAmerican = document.getElementById("LatinAmerican").checked;
-  let cuisineMediterranean = document.getElementById("Mediterranean").checked;
-  let cuisineMexican = document.getElementById("Mexican").checked;
-  let cuisineMiddleEastern = document.getElementById("MiddleEastern").checked;
-  let cuisineNordic = document.getElementById("Nordic").checked;
-  let cuisineSouthern = document.getElementById("Southern").checked;
-  let cuisineSpanish = document.getElementById("Spanish").checked;
-  let cuisineThai = document.getElementById("Thai").checked;
-  let cuisineVietnamese = document.getElementById("Vietnamese").checked;
+    // Get cuisine values
+    // ******************
+    let african = {cuisine: 'african', selected: document.getElementById("african").checked};
+    let asian = {cuisine: 'asian', selected: document.getElementById("asian").checked};
+    let american = {cuisine: 'american', selected: document.getElementById("american").checked};
+    let british = document.getElementById("british").checked;
+    let cajun = document.getElementById("cajun").checked;
+    let caribbean = document.getElementById("caribbean").checked;
+    let chinese = document.getElementById("chinese").checked;
+    let easternEuropean = document.getElementById("easternEuropean").checked;
+    let european = document.getElementById("european").checked;
+    let french= document.getElementById("french").checked;
+    let german = document.getElementById("german").checked;
+    let indian = document.getElementById("indian").checked;
+    let irish = document.getElementById("irish").checked;
+    let italian = document.getElementById("italian").checked;
+    let japanese = document.getElementById("japanese").checked;
+    let jewish = document.getElementById("jewish").checked;
+    let korean = document.getElementById("korean").checked;
+    let latinamerican = document.getElementById("latinamerican").checked;
+    let mediterranean = document.getElementById("mediterranean").checked;
+    let mexican = document.getElementById("mexican").checked;
+    let middleeastern = document.getElementById("middleeastern").checked;
+    let nordic = document.getElementById("nordic").checked;
+    let southern = document.getElementById("southern").checked;
+    let spanish = document.getElementById("spanish").checked;
+    let vietnamese = document.getElementById("vietnamese").checked;
 
-  // Cuisine check
-  console.log(`cuisineAfrican: ${cuisineAfrican}`)
-  console.log(`cuisineAsian: ${cuisineAsian}`)
-  console.log(`cuisineAmerican: ${cuisineAmerican}`)
-  console.log(`cuisineBritish: ${cuisineBritish}`)
-  console.log(`cuisineCajun: ${cuisineCajun}`)
-  console.log(`cuisineCaribean: ${cuisineCaribean}`)
-  console.log(`cuisineChinese: ${cuisineChinese}`)
-  console.log(`cuisineEasternEuropean: ${cuisineEasternEuropean}`)
-  console.log(`cuisineEuropean: ${cuisineEuropean}`)
-  console.log(`cuisineFrench: ${cuisineFrench}`)
-  console.log(`cuisineGerman: ${cuisineGerman}`)
-  console.log(`cuisineIndian: ${cuisineIndian}`)
-  console.log(`cuisineIrish: ${cuisineIrish}`)
-  console.log(`cuisineItalian: ${cuisineItalian}`)
-  console.log(`cuisineJapanese: ${cuisineJapanese}`)
-  console.log(`cuisineJewish: ${cuisineJewish}`)
-  console.log(`cuisineKorean: ${cuisineKorean}`)
-  console.log(`cuisineLatinAmerican: ${cuisineLatinAmerican}`)
-  console.log(`cuisineMediterranean: ${cuisineMediterranean}`)
-  console.log(`cuisineMexican: ${cuisineMexican}`)
-  console.log(`cuisineMiddleEastern: ${cuisineMiddleEastern}`)
-  console.log(`cuisineNordic: ${cuisineNordic}`)
-  console.log(`cuisineSouthern: ${cuisineSouthern}`)
-  console.log(`cuisineSpanish: ${cuisineSpanish}`)
-  console.log(`cuisineThai: ${cuisineThai}`)
-  console.log(`cuisineVietnamese: ${cuisineVietnamese}`)
+    // List of all possible cuisines
+    let cuisines = [african, asian, american]
+    // let cuisines = [african, asian, american, british, cajun, caribbean, chinese, easternEuropean, european, french, german, indian, irish, italian, japanese, jewish, korean, latinamerican, mediterranean, mexican, middleeastern, nordic, southern, spanish, vietnamese]
+    console.log(cuisines)
+
+    // Filter the list to leave items with true values
+    let cuisineStrings = [];
+    for (let obj of cuisines) {
+        if (obj.selected) {
+          cuisineStrings.push(obj.cuisine);
+        }
+      }
+    console.log(cuisineStrings)
+
+    // Create string query for API
+    let appendedString = 'cuisine=' + cuisineStrings.join(',');
+    console.log(appendedString);
+
+    // const filteredCuisines = cuisines.filter(item => item.selected === true);
+    // console.log(filteredCuisines)
+
+
+
+    // // Cuisine check
+    // // *************
+    // console.log(`cuisineAfrican: ${cuisineAfrican}`)
+    // console.log(`cuisineAsian: ${cuisineAsian}`)
+    // console.log(`cuisineAmerican: ${cuisineAmerican}`)
+    // console.log(`cuisineBritish: ${cuisineBritish}`)
+    // console.log(`cuisineCajun: ${cuisineCajun}`)
+    // console.log(`cuisineCaribean: ${cuisineCaribean}`)
+    // console.log(`cuisineChinese: ${cuisineChinese}`)
+    // console.log(`cuisineEasternEuropean: ${cuisineEasternEuropean}`)
+    // console.log(`cuisineEuropean: ${cuisineEuropean}`)
+    // console.log(`cuisineFrench: ${cuisineFrench}`)
+    // console.log(`cuisineGerman: ${cuisineGerman}`)
+    // console.log(`cuisineIndian: ${cuisineIndian}`)
+    // console.log(`cuisineIrish: ${cuisineIrish}`)
+    // console.log(`cuisineItalian: ${cuisineItalian}`)
+    // console.log(`cuisineJapanese: ${cuisineJapanese}`)
+    // console.log(`cuisineJewish: ${cuisineJewish}`)
+    // console.log(`cuisineKorean: ${cuisineKorean}`)
+    // console.log(`cuisineLatinAmerican: ${cuisineLatinAmerican}`)
+    // console.log(`cuisineMediterranean: ${cuisineMediterranean}`)
+    // console.log(`cuisineMexican: ${cuisineMexican}`)
+    // console.log(`cuisineMiddleEastern: ${cuisineMiddleEastern}`)
+    // console.log(`cuisineNordic: ${cuisineNordic}`)
+    // console.log(`cuisineSouthern: ${cuisineSouthern}`)
+    // console.log(`cuisineSpanish: ${cuisineSpanish}`)
+    // console.log(`cuisineThai: ${cuisineThai}`)
+    // console.log(`cuisineVietnamese: ${cuisineVietnamese}`)
  
+    // Get cuisine values
+    // ******************
+    let Dairy = document.getElementById("Dairy").checked;
+    let Egg = document.getElementById("Egg").checked;
+    let Gluten = document.getElementById("Gluten").checked;
+    let Grain = document.getElementById("Grain").checked;
+    let Peanut = document.getElementById("Peanut").checked;
+    let Seafood = document.getElementById("Seafood").checked;
+    let Sesame = document.getElementById("Sesame").checked;
+    let Shellfish = document.getElementById("Shellfish").checked;
+    let Soy = document.getElementById("Soy").checked;
+    let Sulfite = document.getElementById("Sulfite").checked;
+    let Wheat = document.getElementById("Wheat").checked;
+    let TreeNut = document.getElementById("TreeNut").checked;
+
+    // Get type of meal
+    // ******************
+    let maincourse = document.getElementById("maincourse").checked;
+    let sidedish = document.getElementById("sidedish").checked;
+    let dessert = document.getElementById("dessert").checked;
+    let appetizer = document.getElementById("appetizer").checked;
+    let salad = document.getElementById("salad").checked;
+    let bread = document.getElementById("bread").checked;
+    let breakfast = document.getElementById("breakfast").checked;
+    let soup = document.getElementById("soup").checked;
+    let beverage = document.getElementById("beverage").checked;
+    let sauce = document.getElementById("sauce").checked;
+    let marinade = document.getElementById("marinade").checked;
+    let fingerfood = document.getElementById("fingerfood").checked;
+    let snack = document.getElementById("snack").checked;
+    let drink = document.getElementById("drink").checked;
+
+    // Get max carbs
+    // *************
+    let maxCarbs = document.getElementById("maxCarbs").checked;
+
+
+
 }
   // Create the url to call the api
   // ******************************
