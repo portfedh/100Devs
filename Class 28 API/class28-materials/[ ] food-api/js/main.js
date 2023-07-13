@@ -1,53 +1,60 @@
 
 // Listen for click
 // ****************
-document.querySelector('#submit-button').addEventListener('click', readForm)
+document.querySelector('#submit-button').addEventListener('click', controllerFunction)
 
+// Controller function
+// *******************
+function controllerFunction(){
+  console.log(`Search text: ${readSearch()}`)
+  console.log(`Cuisine Query: ${readCuisine()}`)
+  console.log(`Intolerances Query: ${readIntolerances()}`)
 
-// Read the form and call the API
-// ******************************
+}
 
-function readForm(){
+// Read user search query
+// **********************
+function readSearch(){
+  let searchObj = document.getElementById("searchQuery").value.replace(/\s/g, '');
+  return searchObj
+}
 
-    // Get the search query
-    // ************************
-    let searchObj = document.getElementById("searchQuery").value.replace(/\s/g, '');
-    console.log(`Search text: ${searchObj}`)
-
-    // Get cuisine values
-    // ******************
+// Read user cuisine values
+// ************************
+function readCuisine(){
     let african = {cuisine: 'african', selected: document.getElementById("african").checked};
     let asian = {cuisine: 'asian', selected: document.getElementById("asian").checked};
     let american = {cuisine: 'american', selected: document.getElementById("american").checked};
-    let british = document.getElementById("british").checked;
-    let cajun = document.getElementById("cajun").checked;
-    let caribbean = document.getElementById("caribbean").checked;
-    let chinese = document.getElementById("chinese").checked;
-    let easternEuropean = document.getElementById("easternEuropean").checked;
-    let european = document.getElementById("european").checked;
-    let french= document.getElementById("french").checked;
-    let german = document.getElementById("german").checked;
-    let indian = document.getElementById("indian").checked;
-    let irish = document.getElementById("irish").checked;
-    let italian = document.getElementById("italian").checked;
-    let japanese = document.getElementById("japanese").checked;
-    let jewish = document.getElementById("jewish").checked;
-    let korean = document.getElementById("korean").checked;
-    let latinamerican = document.getElementById("latinamerican").checked;
-    let mediterranean = document.getElementById("mediterranean").checked;
-    let mexican = document.getElementById("mexican").checked;
-    let middleeastern = document.getElementById("middleeastern").checked;
-    let nordic = document.getElementById("nordic").checked;
-    let southern = document.getElementById("southern").checked;
-    let spanish = document.getElementById("spanish").checked;
-    let vietnamese = document.getElementById("vietnamese").checked;
-
+    let british = {cuisine: 'british', selected: document.getElementById("british").checked};
+    let cajun = {cuisine: 'cajun', selected: document.getElementById("cajun").checked};
+    let caribbean = {cuisine: 'caribbean', selected: document.getElementById("caribbean").checked};
+    let chinese = {cuisine: 'chinese', selected: document.getElementById("chinese").checked};
+    let easternEuropean = {cuisine: 'easternEuropean', selected: document.getElementById("easternEuropean").checked};
+    let european = {cuisine: 'european', selected: document.getElementById("european").checked};
+    let french= {cuisine: 'french', selected: document.getElementById("french").checked};
+    let german = {cuisine: 'german', selected: document.getElementById("german").checked};
+    let indian = {cuisine: 'indian', selected: document.getElementById("indian").checked};
+    let irish = {cuisine: 'irish', selected: document.getElementById("irish").checked};
+    let italian = {cuisine: 'italian', selected: document.getElementById("italian").checked};
+    let japanese = {cuisine: 'japanese', selected: document.getElementById("japanese").checked};
+    let jewish = {cuisine: 'jewish', selected: document.getElementById("jewish").checked};
+    let korean = {cuisine: 'korean', selected: document.getElementById("korean").checked};
+    let latinamerican = {cuisine: 'latinamerican', selected: document.getElementById("latinamerican").checked};
+    let mediterranean = {cuisine: 'mediterranean', selected: document.getElementById("mediterranean").checked};
+    let mexican = {cuisine: 'mexican', selected: document.getElementById("mexican").checked};
+    let middleeastern = {cuisine: 'middleeastern', selected: document.getElementById("middleeastern").checked};
+    let nordic = {cuisine: 'nordic', selected: document.getElementById("nordic").checked};
+    let southern = {cuisine: 'southern', selected: document.getElementById("southern").checked};
+    let spanish = {cuisine: 'spanish', selected: document.getElementById("spanish").checked};
+    let vietnamese = {cuisine: 'vietnamese', selected: document.getElementById("vietnamese").checked};
     // List of all possible cuisines
-    let cuisines = [african, asian, american]
-    // let cuisines = [african, asian, american, british, cajun, caribbean, chinese, easternEuropean, european, french, german, indian, irish, italian, japanese, jewish, korean, latinamerican, mediterranean, mexican, middleeastern, nordic, southern, spanish, vietnamese]
+    let cuisines = [
+      african, asian, american, british, cajun, caribbean, chinese, easternEuropean, 
+      european, french, german, indian, irish, italian, japanese, jewish, korean, 
+      latinamerican, mediterranean, mexican, middleeastern, nordic, southern, 
+      spanish, vietnamese]
     console.log(cuisines)
-
-    // Filter the list to leave items with true values
+    // Filter the list to leave selected items
     let cuisineStrings = [];
     for (let obj of cuisines) {
         if (obj.selected) {
@@ -55,84 +62,75 @@ function readForm(){
         }
       }
     console.log(cuisineStrings)
-
     // Create string query for API
     let appendedString = 'cuisine=' + cuisineStrings.join(',');
-    console.log(appendedString);
-
-    // const filteredCuisines = cuisines.filter(item => item.selected === true);
-    // console.log(filteredCuisines)
-
-
-
-    // // Cuisine check
-    // // *************
-    // console.log(`cuisineAfrican: ${cuisineAfrican}`)
-    // console.log(`cuisineAsian: ${cuisineAsian}`)
-    // console.log(`cuisineAmerican: ${cuisineAmerican}`)
-    // console.log(`cuisineBritish: ${cuisineBritish}`)
-    // console.log(`cuisineCajun: ${cuisineCajun}`)
-    // console.log(`cuisineCaribean: ${cuisineCaribean}`)
-    // console.log(`cuisineChinese: ${cuisineChinese}`)
-    // console.log(`cuisineEasternEuropean: ${cuisineEasternEuropean}`)
-    // console.log(`cuisineEuropean: ${cuisineEuropean}`)
-    // console.log(`cuisineFrench: ${cuisineFrench}`)
-    // console.log(`cuisineGerman: ${cuisineGerman}`)
-    // console.log(`cuisineIndian: ${cuisineIndian}`)
-    // console.log(`cuisineIrish: ${cuisineIrish}`)
-    // console.log(`cuisineItalian: ${cuisineItalian}`)
-    // console.log(`cuisineJapanese: ${cuisineJapanese}`)
-    // console.log(`cuisineJewish: ${cuisineJewish}`)
-    // console.log(`cuisineKorean: ${cuisineKorean}`)
-    // console.log(`cuisineLatinAmerican: ${cuisineLatinAmerican}`)
-    // console.log(`cuisineMediterranean: ${cuisineMediterranean}`)
-    // console.log(`cuisineMexican: ${cuisineMexican}`)
-    // console.log(`cuisineMiddleEastern: ${cuisineMiddleEastern}`)
-    // console.log(`cuisineNordic: ${cuisineNordic}`)
-    // console.log(`cuisineSouthern: ${cuisineSouthern}`)
-    // console.log(`cuisineSpanish: ${cuisineSpanish}`)
-    // console.log(`cuisineThai: ${cuisineThai}`)
-    // console.log(`cuisineVietnamese: ${cuisineVietnamese}`)
+    return appendedString
+}
  
-    // Get cuisine values
-    // ******************
-    let Dairy = document.getElementById("Dairy").checked;
-    let Egg = document.getElementById("Egg").checked;
-    let Gluten = document.getElementById("Gluten").checked;
-    let Grain = document.getElementById("Grain").checked;
-    let Peanut = document.getElementById("Peanut").checked;
-    let Seafood = document.getElementById("Seafood").checked;
-    let Sesame = document.getElementById("Sesame").checked;
-    let Shellfish = document.getElementById("Shellfish").checked;
-    let Soy = document.getElementById("Soy").checked;
-    let Sulfite = document.getElementById("Sulfite").checked;
-    let Wheat = document.getElementById("Wheat").checked;
-    let TreeNut = document.getElementById("TreeNut").checked;
+// // Get Intolerances
+// // *****************
+function readIntolerances(){
+    let Dairy = {intolerance: 'Dairy', selected: document.getElementById("Dairy").checked};
+    let Egg = {intolerance: 'Egg', selected: document.getElementById("Egg").checked};
+    let Gluten = {intolerance: 'Gluten', selected: document.getElementById("Gluten").checked};
+    let Grain = {intolerance: 'Grain', selected: document.getElementById("Grain").checked};
+    let Peanut = {intolerance: 'Peanut', selected: document.getElementById("Peanut").checked};
+    let Seafood = {intolerance: 'Seafood', selected: document.getElementById("Seafood").checked};
+    let Sesame = {intolerance: 'Sesame', selected: document.getElementById("Sesame").checked};
+    let Shellfish = {intolerance: 'Shellfish', selected: document.getElementById("Shellfish").checked};
+    let Soy = {intolerance: 'Soy', selected: document.getElementById("Soy").checked};
+    let Sulfite = {intolerance: 'Sulfite', selected: document.getElementById("Sulfite").checked};
+    let Wheat = {intolerance: 'Wheat', selected: document.getElementById("Wheat").checked};
+    let TreeNut = {intolerance: 'TreeNut', selected: document.getElementById("TreeNut").checked};
+    // List of all possible intolerances
+    let intolerance = [
+      Dairy, Egg, Gluten, Grain, Peanut, Seafood, Sesame, Shellfish, Soy, Sulfite, Wheat, TreeNut
+    ]
+    // Filter list for selected intolerances
+    let selectedIntolerance = [];
+    for (let obj of intolerance) {
+        if (obj.selected) {
+          selectedIntolerance.push(obj.intolerance);
+        }
+      }
+    // Create string query for API
+    let appendedString = 'intolerances=' + selectedIntolerance.join(',');
+    return appendedString
+}
 
-    // Get type of meal
-    // ******************
-    let maincourse = document.getElementById("maincourse").checked;
-    let sidedish = document.getElementById("sidedish").checked;
-    let dessert = document.getElementById("dessert").checked;
-    let appetizer = document.getElementById("appetizer").checked;
-    let salad = document.getElementById("salad").checked;
-    let bread = document.getElementById("bread").checked;
-    let breakfast = document.getElementById("breakfast").checked;
-    let soup = document.getElementById("soup").checked;
-    let beverage = document.getElementById("beverage").checked;
-    let sauce = document.getElementById("sauce").checked;
-    let marinade = document.getElementById("marinade").checked;
-    let fingerfood = document.getElementById("fingerfood").checked;
-    let snack = document.getElementById("snack").checked;
-    let drink = document.getElementById("drink").checked;
-
-    // Get max carbs
-    // *************
-    let maxCarbs = document.getElementById("maxCarbs").checked;
-
-
+// // Get MealType
+// // *************
+function readMealType(){
+    let maincourse = {mealType: 'maincourse', selected: document.getElementById("maincourse").checked};
+    let sidedish = {mealType: 'sidedish', selected: document.getElementById("sidedish").checked};
+    let dessert = {mealType: 'dessert', selected: document.getElementById("dessert").checked};
+    let appetizer = {mealType: 'appetizer', selected: document.getElementById("appetizer").checked};
+    let salad = {mealType: 'salad', selected: document.getElementById("salad").checked};
+    let bread = {mealType: 'bread', selected: document.getElementById("bread").checked};
+    let breakfast = {mealType: 'breakfast', selected: document.getElementById("breakfast").checked};
+    let soup = {mealType: 'soup', selected: document.getElementById("soup").checked};
+    let beverage = {mealType: 'beverage', selected: document.getElementById("beverage").checked};
+    let sauce = {mealType: 'sauce', selected: document.getElementById("sauce").checked};
+    let marinade = {mealType: 'marinade', selected: document.getElementById("marinade").checked};
+    let fingerfood = {mealType: 'fingerfood', selected: document.getElementById("fingerfood").checked};
+    let snack = {mealType: 'snack', selected: document.getElementById("snack").checked};
+    let drink = {mealType: 'drink', selected: document.getElementById("drink").checked};
 
 }
+
+
+
+
+
+
+
+
+    // // Get max carbs
+    // // *************
+    // let maxCarbs = document.getElementById("maxCarbs").checked;
+
+
+
   // Create the url to call the api
   // ******************************
 //   let apiUrl = 'https://newsapi.org/v2/everything?' +
