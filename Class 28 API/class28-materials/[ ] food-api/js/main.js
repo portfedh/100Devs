@@ -17,11 +17,15 @@ function controllerFunction(){
   callApi()
   .then((data) => {
     jsonData = data;
-    writeResults();
+    // writeResults();
+    writeResultsTable();
   })
   .catch((error) => {
     console.log('API call failed:', error);
   });
+
+
+
 }
 
 
@@ -155,8 +159,8 @@ function readMaxCarbs(){
 }
 
 
-// Create API URL
-// **************
+// Create Main API URL
+// *******************
 function createUrl(){
   let numberOfResults = '5'
   let apiKey = '44e475e194eb44ec9cd193750fb44a71'
@@ -239,3 +243,82 @@ function writeResults(){
 
   }
 }
+
+// Add results to page (Table version)
+// ************************************
+function writeResultsTable(){
+  // Get a reference to the container to add results
+  const container = document.getElementById("container-table");
+
+  // Delete any ul from previous searches
+  if (document.querySelector('table') == null) {
+    // Pass
+  } else {
+    document.querySelector('table').remove();
+  }
+  // Create a new table
+  const tableElement = document.createElement("table");
+  // Append the table to the container
+  container.appendChild(tableElement);
+  // Create a row
+  const tableHeaderRow = document.createElement("tr");
+   // Append the row to the table
+  tableElement.appendChild(tableHeaderRow);
+  // Create header 1
+  let tableHeader1 = document.createElement("th");
+  let headerOneText = document.createTextNode("Recipe Name");
+  tableHeader1.appendChild(headerOneText);
+  tableHeaderRow.appendChild(tableHeader1)
+  // Create header 2
+  let tableHeader2 = document.createElement("th");
+  let headerTwoText = document.createTextNode("Image");
+  tableHeader2.appendChild(headerTwoText);
+  tableHeaderRow.appendChild(tableHeader2)
+
+
+  // Iterate through results
+  for(i=0; i < jsonData.number; i++){
+
+    let title = jsonData.results[i].title;
+    let id = jsonData.results[i].id;
+    let image = jsonData.results[i].image;
+
+    // Create a new table row
+    const newTr = document.createElement("tr");
+
+    // Create Recipe name data
+    // ************************
+    // Create a new table data
+    const newTd = document.createElement("td");
+    // Create a new anchor element
+    const anchorElement = document.createElement("a");
+    // Set the URL as the href attribute of the anchor element
+    anchorElement.href = id;
+    // Set the text content for the anchor element
+    anchorElement.textContent = title;
+    // Append the anchor element to the table data
+    newTd.appendChild(anchorElement);
+    // Append the table data item to the table row
+    newTr.appendChild(newTd);
+
+    // Create Recipe image
+    // *******************
+    // Create a new table data
+    const newTd2 = document.createElement("td");
+    // Create a new image element
+    const imageElement = document.createElement("img");
+    // Set the source attribute and alt text
+    imageElement.src = image;
+    imageElement.alt = title;
+    // Append the image element to the table data
+    newTd2.appendChild(imageElement);
+    // Append the table data item to the table row
+    newTr.appendChild(newTd2);
+
+    // Append the table row to the table
+    tableElement.appendChild(newTr);
+
+  }
+}
+
+http://127.0.0.1:5500/Class%2028%20API/class28-materials/%5B%20%5D%20food-api/4273
