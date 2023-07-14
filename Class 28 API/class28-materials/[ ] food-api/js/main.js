@@ -1,7 +1,9 @@
+let jsonData;
 
 // Listen for click
 // ****************
 document.querySelector('#submit-button').addEventListener('click', controllerFunction)
+
 
 // Controller function
 // *******************
@@ -9,15 +11,27 @@ function controllerFunction(){
   console.log(`Search text: ${readSearch()}`)
   console.log(`Cuisine Query: ${readCuisine()}`)
   console.log(`Intolerances Query: ${readIntolerances()}`)
-
+  console.log(`Meal Type Query: ${readMealType()}`)
+  console.log(`Max Carbs: ${readMaxCarbs()}`)
+  console.log(`Api URL: ${createUrl()}`)
+  callApi()
+  .then((data) => {
+    jsonData = data;
+    writeResults();
+  })
+  .catch((error) => {
+    console.log('API call failed:', error);
+  });
 }
+
 
 // Read user search query
 // **********************
 function readSearch(){
-  let searchObj = document.getElementById("searchQuery").value.replace(/\s/g, '');
+  let searchObj = document.getElementById("searchQuery").value.replace(/\s/g, '').toLowerCase();
   return searchObj
 }
+
 
 // Read user cuisine values
 // ************************
@@ -53,7 +67,7 @@ function readCuisine(){
       european, french, german, indian, irish, italian, japanese, jewish, korean, 
       latinamerican, mediterranean, mexican, middleeastern, nordic, southern, 
       spanish, vietnamese]
-    console.log(cuisines)
+    // console.log(cuisines)
     // Filter the list to leave selected items
     let cuisineStrings = [];
     for (let obj of cuisines) {
@@ -61,12 +75,13 @@ function readCuisine(){
           cuisineStrings.push(obj.cuisine);
         }
       }
-    console.log(cuisineStrings)
+    // console.log(cuisineStrings)
     // Create string query for API
-    let appendedString = 'cuisine=' + cuisineStrings.join(',');
+    let appendedString = cuisineStrings.join(',');
     return appendedString
 }
- 
+
+
 // // Get Intolerances
 // // *****************
 function readIntolerances(){
@@ -83,9 +98,7 @@ function readIntolerances(){
     let Wheat = {intolerance: 'Wheat', selected: document.getElementById("Wheat").checked};
     let TreeNut = {intolerance: 'TreeNut', selected: document.getElementById("TreeNut").checked};
     // List of all possible intolerances
-    let intolerance = [
-      Dairy, Egg, Gluten, Grain, Peanut, Seafood, Sesame, Shellfish, Soy, Sulfite, Wheat, TreeNut
-    ]
+    let intolerance = [Dairy, Egg, Gluten, Grain, Peanut, Seafood, Sesame, Shellfish, Soy, Sulfite, Wheat, TreeNut]
     // Filter list for selected intolerances
     let selectedIntolerance = [];
     for (let obj of intolerance) {
@@ -94,9 +107,10 @@ function readIntolerances(){
         }
       }
     // Create string query for API
-    let appendedString = 'intolerances=' + selectedIntolerance.join(',');
+    let appendedString = selectedIntolerance.join(',');
     return appendedString
 }
+
 
 // // Get MealType
 // // *************
@@ -115,111 +129,113 @@ function readMealType(){
     let fingerfood = {mealType: 'fingerfood', selected: document.getElementById("fingerfood").checked};
     let snack = {mealType: 'snack', selected: document.getElementById("snack").checked};
     let drink = {mealType: 'drink', selected: document.getElementById("drink").checked};
-
+    // List of all possible meal types
+    let mealType = [ maincourse, sidedish, dessert, appetizer, salad, bread, breakfast, 
+      soup, beverage, sauce, marinade, fingerfood, snack, drink
+    ]
+    // Filter list for selected intolerances
+    let selectedMeal = [];
+    for (let obj of mealType) {
+        if (obj.selected) {
+          selectedMeal.push(obj.mealType);
+        }
+      }
+    // Create string query for API
+    let appendedString = selectedMeal.join(',');
+    return appendedString
 }
 
 
+// Get max carbs
+// *************
+function readMaxCarbs(){
+  let maxCarbs = document.getElementById("maxCarbs");
+  var inputValue = maxCarbs.value;
+  return inputValue
+}
 
 
+// Create API URL
+// **************
+function createUrl(){
+  let numberOfResults = '5'
+  let apiKey = '44e475e194eb44ec9cd193750fb44a71'
+  let baseUrl = 'https://api.spoonacular.com/recipes/complexSearch'
+  let query = readSearch()
+  let cuisine = readCuisine()
+  let intolerances = readIntolerances()
+  let mealType = readMealType()
+  let maxCarbs = readMaxCarbs()
+
+  let apiUrl = baseUrl + '?' +
+            'apiKey=' + apiKey + '&' +
+            'query=' + query + '&' +
+            'cuisine=' + cuisine + '&' +
+            'intolerances=' + intolerances + '&' +
+            'type=' + mealType + '&' +
+            'maxCarbs=' + maxCarbs + '&' +
+            'number=' + numberOfResults
+            ;
+  return apiUrl
+}
 
 
+// Call the API
+// ************
+function callApi(){
+  // Make the api url
+  let apiUrl = createUrl()
 
+  return new Promise((resolve, reject) => {
+    fetch(apiUrl)
+      // Parse response as JSON
+      .then(res => res.json())
+      // Manipulate data
+      .then(data => {
+        resolve(data); // Resolve the promise with the parsed JSON data
+      })
+      .catch(err => {
+        reject(err); // Reject the Promise with the error
+      });
+  });
+}
 
-    // // Get max carbs
-    // // *************
-    // let maxCarbs = document.getElementById("maxCarbs").checked;
+// Add results to page
+// *******************
+function writeResults(){
+  // Get a reference to the container to add results
+  const container = document.getElementById("container");
 
+  // Delete any ul from previous searches
+  if (document.querySelector('ul') == null) {
+    // Pass
+  } else {
+    document.querySelector('ul').remove();
+  }
+  // Create an unordered list 
+  const ulElement = document.createElement("ul");
+  // Append the unordered list to container
+  container.appendChild(ulElement);
 
+  // Iterate through results
+  for(i=0; i < jsonData.number; i++){
 
-  // Create the url to call the api
-  // ******************************
-//   let apiUrl = 'https://newsapi.org/v2/everything?' +
-//             'q=' +
-//             search +
-//             '&' +
-//             'from=' +
-//             formattedDate +
-//             '&' +
-//             'sortBy=popularity&' +
-//             'apiKey=6320f961210745a9bf655842d076b524';
-//   console.log("URL is: " + apiUrl);
+    let title = jsonData.results[i].title;
+    let id = jsonData.results[i].id;
+    let image = jsonData.results[i].image;
 
-// }
+    // Create a new element
+    const liElement = document.createElement("li");
+    // Create a new anchor element
+    const anchorElement = document.createElement("a");
+    // Set the URL as the href attribute of the anchor element
+    anchorElement.href = id;
+    // Set the text content for the anchor element
+    anchorElement.textContent = title;
+    // Append the anchor element to the list item
+    liElement.appendChild(anchorElement);
+    // Append the list item to the unordered list
+    ulElement.appendChild(liElement);
 
-
-// // Call the API
-//   // ************
-//   var req = new Request(apiUrl);
-//   fetch(req)
-//       // Parse response as JSON
-//       .then(res => res.json())
-//       // Manipulate data
-//       .then(data => {
-//         // Display all results in console
-//         console.log(data)
-
-//         // Define number of results to display in page
-//         let maxResults = 10
-//         let results = Number(data.totalResults)
-//         console.log(`Results found: ${results}`)
-//         if(results >= maxResults){
-//             resultsLength = maxResults
-//         } else {
-//             resultsLength = results
-//         }
-        
-//         // Get a reference to the container to add results
-//         const container = document.getElementById("container");
-//         // Delete any unordered lists
-//         if (document.querySelector('ul') == null) {
-//             // Pass
-//         } else {
-//             document.querySelector('ul').remove();
-//         }
-        
-//         // Create an unordered list 
-//         const ulElement = document.createElement("ul");
-//         // Append the unordered list to container
-//         container.appendChild(ulElement);
-
-//         // Iterate through results
-//         for(i=0; i < resultsLength; i++){
-//             let articleTitle = data.articles[i].title;
-//             let articleUrl = data.articles[i].url;
-//             let articleSource = data.articles[i].source.name
-
-//             // Create a new element
-//             const liElement = document.createElement("li");
-//             // Create a new anchor element
-//             const anchorElement = document.createElement("a");
-//             // Set the URL as the href attribute of the anchor element
-//             anchorElement.href = articleUrl;
-//             // Set the text content for the anchor element
-//             anchorElement.textContent = articleTitle + ", " + articleSource;
-//             // Append the anchor element to the list item
-//             liElement.appendChild(anchorElement);
-//             // Append the list item to the unordered list
-//             ulElement.appendChild(liElement);
-//         }
-
-//         // For Debugging
-//         console.log(`Article Title: ${data.articles[0].title}`)
-//         console.log(`Article Description: ${data.articles[0].description}`)
-//         console.log(`Article Author: ${data.articles[0].author}`)
-//         console.log(`Article Content: ${data.articles[0].content}`)
-//         console.log(`Article Url: ${data.articles[0].url}`)
-//         console.log(`Article Image: ${data.articles[0].urlToImage}`)
-//         console.log(`Article Published: ${data.articles[0].publishedAt}`)
-//         console.log(`Article Source: ${data.articles[0].source.name}`)
-
-//       })
-//       .catch(err => {
-//         console.log(`error ${err}`)
-//       })
-
-
-
-
-
-
-
+  }
+}
