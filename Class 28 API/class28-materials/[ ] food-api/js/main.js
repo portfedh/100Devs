@@ -1,4 +1,9 @@
+// Global variables
+// ****************
 let jsonData;
+let numberOfResults = '5'
+let apiKey = '44e475e194eb44ec9cd193750fb44a71'
+
 
 // Listen for click
 // ****************
@@ -17,7 +22,6 @@ function controllerFunction(){
   callApi()
   .then((data) => {
     jsonData = data;
-    // writeResults();
     writeResultsTable();
   })
   .catch((error) => {
@@ -162,8 +166,6 @@ function readMaxCarbs(){
 // Create Main API URL
 // *******************
 function createUrl(){
-  let numberOfResults = '5'
-  let apiKey = '44e475e194eb44ec9cd193750fb44a71'
   let baseUrl = 'https://api.spoonacular.com/recipes/complexSearch'
   let query = readSearch()
   let cuisine = readCuisine()
@@ -183,10 +185,10 @@ function createUrl(){
   return apiUrl
 }
 
-
-// Call the API
-// ************
+// Call main API
+// *************
 function callApi(){
+  
   // Make the api url
   let apiUrl = createUrl()
 
@@ -204,53 +206,14 @@ function callApi(){
   });
 }
 
-// Add results to page
-// *******************
-function writeResults(){
-  // Get a reference to the container to add results
-  const container = document.getElementById("container");
-
-  // Delete any ul from previous searches
-  if (document.querySelector('ul') == null) {
-    // Pass
-  } else {
-    document.querySelector('ul').remove();
-  }
-  // Create an unordered list 
-  const ulElement = document.createElement("ul");
-  // Append the unordered list to container
-  container.appendChild(ulElement);
-
-  // Iterate through results
-  for(i=0; i < jsonData.number; i++){
-
-    let title = jsonData.results[i].title;
-    let id = jsonData.results[i].id;
-    let image = jsonData.results[i].image;
-
-    // Create a new element
-    const liElement = document.createElement("li");
-    // Create a new anchor element
-    const anchorElement = document.createElement("a");
-    // Set the URL as the href attribute of the anchor element
-    anchorElement.href = id;
-    // Set the text content for the anchor element
-    anchorElement.textContent = title;
-    // Append the anchor element to the list item
-    liElement.appendChild(anchorElement);
-    // Append the list item to the unordered list
-    ulElement.appendChild(liElement);
-
-  }
-}
 
 // Add results to page (Table version)
-// ************************************
+// -----------------------------------
 function writeResultsTable(){
   // Get a reference to the container to add results
   const container = document.getElementById("container-table");
 
-  // Delete any ul from previous searches
+  // Delete any table from previous searches
   if (document.querySelector('table') == null) {
     // Pass
   } else {
@@ -302,7 +265,7 @@ function writeResultsTable(){
     newTr.appendChild(newTd);
 
     // Create Recipe image
-    // *******************
+    // -------------------
     // Create a new table data
     const newTd2 = document.createElement("td");
     // Create a new image element
@@ -317,8 +280,5 @@ function writeResultsTable(){
 
     // Append the table row to the table
     tableElement.appendChild(newTr);
-
   }
 }
-
-http://127.0.0.1:5500/Class%2028%20API/class28-materials/%5B%20%5D%20food-api/4273
