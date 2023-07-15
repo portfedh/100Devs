@@ -1,5 +1,7 @@
 // Global variables
 // ****************
+let jsonRecipe;
+let jsonRecipeUrl;
 let jsonData;
 let numberOfResults = '5'
 let apiKey = '44e475e194eb44ec9cd193750fb44a71'
@@ -206,7 +208,7 @@ function callApi(){
 
 // Add results to page (Table version)
 // -----------------------------------
-function writeResultsTable(){
+async function writeResultsTable(){
   // Get a reference to the container to add results
   const container = document.getElementById("container-table");
 
@@ -242,39 +244,52 @@ function writeResultsTable(){
     let id = jsonData.results[i].id;
     let image = jsonData.results[i].image;
 
-    // Create a new table row
-    const newTr = document.createElement("tr");
 
-    // Create Recipe name data
-    // ************************
-    // Create a new table data
-    const newTd = document.createElement("td");
-    // Create a new anchor element
-    const anchorElement = document.createElement("a");
-    // Set the URL as the href attribute of the anchor element
-    anchorElement.href = id;
-    // Set the text content for the anchor element
-    anchorElement.textContent = title;
-    // Append the anchor element to the table data
-    newTd.appendChild(anchorElement);
-    // Append the table data item to the table row
-    newTr.appendChild(newTd);
+    try {
+      // Call the dish API and wait for the response
+      const data = await callDishApi(id);
+      jsonRecipe = data;
+      jsonRecipeUrl = jsonRecipe.spoonacularSourceUrl;
 
-    // Create Recipe image
-    // -------------------
-    // Create a new table data
-    const newTd2 = document.createElement("td");
-    // Create a new image element
-    const imageElement = document.createElement("img");
-    // Set the source attribute and alt text
-    imageElement.src = image;
-    imageElement.alt = title;
-    // Append the image element to the table data
-    newTd2.appendChild(imageElement);
-    // Append the table data item to the table row
-    newTr.appendChild(newTd2);
+      // Create a new table row
+      const newTr = document.createElement("tr");
 
-    // Append the table row to the table
-    tableElement.appendChild(newTr);
+      // Create Recipe name data:
+      // -----------------------
+      // Create a new table data
+      const newTd = document.createElement("td");
+      // Create a new anchor element
+      const anchorElement = document.createElement("a");
+      // Set the URL as the href attribute of the anchor element
+      anchorElement.href = jsonRecipeUrl;
+      // Set the text content for the anchor element
+      anchorElement.textContent = title;
+      // Append the anchor element to the table data
+      newTd.appendChild(anchorElement);
+      // Append the table data item to the table row
+      newTr.appendChild(newTd);
+
+      // Create Recipe image
+      // -------------------
+      // Create a new table data
+      const newTd2 = document.createElement("td");
+      // Create a new image element
+      const imageElement = document.createElement("img");
+      // Set the source attribute and alt text
+      imageElement.src = image;
+      imageElement.alt = title;
+      // Append the image element to the table data
+      newTd2.appendChild(imageElement);
+      // Append the table data item to the table row
+      newTr.appendChild(newTd2);
+
+      // Append the table row to the table
+      tableElement.appendChild(newTr);
+
+    } catch (error) {
+      console.log('API call failed:', error);
+    }
+
   }
 }
+
