@@ -27,9 +27,6 @@ function controllerFunction(){
   .catch((error) => {
     console.log('API call failed:', error);
   });
-
-
-
 }
 
 
@@ -237,7 +234,6 @@ function writeResultsTable(){
   let headerTwoText = document.createTextNode("Image");
   tableHeader2.appendChild(headerTwoText);
   tableHeaderRow.appendChild(tableHeader2)
-
 
   // Iterate through results
   for(i=0; i < jsonData.number; i++){
