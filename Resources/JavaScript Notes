@@ -222,22 +222,109 @@ For loop:
 
 
 
-For Each Loop:
+.forEach():
+
+    Will execute the same code for each element in an array. 
 
     Example:
-        const array = [5, 6, 7, 8, 8, 10];
+        const fruits = ['mango', 'papaya', 'pineapple', 'apple'];
 
-        array.forEach((element, index) => {
-          console.log(`Element at index ${index}: ${element}`);
-        });
+        fruits.forEach(
+          x => console.log(`I want to eat a ${x}`)
+          )
 
-        Element at index 0: 5
-        Element at index 1: 6
-        Element at index 2: 7
-        Element at index 3: 8
-        Element at index 4: 9
-        Element at index 5: 10
 
+
+.map()
+
+  Takes an argument of a function and returns a new array.
+
+  Example:
+
+    const numbers = [1, 2, 3, 4, 5]; 
+     
+    const bigNumbers = numbers.map(number => {
+      return number * 10;
+    });
+
+    console.log(numbers); 
+    // Output: [1, 2, 3, 4, 5]
+
+    console.log(bigNumbers); 
+    // Output: [10, 20, 30, 40, 50]
+
+
+
+.filter()
+
+  Takes an argument of a function and returns a new array with filtered elements.
+
+  The filter criteria should return true or false to work
+
+
+  Example:
+  
+    const words = ['chair', 'music', 'pillow', 'brick', 'pen', 'door']; 
+     
+    const shortWords = words.filter(word => {
+      return word.length < 6;
+    });
+
+    console.log(words); 
+    // Output: ['chair', 'music', 'pillow', 'brick', 'pen', 'door']; 
+
+    console.log(shortWords); 
+    // Output: ['chair', 'music', 'brick', 'pen', 'door']
+
+
+
+.findIndex()
+
+  Finds the location of an element in an array
+
+  will return the index of the first element that evaluates to true in the callback function. 
+
+
+  If there isn’t a single element in the array that satisfies the condition in the callback, then .findIndex() will return -1
+
+
+  Example:
+
+    const jumbledNums = [123, 25, 78, 5, 9]; 
+     
+    const lessThanTen = jumbledNums.findIndex(num => {
+      return num < 10;
+    });
+
+    console.log(lessThanTen); 
+    // Output: 3 
+
+    console.log(jumbledNums[3]); 
+    // Output: 5
+
+
+
+.reduce()
+
+  Returns a single value after iterating through the elements of an array
+
+  Takes two parametes, accumulator and iterator
+
+  Default is position 0 and 1 in array
+
+  You can change the initial value of accumulator as a second parameter.
+
+
+  Example:
+
+    const numbers = [1, 2, 4, 10];
+     
+    const summedNums = numbers.reduce((accumulator, currentValue) => {
+      return accumulator + currentValue
+    })
+     
+    console.log(summedNums) 
+    // Output: 17
 
 
 Functions:
