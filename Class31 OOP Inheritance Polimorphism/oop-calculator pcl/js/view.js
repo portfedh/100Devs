@@ -1,8 +1,5 @@
-// Setup
-let display = ''
-
-// Get Inputs
-// **********
+// Inputs from DOM
+// ***************
 
 // Numbers & digits
 document.querySelector('#num1').addEventListener('click', () => getNumber('1'))
@@ -19,7 +16,7 @@ document.querySelector('#numDot').addEventListener('click', () => getNumber('.')
 
 // Operation
 document.querySelector('#numPlus').addEventListener('click', () => addNumber())
-document.querySelector('#numMinus').addEventListener('click', () => operation('-'))
+document.querySelector('#numMinus').addEventListener('click', () => subtractNumber())
 document.querySelector('#numMultiply').addEventListener('click', () => operation('x'))
 document.querySelector('#numDivide').addEventListener('click', () => operation('/'))
 document.querySelector('#numEqual').addEventListener('click', () => operation('='))
@@ -29,14 +26,22 @@ document.querySelector('#numDel').addEventListener('click', () => deleteNumber()
 document.querySelector('#numAc').addEventListener('click', () => deleteAll())
 
 
-// Functions
-// *********
+// Calculator Behaviors
+// *********************
+
+// Setup
+let display = ''
 
 // Display Behaviors
 function getNumber(x) {
   console.log( `You pressed the ${x} button.`);
-  display += x
-  document.querySelector('#displayResults').innerText = display;
+  if(x === '.' && display.includes('.')) { 
+    return 
+  }  else {
+    display += x
+    document.querySelector('#displayResults').innerText = display;
+  }
+  
 }
 
 function deleteNumber() {
@@ -52,9 +57,21 @@ function deleteAll() {
 }
 
 // Controller Behaviors
-function addNumber(number) {
+function addNumber() {
   console.log( `You pressed the + button.`);
-  calculator.add(Number(number))
-  console.log(calculator)
-  document.querySelector('#displayResults').innerText = x;
+  calculator.add(Number(display))
+  result = calculator.getResult()
+  display = ''
+  document.querySelector('#displayResults').innerText = result;
+}
+
+function subtractNumber() {
+  console.log( `You pressed the - button.`);
+  this.result = Number(display)
+  display = ''
+  
+  calculator.subtract(Number(display))
+  result = calculator.getResult()
+  display = ''
+  document.querySelector('#displayResults').innerText = result;
 }
