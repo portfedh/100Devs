@@ -72,7 +72,7 @@ function readForm(){
         console.log(data)
 
         // Define number of results to display in page
-        let maxResults = 10
+        let maxResults = 100
         let results = Number(data.totalResults)
         console.log(`Results found: ${results}`)
         if(results >= maxResults){
