@@ -26,8 +26,8 @@ document.querySelector('#numDel').addEventListener('click', () => deleteNumber()
 document.querySelector('#numAc').addEventListener('click', () => deleteAll())
 
 
-// Calculator Behaviors
-// *********************
+// DOM Behaviors
+// *************
 
 // Setup
 let display = ''
