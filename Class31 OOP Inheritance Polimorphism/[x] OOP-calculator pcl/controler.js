@@ -33,7 +33,7 @@ function addNumber() {
 function subtractNumber() {
   console.log( `You pressed the - button.`);
   if(subtractOn === false){
-    addNumber()
+    getResult()
     subtractOn = true
     lastCalculation = 'subtract'
   } else {
@@ -53,7 +53,11 @@ function multiplyNumber() {
     multiplyOn = true
     lastCalculation = 'multiply'
   } else {
-    calculator.multiply(Number(display))
+    if (display === ''){
+      calculator.multiply(Number(this.result))
+    } else {
+      calculator.multiply(Number(display))
+    }
     result = calculator.getResult()
     display = ''
     document.querySelector('#displayResults').innerText = result;
@@ -68,7 +72,11 @@ function divideNumber() {
     divideOn = true
     lastCalculation = 'divide'
   } else {
-    calculator.divide(Number(display))
+    if (display === ''){
+      calculator.divide(Number(this.result))
+    } else {
+      calculator.divide(Number(display))
+    }
     result = calculator.getResult()
     display = ''
     document.querySelector('#displayResults').innerText = result;
