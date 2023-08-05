@@ -1,0 +1,1 @@
+console.log('Second script just loaded. Im SecondScript')
