@@ -1,5 +1,50 @@
 // Async / Await
 // *************
+
+// https://www.youtube.com/watch?v=vn3tm0quoqE
+
+// Fireship
+
+
+// The event loop:
+
+//     The browser & node JS run a single threaded event loop.
+
+//     First round
+
+//         Runs all synchronous code
+
+//         It ques up asynchronous events to be called back later
+
+//         When asynchonous events finish, it lets the event loop know its ready to be called back.
+
+//             Micro-tasks will be executed before the start of the next event loop. 
+
+//             Macro-tasks will be executed in the next event loop. 
+
+
+    // Example:
+
+        // L1
+        console.log('Sync 1')
+
+        // L2 (macro-task)
+        setTimeout(_ => console.log('Timeout2'), 0)
+
+        // L3 (micro-task)
+        Promise.resolve().then(_ => console.log('Promise3'))
+
+        // L4
+        console.log('Sync 4')
+
+        // Responses:
+        // Sync1 -> Sync4 -> Promise3 -> Timeout2
+
+
+
+
+
+
 // https://javascript.info/async-await
 
 // Special syntax to work with promises more comfortably. 
@@ -58,3 +103,50 @@ async function showAvatar() {
 }
 
 showAvatar();
+
+
+// The event loop
+// **************
+
+//     The browser & node JS run a single threaded event loop.
+
+//     First round
+//         Runs all synchronous code
+
+//         It ques up asynchronous events to be called back later
+
+//         When asynchonous events finish, it lets the event loop know its ready to be called back.
+
+//             Micro-tasks will be executed before the start of the next event loop. 
+
+
+//             Macro-tasks will be executed in the next event loop. 
+
+
+    // Example:
+
+        // L1
+        console.log('Sync 1')
+
+        // L2 (macro-task)
+        setTimeout(_ => console.log('Timeout2'), 0)
+
+        // L3 (micro-task)
+        Promise.resolve().then(_ => console.log('Promise3'))
+
+        // L4
+        console.log('Sync 4')
+
+        // Responses:
+        // Sync1 -> Sync4 -> Promise3 -> Timeout2
+
+
+// Promises:
+
+//     You can catch any errors in the chain with a single function. 
+
+// Async await:
+
+//     Syntactical sugar to make async code look like synchronous code.
+
+//     Error handling: try { } catch(err) { }
