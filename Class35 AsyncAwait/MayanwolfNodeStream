@@ -6,11 +6,27 @@ Title:
 Mayanwolfe Streams Link:
     https://www.youtube.com/watch?v=VOfqO4-RLd4
 
-
 Notes:
+******
 
 Launch a server:
     $ node <filename>
+    $ node server // No need to add file extension
+
+Close server:
+    $ Crl + c
 
 Install a node module
     $ npm i <package_name>
+    $ npm i figlet
+    // Will create:
+        // package.json
+        // package-lock.json
+        // node_modules folder
+
+Questions:
+**********
+
+    How to set the port in localhost
+
+    

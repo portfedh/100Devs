@@ -1,0 +1,242 @@
+15 Aug 2023
+
+Title:
+    Building a Simple CRUD app with Node, Express, and MongoDB
+
+Link:
+    https://zellwk.com/blog/crud-express-mongodb/#convertkit
+
+Notes:
+******
+
+Definitions:
+
+    Express: framework to build webapps on top of NodeJs
+
+    MongoDB: is a database.
+
+    CRUD
+
+        Create (POST)
+
+        Read (GET)
+
+        Update (PUT)
+
+        Delete (DELETE)
+
+
+Creating a REST API:
+
+    Build a simple application that lets you track a list of quotes from Star Wars Characters
+
+
+SETUP
+*****
+
+    Navigage to folder
+
+    Create package.json:
+        
+        $ npm init
+
+    Create server file:
+
+        $ touch server.js
+
+        // server.js
+            console.log('May Node be with you')
+
+    Run server file:
+
+        $ node server
+
+    Install Express:
+
+        $ npm install express --save
+
+        // --save: saves it as a dependency in package.json
+
+
+    Install Nodemon:
+
+        $ npm install nodemon --save-dev
+
+        // --save-dev: Saves as dev dependency in package.json
+
+    Modify package.json to run automatically:
+
+        // package.json
+        {
+          // ...
+          "scripts": {
+            "dev": "nodemon server.js"
+          }
+          // ...
+        }
+
+    Run nodemon:
+
+        $ npm run dev
+
+        // Now server will refresh automatically
+
+    Install body-parser:
+
+        Middleware to use request object in express.
+
+        $ npm install body-parser --save
+
+    Install Mongo DB:
+
+        $ npm install mongodb --save
+
+    Connect to MongoDB Atlas
+
+        https://www.mongodb.com/atlas/database
+
+        Create an account
+
+        Create a project
+
+        Create a cluster
+
+        Add your current IP address (whitelist)
+
+        Create a new user
+
+            user: Yoda
+            pass: oNEn6lWuO2ADugjM
+
+        Get connection information:
+            DataServices/Connect/Drivers
+            mongodb+srv://<username>:<password>@cluster0.tbcbcmb.mongodb.net/?retryWrites=true&w=majority
+
+
+
+
+
+CREATE SERVER FILE
+******************
+
+    Import express in server.js:
+
+        const express = require('express')
+        const app = express()
+
+    Add bodypparser:
+        // Place  before your CRUD handlers
+        app.use(bodyParser.urlencoded({ extended: true }))
+                const bodyParser = require('body-parser')
+
+    Add the port people will connect to:
+
+        app.listen(3000, function () {
+          console.log('listening on 3000')
+        })
+
+        // At this point if you try to connect
+        // You will get this message.
+        // 'cannot get /'
+
+    Add handlers here:
+        // All your handlers here...
+        app.get('/', (req, res) => {
+          /*...*/
+        })
+        app.post('/quotes', (req, res) => {
+          console.log(req.body)
+        })
+
+    Connect to MongoDb
+        const MongoClient = require('mongodb').MongoClient
+
+        MongoClient.connect('mongodb-connection-string', (err, client) => {
+          // ... do something here
+        })
+
+
+CRUD - READ
+***********
+
+    Browsers perform the READ operation when you visit a website
+
+    Under the hood, they send a GET request to the server to perform this READ operation.
+
+        GET in Express 
+            app.get(endpoint, callback)
+
+            Example: 
+                app.get('/', function (req, res) {
+                  res.send('Hello World')
+                })
+
+            Arrow function version:
+                app.get('/', (req, res) => {
+                  res.send('Hello World')
+                })
+
+            // Add this to server.js
+
+
+    Restart Node JS Server
+
+        $ Crl + C
+
+        $ node server
+
+        // Navigate to localhost:3000
+        // HTML response --> 'Hello World'
+
+
+
+    Now change the code to serve Index.html
+
+        app.get('/', (req, res) => {
+          res.sendFile(__dirname + '/index.html')
+          // '__dirname' is the current directory you're in.
+        })
+
+
+    Create index.html
+
+        $ touch index.html
+
+        // Inside index.html
+            <!DOCTYPE html>
+            <html lang="en">
+              <head>
+                <meta charset="UTF-8" />
+                <title>MY APP</title>
+              </head>
+              <body>
+                <h1>May Node and Express be with you.</h1>
+              </body>
+            </html>
+
+CRUD - CREATE
+*************
+
+    Browsers CREATE with a POST request to the server.
+
+    The POST request can be triggered through JavaScript or through a <form> element.
+
+
+    Option 1: Form Element:
+
+        Add a form element with attributes:
+            - 'action': Where to send request
+            - 'method': Post request
+            - 'name': id for that form element
+
+        <form action="/quotes" method="POST">
+          <input type="text" placeholder="name" name="name" />
+          <input type="text" placeholder="quote" name="quote" />
+          <button type="submit">Submit</button>
+        </form>
+
+        To handle the form element use:
+
+        app.post('/quotes', (req, res) => {
+          console.log('Hellooooooooooooooooo!')
+        })

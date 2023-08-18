@@ -1,6 +1,6 @@
 // There are several ways to run asynchronous code
 
-// The oldest one is called a callback, which is explained below. 
+// The oldest one is called a callback, which is explained below:
 
 // First try
 // **********

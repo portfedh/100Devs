@@ -360,6 +360,8 @@ Anonymous functions (TODO)
 
 Arrow functions (TODO)
 
+    Arrow functions have an implicit return
+
     const hello = (name) => {
 
       const message = `Hello, ${name}!`;
