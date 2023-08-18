@@ -224,14 +224,13 @@ For loop:
 
 .forEach():
 
-    Will execute the same code for each element in an array. 
+    Will execute the same code for each element in an array.
+    Shows to parameters: value and key
 
     Example:
         const fruits = ['mango', 'papaya', 'pineapple', 'apple'];
 
-        fruits.forEach(
-          x => console.log(`I want to eat a ${x}`)
-          )
+        fruits.forEach((x, i) => console.log(`I want to eat a ${x}`))
 
 
 
@@ -493,15 +492,22 @@ New object constructor sintax:
         let teslaRoadster = new MakeCar('Tesla','Roadster', 'Red', 2)
 
 
+    Add new property to all objects
+
+        MakeCar.prototype.bluetooth = true;
+
+            // Now all cars will have the property
+
+
 Array Methods
 
-    arr.push(...items) – adds items to the end,
+    arr.push(...items) – adds items to the end.
 
-    arr.pop() – extracts an item from the end,
+    arr.pop() – extracts an item from the end from the array
     
-    arr.shift() – extracts an item from the beginning,
+    arr.shift() – extracts an item from the beginning/front of the array,
     
-    arr.unshift(...items) – adds items to the beginning.
+    arr.unshift(...items) – adds items to the beginning/front of the array.
 
     arr.slice([start], [end]) - new array from another array
 

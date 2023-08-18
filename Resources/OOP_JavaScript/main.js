@@ -2,7 +2,7 @@
 // **************
     // Encapsulation: Stores all functions & variables with one object.
 
-    // Abstraction: Hides the details of how it works just shows what is essential (input/output).
+    // Abstraction: Hides the details of how it works just shows what is essential (Drive the car vs how engine works).
 
     // Inheritance: Allows subclasses to expand or modify the base class.
 
