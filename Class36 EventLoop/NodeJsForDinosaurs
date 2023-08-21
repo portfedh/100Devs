@@ -1,0 +1,142 @@
+Node JS tutorial
+
+8 Agosto 2023
+
+https://medium.com/the-node-js-collection/modern-javascript-explained-for-dinosaurs-f695e9747b70
+
+Instal npm
+
+Navigate to your folder with the html file
+
+    $ npm init
+
+    Generate package.json
+
+        Its a configuration file to save project information
+
+    Install packages
+
+        Example
+
+            $ npm install moment --save
+
+        Downloads file into a folder called 'node_modules'
+
+        Modifies package.json to include the dependency
+
+            Example
+
+                {
+                  "name": "modern-javascript-example",
+                  "version": "1.0.0",
+                  "description": "",
+                  "main": "index.js",
+                  "scripts": {
+                    "test": "echo \"Error: no test specified\" && exit 1"
+                  },
+                  "author": "",
+                  "license": "ISC",
+                  "dependencies": {
+                    "moment": "^2.22.2"
+                  }
+                }
+
+    Share packages
+
+        Share the package.json file
+
+        $ npm install
+
+    Use packages
+
+        <script src="node_modules/moment/min/moment.min.js"></script>
+
+        When you load files, all variables are global. 
+
+
+
+NodeJs
+
+    Part of CommonJs: An ecosystem for JS outside the browser.
+
+    Its a serverside language that can access the computers filesystem.
+
+    It knows the location of each npm module path automatically. 
+
+    It uses a module bundler with a build step. 
+
+        Browserify was very popular. 
+
+        Webpack is currently the most used. 
+
+
+Webpack
+
+    Installing webpack:
+
+        $ npm install webpack webpack-cli --save-dev
+
+        Allows us to use webpack from the command line. 
+
+        --save-dev: package you need for the dev enviroment, not for production server. 
+
+    Run  webpack:
+
+        $ ./node_modules/.bin/webpack index.js --mode=development
+
+        --mode=development: Keeps JS readable
+        --mode=production: Shortened output
+
+        You need to run webpack each time we change index.js
+
+        We run scripts with require statments insted of <script> tags
+
+
+    Use code in html file:
+        script src="dist/main.js"></script>
+
+
+Transpilers
+
+    Convert code from one language to a similar language. 
+
+        CSS:
+            Sass
+            Less
+            Stylus
+
+        Javascript:
+            CoffeScript
+            Babel
+            Typescript
+
+
+Task runner
+
+    Tool that automates different parts of the build process. 
+
+        Minifying code
+
+        Optimizing images
+
+        Running tests
+
+        Etc
+
+
+Run npn
+
+    $ npm run server
+
+        Runs index.html
+
+        localhost:8080
+
+    $ npm run wath
+
+        re-runs webpack everytime a Js file changes (for development).
+
+    $ npm run build. 
+
+        minimizes code for production
+

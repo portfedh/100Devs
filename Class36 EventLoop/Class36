@@ -1,0 +1,64 @@
+100 Devs: Class 36
+-------------------
+
+Date taken:
+
+    20 August 2023
+
+Link:
+    
+    https://www.youtube.com/watch?v=nv5SequVETI&t=37s
+
+Twitter:
+
+    https://twitter.com/leonnoel/status/1529213324633657345
+
+Slides:
+
+    https://slides.com/leonnoel/100devs2-fancy-js-terms-and-node
+
+Follow allong materials:
+    
+    https://drive.google.com/file/d/17RsrUfxaL9ssZb9ZoaNn1pVETz70m839
+
+
+Notes:
+
+    Que:
+
+        First in first out (FIFO) datastructure.
+        Example:
+        let que = []
+            que.push('2') // --> que === ['2']
+            que.push('5') // --> que === ['2', '5']
+            let x = que.shift() 
+                // --> que ===  ['5'] 
+                // --> x === '2'
+
+    Stack:
+        Last in first out (LIFO) datastructure. 
+        Example:
+        let stack = []
+            stack.push('2') // --> stack === ['2']
+            stack.push('5') // --> stack === ['2', '5']
+            let x = stack.pop() 
+                // --> stack ===  ['2'] 
+                // --> x === '5'
+
+
+    The Call Stack in the browser:
+
+        Call stack:
+            Runs as a stack (LIFO)
+            Anything not in Js is sent to the Web API
+
+        Web APIs
+            Processess can take as long as needed. 
+            When they are finished they go to the Task Que
+
+        The Task Que 
+            Waits until call stack is empty. 
+            Gets items from the que and moves them to the call stack (FIFO).
+
+
+Transcript:
