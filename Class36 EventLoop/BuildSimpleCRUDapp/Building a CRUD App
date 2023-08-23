@@ -6,6 +6,10 @@ Title:
 Link:
     https://zellwk.com/blog/crud-express-mongodb/#convertkit
 
+
+    Mongoose
+    https://zellwk.com/blog/mongoose/
+
 Notes:
 ******
 
@@ -25,20 +29,28 @@ Definitions:
 
         Delete (DELETE)
 
-
 Creating a REST API:
 
     Build a simple application that lets you track a list of quotes from Star Wars Characters
 
-
 SETUP
 *****
 
-    Navigage to folder
+    Navigate to folder
 
     Create package.json:
         
         $ npm init
+
+    Create add git and .gitignore file:
+
+        $ git init
+
+        $ touch .gitignore
+
+        // inside .gitignore file:
+
+            /node_modules
 
     Create server file:
 
@@ -83,9 +95,12 @@ SETUP
 
     Install body-parser:
 
-        Middleware to use request object in express.
+        Middleware to use create objects in express from POST requests.
 
         $ npm install body-parser --save
+
+Database Setup
+**************
 
     Install Mongo DB:
 
@@ -94,6 +109,8 @@ SETUP
     Connect to MongoDB Atlas
 
         https://www.mongodb.com/atlas/database
+
+        Create an organization
 
         Create an account
 
@@ -108,12 +125,43 @@ SETUP
             user: Yoda
             pass: oNEn6lWuO2ADugjM
 
+        Add permissions to new user:
+
+            DatabaseAccess / Edit / --> readWriteAnyDatabase
+
         Get connection information:
+
             DataServices/Connect/Drivers
-            mongodb+srv://<username>:<password>@cluster0.tbcbcmb.mongodb.net/?retryWrites=true&w=majority
+                mongodb+srv://<username>:<password>@cluster0.tbcbcmb.mongodb.net/?retryWrites=true&w=majority
+
+            With credentials:
+                mongodb+srv://Yoda:oNEn6lWuO2ADugjM@cluster0.tbcbcmb.mongodb.net/?retryWrites=true&w=majority
+
+            Save as variable:
+                let connectionString = ...
 
 
+        Connect with a Promise
 
+            MongoClient.connect(connectionString, { useUnifiedTopology: true })
+              .then(client => {
+                console.log('Connected to Database')
+                const db = client.db('db-name')
+                const quotesCollection = db.collection('quotes')
+                app.use(/* ... */)
+                app.get(/* ... */)
+                app.post(/* ... */)
+                app.listen(/* ... */)
+              })
+              .catch(error => console.error(error))
+
+        Check the Database:
+
+            Go to: Database / Browse Collections
+
+                Database: Database name 'star-wars-quotes'
+                Collection: Library 'quotes'
+                Each object is named a document. 
 
 
 CREATE SERVER FILE
@@ -124,7 +172,7 @@ CREATE SERVER FILE
         const express = require('express')
         const app = express()
 
-    Add bodypparser:
+    Add body-parser:
         // Place  before your CRUD handlers
         app.use(bodyParser.urlencoded({ extended: true }))
                 const bodyParser = require('body-parser')
@@ -154,7 +202,6 @@ CREATE SERVER FILE
         MongoClient.connect('mongodb-connection-string', (err, client) => {
           // ... do something here
         })
-
 
 CRUD - READ
 ***********
@@ -240,3 +287,75 @@ CRUD - CREATE
         app.post('/quotes', (req, res) => {
           console.log('Hellooooooooooooooooo!')
         })
+
+        To connect to MongoDB database, add the following code to server.js:
+
+            const MongoClient = require('mongodb').MongoClient
+
+            MongoClient.connect('mongodb-connection-string', (err, client) => {
+              // ... do something here
+            })
+
+
+.......................
+... FALTA INFO AQUI ...
+.......................
+
+
+CRUD - READ
+*************
+
+    Reading the DB:
+
+        To get info from MongoDB we can use the find method.
+
+        We add this code to get read the DB info
+
+            app.get('/', (req, res) => {
+              db.collection('quotes')
+                .find()
+                .toArray()
+                .then(results => {
+                  console.log(results)
+                })
+                .catch(error => console.error(error))
+
+              // ... Code to serve html ('/')
+
+            })
+
+    Rendering the HTML:
+
+        There's no way to add dynamic content to html server side. 
+
+        We use a template engine instead. 
+
+        Popular template engines:
+
+            - Pug
+            - Embedded JavaScript (EJS)
+            - Nunjucks
+
+        We wil use EJS because its the simplest
+
+        Install EJS:
+
+            $ npm install ejs --save
+
+
+        Use this code to tell Express this is the template engine. 
+
+            app.set('view engine', 'ejs')
+
+            // Add code after imports & before other app methods
+
+
+        Create folder where rendered files will reside
+
+            $ mkdir mkdir views
+            
+            $ touch views/index.ejs
+
+        Copy the contents of index.html to index.ejs
+
+

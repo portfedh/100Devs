@@ -61,4 +61,42 @@ Notes:
             Gets items from the que and moves them to the call stack (FIFO).
 
 
+    Servers need:
+
+        Disk access
+
+        Network access
+
+
+    NodeJs
+
+        Allows this.
+
+        We lose WebApi's from the browser
+
+        We gain access to C++ API's
+
+        There are libraries that can be imported
+
+        Examples:
+
+            'http' module to gain network access
+
+            'fs' module to read and write in computer files
+
+            'figlet' Creates a nice 404 page
+
+        Before express:
+
+            Every route had to have a response coded.
+
+        Express:
+
+            Simplifies the process
+
+        Homework:
+            
+            Play with the code and figure out what it does. 
+
+
 Transcript:
