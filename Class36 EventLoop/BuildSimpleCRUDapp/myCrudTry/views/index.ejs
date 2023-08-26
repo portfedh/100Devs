@@ -15,28 +15,50 @@
       <button type="submit">Submit</button>
     </form>
 
+    <!-- Button to Update quotes -->
+    <section data-position="update-quote">
+      <div>
+        <h2>Darth Vadar invades!</h2>
+        <p>
+          Replace first Yoda's quote with a quote written by Darth Vadar
+        </p>
+        <button id="update-button">Replace Yoda's quote</button>
+      </div>
+    </section>
+    <!-- Button to Update quotes -->
 
-    <div>
-      <h2>Darth Vader invades!</h2>
-      <p>Replace first Yoda's quote with a quote written by Darth Vader</p>
-      <button id="update-button">Replace Yoda's quote</button>
-    </div>
+    <!-- Button to Delete quote -->
+    <section data-position="delete-quote">
+      <div>
+        <h2>Remove Darth Vader!</h2>
+        <p>
+          Delete one Darth Vader's quote. Does nothing if there are no more
+          Darth Vader's quote
+        </p>
+        <button id="delete-button">Delete Darth Vader's quote</button>
+      </div>
+      <div id="message"></div>
+    </section>
+    <!-- Button to Delete quote -->
 
-    <div id="message"></div>
+    <!-- Create Section  -->
+    <section data-position="quotes">
+      <h2>Quotes</h2>
 
-    <h2>Quotes</h2>
+      <ul class="quotes">
+        <!-- Loop through quotes -->
+        <% for(var i = 0; i < quotes.length; i++) {%>
+        <li class="quote">
+          <!-- Output name from the iterated quote object -->
+          <span><%= quotes[i].name %></span>:
+          <!-- Output quote from the iterated quote object -->
+          <span><%= quotes[i].quote %></span>
+        </li>
+        <% } %>
+      </ul>
+    </section>
+     <!-- Create Section  -->
 
-    <ul class="quotes">
-      <!-- Loop through quotes -->
-      <% for(var i = 0; i < quotes.length; i++) {%>
-      <li class="quote">
-        <!-- Output name from the iterated quote object -->
-        <span><%= quotes[i].name %></span>:
-        <!-- Output quote from the iterated quote object -->
-        <span><%= quotes[i].quote %></span>
-      </li>
-      <% } %>
-    </ul>
     <!-- Load main.js file from public folder -->
     <script src="/main.js"></script>
   </body>
