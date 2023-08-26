@@ -175,6 +175,8 @@ Switch Statement:
 
     Only relevant code gets executed
 
+    Cant handle multiple opperators, only one value.
+
     Same as if statement
 
     Example:
@@ -567,6 +569,24 @@ Array Methods
         arr.indexOf(item, from) – looks for item and returns the index where it was found.
 
         arr.lastIndexOf - same as indexOf, but looks for from right to left.
+
+
+JSON:
+
+    Very similar to JSObjects but both key and value use quotes.
+
+    JS Object example:
+
+        const data = {
+            name: 'Darth Vader',
+            quote: 'I find your lack of faith disturbing.',
+        }
+
+    JSON Example:
+        {
+            "name": "Darth Vader",
+            "quote": "I find your lack of faith disturbing."
+        }
 
 
 Things used in web pages
