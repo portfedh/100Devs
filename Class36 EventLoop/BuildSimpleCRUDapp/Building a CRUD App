@@ -358,4 +358,20 @@ CRUD - READ
 
         Copy the contents of index.html to index.ejs
 
+        Add the following code to add a for loop that will print all db elements
+
+            <h2>Quotes</h2>
+
+            <ul class="quotes">
+              <!-- Loop through quotes -->
+              <% for(var i = 0; i < quotes.length; i++) {%>
+              <li class="quote">
+                <!-- Output name from the iterated quote object -->
+                <span><%= quotes[i].name %></span>:
+                <!-- Output quote from the iterated quote object -->
+                <span><%= quotes[i].quote %></span>
+              </li>
+              <% } %>
+            </ul>
+
 

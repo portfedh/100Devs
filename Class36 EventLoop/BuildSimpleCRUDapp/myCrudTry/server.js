@@ -1,7 +1,6 @@
 // ***********
 // ** SETUP **
 // ***********
-
 console.log('May Node be with you')
 
 // Imports
@@ -13,9 +12,14 @@ const MongoClient = require('mongodb').MongoClient
 // Set template engine EJS
 app.set('view engine', 'ejs')
 
+// Make public folder accessible to the public
+app.use(express.static('public'))
+
+// Make it able to Read JSON
+app.use(bodyParser.json())
+
 // Port for the server to listen
 app.listen(3000, function () {console.log('listening on 3000')})
-
 
 // Handle html form elements
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -43,33 +47,21 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     
     // Serve Index
     app.get('/', (req, res) => {
-      // Gets quotes from MongoDB
+      // Gets quotes from database
       db.collection('quotes')
       .find()
       .toArray()
       .then(results => {
         console.log(results)
+        // Rendered page with EJS and database results
+        res.render('index.ejs', { quotes: results })
       })
       .catch(error => console.error(error))
 
-
-
-      
-      // Serves index.html
-      res.sendFile(__dirname + '/index.html')
-      // Note: __dirname is the current directory you're in. Try logging it and see what you get!
+      // Serve index.html
+      // res.sendFile(__dirname + '/index.html')
+      // What you would use for a static site.
       })
-
-        db.collection('quotes')
-          .find()
-          .toArray()
-          .then(results => {
-            console.log(results)
-          })
-          .catch(error => console.error(error))
-
-
-      
 
     // Sending form info to mongoDB
     app.post('/quotes', (req, res) => {
@@ -84,6 +76,43 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         // Error handling in MongoDB
         .catch(error => console.error(error))
     })
+    
+    // Updates the App
+    app.put('/quotes', (req, res) => {
+      quotesCollection.findOneAndUpdate(
+        { name: 'Yoda' },
+        {
+          $set: {
+            name: req.body.name,
+            quote: req.body.quote,
+          },
+        },
+        {
+          upsert: true,
+        }
+      )
+      .then(result => {
+        console.log(result)
+        res.json('Success')
+       })
+      .catch(error => console.error(error))
+    })
+
+    app.delete('/quotes', (req, res) => {
+      quotesCollection
+      .deleteOne({ name: req.body.name })
+      //.deleteOne({ name: 'Darth Vader' }, options)
+      .then(result => {
+        if (result.deletedCount === 0) {
+          return res.json('No quote to delete')
+        }
+        res.json(`Deleted Darth Vader's quote`)
+      })
+      .catch(error => console.error(error))
+    })
+
+
+    
   })
   // Error handling
   .catch(error => console.error(error))
@@ -158,3 +187,8 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
 // Tell Express that EJS is the template engine
 // app.set('view engine', 'ejs')
 // Add this file before any other app methods
+
+
+// *******************
+// ** CRUD - READ **
+// *******************
