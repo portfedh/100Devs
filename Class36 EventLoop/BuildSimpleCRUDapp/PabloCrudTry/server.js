@@ -1,6 +1,6 @@
-// ***********
+// *************
 // ** Imports **
-// ***********
+// *************
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
@@ -68,8 +68,8 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         .catch(error => console.error(error))
       })
 
-    // CREATE: Update MongoDB:
-    // =======================
+    // WRITE: Add values to  MongoDB:
+    // ==============================
     // When server receives POST request from form.
     app.post('/quotes', (req, res) => {
       // Insert record into database
@@ -150,79 +150,3 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
   })
   // Error handling
   .catch(error => console.error(error))
-
-// *****************
-// ** CRUD - READ **
-// *****************
-
-// How express handles get requests:
-// app.get(endpoint, callback)
-// ===
-// app.get('/', function (req, res) { //behavior })
-
-// Code 1:
-// -------
-//   app.get('/', function (req, res) {
-//     res.send('Hello World')
-//   })
-
-// Code 2:
-// -------
-// app.get('/', (req, res) => {
-// res.sendFile(__dirname + '/index.html')
-// // Note: __dirname is the current directory you're in. Try logging it and see what you get!
-// })
-
-// *******************
-// ** CRUD - CREATE **
-// *******************
-
-// Made using POST request:
-//     Through a form element. Or
-//     Through JavaScript
-
-// Code 1, (Form element)
-// ---------------------
-
-// When server gets '/quotes' request execute this:
-// app.post('/quotes', (req, res) => {
-//   quotesCollection
-//     .insertOne(req.body)
-//     .then(result => {
-//       console.log(result)
-//     })
-//     .catch(error => console.error(error))
-// })
-
-// Moved the integrated the code inside the MongoDB code.
-
-
-// *******************
-// ** CRUD - READ **
-// *******************
-
-// Getting quotes from Mongo DB
-
-// app.get('/', (req, res) => {
-//   db.collection('quotes')
-//     .find()
-//     .toArray()
-//     .then(results => {
-//       console.log(results)
-//     })
-//     .catch(error => console.error(error))
-// })
-
-// Now we add this inside our Mongo DB Connection
-
-// Rendering the HTML file:
-// To Add dynamic content we add a template engine: Embedded JavaScript (EJS)
-
-// Tell Express that EJS is the template engine
-// app.set('view engine', 'ejs')
-// Add this file before any other app methods
-
-
-// *******************
-// ** CRUD - READ **
-// *******************
