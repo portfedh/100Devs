@@ -25,6 +25,8 @@ Notes:
 
     Once we feel comfortable building, we start the hunt. 
 
+    Every single request by the client needs to be coded by the server without express. 
+
 
 Transcript:
 
