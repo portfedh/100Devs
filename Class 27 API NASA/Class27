@@ -1,0 +1,71 @@
+100 Devs: Class 27
+-------------------
+
+Date taken:
+
+    27 Jun 2023
+
+Link:
+
+    https://www.youtube.com/watch?v=b5rjEW-_6po&t=2271s
+
+Twitter
+
+    https://twitter.com/leonnoel/status/1513992949884809219
+    
+
+
+Slides
+
+    https://slides.com/leonnoel/100devs2-more-api-review
+    
+
+
+Follow allong materials
+
+    https://drive.google.com/file/d/1DDnZlxkfxMuaRp_Ey7JvuxSMGN7tpgeC/view?usp=sharing
+    
+
+Notes:
+
+    
+    Query parameters are needed to fetch data:
+        const url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita'
+
+    Use postman
+
+        You can call an API with no other code
+
+    Session sorage:
+        
+        Persists as long as you dont close browser
+
+    Local storage:
+
+        Data persists across user sessions
+        Across page refreshes
+        Across clossing browsers
+        Without using a database
+        Stored specific by OS and by browser
+
+        Add data to local storage:
+
+            localStorage.setItem('bestFriend', 'Bob')
+
+        Read data from local storage:
+
+            localStorage.getItem('bestFriend', 'Bob')
+
+        Remove item fom local storage:
+
+            localStorage.removeItem('bestFriend', 'Bob')
+
+        Remove all local storage:
+        
+            localStorage.clear()
+
+
+Discord Server
+
+    📝follow-along-materials  -> Ctrl + F -> Class-02 (or class-02, class-03, etc.)
+

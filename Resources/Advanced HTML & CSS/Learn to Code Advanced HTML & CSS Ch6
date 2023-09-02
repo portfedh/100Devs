@@ -1,0 +1,16 @@
+ Learn to Code Advanced HTML & CSS 
+
+ jQuery
+
+ Open source JavaScript library.
+
+ Simplifies the interaction with HTML & CSS
+
+ Can be loaded in different ways:
+
+    Store a local copy of the minified version
+
+    Use a content delivery network
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="script.js"></script>

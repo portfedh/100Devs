@@ -1,0 +1,33 @@
+
+*{
+    border: 1px solid rgb(172 172 172);
+    box-sizing: border-box;
+    background-color: rgb(216 216 216);
+    font-family: "Helvetica", Times, serif;
+}
+header{
+    height: 90px;
+    padding: 10px;
+}
+footer{
+    clear: both;
+    height: 90px;
+    padding: 10px;
+}
+div{
+    height: 200px;
+    padding: 10px;
+}
+.section1{
+    padding: 10px;
+}
+#section2a{
+    float: left;
+    width: 33%;
+    padding: 10px;
+}
+#section2b{
+    float: left;
+    width: 66%;
+    padding: 10px;
+}

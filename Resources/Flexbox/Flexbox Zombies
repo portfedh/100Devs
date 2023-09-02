@@ -1,0 +1,76 @@
+Flexbox Zombies
+
+Page:
+-------
+https://mastery.games/flexboxzombies/
+
+
+Format:
+-------
+
+.container {
+
+    display: flex | inline-flex;
+
+    flex-direction: row | row-reverse | column | column-reverse;
+
+    justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly;
+
+    align-items: flex-start | flex-end | center | stretch | baseline;
+
+    flex-wrap: nowrap | wrap | wrap-reverse;
+
+    align-content: flex-start | flex-end | center | space-between | space-around | space-evenly | stretch; (default: stretch)
+
+    /* Shortcut 1 */
+
+    flex-flow: flex-direction flex-wrap;
+
+    Example:
+        flex-flow: column wrap;
+}
+
+
+.item {
+
+    align-self: flex-start | flex-end | center | baseline | stretch;
+
+    flex-grow: 1; (default is 1)
+
+    flex-shrink: 1; (default is 0)
+
+    flex-basis: 50px | 50%; (default is: auto == width)
+
+    max-width: 50px; (min-width: 50px, can also be percentage % )
+
+    max-height: 50px; (min-height: 50px, can also be percentage % )
+
+    order: 5; (default is 0. Acending order. -1 gets you first)
+
+    /* Shortcut 1 */
+
+    flex: flex-grow (default: 1) flex-shrink (default: 1) flex-basis (default: 0)
+
+    Examples:
+
+        flex: 1 1 300px;
+
+        flex: 1 1 auto; (to set flex-basis = width)
+    
+        flex: 0 300px; (flex-shrink: 1 because it was ommited)
+    
+        flex: 1 (flex-shrink: 1, flex-basis: 0, default values used)
+    
+        flex: auto ( flex-grow: 1, flex-shrink: 1, flex-basis: auto == width)
+
+
+    /* Shortcut 2 */
+
+    flex: none; (flex-grow: 0 flex-shrink: 0 flex-basis: auto)
+}
+
+
+* Flex-wrap (wrap content into new line), happens before flex-shrink.
+
+* No entiendo bien la relacion entre align-content & align items
+

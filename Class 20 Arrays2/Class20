@@ -1,0 +1,79 @@
+100 Devs: Class 20
+-------------------
+
+Date taken:
+
+    5 May 2023
+
+Link:
+
+    https://www.youtube.com/watch?v=cL0qP6kM_1U&t=3s
+
+Twitter
+
+    https://twitter.com/leonnoel/status/1504571048875814918
+
+Slides
+
+    https://slides.com/leonnoel/100devs2-array-review-javascript-objects
+
+Motivation
+
+    https://poets.org/poem/dreams
+
+Homework:
+
+    Do: 
+    
+        - Read & do exercises: The JS Way: Arrays
+            https://github.com/thejsway/thejsway/blob/master/manuscript/chapter07.md
+
+        - Read & do exercises:  The JS Way: Objects
+            https://github.com/thejsway/thejsway/blob/master/manuscript/chapter06.md
+
+        - Read & do exercises:  Eloquent Javascript: Objects and Arrays
+            https://eloquentjavascript.net/04_data.html
+
+        - Do Javascript 30: Day 04 Array Cardio
+            https://javascript30.com/
+
+        - Do a minimum of 1, 8 kyu Fundamentals on CodeWars EVERY DAY.
+        Spend at least 20 minutes trying to solve it before looking at the solution.
+
+Notes:
+
+    Cool array methods that change an array:
+
+        let item = bestRappers2020.shift()
+
+            // Remove first element in bestRappers2020 list
+
+            // Save the value in a variable
+
+        bestRappers2020.unshif('PuffDaddy')
+
+            // Add first element in bestRappers2020 list
+
+        bestRappers2020.pop()
+
+            // Remove last element in list
+
+            // Save the value in a variable
+
+        bestRappers2020.push('PuffDaddy')
+
+            // Add last element in list
+
+    Map method
+
+        Creates new array. 
+
+        let betsRappersAllTime = bestRappers2020.map()
+
+        Check
+
+
+Discord Server
+
+    📝follow-along-materials  -> Ctrl + F -> Class-02 (or class-02, class-03, etc.)
+

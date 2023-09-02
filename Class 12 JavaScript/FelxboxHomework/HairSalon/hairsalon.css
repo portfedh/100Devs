@@ -1,0 +1,266 @@
+/******************************************
+/* General
+/*****************************************/
+
+/* Page settings */
+    * {
+        /* border: 1px solid black; */
+        font-family: 'Source Sans Pro', sans-serif;
+        background-color: #fdfdfd;
+    }
+
+    a:link, a:visited, a:hover, a:active{
+        text-decoration: none;
+    }
+
+    ul {
+        list-style-type: none;
+    }
+
+    div{
+        height: 1em;
+    }
+
+    /* Box Model Hack */
+    * { box-sizing: border-box; }
+    
+    /* Clear fix hack */
+    .clearfix:after {
+        content: ".";
+        display: block;
+        clear: both;
+        visibility: hidden;
+        line-height: 0;
+        height: 0;
+    }
+
+/******************************************
+/* Header Section
+/*****************************************/
+
+header {
+    height: 35px;
+    background-color: #fdfdfd;
+    font-size: 11px;
+}
+
+.headerLayout { 
+    width: 33.33%;
+    text-align: center;
+    float: left;
+    /* background-color: orange; */
+    margin-top: 1px;
+    height: 97%;
+}
+
+.headerLayout1 { width: 20%; }
+
+.headerLayout2 { width: 60%; }
+
+.headerLayout3 { width: 20%; }
+
+.headerLogo { 
+    float: left;
+    margin-left: 35px;
+    margin-top: 4px;
+}
+
+.headerMenu {
+    /* background-color: lightgreen; */
+    height: 98%;
+    margin-top: auto;
+    margin-left: 0px;
+}
+
+.headerMenuItem { 
+    width: 16.6666%;
+    text-align: center;
+    float: left;
+    /* background-color: lightblue; */
+    margin-top: 1px;
+    height: 97%;
+    padding-top: 8px;
+    font-size: 14px;
+}
+
+.headerBook {
+    padding-top: 9px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/******************************************
+/* Main Section
+/*****************************************/
+
+main {
+    height: 100%;
+    width: 100%;
+    /* background-color: blue; */
+}
+
+.mainImage{
+    width: 100%;
+    height: 100%;
+}
+
+/******************************************
+/* Services Section
+/*****************************************/
+
+.ServicesSection { 
+    height: 350px;
+    /* background-color: orange; */
+}
+
+.aService{
+    padding-top: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+
+    text-align: center;
+    float: left;
+    width: 20%;
+    margin-top: 1px;
+    height: 97%;
+    /* background-color: lightblue; */
+}
+
+/******************************************
+/* Video Section
+/*****************************************/
+
+.VideoSection {
+    height: 630px;
+    width: 100%;
+    background-color: #f3f4f6;
+    margin-bottom: 60px;
+}
+
+.EmptyVideoSection{
+    width: 25%;
+    height: 100%;
+    float: left;
+    background-color: #f3f4f6;
+    /* background-color: aqua; */
+}
+
+.VideoSectionText {
+    /* background-color: red; */
+    text-align: left;
+    width: 25%;
+    height: 97%;
+    margin-top: 1px;
+    float: left;
+        background-color: #f3f4f6;
+
+}
+
+.VideoSectionText > h1{
+    font-family: 'Cormorant Garamond', serif;
+    background-color: #f3f4f6;
+    font-size: 60px;
+    font-weight: 100;
+    padding: 0 50px;
+}
+
+.VideoSectionText > p{
+    padding-left: 50px;
+    padding-right: 80px;
+    background-color: #f3f4f6;
+}
+
+.VideoSectionVideo{
+    width: 25%;
+    height: 100%;
+    float: left;
+    position: relative;
+    background-color: #f3f4f6;
+    /* background-color: blue; */
+}
+
+.VideoThumbnail{
+    clear: both;
+    background-color: #f3f4f6;
+    text-align: center;
+    width: 100%;
+    max-height: 100%;
+    float: left;
+    object-fit: cover;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/******************************************
+/* Our Team Section
+/*****************************************/
+
+.OurTeam {
+    clear: both;
+    height: 450px;
+    width: 100%;
+    /* background-color: orange; */
+}
+
+.aTeamMember {
+    /* background-color: lightblue; */
+    text-align: center;
+    width: 20%;
+    height: 97%;
+    margin-top: 1px;
+    float: left;
+}
+
+.stylist {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+/******************************************
+/* Offers Section
+/*****************************************/
+
+.Offers { 
+    height: 300px; 
+    /* background-color: orangered; */
+}
+
+.OffersImage {
+    background-color: lightblue;
+    text-align: center;
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/******************************************
+/* Look Book Section
+/*****************************************/
+
+.LookBook { 
+    margin-top: 40px;
+    height: 800px; 
+    /* background-color: orange; */
+}
+
+.LookBookText{
+    /* background-color: lightblue; */
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 60px;
+    font-weight: 100;
+    height: 80px;
+    text-align: center;
+    margin-top: 2px;
+}
+
+.LookBookImage{
+    /* background-color: red; */
+    max-height: 80%;
+    max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

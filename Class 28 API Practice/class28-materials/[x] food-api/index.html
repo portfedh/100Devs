@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    	<meta charset="utf-8">
+    	<meta name="description" content="A Recipe site for you.">
+    	<meta name="keywords" content="Find recipes">
+
+		<title> Your Recipe helper</title>
+
+		<!-- external CSS link -->
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+
+		<h1>Recipe  Ideas</h1>
+		<div id="search">
+			<h3> Place your preferences: </h3>
+
+			<form id="myForm">
+				<label for="searchQuery">What are you looking for?</label><br><br>
+				<input id="searchQuery" type="text">
+				
+				<p>Select the cuisines that should be included:</p>
+
+				<div class="meals-checkbox-group">
+				
+					<input type="checkbox" id="african">
+					<label for="african">African</label><br>
+
+					<input type="checkbox" id="asian">
+					<label for="asian">Asian</label><br>
+
+					<input type="checkbox" id="american">
+					<label for="american">American</label><br>
+					
+					<input type="checkbox" id="british">
+					<label for="british">British</label><br>
+		
+					<input type="checkbox" id="cajun">
+					<label for="cajun">Cajun</label><br>
+					
+					<input type="checkbox" id="caribbean">
+					<label for="caribbean">caribbean</label><br>
+					
+					<input type="checkbox" id="chinese">
+					<label for="chinese">Chinese</label><br>
+
+					<input type="checkbox" id="easternEuropean">
+					<label for="easternEuropean">Eastern European</label><br>
+
+					<input type="checkbox" id="european">
+					<label for="european">European</label><br>
+
+					<input type="checkbox" id="french">
+					<label for="french">French</label><br>
+
+					<input type="checkbox" id="german">
+					<label for="german">German</label><br>
+					
+					<input type="checkbox" id="indian">
+					<label for="indian">Indian</label><br>
+
+					<input type="checkbox" id="irish">
+					<label for="irish">Irish</label><br>
+					
+					<input type="checkbox" id="italian">
+					<label for="italian">Italian</label><br>
+					
+					<input type="checkbox" id="japanese">
+					<label for="japanese">Japanese</label><br>
+
+					<input type="checkbox" id="jewish">
+					<label for="jewish">Jewish</label><br>
+
+					<input type="checkbox" id="korean">
+					<label for="korean">Korean</label><br>
+
+					<input type="checkbox" id="latinamerican">
+					<label for="latinamerican">Latin American</label><br>
+
+					<input type="checkbox" id="mediterranean">
+					<label for="mediterranean">Mediterranean</label><br>
+
+					<input type="checkbox" id="mexican">
+					<label for="mexican">Mexican</label><br>
+
+					<input type="checkbox" id="middleeastern">
+					<label for="middleeastern">Middle Eastern</label><br>
+
+					<input type="checkbox" id="nordic">
+					<label for="nordic">Nordic</label><br>
+			
+					<input type="checkbox" id="southern">
+					<label for="southern">Southern</label><br>
+					
+					<input type="checkbox" id="spanish">
+					<label for="spanish">Spanish</label><br>
+
+					<input type="checkbox" id="thai">
+					<label for="thai">Thai</label><br>
+					
+					<input type="checkbox" id="vietnamese">
+					<label for="vietnamese">Vietnamese</label><br>
+				</div>
+				
+				<p>Are  you intolerant to any of the ingredients below?</p>
+
+				<input type="checkbox" id="Dairy">
+				<label for="Dairy">Dairy</label><br>
+
+				<input type="checkbox" id="Egg">
+				<label for="Egg">Egg</label><br>
+
+				<input type="checkbox" id="Gluten">
+				<label for="Gluten">Gluten</label><br>
+				
+				<input type="checkbox" id="Grain">
+				<label for="Grain">Grain</label><br>
+				
+				<input type="checkbox" id="Peanut">
+				<label for="Peanut">Peanut</label><br>
+
+				<input type="checkbox" id="Seafood">
+				<label for="Seafood">Seafood</label><br>
+				
+				<input type="checkbox" id="Sesame">
+				<label for="Sesame">Sesame</label><br>
+
+				<input type="checkbox" id="Shellfish">
+				<label for="Shellfish">Shellfish</label><br>
+				
+				<input type="checkbox" id="Soy">
+				<label for="Soy">Soy</label><br>
+				
+				<input type="checkbox" id="Sulfite">
+				<label for="Sulfite">Sulfite</label><br>
+
+				<input type="checkbox" id="Wheat">
+				<label for="Wheat">Wheat</label><br>
+
+				<input type="checkbox" id="TreeNut">
+				<label for="TreeNut">Tree Nut</label><br>
+				
+				
+				<p>What type of meal are you looking for?</p>
+
+				<input type="checkbox" id="maincourse">
+				<label for="maincourse">main course</label><br>
+
+				<input type="checkbox" id="sidedish"">
+				<label for="sidedish">side dish</label><br>
+
+				<input type="checkbox" id="dessert">
+				<label for="dessert">dessert</label><br>
+
+				<input type="checkbox" id="appetizer">
+				<label for="appetizer">appetizer</label><br>
+				
+				<input type="checkbox" id="salad">
+				<label for="salad">salad</label><br>
+
+				<input type="checkbox" id="bread">
+				<label for="bread">bread</label><br>
+				
+				<input type="checkbox" id="breakfast">
+				<label for="breakfast">breakfast</label><br>
+
+				<input type="checkbox" id="soup">
+				<label for="soup">soup</label><br>
+				
+				<input type="checkbox" id="beverage">
+				<label for="beverage">beverage</label><br>
+
+				<input type="checkbox" id="sauce">
+				<label for="sauce">sauce</label><br>
+
+				<input type="checkbox" id="marinade">
+				<label for="marinade">marinade</label><br>
+
+				<input type="checkbox" id="fingerfood">
+				<label for="fingerfood">fingerfood</label><br>
+				
+				<input type="checkbox" id="snack">
+				<label for="snack">snack</label><br>
+
+				<input type="checkbox" id="drink">
+				<label for="drink">drink</label><br>
+				
+			
+				<p>Set the maximum carbs per serving.</p>
+				<span>If you have no restrictions, leave default value.</span>
+				<br><br>
+
+				<label for="maxCarbs">Max Carbohydrates</label><br>
+				<input type="text" id="maxCarbs" value="325"><br>
+
+
+				<br><button type="button" id="submit-button">Search</button><br><br>
+			</form>
+		</div>
+
+		<div id="container-table">
+			<!-- <table id="Example-table">
+				<tr>
+					<th> Recipe</th>
+					<th> Image</th>
+				</tr>
+				<tr>
+					<td>Data 1</td>
+					<td>Data 2</td>
+				</tr>
+			</table> -->
+		</div>
+
+		<div id="container">
+		 <h3 id="results-heading"></h3>
+
+		</div>
+
+
+		<script type="text/javascript" src="js/main.js"></script>
+		<script type="text/javascript" src="js/main2.js"></script>
+
+	</body>
+</html>

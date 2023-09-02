@@ -1,0 +1,48 @@
+/******************************************
+/* CSS
+/*******************************************/
+
+/* Box Model Hack */
+*{ 
+  box-sizing: border-box;
+  font-family: arial, sans-serif;
+}
+
+body {
+  color: black;
+  padding: 20px;
+  line-height: 1.5;
+}
+
+body {
+  /* background-image: url("../img/background2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; */
+
+}
+
+input[type="text"] {
+  border-radius: 14px;
+  padding: 8px 12px;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+table {
+  width: 100%;
+  border: 1px solid black;
+  margin: 10px;
+}
+
+th, td {
+  padding: 8px;
+}
+
+th {
+  background-color: rgba(242, 242, 242, 0.5);
+}
+
+tr:nth-child(even) {
+  background-color: rgba(249, 249, 249, 0.5);
+}

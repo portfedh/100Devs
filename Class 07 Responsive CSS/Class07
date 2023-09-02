@@ -1,0 +1,197 @@
+100 Devs: Class 7
+-----------------
+
+Date taken:
+    Feb 25 2023
+
+Link:
+    https://www.youtube.com/watch?v=k8r3B0JGMt4&t=12s
+
+Tweet:
+    https://twitter.com/leonnoel/status/1488640947722145792
+
+Slides:
+    https://slides.com/leonnoel/100devs2-css-responsive-basics
+
+
+Homework:
+
+    https://learn.shayhowe.com/advanced-html-css/
+
+    3 Connections per week
+
+    2 Coffee chats per week
+
+    Read: How to win friends and influence people
+
+    Make 15 minutes of pain responsive (use floats and 3 media queries)
+
+    Read A Guide to Flexbox: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+
+    http://flexboxfroggy.com/
+
+
+
+Notes:
+
+    Always keep a starter model template at hand
+
+        HTML & CSS
+
+
+    How to network, Part 1:
+
+        The Goal: Turn a stranger into a friend
+
+        Its not about coding, its about people wanting you on their team.
+
+        This is the best time to network
+
+        Dont just click apply
+
+
+        Just have linkedin contacts that you know
+
+            Add people by using messages
+
+
+        Levels of closeness:
+
+            Meet
+        
+            Acquaintance
+        
+            Friend
+                Provide a referal
+        
+            Coworker
+
+
+        Go to recurring events
+
+            If you say hello to a person 3 days in a row:
+
+                He's an Aquaintance
+
+
+        Go to Meetups
+
+            Find where things are posted (local boards)
+
+            What other meetups do you go to.
+
+            Try in other cities
+
+
+        Go to conferences
+
+            Volunteer to get in for free
+
+            Go with a friend
+
+
+        Dont eat alone
+
+        
+        Use the discord/twitter/fb comunity
+
+        
+        Tell your friends and family
+
+        
+        Ask: Who else should I talk too
+
+        
+        Send a followup email
+
+            Add value
+
+            Show you listened
+
+        
+        Meet > email> linkedin> twitter
+            One thing per day
+            Spaced repetition
+
+        Coffee chats
+            I appreciate getting to know you 
+            Thought the conversation we had it seems like you are in a place in your career where Id like to be in some years
+            Open or 15-20 min of your time to how you got to where you are right now
+
+            2 weeks later
+            I know times are busy, just wanted to ping you to see if your be open to meet for a quick cofee chat
+            
+            Last try
+            Same. If now answer, drop it.
+
+            Go early.
+            Buy the smallest coffee they have
+
+        Use a networking sheet
+
+        Set up google alerts
+
+            Set google alerts for that name
+
+            Add their company for an rss feed
+
+            Use it to follow up with them
+
+    Review
+
+        CSS
+            Rule
+                Selector & declaration block
+                    Declarations
+                        Properties & values
+
+            Parent child
+            Siblings
+            ID & Classes
+
+    Responsive basics
+
+        Fluidity: Everything as a percentage.
+
+        Elasticity: Setting our fonts and text as responsive.
+
+            Em: Get font size from parent element.
+
+            rem: Get the font size from the html elment. 
+
+            You only make one change in parent element and everything will change.
+
+        Content decisions:
+
+            Using media queries
+
+                Change sidebars
+
+                Change navigational content
+
+                Method 1: Large to small
+
+                    Take a desktop web design
+
+                    Shrink until it doesnt look good.
+
+                    Add media queries and adapt it
+
+                Method 2: Mobile first
+
+                    Design it for mobile
+
+                    Add media queries to enlarge it to desktop and tablet
+
+
+        Media queries wont work in mobile
+
+            You have to add add this to the html section in template:
+
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    Flexbox
+
+    Flexbox Froggy
+

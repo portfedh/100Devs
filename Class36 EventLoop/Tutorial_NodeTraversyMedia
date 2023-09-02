@@ -1,0 +1,154 @@
+NodeJS Crash Course
+
+10 Ago 2023
+
+Traversy Media
+https://www.youtube.com/watch?v=fBNz5xF-Kx4
+
+Node without Express
+
+Node is a runtime
+Express is a framework that uses NodeJs
+
+What is Node
+
+    Javascript runtime
+
+    Instead of running in the browser, it runs on your computer
+
+    Written in C++
+
+Runs on single loop, & non blocking:
+
+    Supports many concurrent conections
+
+    Good for anything thats not CPU intensive
+
+        Huge calculations NO
+
+        Rest API yes
+
+        Scales with MongoDB
+
+Node package manager
+
+    Installs libraries & frameworks
+
+    stored in folder: ./node_modules/
+
+    all dependencies for your project: package.json
+
+    You can also create scripts to run tasks
+
+
+
+Common commands
+
+    npn init
+        Generates package.json file
+
+    npm install <thing_to install>
+        Install library or framework in project
+
+    npm install <thing_to install> -g
+        Install globaly
+
+Things you can use:
+
+    Built in modules
+        path, fs, http, etc
+
+    3 party modules or packages
+        express
+
+    Custome modules (files)
+
+
+Syntax to use module
+
+    const path = require('Path1');
+    const myFile = require('./myFile');
+
+
+Install nodejs
+
+    download from nodejs.org
+
+    Check installation with
+
+        node --version
+        npm --version
+
+Rune nodeJs
+
+    $ node
+
+
+USING NODE JS
+-------------
+
+    Create a package.json file
+
+        $ npm init
+
+        // Dependencies: modules installed and used for that project
+        // Dev dependencies: only used for development
+
+        //inside the Json file:
+        {
+            "scritps": {
+                "start": "node index",
+                "dev": "nodemon index",
+            }
+        }
+        // nodemon refreshes server with any change. 
+
+
+
+    Intall a desired packages
+
+        $ npm install <package_name>
+
+        $ npm install uuid
+        $ npm install -D nodemon
+
+            // Will automatically update package.json
+            // Will create node_modules folder
+            // Will install modules there
+            // -D is for Dev dependencies.
+
+        $ npm install
+
+            // Will install everything in package.json
+
+    Create JavaScript files
+
+        index.js
+            // console.log("Hello from Node Js")
+
+    Run JavaScript files
+
+        $ node index.js
+        $ node index  // will also run the file
+
+
+        Export a variable from one file to another
+
+            // File 1:
+                const person = 'Pablo'
+                module.exports = person; 
+
+            // File 2: (importing)
+                let person = require('./person'); // CommonJs syntax
+                console.log(person);
+                // Check if you can now import like python // ES6 stantard
+
+            // When you import like that, its imported with a modular wrapper function:
+            // function(exports, require, module, __filename, __dirname){}
+
+
+        $ npn run dev
+
+        Full documentation
+
+            nodejs.org --> Documentation

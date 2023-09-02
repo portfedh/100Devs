@@ -1,0 +1,36 @@
+/******************************************
+/* CSS
+/*******************************************/
+
+/* Box Model Hack */
+*{
+  box-sizing: border-box;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+body{
+  display: flex;
+  flex-direction: column;
+
+}
+
+
+
+img{
+  display: block;
+  margin: 0 auto;
+}
+
+
+#nasaImage{
+  max-width: 100%;
+  height: auto;
+}
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
