@@ -70,6 +70,10 @@ SETUP
         
         $ npm init
 
+        If package.json already exists use:
+
+            $ npm install
+
     Create server file:
 
         $ touch server.js
