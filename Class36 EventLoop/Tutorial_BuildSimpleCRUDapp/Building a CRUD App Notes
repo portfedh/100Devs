@@ -74,6 +74,15 @@ SETUP
 
             $ npm install
 
+        Add the following lines in package.json
+
+            "main": "server.js",
+
+            "scripts": {
+            
+                "start": "node server.js"
+            }
+
     Create server file:
 
         $ touch server.js
@@ -151,6 +160,8 @@ Database Setup
         Create a cluster
 
         Whitelist your current IP address
+
+            0.0.0.0/0 // All IP's
 
         Create a new user
 
