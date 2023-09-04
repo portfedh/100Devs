@@ -64,12 +64,16 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     // WRITE: Add values to  MongoDB:
     // ==============================
     // When server receives POST request from form.
-    app.post('/quotes', (req, res) => {
+    app.post('/inscribir', (req, res) => {
       // Insert record into database
       quotesCollection.insertOne(req.body)
         .then(result => {
           // Log what was inserted to server console
           console.log(result)
+          // Send the inserted ObjectId back to the user as a response
+          // You can also use res.send() or res.status() depending on your needs
+          // res.json({ insertedId: result.insertedId }); 
+          
           // Browser expects something back so redirect back to home
           res.redirect('/')
         })
