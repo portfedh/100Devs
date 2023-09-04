@@ -8,18 +8,21 @@ const MongoClient = require('mongodb').MongoClient
 
 console.log('server.js starting...')
 
+// Serve Public Folder
+app.use(express.static(__dirname + '/public'));
+
 // ******************************
 // ** Connect to MongoDB Atlas **
 // ******************************
 
 // Connection information:
 // =======================
-let connectionString = 'mongodb+srv://yoda:oNEn6lWuO2ADugjM@cluster0.tbcbcmb.mongodb.net/?retryWrites=true&w=majority'
-// Version using environment variables:
-//  @see https://zellwk.com/blog/environment-variables/
-//  require('./dotenv')
-//  Replace process.env.DB_URL with your actual connection string
-//  const connectionString = process.env.DB_URL
+let connectionString = 'mongodb+srv://osorio:sKAzbO35GYkeEsdk@cluster0.hogwabt.mongodb.net/?retryWrites=true&w=majority'
+    // Version using environment variables:
+        //  @see https://zellwk.com/blog/environment-variables/
+        //  require('./dotenv')
+        //  Replace process.env.DB_URL with your actual connection string
+        //  const connectionString = process.env.DB_URL
 
 // Establishing Connection:
 // =======================
@@ -28,12 +31,12 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     // ========================
     // Database and table info:
     // ========================
-    // Connection confirmation  message
+    // Connection confirmation  message:
     console.log('Connected to Database');
-    // DB name
-    const db = client.db('star-wars-quotes');
-    // Table name (collection name)
-    const quotesCollection = db.collection('quotes');
+    // DB name:
+    const db = client.db('SalsaCandela');
+    // Table name (collection name):
+    const quotesCollection = db.collection('Fiesta1');
 
     // ============================================
     // Middleware (must come before CRUD Handlers)
@@ -51,22 +54,12 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     // Routes
     // ========================
     
-    // READ: Serve Index:
+    // Serve Index:
     // ==================
     app.get('/', (req, res) => {
-      // Gets quotes from database
-      db.collection('quotes').find().toArray()
-        .then(results => {
-          console.log(results)
-          // Rendered page with EJS and database results
-          res.render('index.ejs', { quotes: results })
-          // Alternative: serve index.html
-          // res.sendFile(__dirname + '/index.html')
-          //  What you would use for a static site.
-      })
-        // Error handling
-        .catch(error => console.error(error))
-      })
+      // Serve index.html
+      res.sendFile(__dirname + '/index.html')
+    })
 
     // WRITE: Add values to  MongoDB:
     // ==============================
