@@ -29,6 +29,13 @@ Notes:
         Views - What the user sees
         Controller - in between code
 
+    Public
+        app.use(express.static('public'))
+
+            Any file in the public folder will be served with this line
+
+            No route needed
+
 Homework:
 
     
