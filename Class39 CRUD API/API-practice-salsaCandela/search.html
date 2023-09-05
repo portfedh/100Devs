@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Form</title>
+    <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+
+  <body>
+    <div class="row">
+  <div class="col-md-12">
+
+    <div class="logo">
+      <img src="salsaCandela.png" alt="LogoSalsaCandela">
+    </div>
+
+    <form action="/buscar" method="post" id="signup-form">
+      <h1> Busqueda del Alumno </h1>
+
+      <fieldset>      
+        <label for="first_name">Numero de cuenta:</label>
+        <input type="text" id="first_name" name="first_name">
+
+      <button type="submit" class="busqueda">Buscar</button>
+      </fieldset>
+     </form>
+
+
+
+
+
+     <form action="/buscar" method="post" id="signup-form">
+
+      <fieldset>      
+      <button type="submit" class="bienvenido">Bienvenido</button>
+      <button type="submit" class="accessado">Ingreso Previo </button>
+      <button type="submit" class="noEncontrado">No Encontrado</button>
+      </fieldset>
+     </form>
+
+     <form action="/inscribir" method="post" id="signup-form">
+      
+      <h1> Informacion del Alumno </h1>
+
+      <fieldset>
+      
+        <label for="first_name">Nombre:</label>
+        <input type="text" id="first_name" name="first_name">
+
+        <label for="last_name">Apellido:</label>
+        <input type="text" id="last_name" name="last_name">
+               
+       <label for="curso">Curso:</label>
+        <select id="curso" name="curso">
+          <optgroup label="Salsa">
+            <option value="salsa nivel 1">Salsa Nivel 1</option>
+            <option value="salsa nivel 2">Salsa Nivel 2</option>
+            <option value="salsa nivel 3">Salsa Nivel 3</option>
+            <option value="salsa nivel 4">Salsa Nivel 4</option>
+            <option value="salsa nivel 5">Salsa Nivel 5</option>
+          </optgroup>
+          <optgroup label="Bachata">
+            <option value="bachata nivel 1">Bachata Nivel 1</option>
+            <option value="bachata nivel 2">Bachata Nivel 2</option>
+            <option value="bachata nivel 3">Bachata Nivel 3</option>
+          </optgroup>
+        </select>
+
+        <label for="sucursal">Sucursal:</label>
+        <select id="sucursal" name="sucursal">
+          <optgroup label="Sucursal">
+            <option value="xola">Xola</option>
+            <option value="claveria">Claveria</option>
+            <option value="valle">Del Valle</option>
+            <option value="coapa">Coapa</option>
+            <option value="satelite">Satelite</option>
+          </optgroup>
+        </select>
+
+        <label>Horario:</label>
+        <input type="checkbox" id="L" value="lunes_miercoles" name="horario"><label class="light" for="L">Lunes y Miercoles 8.30pm - 9.30pm</label><br>
+        <input type="checkbox" id="M" value="martes_jueves" name="horario"><label class="light" for="M">Martes y Jueves 8.30pm - 9.30pm</label><br>
+        <input type="checkbox" id="S" value="sabado" name="horario"><label class="light" for="S">Sabados 10am -12pm</label><br>
+        <input type="checkbox" id="D" value="domingo" name="horario"><label class="light" for="D">Domingos 10am -12pm</label><br>
+       </fieldset>
+
+     </form>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="js/main.js"></script>
+  </body>
+
+</html>

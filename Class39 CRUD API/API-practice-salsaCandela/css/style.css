@@ -112,6 +112,26 @@ button {
   margin-bottom: 10px;
 }
 
+.busqueda{
+  background-color: #a91d84;
+  border: 1px solid #981a78;
+}
+
+.bienvenido{
+  background-color: #4bc970;
+  border: 1px solid #3ac162;
+}
+
+.accessado{
+  background-color: #e14a21;
+  border: 1px solid #ea4d23;
+}
+
+.noEncontrado{
+  background-color: #989FA7;
+  border: 1px solid #9E9E9C;
+}
+
 fieldset {
   margin-bottom: 30px;
   border: none;
