@@ -2,6 +2,7 @@
 -------------------
 
 Date taken:
+
     3 September 2023
 
 Link:
@@ -10,36 +11,143 @@ Link:
 
 Twitter:
 
+    https://twitter.com/leonnoel/status/1534286728218804224
     
-
 Slides:
 
+    https://slides.com/leonnoel/100devs2-express-crud
     
 
 Follow allong materials:
 
-    
+    No material. Just follow the slides
+
+Homework:
+
+    Make your own API and push to Heroku
     
 
 Notes:
+
+    Express is a framework to simplify the backend on Node.js
+        http utility methods
+        Makes creating an API much easier
+
+    CRUD
+        Create  - Post
+        Read    - Get
+        Update  - Update
+        Delete  - Delete
+
+    MongoDB
+        Database
+            Collection (table)
+                Documents
+
+    EJS: Embedded Javascript Templates
+        Template to render html files
+        Stored in /views folder
+        To run fonts, images, css and JS we add them in /public folder
 
     Model View Controller model:
         Separation of concerns in the backend.
         Model - talks to the database
         Views - What the user sees
         Controller - in between code
+        (We will go over this in future classes)
 
     Public
         app.use(express.static('public'))
-
             Any file in the public folder will be served with this line
-
             No route needed
 
-Homework:
+    New project:
+        Setup Project
+            mkdir api-project
+            cd api-project
+            npm init 
+            npm install express --save
+            npm install mongodb --save
+            npm install ejs --save
+            create Public folder/files
 
-    
+        Connect to MongoDB:
+            let db,
+                dbConnectionStr = 'mongodb+srv://demo:demo@cluster0
+                .2wapm.mongodb.net/rap?retryWrites=true&w=majority',
+                dbName = 'rap'
+
+            MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
+                .then(client => {
+                    console.log(`Connected to ${dbName} Database`)
+                    db = client.db(dbName)
+                })
+
+        Setup server:
+            app.set('view engine', 'ejs')
+            app.use(express.static('public'))
+            app.use(express.urlencoded({ extended: true }))
+            app.use(express.json())
+
+            app.listen(process.env.PORT || PORT, ()=>{
+                console.log(`Server running on port ${PORT}`)
+            })
+
+        API-Get:
+            app.get('/',(request, response)=>{
+                db.collection('rappers').find().toArray()
+                .then(data => {
+                    response.render('index.ejs', { info: data })
+                })
+                .catch(error => console.error(error))
+            })
+
+        API-Post:
+            app.post('/addRapper', (request, response) => {
+                db.collection('rappers').insertOne(request.body)
+                .then(result => {
+                    console.log('Rapper Added')
+                    response.redirect('/')
+                })
+                .catch(error => console.error(error))
+            })
+
+        API-Delete: (De-lay-te)
+            app.delete('/deleteRapper', (request, response) => {
+                db.collection('rappers').deleteOne({stageName: request.body.stageNameS})
+                .then(result => {
+                    console.log('Rapper Deleted')
+                    response.json('Rapper Deleted')
+                })
+                .catch(error => console.error(error))
+
+            })
+
+        Create EJS File:
+            <h1>Current Rappers</h1>
+            <ul class="rappers">
+            <% for(let i=0; i < info.length; i++) {%>
+                <li class="rapper">
+                    <span><%= info[i].stageName %></span>
+                    <span><%= info[i].birthName %></span>
+                    <span class='del'>delete</span>
+                </li>
+            <% } %>
+            </ul>
+            <h2>Add A Rapper:</h2>
 
 
 Transcript:
 
+    Gotta be careful
+    good morning good afternoon good evening no matter where you're coming from hope you all are doing well
+    what's going on everybody welcome back welcome back and different ghosts hey thank you for the 10.
+    thank you so much i appreciate that thank you for being here hope you're doing well
+    that's wild starting off a banger folks thank you for the gift of subs i appreciate that thank you so much what's
+    going on everybody welcome welcome paco's watching class seven on youtube wanting to stop by and say live
+    hi what's up welcome what's going on everybody welcome in welcome in
+    habs let's go indeed hey argan curtis hey thank you with the raid
+    thanks for bringing the crew along hope you're doing well hey let's go everybody good to see you
+    uh tonight tonight kmp is on class one
+    hey let's go what up frank what's going on everybody tonight ah
+    tonight's one of my favorite classes we're gonna we're gonna go on a journey tonight folks
