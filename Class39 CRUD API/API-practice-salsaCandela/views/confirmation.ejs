@@ -1,3 +1,5 @@
+<!-- confirmation.ejs -->
+<!-- Render Template -->
 <!DOCTYPE html>
 
 <html lang="en">
@@ -14,20 +16,23 @@
   <div class="col-md-12">
 
     <div class="logo">
-      <img src="salsaCandela.png" alt="LogoSalsaCandela">
+      <a href="/">
+        <img src="salsaCandela.png" alt="LogoSalsaCandela">
+      </a>
     </div>
 
-    <div class="fondo">
+    <div class="fondo" id="imagen-qr-confirmacion">
       <h1 class="titulo"> Alumno Inscrito </h1>
 
       <div class="codigoQr" id="qrcode">
-        <img src="https://api.qrserver.com/v1/create-qr-code/?data=64f65c7efe294e34af7b2a97&amp;size=200x200" alt="" title="" />
+        <img src= <%= qrWww %> alt="" title="" />
       </div>
-
-      <p class="Texto">64f65c7efe294e34af7b2a97</p>
+      <p class="Texto"> <%= idAlumno %></p>
       <p class="Texto">Pablo Cruz Lemini</p>
+    </div>
 
-
+    <div class="fondo">
+      <button id="capture-button">Guardar imagen</button>
     </div>
 
     <script type="text/javascript" src="js/main.js"></script>

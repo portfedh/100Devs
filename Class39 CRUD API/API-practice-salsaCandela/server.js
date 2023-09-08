@@ -5,6 +5,7 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const MongoClient = require('mongodb').MongoClient
+const html2canvas = require('html2canvas');
 
 console.log('server.js starting...')
 
@@ -65,17 +66,21 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     // ==============================
     // When server receives POST request from form.
     app.post('/inscribir', (req, res) => {
-      // Insert record into database
+      
+      // Insert record into database   
       quotesCollection.insertOne(req.body)
         .then(result => {
           // Log what was inserted to server console
           console.log(result)
-          // Send the inserted ObjectId back to the user as a response
-          // You can also use res.send() or res.status() depending on your needs
-          // res.json({ insertedId: result.insertedId }); 
           
+          //Render confirmation page with Id
+          res.render('confirmation.ejs', { 
+            idAlumno: result.insertedId.toString(),
+            qrWww: 'https://api.qrserver.com/v1/create-qr-code/?data='+result.insertedId.toString()+'&amp;size=200x200'
+          })
+
           // Browser expects something back so redirect back to home
-          res.redirect('/')
+          //res.redirect('/')
         })
         // Error handling
         .catch(error => console.error(error))
