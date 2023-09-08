@@ -34,7 +34,15 @@ Notes:
 
     Enviroment Variables
 
-        .env file:
+        Dont push database secrets to GitHub
+
+        Create a .env file:
+
+            npm install dotenv --save
+
+            $ touch .env
+
+        Add your variables there:
 
             DB_STRING = 
               mongodb+srv://demo:demo@cluster0.2wapm.mongodb.net/rap?retryWrites=true&w=majority
@@ -42,6 +50,9 @@ Notes:
         add .env to .gitignore:
             .env
             node_modules
+
+        Reference enviroment variables in your code:
+            dbConnection = process.env.DB_STRING
 
         In terminal, add var to Heroku:
             heroku config:set DB_STRING = 
