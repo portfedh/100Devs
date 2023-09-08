@@ -66,21 +66,18 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     // ==============================
     // When server receives POST request from form.
     app.post('/inscribir', (req, res) => {
-      
+    
       // Insert record into database   
       quotesCollection.insertOne(req.body)
         .then(result => {
           // Log what was inserted to server console
           console.log(result)
-          
           //Render confirmation page with Id
           res.render('confirmation.ejs', { 
             idAlumno: result.insertedId.toString(),
-            qrWww: 'https://api.qrserver.com/v1/create-qr-code/?data='+result.insertedId.toString()+'&amp;size=200x200'
+            qrWww: 'https://api.qrserver.com/v1/create-qr-code/?data='+result.insertedId.toString()+'&amp;size=200x200',
+            nombreAlumno: req.body.first_name + ' ' + req.body.last_name
           })
-
-          // Browser expects something back so redirect back to home
-          //res.redirect('/')
         })
         // Error handling
         .catch(error => console.error(error))
