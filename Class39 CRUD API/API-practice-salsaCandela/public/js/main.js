@@ -1,32 +1,27 @@
-console.log('Js Script running')
+console.log('Client Js Script running')
 
-// JavaScript code to prevent form submission
-// ******************************************
-// document.getElementById('signup-form').addEventListener('submit', function(event) {
-//   event.preventDefault();
-//   console.log('Form submitted in testing/development mode. Data was not sent to the server.')
-// });
+const imageElement = document.getElementById('qrCode-image');
+const downloadButton = document.getElementById('downloadButton');
+const apiEndpoint = apiUrl;
+const originalUsername = userName
+const modUsername = originalUsername.split(' ').join('');
+const fileName = modUsername+'_'+userId+'.png'
 
-
-// Create QR
-// *********
-let newUuid = crypto.randomUUID()
-console.log(`new UUID is: ${newUuid}`)
-// Move this code Server side
-// Add a timestamp
-
-// Download QR
-// ***********
-document.getElementById('capture-button').addEventListener('click', function () {
-  console.log('clicked button')
-  // html2canvas(document.getElementById('imagen-qr-confirmacion')).then(function (canvas) {
-  //   var image = canvas.toDataURL('image/png'); // Convert canvas to base64 image data
-    
-  //   // Create a link element to download the image
-  //   var a = document.createElement('a');
-  //   a.href = image;
-  //   a.download = 'captured-image.png'; // Set the filename for the downloaded image
-  //   a.click(); // Trigger a click event to start the download
-  // });
-  
-});
+// Fetch the PNG image from the API.
+fetch(apiEndpoint)
+.then((response) => response.blob())
+.then((blob) => {
+    const imageURL = URL.createObjectURL(blob);
+    imageElement.src = imageURL;
+    downloadButton.removeAttribute('disabled');
+    downloadButton.addEventListener('click', () => {
+        // Create a temporary link to trigger the download.
+        const a = document.createElement('a');
+        a.href = imageURL;
+        a.download = fileName;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    });
+})
+.catch((error) => console.error('Error fetching image:', error));

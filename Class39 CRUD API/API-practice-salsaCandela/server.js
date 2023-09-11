@@ -5,7 +5,6 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const MongoClient = require('mongodb').MongoClient
-const html2canvas = require('html2canvas');
 
 console.log('server.js starting...')
 
