@@ -11,12 +11,12 @@ const MongoClient = require("mongodb").MongoClient;
 const ObjectId = require("mongodb").ObjectId;
 const PORT = 3000;
 
-// Serve Public Folder
+// Serve public folder
 app.use(express.static(__dirname + "/public"));
 
-// Establishing DB Connection:
-// ===========================
-// Database credentials
+// Connecting to MongoDB:
+// ======================
+// Credentials
 let connectionString = process.env.DB_STRING;
 
 MongoClient.connect(connectionString, { useUnifiedTopology: true })
@@ -32,7 +32,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     const quotesCollection = db.collection("Fiesta1");
 
     // ============================================
-    // Middleware (must come before CRUD Handlers)
+    // Middleware (must come before crud handlers)
     // ============================================
     // Set template engine EJS
     app.set("view engine", "ejs");
@@ -43,24 +43,24 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     // Make public folder accessible to the public
     app.use(express.static("public"));
 
-    // ========================
-    // Routes
-    // ========================
+    // =======
+    // Routes:
+    // =======
 
-    // Serve Index:
-    // ==================
+    // Index:
+    // ======
     app.get("/", (req, res) => {
       res.sendFile(__dirname + "/index.html");
     });
 
-    // Serve Search:
-    // ==================
+    // Search:
+    // =======
     app.get("/search", (req, res) => {
       res.sendFile(__dirname + "/search.html");
     });
 
     // WRITE: POST request from form
-    // =================================
+    // ==============================
     // When server receives .
     app.post("/inscribir", (req, res) => {
       // Insert record into database
