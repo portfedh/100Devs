@@ -1,32 +1,24 @@
+console.log("server.js starting...");
+
 // *************
 // ** Imports **
 // *************
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const MongoClient = require("mongodb").MongoClient;
-
-console.log("server.js starting...");
+const ObjectId = require("mongodb").ObjectId;
+const PORT = 3000;
 
 // Serve Public Folder
 app.use(express.static(__dirname + "/public"));
 
-// ******************************
-// ** Connect to MongoDB Atlas **
-// ******************************
+// Establishing DB Connection:
+// ===========================
+// Database credentials
+let connectionString = process.env.DB_STRING;
 
-// Connection information:
-// =======================
-let connectionString =
-  "mongodb+srv://osorio:sKAzbO35GYkeEsdk@cluster0.hogwabt.mongodb.net/?retryWrites=true&w=majority";
-// Version using environment variables:
-//  @see https://zellwk.com/blog/environment-variables/
-//  require('./dotenv')
-//  Replace process.env.DB_URL with your actual connection string
-//  const connectionString = process.env.DB_URL
-
-// Establishing Connection:
-// =======================
 MongoClient.connect(connectionString, { useUnifiedTopology: true })
   .then((client) => {
     // ========================
@@ -61,15 +53,15 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
       res.sendFile(__dirname + "/index.html");
     });
 
-    // Serve Index:
+    // Serve Search:
     // ==================
     app.get("/search", (req, res) => {
       res.sendFile(__dirname + "/search.html");
     });
 
-    // WRITE: Add values to  MongoDB:
-    // ==============================
-    // When server receives POST request from form.
+    // WRITE: POST request from form
+    // =================================
+    // When server receives .
     app.post("/inscribir", (req, res) => {
       // Insert record into database
       quotesCollection
@@ -89,6 +81,20 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         })
         // Error handling
         .catch((error) => console.error(error));
+    });
+
+    // Read: Search for user in  MongoDB:
+    // =================================
+    // When server receives POST request from form:
+    app.post("/buscar", async (req, res) => {
+      // Debugging: Search for all students
+      const students = await quotesCollection.find().toArray();
+      console.table(students);
+      // Search for record in database:
+      const students2 = await quotesCollection.findOne({
+        _id: new ObjectId(req.body),
+      });
+      console.table(students2);
     });
 
     // UPDATE: Update MongoDB record
@@ -143,18 +149,11 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     });
 
     // ========================
-    // Server Listen:
+    // Server Port:
     // ========================
-    // Port for the server to listen:
-    app.listen(3000, function () {
-      console.log("listening on 3000");
+    app.listen(process.env.PORT || PORT, () => {
+      console.log(`Server running on port ${PORT}`);
     });
-    // Production version:
-    // const isProduction = process.env.NODE_ENV === 'production'
-    // const port = isProduction ? 7500 : 3000
-    // app.listen(port, function () {
-    //   console.log(`listening on ${port}`)
-    // })
   })
   // Error handling
   .catch((error) => console.error(error));
