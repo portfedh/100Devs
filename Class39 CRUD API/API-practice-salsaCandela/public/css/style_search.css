@@ -130,6 +130,11 @@ button {
   border: 1px solid #b86e29;
 }
 
+.userValue {
+  padding-left: 30px;
+  color: #384047;
+}
+
 fieldset {
   margin-bottom: 30px;
   border: none;
