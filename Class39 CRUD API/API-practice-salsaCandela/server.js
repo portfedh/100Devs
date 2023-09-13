@@ -57,7 +57,6 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
 
     // WRITE: POST request form to add a user
     // ======================================
-    // When server receives .
     app.post("/inscribir", (req, res) => {
       // Insert record into database
       quotesCollection
@@ -81,36 +80,30 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
 
     // Read: Search for user in  MongoDB:
     // =================================
-    // When server receives POST request from form:
     app.post("/buscar", async (req, res) => {
       // For debugging: Search for all students
-      // **************************************
-      // // 64fe86e8b683db18ee00a001
       // const students = await quotesCollection.find().toArray();
-      // console.log(students);
-      // console.log("Filter Below:");
-      // console.log(students[0]);
-      // console.log(students[0].first_name);
 
       // Search for record in database:
       // *******************************
+      var myId = req.body.id_to_search;
+      const object_id_to_find = new ObjectId(myId);
+
       const students2 = await quotesCollection.findOne({
-        first_name: req.body.id_to_search,
+        _id: object_id_to_find,
       });
 
-      console.log("Table with results below:");
-      console.log(students2);
+      // console.log("Table with results below:");
+      // console.log(students2);
 
       res.render("search.ejs", {
-        idAlumno: "0099838", // res.first_name.toString(),
+        idAlumno: students2._id,
         firstName: students2.first_name,
         lastName: students2.last_name,
         curso: students2.curso,
         sucursal: students2.sucursal,
         horario: students2.horario,
       });
-
-      // res.sendFile(__dirname + "/index.html");
     });
 
     // UPDATE: Update MongoDB record
