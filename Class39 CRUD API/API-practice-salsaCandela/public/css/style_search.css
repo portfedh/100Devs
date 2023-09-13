@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+.searchTitle {
+  font-weight: bold;
+}
+
 .logo {
   /* border: 2px solid red; */
   display: flex;
