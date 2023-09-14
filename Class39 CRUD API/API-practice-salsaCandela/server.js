@@ -89,22 +89,36 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
       var myId = req.body.id_to_search;
       const object_id_to_find = new ObjectId(myId);
 
-      const students2 = await quotesCollection.findOne({
-        _id: object_id_to_find,
-      });
+      try {
+        const students2 = await quotesCollection.findOne({
+          _id: object_id_to_find,
+        });
 
+        if (!students2) {
+          // Handle the case where no record was found
+          console.log("No student record found.");
+          return res.status(404).json({ message: "No student record found." });
+        } else {
+          res.status(200);
+          res.render("search.ejs", {
+            idAlumno: students2._id,
+            firstName: students2.first_name,
+            lastName: students2.last_name,
+            curso: students2.curso,
+            sucursal: students2.sucursal,
+            horario: students2.horario,
+            last_loggin: students2.last_loggin,
+          });
+        }
+      } catch (error) {
+        // Handle any errors that occurred during the query
+        console.error("An error occurred while querying MongoDB:", error);
+        res.status(500).json({
+          message: "An error occurred while processing your request.",
+        });
+      }
       // console.log("Table with results below:");
       // console.log(students2);
-
-      res.render("search.ejs", {
-        idAlumno: students2._id,
-        firstName: students2.first_name,
-        lastName: students2.last_name,
-        curso: students2.curso,
-        sucursal: students2.sucursal,
-        horario: students2.horario,
-        last_loggin: students2.last_loggin,
-      });
     });
 
     // UPDATE: Update MongoDB record
