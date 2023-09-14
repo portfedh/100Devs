@@ -1,4 +1,4 @@
-console.log("Client Js Script running");
+console.log("Confirmation Client Js Script running");
 
 const imageElement = document.getElementById("qrCode-image");
 const downloadButton = document.getElementById("downloadButton");
