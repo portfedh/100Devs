@@ -24,19 +24,19 @@
         <legend><span class="number">1</span> Informacion Basica</legend>
       
         <label for="first_name">Nombre:</label>
-        <input type="text" id="first_name" name="first_name">
+        <input type="text" id="first_name" name="first_name" required>
 
         <label for="last_name">Apellido:</label>
-        <input type="text" id="last_name" name="last_name">
+        <input type="text" id="last_name" name="last_name" required>
       
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email">
+        <input type="email" id="email" name="email" required>
 
         <label for="age">Edad:</label>
-        <input type="number" id="age" name="Age">
+        <input type="number" id="age" name="Age" required>
 
         <label>Sexo:</label>
-        <input type="radio" id="masculino" value="masculino" name="sexo"><label for="masculino" class="light">Masculino</label><br>
+        <input type="radio" id="masculino" value="masculino" name="sexo"><label for="masculino" class="light">Masculino </label><br>
         <input type="radio" id="femenino" value="femenino" name="sexo"><label for="femenino" class="light">Femenino</label><br>
       </fieldset>
 
@@ -44,7 +44,7 @@
         <legend><span class="number">2</span> Informacion del Curso</legend>
         
        <label for="curso">Curso:</label>
-        <select id="curso" name="curso">
+        <select id="curso" name="curso" required>
           <optgroup label="Salsa">
             <option value="Salsa nivel 1">Salsa Nivel 1</option>
             <option value="Salsa nivel 2">Salsa Nivel 2</option>
@@ -60,7 +60,7 @@
         </select>
 
         <label for="sucursal">Sucursal:</label>
-        <select id="sucursal" name="sucursal">
+        <select id="sucursal" name="sucursal" required>
           <optgroup label="Sucursal">
             <option value="Xola">Xola</option>
             <option value="Claveria">Claveria</option>
@@ -80,7 +80,7 @@
        <fieldset> 
         <legend><span class="number">3</span> Pago</legend>
         <label for="job">Forma de Pago:</label>
-        <select id="job" name="forma_pago">
+        <select id="job" name="forma_pago" required>
             <option value="efectivo">Efectivo</option>
             <option value="deposito">Deposito Oxxo</option>
             <option value="paypal">Paypal</option>
@@ -90,7 +90,7 @@
         </select>
 
         <label for="suscripcion">Paquete a comprar:</label>
-        <select id="suscripcion" name="suscripcion">
+        <select id="suscripcion" name="suscripcion" required>
             <option value="individual">Individual</option>
             <option value="pareja">Pareja</option>
           </optgroup>
