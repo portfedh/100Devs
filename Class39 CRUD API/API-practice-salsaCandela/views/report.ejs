@@ -26,39 +26,36 @@
           <h1>Reporte de almnos:</h1>
           <!-- Section  to Read quotes from Database and write them to the DOM-->
           <section data-position="quotes">
-            <h2>Alumnos registrados:</h2>
-            <table>
+            <table class="report-table">
               <thead>
-                  <tr>
-                      <th>Nombre</th>
-                      <th>Email</th>
-                      <th>Edad</th>
-                      <th>Sexo</th>
-                      <th>Curso</th>
-                      <th>Sucursal</th>
-                      <th>Horario</th>
-                      <th>Forma de pago</th>
-                      <th>Suscripcion</th>
-                  </tr>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Email</th>
+                  <th>Edad</th>
+                  <th>Sexo</th>
+                  <th>Curso</th>
+                  <th>Sucursal</th>
+                  <th>Horario</th>
+                  <th>Forma de pago</th>
+                  <th>Suscripcion</th>
+                </tr>
               </thead>
-
-            <ul class="quotes">
-              <% for(var i = 0; i < quotes.length; i++) {%>
-              <li class="quote">
-                <span
-                  ><%= quotes[i].first_name %> <%= quotes[i].last_name %> </span
-                >:
-                <span><%= quotes[i].email %></span>
-                <span><%= quotes[i].Age %></span>
-                <span><%= quotes[i].sexo %></span>
-                <span><%= quotes[i].curso %></span>
-                <span><%= quotes[i].sucursal %></span>
-                <span><%= quotes[i].horario %></span>
-                <span><%= quotes[i].forma_pago %></span>
-                <span><%= quotes[i].suscripcion %></span>
-              </li>
-              <% } %>
-            </ul>
+              <tbody>
+                <% quotes.forEach(function(object) { %>
+                <tr>
+                  <td><%= object.first_name %></td>
+                  <td><%= object.email %></td>
+                  <td><%= object.Age %></td>
+                  <td><%= object.sexo %></td>
+                  <td><%= object.curso %></td>
+                  <td><%= object.sucursal %></td>
+                  <td><%= object.horario %></td>
+                  <td><%= object.forma_pago %></td>
+                  <td><%= object.suscripcion %></td>
+                </tr>
+                <% }); %>
+              </tbody>
+            </table>
           </section>
         </form>
       </div>

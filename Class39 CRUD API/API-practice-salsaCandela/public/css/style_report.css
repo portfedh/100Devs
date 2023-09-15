@@ -6,6 +6,16 @@
   box-sizing: border-box;
 }
 
+.report-table {
+  margin: 0 auto;
+  padding-bottom: 30px;
+}
+
+td {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 .logo {
   /* border: 2px solid red; */
   display: flex;
