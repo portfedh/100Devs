@@ -55,8 +55,8 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
       res.sendFile(__dirname + "/search.html");
     });
 
-    // WRITE: POST request form to add a user
-    // ======================================
+    // Add a user
+    // ===========
     app.post("/inscribir", (req, res) => {
       // Insert record into database
       quotesCollection
@@ -78,28 +78,24 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         .catch((error) => console.error(error));
     });
 
-    // Read: Search for user in  MongoDB:
-    // =================================
+    // Search for user:
+    // ================
     app.post("/search_results", async (req, res) => {
-      // For debugging: Search for all students
       // const students = await quotesCollection.find().toArray();
-
-      // Search for record in database:
-      // *******************************
       try {
+        // Get id from body request
         var myId = req.body.id_to_search;
+        // Search for id
         const object_id_to_find = new ObjectId(myId);
         const students2 = await quotesCollection.findOne({
           _id: object_id_to_find,
         });
-
         if (!students2) {
-          // No record was found:
+          // No record found:
           console.log("No student record found.");
           res.render("search_not_found.ejs", {});
         } else {
           // Record found:
-          res.status(200);
           res.render("search_results.ejs", {
             idAlumno: students2._id,
             firstName: students2.first_name,
@@ -111,13 +107,9 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
           });
         }
       } catch (error) {
-        console.error("An error occurred while querying MongoDB:", error);
-        res.status(500).json({
-          message: "An error occurred while processing your request.",
-        });
+        console.error("Error while querying MongoDB:", error);
+        res.status(500).json({ message: "An error occurred." });
       }
-      // console.log("Table with results below:");
-      // console.log(students2);
     });
 
     // UPDATE: Update MongoDB record
