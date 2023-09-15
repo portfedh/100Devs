@@ -55,6 +55,23 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
       res.sendFile(__dirname + "/search.html");
     });
 
+    // Search:
+    // =======
+    app.get("/report", (req, res) => {
+      // Gets quotes from database
+      quotesCollection
+        .find()
+        .toArray()
+        .then((results) => {
+          console.log(results);
+          // Rendered page with EJS and database results
+          res.render("report.ejs", { quotes: results });
+          // res.sendFile(__dirname + "/report.html");
+        })
+        // Error handling
+        .catch((error) => console.error(error));
+    });
+
     // Add a user
     // ===========
     app.post("/inscribir", (req, res) => {
@@ -86,7 +103,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         // Get id from body request
         var myId = req.body.id_to_search;
         // Search for id
-        const object_id_to_find = new ObjectId(myId);
+        var object_id_to_find = new ObjectId(myId);
         const students2 = await quotesCollection.findOne({
           _id: object_id_to_find,
         });
@@ -96,6 +113,38 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
           res.render("search_not_found.ejs", {});
         } else {
           // Record found:
+          // Get las date
+          console.log("last login:");
+          console.log(students2.last_loggin);
+          // Get date today
+          const today = new Date();
+          const year = today.getFullYear();
+          const month = String(today.getMonth() + 1).padStart(2, "0"); // Adding 1 to month because months are zero-indexed
+          const day = String(today.getDate()).padStart(2, "0");
+          var todayDateString = `${year}-${month}-${day}`;
+          console.log("Todays date:");
+          console.log(todayDateString);
+          // Compare dates
+          if (students2.last_loggin != todayDateString) {
+            // Access granted
+            var accessButton = "welcome";
+            var accessText = "Bienvenido";
+
+            quotesCollection.findOneAndUpdate(
+              // Search by id
+              { _id: object_id_to_find },
+              {
+                // Update operator $set
+                $set: { last_loggin: todayDateString },
+              },
+              { upsert: true }
+            );
+          } else {
+            // Access rejected
+            var accessButton = "alreadyIn";
+            var accessText = "Segundo acceso del dia";
+          }
+
           res.render("search_results.ejs", {
             idAlumno: students2._id,
             firstName: students2.first_name,
@@ -104,63 +153,14 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
             sucursal: students2.sucursal,
             horario: students2.horario,
             last_loggin: students2.last_loggin,
+            buttonClass: accessButton,
+            text: accessText,
           });
         }
       } catch (error) {
         console.error("Error while querying MongoDB:", error);
         res.status(500).json({ message: "An error occurred." });
       }
-    });
-
-    // UPDATE: Update MongoDB record
-    // =============================
-    // A less complicated process can be done with Mongoose.
-    // Read tutorial here:
-    // https://zellwk.com/blog/mongoose/
-    // Responds to PUT request from public/main.js
-    app.put("/quotes", (req, res) => {
-      // Method included in MongoDB
-      quotesCollection
-        .findOneAndUpdate(
-          // Query posts written by 'Yoda'
-          { name: "Yoda" },
-          {
-            // Update operator $set
-            // Other possible are: $inc, $push
-            $set: {
-              name: req.body.name,
-              quote: req.body.quote,
-            },
-          },
-          {
-            // Create quote if no 'Yoda' quote exists
-            // upsert: insert if no documents can be updated
-            upsert: true,
-          }
-        )
-        .then((result) => {
-          // Console log result in server
-          console.log(result);
-          // Respond with Success JSON Message to client
-          res.json("Success");
-        })
-        // Error Handling
-        .catch((error) => console.error(error));
-    });
-
-    // DELETE: De-lay-te MongoDB record
-    // ================================
-    app.delete("/quotes", (req, res) => {
-      quotesCollection
-        .deleteOne({ name: req.body.name })
-        //.deleteOne({ name: 'Darth Vader' }, options)
-        .then((result) => {
-          if (result.deletedCount === 0) {
-            return res.json("No quote to delete");
-          }
-          res.json(`Deleted Darth Vader's quote`);
-        })
-        .catch((error) => console.error(error));
     });
 
     // ========================

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up Form</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:400,300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="css/style_report.css" />
+  </head>
+
+  <body>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="logo">
+          <a href="/">
+            <img src="salsaCandela.png" alt="LogoSalsaCandela" />
+          </a>
+        </div>
+        <!-- Search section -->
+        <form action="/search_results" method="post" id="search-form">
+          <h1>Reporte de almnos:</h1>
+          <!-- Section  to Read quotes from Database and write them to the DOM-->
+          <section data-position="quotes">
+            <h2>Alumnos registrados:</h2>
+            <table>
+              <thead>
+                  <tr>
+                      <th>Nombre</th>
+                      <th>Email</th>
+                      <th>Edad</th>
+                      <th>Sexo</th>
+                      <th>Curso</th>
+                      <th>Sucursal</th>
+                      <th>Horario</th>
+                      <th>Forma de pago</th>
+                      <th>Suscripcion</th>
+                  </tr>
+              </thead>
+
+            <ul class="quotes">
+              <% for(var i = 0; i < quotes.length; i++) {%>
+              <li class="quote">
+                <span
+                  ><%= quotes[i].first_name %> <%= quotes[i].last_name %> </span
+                >:
+                <span><%= quotes[i].email %></span>
+                <span><%= quotes[i].Age %></span>
+                <span><%= quotes[i].sexo %></span>
+                <span><%= quotes[i].curso %></span>
+                <span><%= quotes[i].sucursal %></span>
+                <span><%= quotes[i].horario %></span>
+                <span><%= quotes[i].forma_pago %></span>
+                <span><%= quotes[i].suscripcion %></span>
+              </li>
+              <% } %>
+            </ul>
+          </section>
+        </form>
+      </div>
+    </div>
+    <!-- <script type="text/javascript" src="js/search.js"></script> -->
+  </body>
+</html>
