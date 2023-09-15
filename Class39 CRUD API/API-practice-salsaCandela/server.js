@@ -80,27 +80,27 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
 
     // Read: Search for user in  MongoDB:
     // =================================
-    app.post("/buscar", async (req, res) => {
+    app.post("/search_results", async (req, res) => {
       // For debugging: Search for all students
       // const students = await quotesCollection.find().toArray();
 
       // Search for record in database:
       // *******************************
-      var myId = req.body.id_to_search;
-      const object_id_to_find = new ObjectId(myId);
-
       try {
+        var myId = req.body.id_to_search;
+        const object_id_to_find = new ObjectId(myId);
         const students2 = await quotesCollection.findOne({
           _id: object_id_to_find,
         });
 
         if (!students2) {
-          // Handle the case where no record was found
+          // No record was found:
           console.log("No student record found.");
-          return res.status(404).json({ message: "No student record found." });
+          res.render("search_not_found.ejs", {});
         } else {
+          // Record found:
           res.status(200);
-          res.render("search.ejs", {
+          res.render("search_results.ejs", {
             idAlumno: students2._id,
             firstName: students2.first_name,
             lastName: students2.last_name,
@@ -111,7 +111,6 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
           });
         }
       } catch (error) {
-        // Handle any errors that occurred during the query
         console.error("An error occurred while querying MongoDB:", error);
         res.status(500).json({
           message: "An error occurred while processing your request.",

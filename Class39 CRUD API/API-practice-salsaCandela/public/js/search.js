@@ -9,7 +9,8 @@ function validateInput() {
   const usernameError = document.getElementById("usernameError");
   if (username.length != 24) {
     console.log(`input length is not 24 char. Its: ${username.length}`);
-    usernameError.textContent = "Username must be 24 characters.";
+    usernameError.textContent =
+      "El numero de usario debe de ser de 24 caracteres.";
     event.preventDefault();
   }
 }
