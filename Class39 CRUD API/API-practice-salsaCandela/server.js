@@ -46,13 +46,13 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     // Index:
     // ======
     app.get("/", (req, res) => {
-      res.sendFile(__dirname + "/index.html");
+      res.render("index.ejs", {});
     });
 
     // Search:
     // =======
     app.get("/search", (req, res) => {
-      res.sendFile(__dirname + "/search.html");
+      res.render("search.ejs", {});
     });
 
     // Search:
