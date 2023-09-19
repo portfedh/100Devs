@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confirmacion de inscripcion</title>
     <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/style_general.css">
     <link rel="stylesheet" href="css/style_confirmation.css">
   </head>
 
@@ -20,7 +21,7 @@
       </a>
     </div>
 
-    <div class="fondo" id="imagen-qr-confirmacion">
+    <div class="confirmationSection" id="imagen-qr-confirmacion">
       <h1 class="titulo"> Alumno Inscrito </h1>
 
       <div class="codigoQr" id="qrcode">
@@ -30,7 +31,7 @@
       <p class="Texto"><%= nombreAlumno %></p>
     </div>
 
-    <div class="fondo">
+    <div class="confirmationSection">
       <button id="downloadButton">Guardar imagen</button>
     </div> 
     <script>var apiUrl = '<%= qrWww %>'; var userName = '<%= nombreAlumno %>'; var userId = '<%= idAlumno %>';</script>
