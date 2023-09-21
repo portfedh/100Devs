@@ -1,47 +1,60 @@
+<!-- This is the document type declaration specifying that this is an HTML document -->
 <!DOCTYPE html>
+<!-- This is the opening <html> tag with the language attribute set to "en" for English -->
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <!-- Meta tag specifying the character encoding for the document as UTF-8 -->
+    <meta charset="UTF-8" />
+    <!-- Meta tag specifying the compatibility mode for Internet Explorer -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Meta tag specifying the viewport settings for responsive design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- The title of the HTML document, which appears in the browser tab -->
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Todo List: </h1>
+    <!-- Link to an external CSS file (Font Awesome icons) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <!-- Link to an external CSS file (custom styles) -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Heading displaying "Todo List:" -->
+    <h1>Todo List:</h1>
+    <!-- Unordered list with the class "todoItems" -->
     <ul class="todoItems">
-    <% for(let i=0; i < items.length; i++) {%>
-        <li class="item">
-            <% if(items[i].completed === true) {%>
-                <span class='completed'><%= items[i].thing %></span>
-            <% }else{ %>
-                <span><%= items[i].thing %></span>
-            <% } %>    
-            <span class='fa fa-trash'></span>
-        </li>
-    <% } %>
+      <!-- Loop through items array -->
+      <% for(let i=0; i < items.length; i++) {%>
+      <li class="item">
+        <!-- Check if the item is completed -->
+        <% if(items[i].completed === true) {%>
+        <!-- Display completed item with a class "completed" -->
+        <span class="completed"><%= items[i].thing %></span>
+        <% }else{ %>
+        <!-- Display uncompleted item -->
+        <span><%= items[i].thing %></span>
+        <% } %>
+        <!-- Add a delete icon -->
+        <span class="fa fa-trash"></span>
+      </li>
+      <% } %>
     </ul>
 
+    <!-- Display the number of items left to do -->
     <h2>Left to do: <%= left %></h2>
 
+    <!-- Title for adding a new todo -->
     <h2>Add A Todo:</h2>
 
+    <!-- Form for adding a new todo item -->
     <form action="/addTodo" method="POST">
-        <input type="text" placeholder="Thing To Do" name="todoItem">
-        <input type="submit">
+      <!-- Input field for entering a new todo -->
+      <input type="text" placeholder="Thing To Do" name="todoItem" />
+      <!-- Submit button -->
+      <input type="submit" />
     </form>
-    
-
-    <script src='js/main.js'></script>
-</body>
+    <!-- Include custom JavaScript file -->
+    <script src="js/main.js"></script>
+  </body>
 </html>
