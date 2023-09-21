@@ -38,6 +38,8 @@ app.use(express.json());
 
 // Define a route for the root URL ('/') that handles GET requests.
 app.get("/", async (request, response) => {
+  // Doing it with async await (newer syntax)
+  // ****************************************
   // Retrieve all todo items from the database and convert them to an array.
   const todoItems = await db.collection("todos").find().toArray();
   // Count the number of uncompleted 'todos' items in the database.
@@ -47,6 +49,8 @@ app.get("/", async (request, response) => {
   // Render the 'index.ejs' template with data and send it as a response.
   response.render("index.ejs", { items: todoItems, left: itemsLeft });
 
+  // Doing it with promises (older way)
+  // ***********************************
   // db.collection('todos').find().toArray()
   // .then(data => {
   //     db.collection('todos').countDocuments({completed: false})
