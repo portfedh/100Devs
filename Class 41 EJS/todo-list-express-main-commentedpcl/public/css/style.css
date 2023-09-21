@@ -1,7 +1,10 @@
-h1{
-    color: red;
+/* Heading in Red */
+h1 {
+  color: red;
 }
-.completed{
-    color: gray;
-    text-decoration: line-through;
+
+/* Completed items turn grey and have a line in the middle */
+.completed {
+  color: gray;
+  text-decoration: line-through;
 }
