@@ -40,7 +40,7 @@ app.use(express.json());
 app.get("/", async (request, response) => {
   // Retrieve all todo items from the database and convert them to an array.
   const todoItems = await db.collection("todos").find().toArray();
-  // Count the number of uncompleted todo items in the database.
+  // Count the number of uncompleted 'todos' items in the database.
   const itemsLeft = await db
     .collection("todos")
     .countDocuments({ completed: false });
@@ -59,8 +59,10 @@ app.get("/", async (request, response) => {
 
 // Create a new todo item using a POST request.
 app.post("/addTodo", (request, response) => {
-  // Insert a new todo item into the database with the provided data.
+  // Accesses the "todos" collection in the MongoDB database
   db.collection("todos")
+    // Insert in the 'thing' key the value provided by the form with name 'todoItem'
+    // Insert the key: value pair: 'completed': 'false`
     .insertOne({ thing: request.body.todoItem, completed: false })
     .then((result) => {
       // Log a message when the todo item is successfully added.
@@ -76,15 +78,22 @@ app.post("/addTodo", (request, response) => {
 app.put("/markComplete", (request, response) => {
   // Update the 'completed' field of a todo item to 'true'.
   db.collection("todos")
+    // Run updateOne method.
     .updateOne(
+      // Filter criteria:
+      // Check in the collection for the key value pair
       { thing: request.body.itemFromJS },
       {
+        // If the value is found , change the completed property in that record to true.
         $set: {
           completed: true,
         },
       },
       {
+        // Sort matching documents of filter criteria in descending order to get the first one.
+        // Only first record will be manipulated.
         sort: { _id: -1 },
+        // New document will not be created if the filter criteria is false
         upsert: false,
       }
     )
@@ -99,8 +108,8 @@ app.put("/markComplete", (request, response) => {
 });
 
 // Define a route for marking a todo item as uncomplete using a PUT request.
+// Same code but reverses /markComplete.
 app.put("/markUnComplete", (request, response) => {
-  // Update the 'completed' field of a todo item to 'false'.
   db.collection("todos")
     .updateOne(
       { thing: request.body.itemFromJS },
@@ -115,12 +124,9 @@ app.put("/markUnComplete", (request, response) => {
       }
     )
     .then((result) => {
-      // Log a message when a todo item is marked as complete.
       console.log("Marked Complete");
-      // Send a JSON response.
       response.json("Marked Complete");
     })
-    // Log an error if update fails.
     .catch((error) => console.error(error));
 });
 
@@ -128,6 +134,7 @@ app.put("/markUnComplete", (request, response) => {
 app.delete("/deleteItem", (request, response) => {
   // Delete a todo item from the database based on the provided data.
   db.collection("todos")
+    // Search item to delete based on itemFromJS.
     .deleteOne({ thing: request.body.itemFromJS })
     .then((result) => {
       // Log a message when a todo item is marked as complete.
