@@ -8,7 +8,7 @@ Date taken:
 Link:
     
     https://www.youtube.com/watch?v=SVX_HMum0n4
-    
+
 Twitter:
 
     https://twitter.com/leonnoel/status/1559654124253196288
@@ -37,8 +37,39 @@ Homework:
     
 Notes:
 
+
+    NodeJs Require():
+
+        NodeJs will look in:
+            - Node.js's built-in core modules.
+            - A Js file with the specified name.
+            - node_modules directory.
+
+        NodeJs will cached into memory
+            - Will only be imported once.
+
+        Return value
+            Returns the module.exports object of the loaded module
     
+    Example:
     
+        // myModule.js
+            const greeting = "Hello, world!";
+
+            function sayHello() {
+              console.log(greeting);
+            }
+
+            module.exports = {
+              sayHello,
+            };
+
+
+        // main.js
+            const myModule = require('./myModule');
+
+            myModule.sayHello(); // Calls the function from myModule
+
 
 Transcript:
 
