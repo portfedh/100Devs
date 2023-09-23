@@ -40,7 +40,7 @@ app.use(express.json());
 app.get("/", async (request, response) => {
   // Doing it with async await (newer syntax)
   // ****************************************
-  // Retrieve all todo items from the database and convert them to an array.
+  // Retrieve all todo items from the database and convert them from an object to an array.
   const todoItems = await db.collection("todos").find().toArray();
   // Count the number of uncompleted 'todos' items in the database.
   const itemsLeft = await db
