@@ -9,6 +9,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const MongoClient = require("mongodb").MongoClient;
 const ObjectId = require("mongodb").ObjectId;
+const multer = require("multer");
 const PORT = 3000;
 
 // Serve public folder
@@ -44,6 +45,27 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Make public folder accessible to the public
 app.use(express.static("public"));
 
+// Set up Multer storage and file filter
+const storage = multer.diskStorage({
+  destination: "./public/uploads", // Where to store uploaded files
+  filename: (req, file, callback) => {
+    // Create a unique filename
+    callback(null, Date.now() + "-" + file.originalname);
+  },
+});
+const upload = multer({
+  storage: storage,
+  fileFilter: (req, file, callback) => {
+    const allowedFileTypes = ["image/jpeg", "image/png", "application/pdf"];
+    // Check if the uploaded file's MIME type is allowed
+    if (allowedFileTypes.includes(file.mimetype)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Invalid file type."), false);
+    }
+  },
+});
+
 // =======
 // Routes:
 // =======
@@ -77,7 +99,7 @@ app.get("/report", (req, res) => {
 
 // Add user
 // ========
-app.post("/inscribir", (req, res) => {
+app.post("/inscribir", upload.single("receipt"), (req, res) => {
   collection
     // Insert record into database
     .insertOne(req.body)
