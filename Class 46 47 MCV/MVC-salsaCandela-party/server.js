@@ -23,8 +23,8 @@ let collection;
 
 MongoClient.connect(connectionString, { useUnifiedTopology: true })
   .then((client) => {
-    db = client.db("SalsaCandela");
-    collection = db.collection("Fiesta1");
+    db = client.db("Fiesta29Sept23");
+    collection = db.collection("ControlAcceso");
     console.log(`Connected to Database and collection`);
   })
   .catch((error) => console.error(error));
