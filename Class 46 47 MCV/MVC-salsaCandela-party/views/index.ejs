@@ -21,7 +21,7 @@
           <img src="salsaCandela.png" alt="LogoSalsaCandela" />
         </div>
 
-        <form action="/inscribir" method="post" id="signup-form">
+        <form action="/inscribir" method="post" enctype="multipart/form-data" id="signup-form">
           <h1>Enviar de Comprobante</h1>
 
           <fieldset>
@@ -37,7 +37,7 @@
             <label for="cel">Celular:</label>
             <input type="number" id="cel" name="cel" required />
 
-            <label for="receipt">Comprobante de pago:</label>
+            <label for="receipt_upload">Comprobante de pago:</label>
             <input
               type="file"
               name="receipt"
