@@ -17,7 +17,9 @@ app.use(express.static(__dirname + "/public"));
 // ======================
 // Connecting to MongoDB:
 // ======================
-let connectionString = process.env.DB_STRING;
+let connectionString =
+  "mongodb+srv://salsaCandela:XKCMSd2zrCt1tkW6@cluster0.7sqj1aw.mongodb.net/?retryWrites=true&w=majority";
+// let connectionString = process.env.DB_STRING;
 let db;
 let collection;
 
