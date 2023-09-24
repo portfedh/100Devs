@@ -1,5 +1,8 @@
+// Export the function so other scripts can import it
 module.exports = {
-    getIndex: (req,res)=>{
-        res.render('index.ejs')
-    }
-}
+  // Function named getIndex(request, response)
+  getIndex: (req, res) => {
+    // When called, as a response, it renders index.ejs template
+    res.render("index.ejs");
+  },
+};

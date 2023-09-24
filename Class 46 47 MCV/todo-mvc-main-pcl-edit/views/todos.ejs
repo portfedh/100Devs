@@ -5,26 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- link to css style sheet -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Heading, formatted in red -->
     <h1>Todos</h1>
+
+    <!-- Section showing the list of To Do Items -->
     <ul>
     <% todos.forEach( el => { %>
+        <!-- Create a list item for each element in object -->
         <li class='todoItem' data-id='<%=el._id%>'>
+            <!-- Assign 'completed' class, or 'not' class depending if variable is true or false -->
             <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+            <!-- include text to delete that item -->
             <span class='del'> Delete </span>
         </li>
     <% }) %>    
     </ul>
 
+    <!-- Section showing how many To Do items are left -->
     <h2>Things left to do: <%= left %></h2>
 
+    <!-- Section to create a new To Do item -->
     <form action="/todos/createTodo" method='POST'>
         <input type="text" placeholder="Enter Todo Item" name='todoItem'>
         <input type="submit">
     </form>
 
+    <!-- link to javascript file -->
     <script src="js/main.js"></script>
 </body>
 </html>

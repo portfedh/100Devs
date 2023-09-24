@@ -1,0 +1,97 @@
+Model View Controller
+
+A design pattern in software development for applications.
+One of the most used patterns to organize your code.
+Used since the 1970's. Highly used in web development. 
+Works for any language.
+
+Specific implementarion will vary. 
+    Client side vs Server side
+    Specific code / folder structure
+
+It separates the concerns into three components:
+    - Model
+    - View
+    - Controller
+
+Advantages:
+    Code is easier to maintain.
+        Components can be tested seperately.
+        Code is less complex.
+        Supports test driven development.
+
+    Can be developed simultaneously.
+        Changes in one component wont affect other areas.
+        Larger groups can work on the same codebase at the same time.
+
+    Code is more flexible.
+        Also allows modularity, in case you change framework.
+                Views: EJS -> handlebars -> Pug -> React
+                Controller: MongoDb -> MySQL -> Postgress
+                Model: NodeJs -> Flask -> Django
+
+The Model:
+
+    Operations and data logic. 
+        - Revrieving, storing and updating data.
+        - Performing operations
+        - Interactions with API's 
+        - Interactions with database
+        - Interactions with other data sources
+
+The View:
+
+    Displaying data to the user and interface interactions.
+    - Receives data from the mode
+    - Displays data to the user in a visual way
+    - Passive components with no business logic
+
+Controller:
+
+    Intermediary between the Model and the View.
+        - Handles user inputs from the View and Processes them.
+        - Updates the model with the changes resulting from user interaction
+        - Updates to the View
+
+How MVC works in a typical flow:
+
+    A user interacts with the View, such as clicking a button or entering data into a form.
+
+    The View forwards this interaction to the Controller.
+
+    The Controller processes the user's input, typically by making calls to the Model to update or retrieve data.
+
+    The Model performs the necessary operations on the data and notifies the Controller of any changes.
+
+    The Controller updates the View to reflect the changes in the data, ensuring that the user sees the updated information.
+
+
+Mongoose for MongoDB:
+
+    Mongoose simplifies working with MongoDB in Node.js.
+    It provides a structured way to define, validate, and manipulate data.
+
+    Some key concepts:
+
+        Schema Definition: 
+            A blueprint that defines the structure of a MongoDB collection.
+            Specifies the fields, types, validation rules, default values etc.
+
+        Model Creation:
+            Provides methods for CRUD (Create, Read, Update, Delete) operations
+
+        Validation: 
+            Define validation rules for your data. 
+            Specify required fields, data types, custom validation functions.
+
+        Middleware: 
+            Supports functions that can be executed before or after certain actions, such as saving a document or querying the database.
+
+        Connection Management: 
+            Tools for connecting to MongoDB and managing database connections. 
+
+Database Schema:
+
+    A blueprint or structural design that defines the organization, structure, and constraints of a database.
+
+    It includes the tables, fields, relationships, data types, and rules that determine how data is stored and accessed within a database.

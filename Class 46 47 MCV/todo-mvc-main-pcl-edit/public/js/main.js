@@ -1,69 +1,102 @@
-const deleteBtn = document.querySelectorAll('.del')
-const todoItem = document.querySelectorAll('span.not')
-const todoComplete = document.querySelectorAll('span.completed')
+// Selecting  all elements with:
+// *****************************
 
-Array.from(deleteBtn).forEach((el)=>{
-    el.addEventListener('click', deleteTodo)
-})
+//  Delete class:
+const deleteBtn = document.querySelectorAll(".del");
+// Span elements with class 'not'
+const todoItem = document.querySelectorAll("span.not");
+// Span elements with class 'completed'
+const todoComplete = document.querySelectorAll("span.completed");
 
-Array.from(todoItem).forEach((el)=>{
-    el.addEventListener('click', markComplete)
-})
+// Event listeners:
+// ****************
 
-Array.from(todoComplete).forEach((el)=>{
-    el.addEventListener('click', markIncomplete)
-})
+// For every element with delete class, if clicked call 'delete' function
+Array.from(deleteBtn).forEach((el) => {
+  el.addEventListener("click", deleteTodo);
+});
+// For every non completed element, if clicked call 'markComplete' function
+Array.from(todoItem).forEach((el) => {
+  el.addEventListener("click", markComplete);
+});
+// For every completed element, if clicked call 'markIncomplete' function
+Array.from(todoComplete).forEach((el) => {
+  el.addEventListener("click", markIncomplete);
+});
 
-async function deleteTodo(){
-    const todoId = this.parentNode.dataset.id
-    try{
-        const response = await fetch('todos/deleteTodo', {
-            method: 'delete',
-            headers: {'Content-type': 'application/json'},
-            body: JSON.stringify({
-                'todoIdFromJSFile': todoId
-            })
-        })
-        const data = await response.json()
-        console.log(data)
-        location.reload()
-    }catch(err){
-        console.log(err)
-    }
+// Functions:
+// **********
+async function deleteTodo() {
+  // Get the unique identifier for the to-do item that will be deleted
+  const todoId = this.parentNode.dataset.id;
+  try {
+    // Send an HTTP DELETE request to the 'todos/deleteTodo' endpoint on the server
+    const response = await fetch("todos/deleteTodo", {
+      method: "delete",
+      // Specify that the request body contains JSON data.
+      headers: { "Content-type": "application/json" },
+      // Converts the 'todoId' into a JSON string and sends it as the request body
+      body: JSON.stringify({
+        todoIdFromJSFile: todoId,
+      }),
+    });
+    const data = await response.json();
+    // Logs the confirmation or error messages from the server.
+    console.log(data);
+    // Reloads the page to reflect the changes
+    location.reload();
+  } catch (err) {
+    // Log any errors
+    console.log(err);
+  }
 }
 
-async function markComplete(){
-    const todoId = this.parentNode.dataset.id
-    try{
-        const response = await fetch('todos/markComplete', {
-            method: 'put',
-            headers: {'Content-type': 'application/json'},
-            body: JSON.stringify({
-                'todoIdFromJSFile': todoId
-            })
-        })
-        const data = await response.json()
-        console.log(data)
-        location.reload()
-    }catch(err){
-        console.log(err)
-    }
+async function markComplete() {
+  // Get the unique identifier for the to-do item that will be updated
+  const todoId = this.parentNode.dataset.id;
+  try {
+    // Send an HTTP PUt request to the 'todos/markComplete' endpoint on the server
+    const response = await fetch("todos/markComplete", {
+      method: "put",
+      // Specify that the request body contains JSON data.
+      headers: { "Content-type": "application/json" },
+      // Converts the 'todoId' into a JSON string and sends it as the request body
+      body: JSON.stringify({
+        todoIdFromJSFile: todoId,
+      }),
+    });
+    const data = await response.json();
+    // Logs the confirmation or error messages from the server.
+    console.log(data);
+    // Reloads the page to reflect the changes
+    location.reload();
+  } catch (err) {
+    // Log any errors
+    console.log(err);
+  }
 }
 
-async function markIncomplete(){
-    const todoId = this.parentNode.dataset.id
-    try{
-        const response = await fetch('todos/markIncomplete', {
-            method: 'put',
-            headers: {'Content-type': 'application/json'},
-            body: JSON.stringify({
-                'todoIdFromJSFile': todoId
-            })
-        })
-        const data = await response.json()
-        console.log(data)
-        location.reload()
-    }catch(err){
-        console.log(err)
-    }
+async function markIncomplete() {
+  // Get the unique identifier for the to-do item that will be updated
+  const todoId = this.parentNode.dataset.id;
+  try {
+    // Send an HTTP PUt request to the 'todos/markComplete' endpoint on the server
+    const response = await fetch("todos/markIncomplete", {
+      method: "put",
+      // Specify that the request body contains JSON data.
+      headers: { "Content-type": "application/json" },
+      // Converts the 'todoId' into a JSON string and sends it as the request body
+      body: JSON.stringify({
+        todoIdFromJSFile: todoId,
+      }),
+    });
+    const data = await response.json();
+    // Logs the confirmation or error messages from the server.
+    console.log(data);
+    // Reloads the page to reflect the changes
+    location.reload();
+  } catch (err) {
+    // Log any errors
+    console.log(err);
+  }
 }

@@ -1,15 +1,27 @@
-const express = require('express')
-const router = express.Router()
-const todosController = require('../controllers/todos')
+// Import express
+const express = require("express");
 
-router.get('/', todosController.getTodos)
+// Create an express router
+// Used to define a set of routes for handling HTTP requests
+const router = express.Router();
 
-router.post('/createTodo', todosController.createTodo)
+// Get the controller logic for the ToDo's page
+const todosController = require("../controllers/todos");
 
-router.put('/markComplete', todosController.markComplete)
+// If GET request on .../todos/ is called, call getTodos method
+router.get("/", todosController.getTodos);
 
-router.put('/markIncomplete', todosController.markIncomplete)
+// If POST route on .../todos/createTodo is called, call createTodo method
+router.post("/createTodo", todosController.createTodo);
 
-router.delete('/deleteTodo', todosController.deleteTodo)
+// If PUT route on .../todos/markComplete is called, call markComplete method
+router.put("/markComplete", todosController.markComplete);
 
-module.exports = router
+// If PUT route on .../todos/markIncomplete is called, call markIncomplete method
+router.put("/markIncomplete", todosController.markIncomplete);
+
+// If DELETE route on .../todos/deleteTodo is called, call deleteTodo method
+router.delete("/deleteTodo", todosController.deleteTodo);
+
+// Export the router object so other scripts can import it
+module.exports = router;
