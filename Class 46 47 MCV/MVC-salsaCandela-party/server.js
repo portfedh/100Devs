@@ -49,13 +49,8 @@ app.use(express.static("public"));
 
 // Set up Multer storage and file filter
 // *************************************
-const storage = multer.diskStorage({
-  destination: "./public/uploads", // Where to store uploaded files
-  filename: (req, file, callback) => {
-    // Create a unique filename
-    callback(null, Date.now() + "-" + file.originalname);
-  },
-});
+// Store files in memory instead of the local filesystem
+const storage = multer.memoryStorage();
 
 const upload = multer({
   storage: storage,
@@ -103,23 +98,39 @@ app.get("/report", (req, res) => {
 
 // Add user
 // ========
-app.post("/inscribir", upload.single("receipt"), (req, res) => {
-  collection
-    // Insert record into database
-    .insertOne(req.body)
-    .then((result) => {
-      console.log(result);
-      //Render confirmation page with variables
-      res.render("confirmation.ejs", {
-        idAlumno: result.insertedId.toString(),
-        qrWww:
-          "https://api.qrserver.com/v1/create-qr-code/?data=" +
-          result.insertedId.toString() +
-          "&amp;size=200x200",
-        nombreAlumno: req.body.first_name + " " + req.body.last_name,
-      });
-    })
-    .catch((error) => console.error(error));
+app.post("/inscribir", upload.single("receipt"), async (req, res) => {
+  try {
+    const imageBuffer = req.file.buffer; // Get the uploaded image data from memory
+    const contentType = req.file.mimetype; // Get the content type of the uploaded image
+    // Specify the S3 bucket and key where you want to upload the image
+    const bucketName = "cyclic-lazy-blue-springbok-wig-us-east-1";
+    const key = `uploads/${req.file.originalname}`; // Adjust the key as needed
+    // Upload the image to S3
+    await s3
+      .putObject({
+        Body: imageBuffer,
+        Bucket: bucketName,
+        Key: key,
+        ContentType: contentType,
+      })
+      .promise();
+    // Delete the temporary file from memory
+    req.file = undefined;
+    // Insert record into the MongoDB database
+    const result = await collection.insertOne(req.body);
+    // Render confirmation page with variables
+    res.render("confirmation.ejs", {
+      idAlumno: result.insertedId.toString(),
+      qrWww:
+        "https://api.qrserver.com/v1/create-qr-code/?data=" +
+        result.insertedId.toString() +
+        "&amp;size=200x200",
+      nombreAlumno: req.body.first_name + " " + req.body.last_name,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Error uploading image");
+  }
 });
 
 // Search for user:
