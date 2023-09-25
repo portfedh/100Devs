@@ -75,6 +75,12 @@ app.get("/", (req, res) => {
   res.render("index.ejs", {});
 });
 
+// download:
+// ======
+app.get("/download", (req, res) => {
+  res.render("download.ejs", {});
+});
+
 // Search:
 // =======
 app.get("/search", (req, res) => {
