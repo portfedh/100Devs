@@ -9,8 +9,10 @@ const app = express();
 const bodyParser = require("body-parser");
 const MongoClient = require("mongodb").MongoClient;
 const ObjectId = require("mongodb").ObjectId;
-const multer = require("multer");
 const PORT = 3000;
+const multer = require("multer");
+const AWS = require("aws-sdk");
+const s3 = new AWS.S3();
 
 // Serve public folder
 app.use(express.static(__dirname + "/public"));
@@ -46,6 +48,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 // Set up Multer storage and file filter
+// *************************************
 const storage = multer.diskStorage({
   destination: "./public/uploads", // Where to store uploaded files
   filename: (req, file, callback) => {
@@ -53,6 +56,7 @@ const storage = multer.diskStorage({
     callback(null, Date.now() + "-" + file.originalname);
   },
 });
+
 const upload = multer({
   storage: storage,
   fileFilter: (req, file, callback) => {
