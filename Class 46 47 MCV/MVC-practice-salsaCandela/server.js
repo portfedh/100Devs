@@ -1,31 +1,28 @@
 console.log("Starting server.js ...");
 
-// =======
-// Imports
-// =======
-
-// Environment variables
-require("dotenv").config({ path: "./config/.env" });
-
-// Express
-const express = require("express");
-const app = express();
+// Load environment variables
+const result = require("dotenv").config({ path: "./config/.env" });
+if (result.error) {
+  console.error("Error loading .env file:", result.error);
+}
 
 // Database Connection
 const connectDB = require("./config/database");
 connectDB();
 
-// =============================
-// Configure the Express settings
-// ==============================
+// Configure Express
+// =================
+// Import Express
+const express = require("express");
+const app = express();
 // Set template engine EJS:
 app.set("view engine", "ejs");
 // Serve static files from the 'public' directory.
 app.use(express.static("public"));
 // Makes server able to Read JSON data:
-app.use(bodyParser.json());
+app.use(express.json());
 // So express can read data from html elements:
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 // Make public folder accessible to the public
 app.use(express.static("public"));
 
@@ -152,5 +149,5 @@ app.post("/search_results", async (req, res) => {
 // Start the Express application, listening on the specified port
 // ===============================================================
 app.listen(process.env.PORT || PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`Server running on port ${process.env.PORT}`);
 });

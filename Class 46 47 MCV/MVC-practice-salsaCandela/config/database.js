@@ -10,8 +10,6 @@ const connectDB = async () => {
       useNewUrlParser: true,
       // Ensures that Mongoose uses the new Server Discovery and Monitoring engine
       useUnifiedTopology: true,
-      // Ensures that the findAndModify option is set to false, as it is deprecated
-      useFindAndModify: false,
     });
     // Logs a confirmation message
     console.log(`MongoDB Connected: ${conn.connection.host}`);
