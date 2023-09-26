@@ -1,40 +1,27 @@
-console.log("server.js starting...");
+console.log("Starting server.js ...");
 
 // =======
 // Imports
 // =======
-require("dotenv").config();
+
+// Environment variables
+require("dotenv").config({ path: "./config/.env" });
+
+// Express
 const express = require("express");
 const app = express();
-const bodyParser = require("body-parser");
-const MongoClient = require("mongodb").MongoClient;
-const ObjectId = require("mongodb").ObjectId;
-const PORT = 3000;
 
-// Serve public folder
-app.use(express.static(__dirname + "/public"));
+// Database Connection
+const connectDB = require("./config/database");
+connectDB();
 
-// ======================
-// Connecting to MongoDB:
-// ======================
-let connectionString = process.env.DB_STRING;
-let db;
-let collection;
-
-MongoClient.connect(connectionString, { useUnifiedTopology: true })
-  .then((client) => {
-    db = client.db("SalsaCandela");
-    collection = db.collection("Fiesta1");
-    console.log(`Connected to Database and collection`);
-  })
-  .catch((error) => console.error(error));
-
-// ==========
-// Middleware
-// ==========
-// Must come before CRUD handlers
+// =============================
+// Configure the Express settings
+// ==============================
 // Set template engine EJS:
 app.set("view engine", "ejs");
+// Serve static files from the 'public' directory.
+app.use(express.static("public"));
 // Makes server able to Read JSON data:
 app.use(bodyParser.json());
 // So express can read data from html elements:
@@ -161,9 +148,9 @@ app.post("/search_results", async (req, res) => {
   }
 });
 
-// ===============
-// Listening Port:
-// ===============
+// ===============================================================
+// Start the Express application, listening on the specified port
+// ===============================================================
 app.listen(process.env.PORT || PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
