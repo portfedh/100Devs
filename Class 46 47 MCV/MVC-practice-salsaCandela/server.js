@@ -1,12 +1,17 @@
 console.log("Starting server.js ...");
 
+// Imports
+const homeRoutes = require("./routes/home");
+const searchRoutes = require("./routes/search");
+const reportRoutes = require("./routes/report");
+
 // Load environment variables
 const result = require("dotenv").config({ path: "./config/.env" });
 if (result.error) {
   console.error("Error loading .env file:", result.error);
 }
 
-// Database Connection
+// Connect to database
 const connectDB = require("./config/database");
 connectDB();
 
@@ -30,32 +35,14 @@ app.use(express.static("public"));
 // Routes:
 // =======
 
-// Index:
-// ======
-app.get("/", (req, res) => {
-  res.render("index.ejs", {});
-});
+// Listen to home routes
+app.use("/", homeRoutes);
 
-// Search:
-// =======
-app.get("/search", (req, res) => {
-  res.render("search.ejs", {});
-});
+// Listen to search routes
+app.use("/search", searchRoutes);
 
-// Report:
-// =======
-app.get("/report", (req, res) => {
-  // Gets quotes from database
-  collection
-    .find()
-    .toArray()
-    .then((results) => {
-      console.log(results);
-      // Render page with EJS and database results
-      res.render("report.ejs", { quotes: results });
-    })
-    .catch((error) => console.error(error));
-});
+// Listen to report routes
+app.use("/report", reportRoutes);
 
 // Add user
 // ========

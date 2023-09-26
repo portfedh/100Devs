@@ -1,0 +1,169 @@
+Mongoose
+
+Makes MongoDB easier to use
+
+    Gives structure to DB collections
+
+    Gives us methods
+
+Install Mongoose:
+
+    npm install mongoose --save
+
+Connect to a database:
+
+    const mongoose = require('mongoose')
+    const url = 'mongodb://127.0.0.1:27017/street-fighters'
+
+    mongoose.connect(url, { useNewUrlParser: true })
+
+Check database connection:
+
+    const db = mongoose.connection
+    db.once('open', _ => {
+      console.log('Database connected:', url)
+    })
+
+    db.on('error', err => {
+      console.error('connection error:', err)
+    })
+
+Creating a Model:
+
+    Template to do CRUD operations
+
+    We put each schema in its own file
+
+
+
+    Creating a Schema
+
+        // In its own file in /models/character.js:
+
+            const mongoose = require('mongoose')
+            const Schema = mongoose.Schema
+
+            const characterSchema = new Schema({
+              name: String,
+              ultimate: String,
+            })
+
+            module.exports = mongoose.model('Character', characterSchema)
+
+        // If you want unique names, you can use this syntax
+
+            const characterSchema = new Schema({
+              name: { type: String, unique: true },
+              ultimate: String,
+            })
+
+    Creating an item:
+
+        // In the file using the schema /index.js
+
+            const Character = require('./models/Character')
+
+            const ryu = new Character({
+              name: 'Ryu',
+              ultimate: 'Shinku Hadoken',
+            })
+
+        // Character is saved in memory
+
+        // To save in the database we use:
+
+            ryu.save(function (error, document) {
+              if (error) console.error(error)
+              console.log(document)
+            })
+
+        // You can also save using async/await:
+
+            async function runCode() {
+              const ryu = new Character({
+                name: 'Ryu',
+                ultimate: 'Shinku Hadoken',
+              })
+
+              const doc = await ryu.save()
+              console.log(doc)
+            }
+
+            runCode().catch(error => {
+              console.error(error)
+            })
+
+    Finding a character:
+
+        findOne: Gets one element
+
+            const ryu = await Character.findOne({ name: 'Ryu' })
+            console.log(ryu)
+
+        find: Gets array with all documents
+
+            // Will get all documents
+
+                const chars = await Character.find()
+                console.log(chars)
+
+            // Will filter by criteria
+
+                const chars = await Character.find({ name: 'Ryu' })
+                console.log(chars)
+
+    Updating a Character:
+
+        If we want to add another property, we have to update our schema. 
+
+            const characterSchema = new Schema({
+              name: { type: String, unique: true },
+              specials: Array,
+              ultimate: String, //new
+            })
+
+        Two options to update:
+
+            FindOne and save:
+                // Easier to read but more steps
+
+                // FindOne
+                const ryu = await Character.findOne({ name: 'Ryu' })
+                console.log(ryu)
+
+                // Add specials
+                ryu.specials = ['Hadoken', 'Shoryuken', 'Tatsumaki Senpukyaku']
+
+                // Save
+                const doc = await ryu.save()
+                console.log(doc)
+
+
+             findOneAndUpdate:
+
+                // Syntax
+                await findOneAndUpdate(filter, update)
+
+
+                // Usage
+                const doc = await Character.findOneAndUpdate(
+                  { name: 'Ryu' },
+                  {specials: ['Hadoken', 'Shoryuken', 'Tatsumaki Senpukyaku'],}
+                )
+
+                console.log(doc)
+
+    Deleting an item:
+
+        // To delete all items in the collection we use
+        await Character.deleteMany({})
+
+
+        // FindOne and Remove:
+        const ryu = await Character.findOne({ name: 'Ryu' })
+        const deleted = await ryu.remove()
+
+        // findOneAndDelete
+        const deleted = await Character.findOneAndDelete({ name: 'Ken' })
+        
+
