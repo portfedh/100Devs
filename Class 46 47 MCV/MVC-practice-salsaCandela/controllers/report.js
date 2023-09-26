@@ -1,5 +1,5 @@
 // Import Report Mongoose Schema
-const Report = require("../models/report");
+const Report = require("../models/person");
 
 // Object that contains the properties and methods
 // Will be accessible when this module is imported

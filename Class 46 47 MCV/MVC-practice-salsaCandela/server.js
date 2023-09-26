@@ -2,8 +2,8 @@ console.log("Starting server.js ...");
 
 // Imports
 const homeRoutes = require("./routes/home");
-const searchRoutes = require("./routes/search");
-const reportRoutes = require("./routes/report");
+// const searchRoutes = require("./routes/search");
+// const reportRoutes = require("./routes/report");
 
 // Load environment variables
 const result = require("dotenv").config({ path: "./config/.env" });
@@ -39,31 +39,10 @@ app.use(express.static("public"));
 app.use("/", homeRoutes);
 
 // Listen to search routes
-app.use("/search", searchRoutes);
+// app.use("/search", searchRoutes);
 
 // Listen to report routes
-app.use("/report", reportRoutes);
-
-// Add user
-// ========
-app.post("/inscribir", (req, res) => {
-  collection
-    // Insert record into database
-    .insertOne(req.body)
-    .then((result) => {
-      console.log(result);
-      //Render confirmation page with variables
-      res.render("confirmation.ejs", {
-        idAlumno: result.insertedId.toString(),
-        qrWww:
-          "https://api.qrserver.com/v1/create-qr-code/?data=" +
-          result.insertedId.toString() +
-          "&amp;size=200x200",
-        nombreAlumno: req.body.first_name + " " + req.body.last_name,
-      });
-    })
-    .catch((error) => console.error(error));
-});
+// app.use("/report", reportRoutes);
 
 // Search for user:
 // ================
@@ -132,9 +111,8 @@ app.post("/search_results", async (req, res) => {
   }
 });
 
-// ===============================================================
-// Start the Express application, listening on the specified port
-// ===============================================================
+// Listening Port
+// ==============
 app.listen(process.env.PORT || PORT, () => {
   console.log(`Server running on port ${process.env.PORT}`);
 });

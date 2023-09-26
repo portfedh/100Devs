@@ -12,5 +12,7 @@ const homeController = require("../controllers/home");
 // Execute the getIndex() function from the homeController module
 router.get("/", homeController.getIndex);
 
+// router.post("/inscribir", homeController.createUser);
+
 // Exports the router object
 module.exports = router;
