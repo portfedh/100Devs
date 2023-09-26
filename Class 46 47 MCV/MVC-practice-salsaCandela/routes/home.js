@@ -12,7 +12,8 @@ const homeController = require("../controllers/home");
 // Execute the getIndex() function from the homeController module
 router.get("/", homeController.getIndex);
 
-// router.post("/inscribir", homeController.createUser);
+// When a PUT request is made to the URL '/inscribir'
+router.post("/inscribir", homeController.addRecord);
 
 // Exports the router object
 module.exports = router;
