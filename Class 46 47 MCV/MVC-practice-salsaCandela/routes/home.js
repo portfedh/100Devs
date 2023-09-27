@@ -7,7 +7,7 @@ const homeController = require("../controllers/home");
 
 //  For every request, define the function to execute
 router.get("/", homeController.getIndex);
-router.post("/inscribir", homeController.createRecord);
+router.post("/enroll", homeController.createRecord);
 
 // Export router object
 module.exports = router;
