@@ -1,15 +1,13 @@
+// Import mongoose schema
 const Person = require("../models/person");
 
-// Object that contains the properties and methods
-// Will be accessible when this module is imported
-// in another part of the application.
+// Object to be exported
 module.exports = {
-  // Define a property named getIndex
+  // Serve search page
   getSearch: (req, res) => {
-    console.log("Search page open");
-    // Render page
     res.render("search.ejs", {});
   },
+  // Search for a record
   searchPerson: async (req, res) => {
     console.log("Search person started");
     try {
