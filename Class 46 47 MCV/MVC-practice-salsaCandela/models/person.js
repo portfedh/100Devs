@@ -1,5 +1,7 @@
+// Import mongoose
 const mongoose = require("mongoose");
 
+// Create person schema
 const PersonSchema = new mongoose.Schema({
   first_name: {
     type: String,
@@ -47,4 +49,5 @@ const PersonSchema = new mongoose.Schema({
   },
 });
 
+// Export person schema
 module.exports = mongoose.model("Person", PersonSchema);

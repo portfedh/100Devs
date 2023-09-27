@@ -1,24 +1,23 @@
+// Import mongoose schema
 const Person = require("../models/person");
 
-// Object that contains the properties and methods
-// Will be accessible when this module is imported
-// in another part of the application.
+// Object to be exported
 module.exports = {
-  // getIndex function
+  // Serve index
   getIndex: (req, res) => {
-    // Render page
     res.render("index.ejs");
   },
-  // addRecord function
-  addRecord: async (req, res) => {
+  // Create record
+  createRecord: async (req, res) => {
     try {
-      const personData = req.body;
-      const person = new Person(personData);
+      // Create record using mongoose schema
+      const person = new Person(req.body);
       person.save().then((result) => {
         console.log(result);
-        // Render confirmation page with variables
+        // Render confirmation page
         res.render("confirmation.ejs", {
-          idAlumno: result._id.toString(), // Use _id instead of insertedId
+          // Include id variable and QR string
+          idAlumno: result._id.toString(),
           qrWww:
             "https://api.qrserver.com/v1/create-qr-code/?data=" +
             result._id.toString() +
