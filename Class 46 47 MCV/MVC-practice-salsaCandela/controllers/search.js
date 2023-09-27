@@ -1,54 +1,50 @@
 // Import mongoose schema
 const Person = require("../models/person");
+const Date = require("../models/checkDate");
 
-// Object to be exported
+// Object to export
 module.exports = {
-  // Serve search page
   getSearch: (req, res) => {
+    // Render search page
     res.render("search.ejs", { errorText: "" });
   },
-
-  // Search for a record
   searchPerson: async (req, res) => {
-    console.log("Search person started");
     try {
-      console.log("Try statement started");
+      // Get ID to search
       const myId = req.body.id_to_search;
-      // Use Mongoose to find the document by _id
+      // Search for ID in database
       const student = await Person.findById(myId);
-      console.log(myId);
+      // If not found, render response
       if (!student) {
-        console.log("No student record found.");
         res.render("search.ejs", { errorText: "Alumno no encontrado" });
       } else {
+        // If found, check access:
         console.log("Record found.");
-
-        //   const today = new Date();
-        //   const year = today.getFullYear();
-        //   const month = String(today.getMonth() + 1).padStart(2, "0");
-        //   const day = String(today.getDate()).padStart(2, "0");
-        //   const todayDateString = `${year}-${month}-${day}`;
-        //   if (student.last_loggin !== todayDateString) {
-        //     var accessButton = "welcome";
-        //     var accessText = "Bienvenido";
-        //     // Update last_loggin using Mongoose's save method
-        //     student.last_loggin = todayDateString;
-        //     await student.save();
-        //   } else {
-        //     var accessButton = "alreadyIn";
-        //     var accessText = "Segundo acceso del dia";
-        //   }
-        //   res.render("search_results.ejs", {
-        //     idAlumno: student._id,
-        //     firstName: student.first_name,
-        //     lastName: student.last_name,
-        //     curso: student.curso,
-        //     sucursal: student.sucursal,
-        //     horario: student.horario,
-        //     last_loggin: student.last_loggin,
-        //     buttonClass: accessButton,
-        //     text: accessText,
-        //   });
+        const checkAccess = Date.checkDate(student.last_loggin);
+        if (checkAccess) {
+          // Variables is access granted
+          var accessButton = "welcome";
+          var accessText = "Bienvenido";
+          // Update last_login
+          student.last_loggin = Date.getToday();
+          await student.save();
+        } else {
+          // Variables if access denied
+          var accessButton = "alreadyIn";
+          var accessText = "Segundo acceso del dia";
+        }
+        // Render response
+        res.render("search_results.ejs", {
+          idAlumno: student._id,
+          firstName: student.first_name,
+          lastName: student.last_name,
+          curso: student.curso,
+          sucursal: student.sucursal,
+          horario: student.horario,
+          last_loggin: student.last_loggin,
+          buttonClass: accessButton,
+          text: accessText,
+        });
       }
     } catch (error) {
       console.error("Error while querying MongoDB:", error);
