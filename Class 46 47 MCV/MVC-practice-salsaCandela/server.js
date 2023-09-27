@@ -31,12 +31,11 @@ app.use(express.static("public"));
 // Imports
 const homeRoutes = require("./routes/home");
 const searchRoutes = require("./routes/search");
-// const reportRoutes = require("./routes/report");
-
+const reportRoutes = require("./routes/report");
 // Listening
 app.use("/", homeRoutes);
 app.use("/search", searchRoutes);
-// app.use("/report", reportRoutes);
+app.use("/report", reportRoutes);
 
 // Server Port
 // ===========

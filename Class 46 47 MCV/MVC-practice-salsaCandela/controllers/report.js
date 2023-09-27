@@ -1,31 +1,15 @@
-// Import Report Mongoose Schema
-const Report = require("../models/person");
+// Import mongoose schema
+const Person = require("../models/person");
 
-// Object that contains the properties and methods
-// Will be accessible when this module is imported
-// in another part of the application.
+// Object to export
 module.exports = {
-  // Define a property named getIndex
   getReport: async (req, res) => {
     try {
-      const myItems = await Report.find()
-        .toArray()
-        .then((results) => {
-          console.log(results);
-          // Render page with EJS and database results
-          res.render("report.ejs", { quotes: results });
-        });
+      const myItems = await Person.find().exec();
+      console.log(myItems);
+      res.render("report.ejs", { quotes: myItems });
     } catch (err) {
       console.log(err);
     }
-    // Gets quotes from database
-    collection
-      .toArray()
-      .then((results) => {
-        console.log(results);
-        // Render page with EJS and database results
-        res.render("report.ejs", { quotes: results });
-      })
-      .catch((error) => console.error(error));
   },
 };
