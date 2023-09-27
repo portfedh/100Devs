@@ -5,8 +5,9 @@ const Person = require("../models/person");
 module.exports = {
   // Serve search page
   getSearch: (req, res) => {
-    res.render("search.ejs", {});
+    res.render("search.ejs", { errorText: "" });
   },
+
   // Search for a record
   searchPerson: async (req, res) => {
     console.log("Search person started");
@@ -18,7 +19,7 @@ module.exports = {
       console.log(myId);
       if (!student) {
         console.log("No student record found.");
-        return res.render("search_not_found.ejs", {});
+        res.render("search.ejs", { errorText: "Alumno no encontrado" });
       } else {
         console.log("Record found.");
 

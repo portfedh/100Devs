@@ -23,13 +23,13 @@
           </a>
         </div>
         <!-- Search section -->
-        <form action="/search/results" method="post" id="search-form">
+        <form action="/search" method="post" id="search-form">
           <h1>Busqueda de Alumno:</h1>
           <fieldset>
             <label for="id_search">Numero de cuenta:</label>
             <input type="text" id="id_search" name="id_to_search" required />
             <button type="submit" class="searchButton">Buscar</button>
-            <div id="usernameError" class="error"></div>
+            <div id="usernameError" class="error"><%= errorText %></div>
           </fieldset>
         </form>
       </div>
