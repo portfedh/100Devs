@@ -1,19 +1,13 @@
-// Import the Express.js framework
+// Import the Express & create a router object
 const express = require("express");
-
-// Create new router object
 const router = express.Router();
 
-// Import a module named homeController
-// From a file in the "../controllers/home" directory.
+// Import home controllers
 const homeController = require("../controllers/home");
 
-// When a GET request is made to the root URL '/'
-// Execute the getIndex() function from the homeController module
+//  For every request, define the function to execute
 router.get("/", homeController.getIndex);
-
-// When a PUT request is made to the URL '/inscribir'
 router.post("/inscribir", homeController.addRecord);
 
-// Exports the router object
+// Export router object
 module.exports = router;

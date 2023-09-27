@@ -156,14 +156,14 @@ Creating a Model:
     Deleting an item:
 
         // To delete all items in the collection we use
-        await Character.deleteMany({})
+            await Character.deleteMany({})
 
 
         // FindOne and Remove:
-        const ryu = await Character.findOne({ name: 'Ryu' })
-        const deleted = await ryu.remove()
+            const ryu = await Character.findOne({ name: 'Ryu' })
+            const deleted = await ryu.remove()
 
         // findOneAndDelete
-        const deleted = await Character.findOneAndDelete({ name: 'Ken' })
-        
+            const deleted = await Character.findOneAndDelete({ name: 'Ken' })
+            
 

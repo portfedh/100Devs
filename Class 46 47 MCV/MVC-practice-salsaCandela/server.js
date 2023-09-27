@@ -1,118 +1,45 @@
-console.log("Starting server.js ...");
-
-// Imports
-const homeRoutes = require("./routes/home");
-// const searchRoutes = require("./routes/search");
-// const reportRoutes = require("./routes/report");
-
-// Load environment variables
+// Environment variables
+// =====================
 const result = require("dotenv").config({ path: "./config/.env" });
 if (result.error) {
   console.error("Error loading .env file:", result.error);
 }
 
-// Connect to database
+// Database
+// ========
 const connectDB = require("./config/database");
 connectDB();
 
-// Configure Express
-// =================
-// Import Express
+// Express
+// =======
+// Imports
 const express = require("express");
 const app = express();
 // Set template engine EJS:
 app.set("view engine", "ejs");
 // Serve static files from the 'public' directory.
 app.use(express.static("public"));
-// Makes server able to Read JSON data:
+// Enable reading JSON data:
 app.use(express.json());
-// So express can read data from html elements:
+// Enable reading from html elements:
 app.use(express.urlencoded({ extended: true }));
-// Make public folder accessible to the public
+// Enable access to public folder
 app.use(express.static("public"));
 
-// =======
 // Routes:
 // =======
+// Imports
+const homeRoutes = require("./routes/home");
+const searchRoutes = require("./routes/search");
+// const reportRoutes = require("./routes/report");
 
-// Listen to home routes
+// Listening
 app.use("/", homeRoutes);
-
-// Listen to search routes
-// app.use("/search", searchRoutes);
-
-// Listen to report routes
+app.use("/search", searchRoutes);
 // app.use("/report", reportRoutes);
 
-// Search for user:
-// ================
-app.post("/search_results", async (req, res) => {
-  try {
-    // Get id from body POST request
-    var myId = req.body.id_to_search;
-    // Search for id
-    var object_id_to_find = new ObjectId(myId);
-    const students2 = await collection.findOne({
-      _id: object_id_to_find,
-    });
-    if (!students2) {
-      // Case: No record found
-      console.log("No student record found.");
-      res.render("search_not_found.ejs", {});
-    } else {
-      // Case: Record found
-      // Get last login date
-      console.log("last login:");
-      console.log(students2.last_loggin);
-      // Get date today
-      const today = new Date();
-      const year = today.getFullYear();
-      const month = String(today.getMonth() + 1).padStart(2, "0"); // Adding 1 to month because months are zero-indexed
-      const day = String(today.getDate()).padStart(2, "0");
-      var todayDateString = `${year}-${month}-${day}`;
-      console.log("Todays date:");
-      console.log(todayDateString);
-      // Compare dates
-      if (students2.last_loggin != todayDateString) {
-        // Case: It's first access of the day: Access granted
-        var accessButton = "welcome";
-        var accessText = "Bienvenido";
-        // Update access date:
-        collection.findOneAndUpdate(
-          // Search by id
-          { _id: object_id_to_find },
-          {
-            // Update last_loggin variable to current date
-            $set: { last_loggin: todayDateString },
-          },
-          { upsert: true }
-        );
-      } else {
-        // Case: Previous access that day: Access denied
-        var accessButton = "alreadyIn";
-        var accessText = "Segundo acceso del dia";
-      }
-      // Render page with student data:
-      res.render("search_results.ejs", {
-        idAlumno: students2._id,
-        firstName: students2.first_name,
-        lastName: students2.last_name,
-        curso: students2.curso,
-        sucursal: students2.sucursal,
-        horario: students2.horario,
-        last_loggin: students2.last_loggin,
-        buttonClass: accessButton,
-        text: accessText,
-      });
-    }
-  } catch (error) {
-    console.error("Error while querying MongoDB:", error);
-    res.status(500).json({ message: "An error occurred." });
-  }
-});
-
-// Listening Port
-// ==============
+// Server Port
+// ===========
 app.listen(process.env.PORT || PORT, () => {
   console.log(`Server running on port ${process.env.PORT}`);
 });
