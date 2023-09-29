@@ -37,9 +37,7 @@ module.exports = {
         // Search for the _id in the DB to match the provided _id
         { _id: req.body.todoIdFromJSFile },
         // Set the "completed" field to true
-        {
-          completed: true,
-        }
+        { completed: true, }
       );
       // Respond with a JSON message and log "Marked Complete."
       console.log("Marked Complete");
@@ -56,9 +54,7 @@ module.exports = {
         // Search for the _id in the DB to match the provided _id
         { _id: req.body.todoIdFromJSFile },
         // Set the "completed" field to false
-        {
-          completed: false,
-        }
+        { completed: false, }
       );
       // Respond with a JSON message and log "Marked Complete."
       console.log("Marked Incomplete");
