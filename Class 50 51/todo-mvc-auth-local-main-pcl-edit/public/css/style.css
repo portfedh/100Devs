@@ -1,0 +1,13 @@
+/* Display the To'Do Heading in red */
+h1{
+    color: red;
+}
+/* Display completed items as gray and with a line through the middle */
+.completed{
+    text-decoration: line-through;
+    color: gray;
+}
+/* Display uncompleted items as underlined */
+.not{
+    text-decoration: underline;
+}

@@ -14,18 +14,18 @@
     <!-- Section showing the list of To Do Items -->
     <ul>
     <% todos.forEach( el => { %>
-        <!-- Create a list item for each element in object -->
-        <li class='todoItem' data-id='<%=el._id%>'>
-            <!-- Assign 'completed' class, or 'not' class depending if variable is true or false -->
-            <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-            <!-- include text to delete that item -->
-            <span class='del'> Delete </span>
-        </li>
+            <!-- Create a list item for each element in object -->
+            <li class='todoItem' data-id='<%=el._id%>'>
+                <!-- Assign 'completed' class, or 'not' class depending if variable is true or false -->
+                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                <!-- include text to delete that item -->
+                <span class='del'> Delete </span>
+            </li>
     <% }) %>    
     </ul>
 
     <!-- Section showing how many To Do items are left -->
-    <h2>Things left to do: <%= left %></h2>
+    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
 
     <!-- Section to create a new To Do item -->
     <form action="/todos/createTodo" method='POST'>
@@ -33,7 +33,8 @@
         <input type="submit">
     </form>
 
-    <!-- link to javascript file -->
+    <a href="/logout">Logout</a>
+     <!-- link to javascript file -->
     <script src="js/main.js"></script>
 </body>
 </html>

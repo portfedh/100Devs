@@ -9,8 +9,10 @@ const homeRoutes = require("./routes/home");
 // Get ToDo's page routes
 const todoRoutes = require("./routes/todos");
 
+// Get enviroment variables
 require("dotenv").config({ path: "./config/.env" });
 
+// Connect to the database
 connectDB();
 
 // Configure the Express settings

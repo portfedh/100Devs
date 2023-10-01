@@ -27,7 +27,7 @@ Array.from(todoComplete).forEach((el) => {
 // Functions:
 // **********
 async function deleteTodo() {
-  // Get the unique identifier for the to-do item that will be deleted
+  // Get the id for the to-do item that will be deleted
   const todoId = this.parentNode.dataset.id;
   try {
     // Send an HTTP DELETE request to the 'todos/deleteTodo' endpoint on the server
@@ -52,10 +52,10 @@ async function deleteTodo() {
 }
 
 async function markComplete() {
-  // Get the unique identifier for the to-do item that will be updated
+  // Get the id for the to-do item that will be updated
   const todoId = this.parentNode.dataset.id;
   try {
-    // Send an HTTP PUt request to the 'todos/markComplete' endpoint on the server
+    // Send an HTTP PUT request to the 'todos/markComplete' endpoint on the server
     const response = await fetch("todos/markComplete", {
       method: "put",
       // Specify that the request body contains JSON data.
@@ -77,10 +77,10 @@ async function markComplete() {
 }
 
 async function markIncomplete() {
-  // Get the unique identifier for the to-do item that will be updated
+  // Get the id for the to-do item that will be updated
   const todoId = this.parentNode.dataset.id;
   try {
-    // Send an HTTP PUt request to the 'todos/markComplete' endpoint on the server
+    // Send an HTTP PUT request to the 'todos/markIncomplete' endpoint on the server
     const response = await fetch("todos/markIncomplete", {
       method: "put",
       // Specify that the request body contains JSON data.
