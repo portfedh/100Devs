@@ -15,6 +15,7 @@ module.exports = {
       // Retrieve all todo items
       // Old code: Todo.find()
       // New code: Todo.find({userId:req.user.id})
+      // Filter todo's: userId == user.id sent by form body
       const todoItems = await Todo.find({ userId: req.user.id });
       // Count the number of incomplete items
       // Old code: { completed: false }
