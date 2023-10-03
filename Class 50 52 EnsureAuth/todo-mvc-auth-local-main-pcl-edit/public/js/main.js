@@ -1,27 +1,27 @@
-// Selecting  all elements with:
-// *****************************
+// Selecting elements:
+// *******************
 
-//  Delete class:
+// Select elements with delete class:
 const deleteBtn = document.querySelectorAll(".del");
-// Span elements with class 'not'
+// Select span elements with class 'not'
 const todoItem = document.querySelectorAll("span.not");
-// Span elements with class 'completed'
+// Select span elements with class 'completed'
 const todoComplete = document.querySelectorAll("span.completed");
 
 // Event listeners:
 // ****************
 
-// For every element with delete class, if clicked call 'delete' function
+// For every element with delete class, if clicked, call 'delete' function
 Array.from(deleteBtn).forEach((el) => {
   el.addEventListener("click", deleteTodo);
 });
 
-// For every non completed element, if clicked call 'markComplete' function
+// For every non completed element, if clicked, call 'markComplete' function
 Array.from(todoItem).forEach((el) => {
   el.addEventListener("click", markComplete);
 });
 
-// For every completed element, if clicked call 'markIncomplete' function
+// For every completed element, if clicked, call 'markIncomplete' function
 Array.from(todoComplete).forEach((el) => {
   el.addEventListener("click", markIncomplete);
 });
@@ -38,15 +38,15 @@ async function deleteTodo() {
       method: "delete",
       // Specify that the request body contains JSON data.
       headers: { "Content-type": "application/json" },
-      // Converts the 'todoId' into a JSON string and sends it as the request body
+      // Convert the 'todoId' into a JSON string and send it as the request body
       body: JSON.stringify({
         todoIdFromJSFile: todoId,
       }),
     });
     const data = await response.json();
-    // Logs the confirmation or error messages from the server.
+    // Log the confirmation or error message from the server.
     console.log(data);
-    // Reloads the page to reflect the changes
+    // Reload the page to reflect the changes
     location.reload();
   } catch (err) {
     // Log any errors
@@ -63,15 +63,15 @@ async function markComplete() {
       method: "put",
       // Specify that the request body contains JSON data.
       headers: { "Content-type": "application/json" },
-      // Converts the 'todoId' into a JSON string and sends it as the request body
+      // Convert the 'todoId' into a JSON string and send it as the request body
       body: JSON.stringify({
         todoIdFromJSFile: todoId,
       }),
     });
     const data = await response.json();
-    // Logs the confirmation or error messages from the server.
+    // Log the confirmation or error message from the server.
     console.log(data);
-    // Reloads the page to reflect the changes
+    // Reload the page to reflect the changes
     location.reload();
   } catch (err) {
     // Log any errors
@@ -88,15 +88,15 @@ async function markIncomplete() {
       method: "put",
       // Specify that the request body contains JSON data.
       headers: { "Content-type": "application/json" },
-      // Converts the 'todoId' into a JSON string and sends it as the request body
+      // Convert the 'todoId' into a JSON string and send it as the request body
       body: JSON.stringify({
         todoIdFromJSFile: todoId,
       }),
     });
     const data = await response.json();
-    // Logs the confirmation or error messages from the server.
+    // Log the confirmation or error message from the server.
     console.log(data);
-    // Reloads the page to reflect the changes
+    // Reload the page to reflect the changes
     location.reload();
   } catch (err) {
     // Log any errors

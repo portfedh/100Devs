@@ -8,13 +8,19 @@ const router = express.Router();
 // Get the controller logic for the ToDo's page
 const todosController = require("../controllers/todos");
 
-// New: Include Authorization
-// **************************
+//Import ensure authorization function
+// ***********************************
+// Imports specific function from module
+// So it can be called directly as: ensureAuth
+// Instead of: 'middleware.auth.ensureAuth'
 const { ensureAuth } = require("../middleware/auth");
 
-// If GET request on .../todos/ is called, call getTodos method
 // Includes ensureAuth parameter
 // *****************************
+// If GET request on .../todos/ is called:
+// Run ensureAuth function.
+// If it returns true
+// Call getTodos method
 router.get("/", ensureAuth, todosController.getTodos);
 
 // If POST route on .../todos/createTodo is called, call createTodo method

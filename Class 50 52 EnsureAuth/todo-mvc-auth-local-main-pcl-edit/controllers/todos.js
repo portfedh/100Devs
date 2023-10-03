@@ -13,20 +13,15 @@ module.exports = {
     console.log(req.user);
     try {
       // Retrieve all todo items
-      // Old code: Todo.find()
-      // New code: Todo.find({userId:req.user.id})
       // Filter todo's: userId == user.id sent by form body
       const todoItems = await Todo.find({ userId: req.user.id });
       // Count the number of incomplete items
-      // Old code: { completed: false }
-      // New code: {userId:req.user.id,completed: false}
+      // Filter todo's: userId == user.id sent by form body
       const itemsLeft = await Todo.countDocuments({
         userId: req.user.id,
         completed: false,
       });
       // Render a template called "todos.ejs" with the data
-      // Old code: { todos: todoItems, left: itemsLeft }
-      // New code: {todos: todoItems, left: itemsLeft, user: req.user}
       res.render("todos.ejs", {
         todos: todoItems,
         left: itemsLeft,
@@ -42,8 +37,7 @@ module.exports = {
       // Insert a new document into the database
       // Using todoItem text
       // And a "completed" status of false
-      // Old code: { todo: req.body.todoItem, completed: false }
-      // New code: {todo: req.body.todoItem, completed: false, userId: req.user.id}
+      // Include the users id in every toDo
       await Todo.create({
         todo: req.body.todoItem,
         completed: false,

@@ -5,19 +5,18 @@ const express = require("express");
 // Used to define a set of routes for handling HTTP requests
 const router = express.Router();
 
-// Get the controller logic for the home page
+// Import the controller modules
 const homeController = require("../controllers/home");
 
-// New code: Authorization
-// ************************
+// Import passport strategy
 const authController = require("../controllers/auth");
+
+// Check: Neither is used & ensureGuest doesn't exist
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
-// If GET route on home page is called, run getIndex method
+// Routes
+// *******
 router.get("/", homeController.getIndex);
-
-// New routes:
-// ***********
 router.get("/login", authController.getLogin);
 router.post("/login", authController.postLogin);
 router.get("/logout", authController.logout);
