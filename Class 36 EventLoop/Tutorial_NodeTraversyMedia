@@ -108,6 +108,8 @@ USING NODE JS
     Intall a desired packages
 
         $ npm install <package_name>
+        $ npm install <package_name> --save
+            // Both are the same
 
         $ npm install uuid
         $ npm install -D nodemon

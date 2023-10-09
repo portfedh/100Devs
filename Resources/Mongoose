@@ -1,5 +1,11 @@
 Mongoose
 
+MongoDB database heirarchy
+    Cluster    --> Server
+    Database   --> Database
+    Collection --> Table without schema
+    Document   --> Basic unit of storage 
+
 Makes MongoDB easier to use
 
     Gives structure to DB collections
