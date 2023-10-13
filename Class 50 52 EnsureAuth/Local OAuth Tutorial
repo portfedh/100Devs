@@ -87,171 +87,44 @@ Create a sign-in page
         </form>
 
 
-Add route to redirect to Google when button is clicked
-======================================================
+Verify Password
+===============
 
     Install passport.js dependencies
-        $ npm install passport
-        $ npm install passport-google-oidc
 
-    Inside routes/auth.js import packages and database config
+        $ npm install passport
+        $ npm install passport-local
+
+
+    Configure routes/auth.js  to import packages
 
         var express = require('express');
         var passport = require('passport');
-        var GoogleStrategy = require('passport-google-oidc');
+        var LocalStrategy = require('passport-local');
+        var crypto = require('crypto');
         var db = require('../db')
 
-    Inside routes/auth.js add route to redirect when 'Sign in with Google' is clicked 
 
-        router.get('/login/federated/google', passport.authenticate('google'));
+    In the same file, configure the logal strategy
 
-
-Register the App with Google
-============================
-
-    Register the app with Google so that it can make use of Google's APIs.
-
-
-    Go to Google Platform Console
-
-        https://console.cloud.google.com/
-
-
-    Select a project or create a new one.
-
-
-    Navigate to the API & Services Overview page and select: Credentials
-
-
-    Select a project or create a new one:
-
-
-    Click: + Create Credentials
-
-        Select: OAuth client ID
-        Select: Web Aplication as Aplication type
-        Select: Authorized redirect URIs to: http://localhost:3000/oauth2/redirect/google
-        // This will change in a real project
-
-
-    Set the OAuth Consent screens by adding 
-
-        App name
-        User support email
-        Logo
-        App domain
-        User type (Select: External)
-
-
-    Copy the provided credentials:
-
-        ClientID
-            100959252338-l901jjmn86rb6cbgbcslshh9tbki8pgo.apps.googleusercontent.com
-
-        ClientSecret
-            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
-
-
-Configure the Strategy
-======================
-
-    Configure passport with your API information. 
-
-
-    Create enviroment file
-
-        $ touch .env
-
-        // Inside .env file
-        GOOGLE_CLIENT_ID=__INSERT_CLIENT_ID_HERE__
-        GOOGLE_CLIENT_SECRET=__INSERT_CLIENT_SECRET_HERE__
-
-
-    Add the strategy to routes/auth.js
-
-        passport.use(new GoogleStrategy({
-          clientID: process.env['GOOGLE_CLIENT_ID'],
-          clientSecret: process.env['GOOGLE_CLIENT_SECRET'],
-          callbackURL: '/oauth2/redirect/google',
-          scope: [ 'profile' ]
-        }, function verify(issuer, profile, cb) {
-          db.get('SELECT * FROM federated_credentials WHERE provider = ? AND subject = ?', [
-            issuer,
-            profile.id
-          ], function(err, row) {
+        passport.use(new LocalStrategy(function verify(username, password, cb) {
+          db.get('SELECT * FROM users WHERE username = ?', [ username ], function(err, row) {
             if (err) { return cb(err); }
-            if (!row) {
-              db.run('INSERT INTO users (name) VALUES (?)', [
-                profile.displayName
-              ], function(err) {
-                if (err) { return cb(err); }
+            if (!row) { return cb(null, false, { message: 'Incorrect username or password.' }); }
 
-                var id = this.lastID;
-                db.run('INSERT INTO federated_credentials (user_id, provider, subject) VALUES (?, ?, ?)', [
-                  id,
-                  issuer,
-                  profile.id
-                ], function(err) {
-                  if (err) { return cb(err); }
-                  var user = {
-                    id: id,
-                    name: profile.displayName
-                  };
-                  return cb(null, user);
-                });
-              });
-            } else {
-              db.get('SELECT * FROM users WHERE id = ?', [ row.user_id ], function(err, row) {
-                if (err) { return cb(err); }
-                if (!row) { return cb(null, false); }
-                return cb(null, row);
-              });
-            }
+            crypto.pbkdf2(password, row.salt, 310000, 32, 'sha256', function(err, hashedPassword) {
+              if (err) { return cb(err); }
+              if (!crypto.timingSafeEqual(row.hashed_password, hashedPassword)) {
+                return cb(null, false, { message: 'Incorrect username or password.' });
+              }
+              return cb(null, row);
+            });
           });
         }));
 
+    In the same file, add a route to authenticate user
 
-Maintain state when redirecting to Google
-=========================================
-
-When a user signs in to the app with Google, they are redirected to Google.
-Google authenticates the user and then redirects them to the app.
-For security reasons, it is important that state is maintained and validated between these two redirects.
-
-
-    Install session store as dependencies
-
-        $ npm install express-session
-        $ npm install connect-sqlite3
-
-
-    In app.js import the modules
-
-        var logger = require('morgan');
-        var session = require('express-session');
-        var SQLiteStore = require('connect-sqlite3')(session);
-
-
-    Then use the code in app.js
-
-        app.use(express.static(path.join(__dirname, 'public')));
-        app.use(session({
-          secret: 'keyboard cat',
-          resave: false,
-          saveUninitialized: false,
-          store: new SQLiteStore({ db: 'sessions.db', dir: './var/db' })
-        }));
-
-
-Redirect from Google the app
-============================
-
-Add a route that authenticates the user when Google redirects them back to the app.
-
-
-    Add the following to routes/auth.js
-
-        router.get('/oauth2/redirect/google', passport.authenticate('google', {
+        router.post('/login/password', passport.authenticate('local', {
           successRedirect: '/',
           failureRedirect: '/login'
         }));
@@ -260,7 +133,14 @@ Add a route that authenticates the user when Google redirects them back to the a
 Establish Session
 =================
 
-Establish a login session to maintain the user's authenticated state as they navigate the app.
+Establish a login session establish a login session which will maintain the user's authenticated state as they navigate the app.
+
+    Install the following: 
+
+        $ npm install express-session
+
+        $ npm install connect-sqlite3
+
 
     Add the following to app.js
 
@@ -270,17 +150,24 @@ Establish a login session to maintain the user's authenticated state as they nav
 
             var passport = require('passport');
 
+            var logger = require('morgan');
+
+            var SQLiteStore = require('connect-sqlite3')(session);
+
         Add the code
 
+            app.use(express.static(path.join(__dirname, 'public')));
             app.use(session({
               secret: 'keyboard cat',
               resave: false,
               saveUninitialized: false,
               store: new SQLiteStore({ db: 'sessions.db', dir: './var/db' })
             }));
-            app.use(passport.authenticate('session')); 
+            app.use(passport.authenticate('session'));
 
+    Configure Passport to persist user info in login session
     Add the following to routes/auth.js
+
 
         passport.serializeUser(function(user, cb) {
           process.nextTick(function() {
@@ -308,3 +195,54 @@ How to terminate a session.
             res.redirect('/');
           });
         });
+
+
+Add Sign-UP Page
+================
+
+    Go to routes/auth.js and add the following route 
+
+        router.get('/signup', function(req, res, next) {
+          res.render('signup');
+        });
+
+    Then add this to handle form submissions:
+
+        router.post('/signup', function(req, res, next) {
+          var salt = crypto.randomBytes(16);
+          crypto.pbkdf2(req.body.password, salt, 310000, 32, 'sha256', function(err, hashedPassword) {
+            if (err) { return next(err); }
+            db.run('INSERT INTO users (username, hashed_password, salt) VALUES (?, ?, ?)', [
+              req.body.username,
+              hashedPassword,
+              salt
+            ], function(err) {
+              if (err) { return next(err); }
+              var user = {
+                id: this.lastID,
+                username: req.body.username
+              };
+              req.login(user, function(err) {
+                if (err) { return next(err); }
+                res.redirect('/');
+              });
+            });
+          });
+        });
+
+    Open views/signup.ejs and add the following:
+
+        <h1>Sign up</h1>
+        <form action="/signup" method="post">
+            <section>
+                <label for="username">Username</label>
+                <input id="username" name="username" type="text" autocomplete="username" required>
+            </section>
+            <section>
+                <label for="new-password">Password</label>
+                <input id="new-password" name="password" type="password" autocomplete="new-password" required>
+            </section>
+            <button type="submit">Sign up</button>
+        </form>
+
+    This route creates a new user record in the app's database, storing the username and hashed password. Once the record is created, the user is logged in.
