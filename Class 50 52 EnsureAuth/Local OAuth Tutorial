@@ -38,6 +38,8 @@ Setup
 Create a sign-in page
 =====================
 
+    // Code is the same as google tutorial
+
     Add authentication-related routes:
 
         $ touch routes/auth.js
@@ -57,7 +59,8 @@ Create a sign-in page
 
     Add the route to the server file:
 
-        // Code inside app.js (in 100devs we call it server.js)
+        // Code inside app.js 
+        // In 100devs we call it server.js
 
         // Imports
         var indexRouter = require('./routes/index');
@@ -68,10 +71,20 @@ Create a sign-in page
         app.use('/', authRouter);
 
 
-    Add a button to views/login.ejs page:
+    Add a login in form to views/login.ejs page:
 
         <h1>Sign in</h1>
-        <a class="button google" href="/login/federated/google">Sign in with Google</a>
+        <form action="/login/password" method="post">
+            <section>
+                <label for="username">Username</label>
+                <input id="username" name="username" type="text" autocomplete="username" required autofocus>
+            </section>
+            <section>
+                <label for="current-password">Password</label>
+                <input id="current-password" name="password" type="password" autocomplete="current-password" required>
+            </section>
+            <button type="submit">Sign in</button>
+        </form>
 
 
 Add route to redirect to Google when button is clicked
