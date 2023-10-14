@@ -7,7 +7,11 @@ if (result.error) {
 
 // Database
 // ========
+// Import mongoose library
+const mongoose = require("mongoose");
+// Database URL and PORTs
 const connectDB = require("./config/database");
+// Connect
 connectDB();
 
 // Express
