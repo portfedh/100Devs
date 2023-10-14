@@ -1,9 +1,6 @@
 // Environment variables
 // =====================
 const result = require("dotenv").config({ path: "./config/.env" });
-if (result.error) {
-  console.error("Error loading .env file:", result.error);
-}
 
 // Database
 // ========
@@ -13,6 +10,21 @@ const mongoose = require("mongoose");
 const connectDB = require("./config/database");
 // Connect
 connectDB();
+
+// EnsureAuth
+// ==========
+// Import passport library
+const passport = require("passport");
+// Passport config
+require("./config/passport")(passport);
+// Allows session management for express applications.
+const session = require("express-session");
+// Used to store session data in MongoDb
+const MongoStore = require("connect-mongo")(session);
+// To display temporary messages to the user
+const flash = require("express-flash");
+// For login requests and responses, for debugging and monitoring
+const logger = require("morgan");
 
 // Express
 // =======
@@ -29,6 +41,31 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // Enable access to public folder
 app.use(express.static("public"));
+// Use dev format in logger, for debugging and monitoring
+app.use(logger("dev"));
+// Use express session management
+app.use(
+  session({
+    // String to sign the session ID cookie
+    secret: "keyboard cat",
+    // Session wont be saved on every request
+    // Only after data is modified
+    resave: false,
+    // Session only created if data is stored in it
+    saveUninitialized: false,
+    // Save session data using Mongostore into database
+    store: new MongoStore({ mongooseConnection: mongoose.connection }),
+  })
+);
+
+// Passport middleware
+// *******************
+// Start and prepare for authentication
+app.use(passport.initialize());
+// Use sessions for user authentication
+app.use(passport.session());
+// Enable application to send success or error messages to user.
+app.use(flash());
 
 // Routes:
 // =======
