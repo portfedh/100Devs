@@ -8,9 +8,11 @@ const homeController = require("../controllers/home");
 // Import passport strategy
 const authController = require("../controllers/auth");
 
-//  For every request, define the function to execute
+// Routes
 router.get("/", homeController.getIndex);
 router.post("/enroll", homeController.createRecord);
+
+// Authentication routes
 router.get("/login", authController.getLogin);
 router.post("/login", authController.postLogin);
 router.get("/logout", authController.logout);
