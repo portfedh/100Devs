@@ -45,7 +45,7 @@ const MongoStore = require("connect-mongo")(session);
 // app.use(express.json());
 
 // Use dev format in logger, for debugging and monitoring
-app.use(logger("dev"));
+// app.use(logger("dev"));
 
 // Use express session management
 app.use(

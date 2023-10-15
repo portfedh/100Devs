@@ -37,27 +37,26 @@ const flash = require("express-flash");
 const logger = require("morgan");
 // Passport config
 require("./config/passport")(passport);
-
 // Use dev format in logger, for debugging and monitoring
 app.use(logger("dev"));
 
 // // Used to store session data in MongoDb
-// const MongoStore = require("connect-mongo")(session);
+const MongoStore = require("connect-mongo")(session);
 
 // // Configure express-session with connect-mongo
-// app.use(
-//   session({
-//     // String to sign the session ID cookie
-//     secret: "keyboard cat",
-//     // Session wont be saved on every request
-//     // Only after data is modified
-//     resave: false,
-//     // Session only created if data is stored in it
-//     saveUninitialized: false,
-//     // Save session data using Mongostore into database
-//     store: new MongoStore({ mongooseConnection: mongoose.connection }),
-//   })
-// );
+app.use(
+  session({
+    // String to sign the session ID cookie
+    secret: "keyboard cat",
+    // Session wont be saved on every request
+    // Only after data is modified
+    resave: false,
+    // Session only created if data is stored in it
+    saveUninitialized: false,
+    // Save session data using MongoStore into database
+    store: new MongoStore({ mongooseConnection: mongoose.connection }),
+  })
+);
 
 // Passport middleware
 // *******************
