@@ -29,20 +29,19 @@ app.use(express.static("public"));
 const mongoose = require("mongoose");
 // Import passport library
 const passport = require("passport");
-// Allows session management for express applications.
+// Import session management for express applications.
 const session = require("express-session");
-// To display temporary messages to the user
+// Import o display temporary messages to the user
 const flash = require("express-flash");
-// For login requests and responses, for debugging and monitoring
+// Import for debugging and monitoring
 const logger = require("morgan");
-// Passport config
+// Import Passport configuration
 require("./config/passport")(passport);
+
 // Use dev format in logger, for debugging and monitoring
 app.use(logger("dev"));
-
 // // Used to store session data in MongoDb
 const MongoStore = require("connect-mongo")(session);
-
 // // Configure express-session with connect-mongo
 app.use(
   session({
@@ -57,10 +56,7 @@ app.use(
     store: new MongoStore({ mongooseConnection: mongoose.connection }),
   })
 );
-
-// Passport middleware
-// *******************
-// Start and prepare for authentication
+// Start and prepare passport for authentication
 app.use(passport.initialize());
 // Use sessions for user authentication
 app.use(passport.session());
