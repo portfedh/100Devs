@@ -5,24 +5,26 @@ const validator = require("validator");
 // Import User model Schema
 const User = require("../models/User");
 
-// getLogin function
-// *****************
+// GET request in '/login'
+// ***********************
 exports.getLogin = (req, res) => {
   if (req.user) {
-    // Checks if there is an authenticated user stored in req.user
-    // If so, redirect to /todos page
-    return res.redirect("/todos");
+    // Check if there is an authenticated user stored in req.user
+    // If so, redirect to defined page
+    return res.redirect("/report");
   }
-  // If not render a view named login with a title 'Login'
+  // If not, render a view named login with a title 'Login'
   res.render("login", {
     title: "Login",
   });
 };
 
-// postLogin function
-// ******************
+// POST request in '/login'
+// *************************
 exports.postLogin = (req, res, next) => {
-  // Empty array for validation errors
+  // Validate inputs
+  // ***************
+  // Create empty array for validation errors
   const validationErrors = [];
   // Check with library if it's a valid email address
   if (!validator.isEmail(req.body.email))
@@ -52,23 +54,25 @@ exports.postLogin = (req, res, next) => {
       // Redirect to login page
       return res.redirect("/login");
     }
+    // Log in user
+    // ************
     req.logIn(user, (err) => {
       if (err) {
         return next(err);
       }
-      // Log in the user and redirect them to their requested page or todos
+      // Display log in confirmation message & redirect
       req.flash("success", { msg: "Success! You are logged in." });
       res.redirect(req.session.returnTo || "/todos");
     });
   })(req, res, next);
 };
 
-// logout function
-// ***************
+// Get request on '/logout'
+// ************************
 exports.logout = (req, res) => {
   // Call logout() from passport.js
   req.logout(() => {
-    // Confirmation message
+    // Display confirmation message in server
     console.log("User has logged out.");
   });
   // Destroy method on user session
@@ -78,19 +82,19 @@ exports.logout = (req, res) => {
       console.log("Error : Failed to destroy the session during logout.", err);
     // Sets user to null to ensure user is no longer authenticated even with an error.
     req.user = null;
-    // Redirect to root url as a final
+    // Redirect to url
     res.redirect("/");
   });
 };
 
-// Handle get request for sign up page
-// ***********************************
+// GET request for '/signup'
+// *************************
 exports.getSignup = (req, res) => {
   // Check request body for user object
   // User object exists if user has been authenticated
   if (req.user) {
-    // Redirects to the todo's page
-    return res.redirect("/todos");
+    // Redirects to the page after authentication
+    return res.redirect("/report");
   }
   // If not authenticated, take them to signup page
   res.render("signup", {
@@ -98,77 +102,66 @@ exports.getSignup = (req, res) => {
   });
 };
 
-// Function to process signup requests
-// ***********************************
-exports.postSignup = (req, res, next) => {
-  // Store validation errors
-  const validationErrors = [];
-  // Check if email address is a valid email
-  if (!validator.isEmail(req.body.email))
-    // Add message with error to validator array
-    validationErrors.push({ msg: "Please enter a valid email address." });
-  // Check if password length is larger than the minimum
-  if (!validator.isLength(req.body.password, { min: 8 }))
-    // Add message with error to validator array
-    validationErrors.push({
-      msg: "Password must be at least 8 characters long",
+// POST request for '/signup'
+// **************************
+exports.postSignup = async (req, res, next) => {
+  try {
+    // Validate inputs
+    // ***************
+    // Empty array to store errors
+    const validationErrors = [];
+    // Check if email address has a "@" and "." sign
+    if (!validator.isEmail(req.body.email))
+      validationErrors.push({ msg: "Please enter a valid email address." });
+    // Check that password length is adequate
+    if (!validator.isLength(req.body.password, { min: 8 }))
+      validationErrors.push({
+        msg: "Password must be at least 8 characters long",
+      });
+    // Make sure passwords match
+    if (req.body.password !== req.body.confirmPassword)
+      validationErrors.push({ msg: "Passwords do not match" });
+    // Check array to see if it has errors
+    if (validationErrors.length) {
+      // Display error to user and reload page
+      req.flash("errors", validationErrors);
+      return res.redirect("../signup");
+    }
+    // Makes sure the email is stored with dots
+    req.body.email = validator.normalizeEmail(req.body.email, {
+      gmail_remove_dots: false,
     });
-  // Check that password and confirmation match
-  if (req.body.password !== req.body.confirmPassword)
-    // Add message with error to validator array
-    validationErrors.push({ msg: "Passwords do not match" });
-  // Check Array to see if any errors were found
-  if (validationErrors.length) {
-    // Store errors in flash storage
-    // To display error messages to user
-    req.flash("errors", validationErrors);
-    // Redirects user to signup page if errors are found
-    // Wil display the errors to the user
-    return res.redirect("../signup");
-  }
-  // Normalize email address for storage
-  req.body.email = validator.normalizeEmail(req.body.email, {
-    gmail_remove_dots: false,
-  });
-  // Creates a new user using information in the request body
-  const user = new User({
-    userName: req.body.userName,
-    email: req.body.email,
-    password: req.body.password,
-  });
-  // Check if there existing user with the same email or username
-  User.findOne(
-    // Use findOne method
-    // Search 'User' collection
-    { $or: [{ email: req.body.email }, { userName: req.body.userName }] },
-    (err, existingUser) => {
-      // If there is an error, call next() function to pass the error to the next middleware
+    // Check database to make sure the username is unique
+    // Queries the 'User' model
+    const existingUser = await User.findOne({
+      $or: [{ email: req.body.email }, { userName: req.body.userName }],
+    }).exec();
+    // If user exists, show error
+    if (existingUser) {
+      req.flash("errors", {
+        msg: "Account with that email address or username already exists.",
+      });
+      return res.redirect("../signup");
+    }
+    // Create user
+    // ***********
+    // If all validations pass, create a new user
+    const user = new User({
+      userName: req.body.userName,
+      email: req.body.email,
+      password: req.body.password,
+    });
+    // Save it to mongoDB
+    await user.save();
+    // Log in new user
+    req.logIn(user, (err) => {
       if (err) {
         return next(err);
       }
-      // If an existing user is found, store error message in flash storage
-      if (existingUser) {
-        req.flash("errors", {
-          msg: "Account with that email address or username already exists.",
-        });
-        return res.redirect("../signup");
-      }
-      // If no user is found, save the new user to database
-      // If any errors are found, call next() function to pass the error to the next middleware
-      user.save((err) => {
-        if (err) {
-          return next(err);
-        }
-        // If save was successful, log in the user using logIn() method
-        req.logIn(user, (err) => {
-          // If any errors are found, call next() function to pass the error to the next middleware
-          if (err) {
-            return next(err);
-          }
-          // After user creation and login, redirect to users /todo page
-          res.redirect("/todos");
-        });
-      });
-    }
-  );
+      // Redirect to the page
+      res.redirect("/report");
+    });
+  } catch (err) {
+    return next(err);
+  }
 };
