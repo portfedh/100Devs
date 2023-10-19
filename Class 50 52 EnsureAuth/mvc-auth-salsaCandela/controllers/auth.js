@@ -14,7 +14,7 @@ exports.getLogin = (req, res) => {
     return res.redirect("/report");
   }
   // If not, render a view named login with a title 'Login'
-  res.render("login", {
+  res.render("login.ejs", {
     title: "Login",
   });
 };
@@ -35,6 +35,7 @@ exports.postLogin = (req, res, next) => {
   // If array has errors, display them in flash message
   if (validationErrors.length) {
     req.flash("errors", validationErrors);
+    // And reload page
     return res.redirect("/login");
   }
   // Normalizes email address to store in consistent format
@@ -97,7 +98,7 @@ exports.getSignup = (req, res) => {
     return res.redirect("/report");
   }
   // If not authenticated, take them to signup page
-  res.render("signup", {
+  res.render("signup.ejs", {
     title: "Create Account",
   });
 };

@@ -15,27 +15,38 @@ module.exports = function (passport) {
         try {
           //Try to find a user in the database by their email:
           const user = await User.findOne({ email: email.toLowerCase() });
+          // Console.log to check if the user is found
+          console.log("User:", user);
+
           // If no user is found, the done callback is called with an error message
           if (!user) {
+            console.log("Email not found.");
             return done(null, false, { msg: `Email ${email} not found.` });
           }
           // If the user exists but doesn't have a password (possibly registered through a sign-in provider like OAuth),
           // the done callback is called with a message explaining how to set a password.
           if (!user.password) {
+            console.log("User has no password.");
             return done(null, false, {
               msg: "Your account was registered using a sign-in provider. To enable password login, sign in using a provider, and then set a password under your user profile.",
             });
-            // If the user has a password, compare the provided password:
-            const isMatch = await user.comparePassword(password);
-            // If password matches, the done callback is called with the authenticated user.
-            if (isMatch) {
-              return done(null, user);
-            }
-            // If the password doesn't match, return an error message:
-            return done(null, false, { msg: "Invalid email or password." });
           }
+          // Console.log to check the user object before password comparison
+          console.log("User before password comparison:", user);
+          // If the user has a password, compare the provided password:
+          const isMatch = await user.comparePassword(password);
+          // Console.log to check if password comparison is successful
+          console.log("Password comparison result:", isMatch);
+          // If password matches, the done callback is called with the authenticated user.
+          if (isMatch) {
+            return done(null, user);
+          }
+          // If the password doesn't match, return an error message:
+          console.log("Invalid email or password.");
+          return done(null, false, { msg: "Invalid email or password." });
           // Catch and return the error using the done callback.
         } catch (err) {
+          console.error("Error in passport.js:", err);
           return done(err);
         }
       }
