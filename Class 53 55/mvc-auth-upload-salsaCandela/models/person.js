@@ -47,6 +47,10 @@ const PersonSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  recibo: {
+    type: String,
+    required: true,
+  },
 });
 
 // Export person schema

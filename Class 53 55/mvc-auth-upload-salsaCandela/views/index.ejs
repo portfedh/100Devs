@@ -96,11 +96,24 @@
             <option value="pareja">Pareja</option>
           </optgroup>
         </select>
+
+        <label for="receipt_upload">Comprobante de pago:</label>
+            <input
+              type="file"
+              name="recibo"
+              id="receipt"
+              accept=".pdf, .jpg, .png"
+              required
+            /><br />
+
+            <p>* El archivo puede ser pdf, jpg o png</p><br />
+
       </fieldset>
 
       <input type="hidden" id="date" name="last_loggin" value="2023-01-01">
     
-      <button type="submit">Inscribir Alumno</button>
+      <button type="submit">Inscribirme</button>
+
      </form>
       </div>
     </div>

@@ -22,7 +22,7 @@ const UserSchema = new mongoose.Schema({
 // Executed before saving to the database
 UserSchema.pre("save", function save(next) {
   const user = this;
-  // If pasword is not modified, skip the hashing process
+  // If password is not modified, skip the hashing process
   if (!user.isModified("password")) {
     return next();
   }
