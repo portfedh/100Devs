@@ -1,11 +1,14 @@
 // Encryption to hash the password in the database
 
-// Import bcrypt library
+// ***********
+// * Imports *
+// ***********
 const bcrypt = require("bcrypt");
-// Import mongoose
 const mongoose = require("mongoose");
 
-// Create a new user schema.
+// *********************
+// * Create a new user *
+// *********************
 // Check that username and email are unique
 const UserSchema = new mongoose.Schema({
   userName: { type: String, unique: true },
@@ -13,7 +16,9 @@ const UserSchema = new mongoose.Schema({
   password: String,
 });
 
-// Code to hash and salt the password:
+// ******************************
+// * Hash and salt the password *
+// ******************************
 // Executed before saving to the database
 UserSchema.pre("save", function save(next) {
   const user = this;
@@ -37,20 +42,18 @@ UserSchema.pre("save", function save(next) {
   });
 });
 
-// Helper method for validating user's password.
-// Compares a candidate password with stored hash password
-UserSchema.methods.comparePassword = function comparePassword(
-  candidatePassword,
-  cb
-) {
-  console.log("candidatePassword:", candidatePassword);
-  console.log("this.password:", this.password);
-  bcrypt.compare(candidatePassword, this.password, (err, isMatch) => {
-    if (err) {
-      return cb(err); // Handle the error by passing it to the callback
-    }
-    cb(null, isMatch); // Pass the comparison result to the callback
-  });
+// *******************************************************
+// * Compare provided password with stored hash password *
+// *******************************************************
+UserSchema.methods.comparePassword = async function (candidatePassword) {
+  try {
+    // Compare the plain text password provided by the user with the stored hashed password
+    const isMatch = await bcrypt.compare(candidatePassword, this.password);
+    // isMatch will be set to true if they are equal
+    return isMatch;
+  } catch (err) {
+    throw err;
+  }
 };
 
 // Creates a Mongoose model named "User" based on the "UserSchema" schema

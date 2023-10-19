@@ -1,12 +1,13 @@
-// Import passport.js library
+// ***********
+// * Imports *
+// ***********
 const passport = require("passport");
-// Import library for input validation
 const validator = require("validator");
-// Import User model Schema
 const User = require("../models/User");
 
-// GET request in '/login'
-// ***********************
+// *************************
+// * GET request: '/login' *
+// *************************
 exports.getLogin = (req, res) => {
   if (req.user) {
     // Check if there is an authenticated user stored in req.user
@@ -19,11 +20,12 @@ exports.getLogin = (req, res) => {
   });
 };
 
-// POST request in '/login'
-// *************************
+// **************************
+// * POST request: '/login' *
+// **************************
 exports.postLogin = (req, res, next) => {
   // Validate inputs
-  // ***************
+  // ===============
   // Create empty array for validation errors
   const validationErrors = [];
   // Check with library if it's a valid email address
@@ -56,20 +58,21 @@ exports.postLogin = (req, res, next) => {
       return res.redirect("/login");
     }
     // Log in user
-    // ************
+    // ===========
     req.logIn(user, (err) => {
       if (err) {
         return next(err);
       }
       // Display log in confirmation message & redirect
       req.flash("success", { msg: "Success! You are logged in." });
-      res.redirect(req.session.returnTo || "/todos");
+      res.redirect(req.session.returnTo || "/report");
     });
   })(req, res, next);
 };
 
-// Get request on '/logout'
-// ************************
+// **************************
+// * Get request: '/logout' *
+// **************************
 exports.logout = (req, res) => {
   // Call logout() from passport.js
   req.logout(() => {
@@ -88,8 +91,9 @@ exports.logout = (req, res) => {
   });
 };
 
-// GET request for '/signup'
-// *************************
+// **************************
+// * GET request: '/signup' *
+// **************************
 exports.getSignup = (req, res) => {
   // Check request body for user object
   // User object exists if user has been authenticated
@@ -103,12 +107,13 @@ exports.getSignup = (req, res) => {
   });
 };
 
-// POST request for '/signup'
-// **************************
+// ***************************
+// * POST request: '/signup' *
+// ***************************
 exports.postSignup = async (req, res, next) => {
   try {
     // Validate inputs
-    // ***************
+    // ===============
     // Empty array to store errors
     const validationErrors = [];
     // Check if email address has a "@" and "." sign
@@ -145,7 +150,7 @@ exports.postSignup = async (req, res, next) => {
       return res.redirect("../signup");
     }
     // Create user
-    // ***********
+    // ===========
     // If all validations pass, create a new user
     const user = new User({
       userName: req.body.userName,

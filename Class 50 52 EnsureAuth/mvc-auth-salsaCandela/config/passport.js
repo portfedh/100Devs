@@ -15,9 +15,6 @@ module.exports = function (passport) {
         try {
           //Try to find a user in the database by their email:
           const user = await User.findOne({ email: email.toLowerCase() });
-          // Console.log to check if the user is found
-          console.log("User:", user);
-
           // If no user is found, the done callback is called with an error message
           if (!user) {
             console.log("Email not found.");
@@ -31,12 +28,8 @@ module.exports = function (passport) {
               msg: "Your account was registered using a sign-in provider. To enable password login, sign in using a provider, and then set a password under your user profile.",
             });
           }
-          // Console.log to check the user object before password comparison
-          console.log("User before password comparison:", user);
           // If the user has a password, compare the provided password:
           const isMatch = await user.comparePassword(password);
-          // Console.log to check if password comparison is successful
-          console.log("Password comparison result:", isMatch);
           // If password matches, the done callback is called with the authenticated user.
           if (isMatch) {
             return done(null, user);
