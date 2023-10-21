@@ -47,9 +47,13 @@ const PersonSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  recibo: {
+  // recibo: {
+  //   type: String,
+  //   required: true,
+  // },
+  cloudinaryId: {
     type: String,
-    required: true,
+    require: true,
   },
 });
 

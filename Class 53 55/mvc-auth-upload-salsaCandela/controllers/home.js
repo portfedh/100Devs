@@ -1,3 +1,6 @@
+// Import cloudinary
+const cloudinary = require("../middleware/cloudinary");
+
 // Import mongoose schema
 const Person = require("../models/person");
 
@@ -10,8 +13,15 @@ module.exports = {
   // Create record
   createRecord: async (req, res) => {
     try {
+      // Test code
+      const receipt = req.files.recibo;
+      const result = await cloudinary.uploader.upload(receipt.tempFilePath);
+
       // Create record using mongoose schema
-      const person = new Person(req.body);
+      const person = new Person({
+        ...req.body,
+        receipt_public_id: result.public_id,
+      });
       person.save().then((result) => {
         console.log(result);
         // Render confirmation page
