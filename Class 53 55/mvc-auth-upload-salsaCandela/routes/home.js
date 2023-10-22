@@ -2,6 +2,9 @@
 const express = require("express");
 const router = express.Router();
 
+// Import multer
+const upload = require("../middleware/multer");
+
 // Import home controllers
 const homeController = require("../controllers/home");
 
@@ -10,7 +13,7 @@ const authController = require("../controllers/auth");
 
 // Routes
 router.get("/", homeController.getIndex);
-router.post("/enroll", homeController.createRecord);
+router.post("/enroll", upload.single("file"), homeController.createRecord);
 
 // Authentication routes
 router.get("/login", authController.getLogin);

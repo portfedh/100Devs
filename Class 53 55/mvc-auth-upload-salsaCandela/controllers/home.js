@@ -13,14 +13,12 @@ module.exports = {
   // Create record
   createRecord: async (req, res) => {
     try {
-      // Test code
-      const receipt = req.files.recibo;
-      const result = await cloudinary.uploader.upload(receipt.tempFilePath);
-
+      const result = await cloudinary.uploader.upload(req.file.path);
+      console.log("saved to cloudinary");
       // Create record using mongoose schema
       const person = new Person({
         ...req.body,
-        receipt_public_id: result.public_id,
+        cloudinaryId: result.public_id,
       });
       person.save().then((result) => {
         console.log(result);
