@@ -4,9 +4,21 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:400,300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="css/style_general.css" />
+    <link rel="stylesheet" href="css/style_signup.css" />
+
+    <title>SalsaCandela SignUp</title>
   </head>
   <body>
+    <div class="logo">
+      <img src="salsaCandela.png" alt="LogoSalsaCandela" />
+    </div>
+
     <!-- Signup page where you add username, email, password and confirm password. -->
 
     <!-- Error messages Section:
@@ -19,15 +31,24 @@
 
     <!-- Section to add sign up information -->
     <form action="/signup" method="POST">
-      <input type="text" name="userName" placeholder="User Name" />
-      <input type="email" name="email" placeholder="Email" />
-      <input type="password" name="password" placeholder="Password" />
+      <h1>Registrate</h1>
+
+      <label for="userName"> Nombre:</label>
+      <input type="text" name="userName" placeholder="Juan Perez" />
+
+      <label for="email"> Email:</label>
+      <input type="email" name="email" placeholder="juan.perez@gmail.com" />
+
+      <label for="password"> Contraseña:</label>
+      <input type="password" name="password" placeholder="Contraseña" />
+
+      <label for="confirmPassword"> Confirmar contraseña:</label>
       <input
         type="password"
         name="confirmPassword"
-        placeholder="Confirm Password"
+        placeholder="Confirmar contraseña"
       />
-      <input type="submit" />
+      <button type="submit">Crear Cuenta</button>
     </form>
   </body>
 </html>
