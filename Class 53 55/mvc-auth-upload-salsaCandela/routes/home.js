@@ -13,6 +13,7 @@ const authController = require("../controllers/auth");
 
 // Routes
 router.get("/", homeController.getIndex);
+router.get("/intro", homeController.getIntro);
 router.post("/enroll", upload.single("file"), homeController.createRecord);
 
 // Authentication routes

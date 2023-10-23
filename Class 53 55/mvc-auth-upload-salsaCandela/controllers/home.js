@@ -10,6 +10,12 @@ module.exports = {
   getIndex: (req, res) => {
     res.render("index.ejs");
   },
+
+  // Serve intro
+  getIntro: (req, res) => {
+    res.render("intro.ejs");
+  },
+
   // Create record
   createRecord: async (req, res) => {
     try {
