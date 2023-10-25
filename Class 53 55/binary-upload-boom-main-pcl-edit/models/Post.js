@@ -1,5 +1,7 @@
+//  Import the Mongoose library
 const mongoose = require("mongoose");
 
+// Define new Mongoose schema
 const PostSchema = new mongoose.Schema({
   title: {
     type: String,
@@ -21,14 +23,19 @@ const PostSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  // Object from another document
+  // Check
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   },
+  // Date.now is a built-in JavaScript method
+  // Automatically created, not sent by form
   createdAt: {
     type: Date,
     default: Date.now,
   },
 });
 
+// Exports model named "Post" based on the "PostSchema
 module.exports = mongoose.model("Post", PostSchema);
