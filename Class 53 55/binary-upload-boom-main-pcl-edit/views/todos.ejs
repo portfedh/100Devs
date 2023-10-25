@@ -1,24 +1,35 @@
+<!-- I think this file is not needed in this project -->
+
+<!-- Include the header -->
 <%- include('partials/header') -%>
 
     <h1>Todos</h1>
     <ul>
+    <!-- Display todo items -->
     <% todos.forEach( el => { %>
             <li class='todoItem' data-id='<%=el._id%>'>
+                <!-- Display CSS depending if item is completed -->
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                <!-- Add delete item -->
                 <span class='del'> Delete </span>
             </li>
     <% }) %>    
     </ul>
 
+    <!-- Display user name and number of items left -->
     <h2><%= user.userName %> has <%= left %> things left to do.</h2>
 
+    <!-- Create a new todo item -->
     <form action="/todos/createTodo" method='POST'>
         <input type="text" placeholder="Enter Todo Item" name='todoItem'>
         <input type="submit">
     </form>
 
+    <!-- Logout user -->
     <a href="/logout">Logout</a>
 
+    <!-- Load Javascript file -->
     <script src="js/main.js"></script>
 
+<!-- Include the footer -->
 <%- include('partials/footer') -%>

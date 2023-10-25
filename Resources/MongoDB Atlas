@@ -1,0 +1,29 @@
+MongoDB Atlas
+
+Create a new project
+
+    Set a project name
+
+    100Devs-Binary-Upload-Boom
+
+Create a new database
+
+    Set Cluster name
+
+    Set type of database (serverless, etc)
+
+Generate user credentials
+
+    username: portfedh
+
+    password: JNax2YapsNbUyoWD
+
+Edit allowed IP address lists
+
+    0.0.0.0
+
+Get connection url
+
+    npm install mongodb
+
+    mongodb+srv://portfedh:<password>@mycluster.u7ovsiq.mongodb.net/?retryWrites=true&w=majority
