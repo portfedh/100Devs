@@ -7,7 +7,7 @@ module.exports = {
     try {
       const myItems = await Person.find().exec();
       console.log(myItems);
-      res.render("report.ejs", { quotes: myItems });
+      res.render("party_report.ejs", { quotes: myItems });
     } catch (err) {
       console.log(err);
     }
