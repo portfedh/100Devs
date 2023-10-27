@@ -1,7 +1,8 @@
 // Export module
 module.exports = {
-  // Method to render index.ejs
+  // Get index method
   getIndex: (req, res) => {
+    // Render index.ejs
     res.render("index.ejs");
   },
 };

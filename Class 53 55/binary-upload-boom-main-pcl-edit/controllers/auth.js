@@ -40,6 +40,7 @@ exports.postLogin = (req, res, next) => {
 
   // Check credentials to authenticate
   passport.authenticate("local", (err, user, info) => {
+    // Check for errors
     if (err) {
       return next(err);
     }
@@ -61,27 +62,35 @@ exports.postLogin = (req, res, next) => {
 };
 
 exports.logout = (req, res) => {
+  // Clear the user's session or token
   req.logout(() => {
     console.log("User has logged out.");
   });
+  // Destroy the user's session
   req.session.destroy((err) => {
     if (err)
       console.log("Error : Failed to destroy the session during logout.", err);
+    // Set the req.user property to null
     req.user = null;
+    // Redirect to home page
     res.redirect("/");
   });
 };
 
 exports.getSignup = (req, res) => {
+  // Check if user has been authenticated
   if (req.user) {
+    // If so, redirect to the user profile page
     return res.redirect("/profile");
   }
+  // If not, render signup page
   res.render("signup", {
     title: "Create Account",
   });
 };
 
 exports.postSignup = (req, res, next) => {
+  // Validate inputs
   const validationErrors = [];
   if (!validator.isEmail(req.body.email))
     validationErrors.push({ msg: "Please enter a valid email address." });
@@ -91,22 +100,25 @@ exports.postSignup = (req, res, next) => {
     });
   if (req.body.password !== req.body.confirmPassword)
     validationErrors.push({ msg: "Passwords do not match" });
-
+  // If there are errors, display errors & redirect to signup page
   if (validationErrors.length) {
     req.flash("errors", validationErrors);
     return res.redirect("../signup");
   }
+  // Normalize email by removing dots in email addresses
   req.body.email = validator.normalizeEmail(req.body.email, {
     gmail_remove_dots: false,
   });
 
+  // Create a new User object with data from the request body
   const user = new User({
     userName: req.body.userName,
     email: req.body.email,
     password: req.body.password,
   });
-
+  // Query the database
   User.findOne(
+    // Check if username or email have been registered before.
     { $or: [{ email: req.body.email }, { userName: req.body.userName }] },
     (err, existingUser) => {
       if (err) {
@@ -118,10 +130,12 @@ exports.postSignup = (req, res, next) => {
         });
         return res.redirect("../signup");
       }
+      // After checks, save user
       user.save((err) => {
         if (err) {
           return next(err);
         }
+        // And redirect to profile page
         req.logIn(user, (err) => {
           if (err) {
             return next(err);
