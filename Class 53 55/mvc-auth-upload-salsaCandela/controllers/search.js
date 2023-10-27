@@ -1,5 +1,6 @@
 // Import mongoose schema
 const Person = require("../models/person");
+const PartyPerson = require("../models/partyPerson");
 const Date = require("../models/checkDate");
 
 // Object to export
@@ -8,6 +9,48 @@ module.exports = {
     // Render search page
     res.render("search.ejs", { errorText: "" });
   },
+
+  searchPartyPerson: async (req, res) => {
+    try {
+      // Get ID to search
+      const myId = req.body.id_to_search;
+      // Search for ID in database
+      const student = await PartyPerson.findById(myId);
+      // If not found, render response
+      if (!student) {
+        res.render("search.ejs", { errorText: "Alumno no encontrado" });
+      } else {
+        // If found, check access:
+        console.log("Record found.");
+        const checkAccess = student.accessed;
+        if (checkAccess === false) {
+          // Variables is access granted
+          var accessButton = "welcome";
+          var accessText = "Bienvenido";
+          // Update access
+          student.accessed = true;
+          await student.save();
+        } else {
+          // Variables if access denied
+          var accessButton = "alreadyIn";
+          var accessText = "Segundo acceso del dia";
+        }
+        // Render response
+        res.render("party_search_results.ejs", {
+          idAlumno: student._id,
+          firstName: student.first_name,
+          lastName: student.last_name,
+          accessed: student.accessed,
+          buttonClass: accessButton,
+          text: accessText,
+        });
+      }
+    } catch (error) {
+      console.error("Error while querying MongoDB:", error);
+      res.status(500).json({ message: "An error occurred." });
+    }
+  },
+
   searchPerson: async (req, res) => {
     try {
       // Get ID to search

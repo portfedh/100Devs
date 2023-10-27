@@ -12,8 +12,20 @@ const homeController = require("../controllers/home");
 const authController = require("../controllers/auth");
 
 // Routes
+// ******
+
+// Home
 router.get("/", homeController.getIndex);
+
+// Party routes
 router.get("/party", homeController.getParty);
+router.post(
+  "/partySignup",
+  upload.single("file"),
+  homeController.createPartyRecord
+);
+
+// Classes routes
 router.post("/enroll", upload.single("file"), homeController.createRecord);
 
 // Authentication routes

@@ -22,7 +22,7 @@
           
         </div>
 
-        <form action="/inscribir" method="post" enctype="multipart/form-data" id="signup-form">
+        <form action="/partySignup" method="post" enctype="multipart/form-data" id="signup-form">
           <h1>Fiesta mensual</h1>
 
           <h2>Formato de acceso</h2>
@@ -49,6 +49,9 @@
               required
             /><br />
             <p>* El archivo puede ser pdf, jpg o png</p><br />
+            
+            <input type="hidden" id="date" name="accessed" value="false">
+
             <button type="submit">Enviar comprobante</button>
         </form>
       </div>

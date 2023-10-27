@@ -7,7 +7,7 @@ const searchController = require("../controllers/search");
 
 //  For every request, define the function to execute
 router.get("/", searchController.getSearch);
-router.post("/", searchController.searchPerson);
+router.post("/", searchController.searchPartyPerson);
 
 // Export router object
 module.exports = router;

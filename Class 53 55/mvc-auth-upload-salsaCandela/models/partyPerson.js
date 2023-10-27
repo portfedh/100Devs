@@ -27,6 +27,10 @@ const PartySchema = new mongoose.Schema({
     type: String,
     require: true,
   },
+  accessed: {
+    type: Boolean,
+    require: true,
+  },
 });
 
 // Export person schema
