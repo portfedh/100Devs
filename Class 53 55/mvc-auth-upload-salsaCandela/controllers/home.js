@@ -14,7 +14,7 @@ module.exports = {
 
   // Serve party registration
   getParty: (req, res) => {
-    res.render("party.ejs");
+    res.render("party_signup.ejs");
   },
 
   // Create party record

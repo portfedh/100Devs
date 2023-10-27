@@ -5,8 +5,8 @@ const router = express.Router();
 // Import search controllers
 const searchController = require("../controllers/search");
 
-//  For every request, define the function to execute
-router.get("/", searchController.getSearch);
+//  Party Search
+router.get("/", searchController.getPartySearch);
 router.post("/", searchController.searchPartyPerson);
 
 // Export router object

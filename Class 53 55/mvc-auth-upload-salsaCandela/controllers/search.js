@@ -5,9 +5,9 @@ const Date = require("../models/checkDate");
 
 // Object to export
 module.exports = {
-  getSearch: (req, res) => {
+  getPartySearch: (req, res) => {
     // Render search page
-    res.render("search.ejs", { errorText: "" });
+    res.render("party_search.ejs", { errorText: "" });
   },
 
   searchPartyPerson: async (req, res) => {
