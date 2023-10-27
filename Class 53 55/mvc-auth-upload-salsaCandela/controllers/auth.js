@@ -12,7 +12,7 @@ exports.getLogin = (req, res) => {
   if (req.user) {
     // Check if there is an authenticated user stored in req.user
     // If so, redirect to defined page
-    return res.redirect("/report");
+    return res.redirect("/");
   }
   // If not, render a view named login with a title 'Login'
   res.render("login.ejs", {
@@ -65,7 +65,7 @@ exports.postLogin = (req, res, next) => {
       }
       // Display log in confirmation message & redirect
       req.flash("success", { msg: "Success! You are logged in." });
-      res.redirect(req.session.returnTo || "/report");
+      res.redirect(req.session.returnTo || "/");
     });
   })(req, res, next);
 };
@@ -99,7 +99,7 @@ exports.getSignup = (req, res) => {
   // User object exists if user has been authenticated
   if (req.user) {
     // Redirects to the page after authentication
-    return res.redirect("/report");
+    return res.redirect("/");
   }
   // If not authenticated, take them to signup page
   res.render("signup.ejs", {
@@ -165,7 +165,7 @@ exports.postSignup = async (req, res, next) => {
         return next(err);
       }
       // Redirect to the page
-      res.redirect("/report");
+      res.redirect("/");
     });
   } catch (err) {
     return next(err);

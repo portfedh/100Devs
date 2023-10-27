@@ -12,8 +12,10 @@ const { ensureAuth } = require("../middleware/auth");
 // Import report controllers
 const reportController = require("../controllers/report");
 
-//  For every request, define the function to execute
-router.get("/", ensureAuth, reportController.getReport);
+//  Party report
+router.get("/party", ensureAuth, reportController.getPartyReport);
+//  Course report
+// router.get("/", ensureAuth, reportController.getReport);
 
 // Export router object
 module.exports = router;
