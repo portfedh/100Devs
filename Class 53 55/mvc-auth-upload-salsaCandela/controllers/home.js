@@ -8,12 +8,12 @@ const Person = require("../models/person");
 module.exports = {
   // Serve index
   getIndex: (req, res) => {
-    res.render("index.ejs");
+    res.render("intro.ejs");
   },
 
-  // Serve intro
-  getIntro: (req, res) => {
-    res.render("intro.ejs");
+  // Serve party registration
+  getParty: (req, res) => {
+    res.render("party.ejs");
   },
 
   // Create record
