@@ -35,7 +35,7 @@ module.exports = {
         } else {
           // Variables if access denied
           var accessButton = "alreadyIn";
-          var accessText = "Acceso anterior";
+          var accessText = "Acceso Anterior";
         }
         // Render response
         res.render("party_search_results.ejs", {
@@ -44,6 +44,7 @@ module.exports = {
           lastName: student[0].last_name,
           email: student[0].email,
           cel: student[0].cel,
+          createdAt: student[0].createdAt,
           buttonClass: accessButton,
           text: accessText,
         });

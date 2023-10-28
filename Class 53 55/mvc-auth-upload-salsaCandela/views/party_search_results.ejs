@@ -32,7 +32,7 @@
 
         <!-- Search section -->
         <form action="/buscar" method="post" id="search-form">
-          <h1>Resultado de busqueda</h1>
+          <h1>Resultado de Busqueda</h1>
           <fieldset>
             <h4>Nombre:</h4>
             <p class="userValue" id="first_name">
@@ -44,6 +44,12 @@
             <p class="userValue" id="cel"><%= cel %></p>
             <h4>Codigo:</h4>
             <p class="userValue" id="numero-cuenta"><%= idAlumno %></p>
+            <h4>Creado:</h4>
+            <p class="userValue" id="numero-cuenta">
+              <%= createdAt.toLocaleString('es-MX', { day: 'numeric', month:
+              'short', year: 'numeric', hour: 'numeric', minute: 'numeric',
+              second: 'numeric', hour12: false, }) %>
+            </p>
           </fieldset>
         </form>
       </div>

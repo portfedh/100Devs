@@ -5,10 +5,9 @@ function generateUniqueID(length) {
     const randomIndex = Math.floor(Math.random() * characters.length);
     uniqueID += characters.charAt(randomIndex);
   }
-  console.log(uniqueID);
+  // console.log(uniqueID);
   return uniqueID;
 }
-// const alphanumericID = generateUniqueID(6);
 
 // Export person schema
 module.exports = { generateUniqueID };

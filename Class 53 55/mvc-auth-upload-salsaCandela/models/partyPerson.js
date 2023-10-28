@@ -3,6 +3,10 @@ const mongoose = require("mongoose");
 
 // Create person schema
 const PartySchema = new mongoose.Schema({
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
   access_id: {
     type: String,
     required: true,
