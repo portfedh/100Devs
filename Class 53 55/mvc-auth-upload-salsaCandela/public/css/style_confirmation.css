@@ -19,7 +19,22 @@
   max-width: 100%;
 }
 
+.idAlumno {
+  font-weight: bold;
+}
+
 #downloadButton {
   background-color: #a91d84;
   border: 1px solid #821766;
+}
+
+p {
+  font-weight: bold;
+  font-size: 1.3rem;
+  padding: 0rem;
+  margin: 0.1rem;
+}
+
+h1 {
+  margin: 0.4rem;
 }

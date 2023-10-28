@@ -5,6 +5,10 @@ const cloudinary = require("../middleware/cloudinary");
 const Person = require("../models/person");
 const PartyPerson = require("../models/partyPerson");
 
+// Import
+const Id = require("../models/createId");
+// generateUniqueID
+
 // Object to be exported
 module.exports = {
   // Serve index
@@ -20,6 +24,8 @@ module.exports = {
   // Create party record
   createPartyRecord: async (req, res) => {
     try {
+      // Generate unique ID
+      const tempId = Id.generateUniqueID(4);
       // Save to cloudinary
       const result = await cloudinary.uploader.upload(req.file.path);
       console.log("Payment receipt saved to cloudinary");
@@ -28,6 +34,7 @@ module.exports = {
         ...req.body,
         cloudinaryId: result.public_id,
         image: result.secure_url,
+        access_id: tempId,
       });
       person.save().then((result) => {
         console.log(result);
@@ -35,13 +42,13 @@ module.exports = {
         // Get qrcode url
         const myQrcode =
           "https://api.qrserver.com/v1/create-qr-code/?data=" +
-          result._id.toString() +
+          result.access_id.toString() +
           "&amp;size=200x200";
 
         // Render confirmation page
         res.render("confirmation.ejs", {
           // Include id variable and QR string
-          idAlumno: result._id.toString(),
+          idAlumno: result.access_id.toString(),
           qrWww: myQrcode,
           nombreAlumno: req.body.first_name + " " + req.body.last_name,
         });

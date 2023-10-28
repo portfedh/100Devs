@@ -3,6 +3,10 @@ const mongoose = require("mongoose");
 
 // Create person schema
 const PartySchema = new mongoose.Schema({
+  access_id: {
+    type: String,
+    required: true,
+  },
   first_name: {
     type: String,
     required: true,
