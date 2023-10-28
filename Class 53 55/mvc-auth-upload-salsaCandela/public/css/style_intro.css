@@ -84,6 +84,13 @@ header {
   scale: 0.95;
 }
 
+.logoImg {
+  height: auto;
+  max-width: 30%;
+  object-fit: contain;
+  padding: 2%;
+}
+
 /* DROPDOWN MENU */
 .dropdown_menu {
   display: none;
