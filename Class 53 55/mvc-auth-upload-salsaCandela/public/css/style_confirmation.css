@@ -18,3 +18,8 @@
 .Texto {
   max-width: 100%;
 }
+
+#downloadButton {
+  background-color: #a91d84;
+  border: 1px solid #821766;
+}

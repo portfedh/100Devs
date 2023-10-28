@@ -20,6 +20,7 @@ module.exports = {
   // Create party record
   createPartyRecord: async (req, res) => {
     try {
+      // Save to cloudinary
       const result = await cloudinary.uploader.upload(req.file.path);
       console.log("Payment receipt saved to cloudinary");
       // Create record using mongoose schema
@@ -30,14 +31,18 @@ module.exports = {
       });
       person.save().then((result) => {
         console.log(result);
+
+        // Get qrcode url
+        const myQrcode =
+          "https://api.qrserver.com/v1/create-qr-code/?data=" +
+          result._id.toString() +
+          "&amp;size=200x200";
+
         // Render confirmation page
         res.render("confirmation.ejs", {
           // Include id variable and QR string
           idAlumno: result._id.toString(),
-          qrWww:
-            "https://api.qrserver.com/v1/create-qr-code/?data=" +
-            result._id.toString() +
-            "&amp;size=200x200",
+          qrWww: myQrcode,
           nombreAlumno: req.body.first_name + " " + req.body.last_name,
         });
       });
