@@ -1,3 +1,6 @@
+// Auth Routes
+// ===========
+
 // ***********
 // * Imports *
 // ***********
@@ -15,7 +18,7 @@ exports.getLogin = (req, res) => {
     return res.redirect("/");
   }
   // If not, render a view named login with a title 'Login'
-  res.render("login.ejs", {
+  res.render("auth_login.ejs", {
     title: "Login",
   });
 };
@@ -102,7 +105,7 @@ exports.getSignup = (req, res) => {
     return res.redirect("/");
   }
   // If not authenticated, take them to signup page
-  res.render("signup.ejs", {
+  res.render("auth_signup.ejs", {
     title: "Create Account",
   });
 };

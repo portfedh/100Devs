@@ -1,7 +1,10 @@
+// Mongoose Party Person Schema
+// ****************************
+
 // Import mongoose
 const mongoose = require("mongoose");
 
-// Create person schema
+// Create schema
 const PartySchema = new mongoose.Schema({
   createdAt: {
     type: Date,

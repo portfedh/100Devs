@@ -1,7 +1,10 @@
+// Mongoose Class Person Schema
+// ****************************
+
 // Import mongoose
 const mongoose = require("mongoose");
 
-// Create person schema
+// Create schema
 const PersonSchema = new mongoose.Schema({
   first_name: {
     type: String,

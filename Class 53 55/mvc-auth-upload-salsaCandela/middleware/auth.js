@@ -1,4 +1,6 @@
-// Checks if user is authenticated
+// Check if user is authenticated
+// ******************************
+
 module.exports = {
   // Function with three parameters: req, res, next
   ensureAuth: function (req, res, next) {

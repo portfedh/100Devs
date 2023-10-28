@@ -1,19 +1,22 @@
-// Import cloudinary
-const cloudinary = require("../middleware/cloudinary");
+// Home Controllers
+// ****************
 
-// Import mongoose schema
+// Imports
+// *******
+// Cloudinary
+const cloudinary = require("../middleware/cloudinary");
+// Mongoose schemas
 const Person = require("../models/person");
 const PartyPerson = require("../models/partyPerson");
-
-// Import
+// Unique id generator
 const Id = require("../models/createId");
-// generateUniqueID
 
-// Object to be exported
+// Exports
+// *******
 module.exports = {
   // Serve index
   getIndex: (req, res) => {
-    res.render("intro.ejs");
+    res.render("index.ejs");
   },
 
   // Serve party registration
@@ -26,7 +29,7 @@ module.exports = {
     try {
       // Generate unique ID
       const tempId = Id.generateUniqueID(4);
-      // Save to cloudinary
+      // Save to Cloudinary
       const result = await cloudinary.uploader.upload(req.file.path);
       console.log("Payment receipt saved to cloudinary");
       // Create record using mongoose schema
@@ -46,7 +49,7 @@ module.exports = {
           "&amp;size=200x200";
 
         // Render confirmation page
-        res.render("confirmation.ejs", {
+        res.render("party_confirmation.ejs", {
           // Include id variable and QR string
           idAlumno: result.access_id.toString(),
           qrWww: myQrcode,
@@ -71,7 +74,7 @@ module.exports = {
       person.save().then((result) => {
         console.log(result);
         // Render confirmation page
-        res.render("confirmation.ejs", {
+        res.render("party_confirmation.ejs", {
           // Include id variable and QR string
           idAlumno: result._id.toString(),
           qrWww:

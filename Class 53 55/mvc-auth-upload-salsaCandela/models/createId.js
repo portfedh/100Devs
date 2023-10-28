@@ -1,3 +1,6 @@
+// Function to create a unique ID
+// ******************************
+
 function generateUniqueID(length) {
   const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
   let uniqueID = "";

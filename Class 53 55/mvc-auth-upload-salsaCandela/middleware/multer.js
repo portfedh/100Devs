@@ -1,3 +1,6 @@
+// Muttler configuration
+// *********************
+
 // Import the "multer" library for handling file uploads
 const multer = require("multer");
 // Import module for working with file and directory paths

@@ -1,4 +1,5 @@
 // Encryption to hash the password in the database
+// ***********************************************
 
 // ***********
 // * Imports *

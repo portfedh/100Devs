@@ -1,39 +1,34 @@
-// Import the Express & create a router object
+// Home Routes
+// ===========
+
+// Imports
+// *******
+// Express & create a router object
 const express = require("express");
 const router = express.Router();
-
-// Import multer
+// Multer
 const upload = require("../middleware/multer");
-
-// Import home controllers
-const homeController = require("../controllers/home");
-
-// Import passport strategy
-const authController = require("../controllers/auth");
+// Controllers
+const homeCtrl = require("../controllers/home");
+const authCtrl = require("../controllers/auth");
 
 // Routes
 // ******
 
 // Home
-router.get("/", homeController.getIndex);
-
+router.get("/", homeCtrl.getIndex);
 // Party routes
-router.get("/party", homeController.getParty);
-router.post(
-  "/partySignup",
-  upload.single("file"),
-  homeController.createPartyRecord
-);
-
+router.get("/party", homeCtrl.getParty);
+router.post("/partySignup", upload.single("file"), homeCtrl.createPartyRecord);
 // Classes routes
-router.post("/enroll", upload.single("file"), homeController.createRecord);
-
+router.post("/enroll", upload.single("file"), homeCtrl.createRecord);
 // Authentication routes
-router.get("/login", authController.getLogin);
-router.post("/login", authController.postLogin);
-router.get("/logout", authController.logout);
-router.get("/signup", authController.getSignup);
-router.post("/signup", authController.postSignup);
+router.get("/login", authCtrl.getLogin);
+router.post("/login", authCtrl.postLogin);
+router.get("/logout", authCtrl.logout);
+router.get("/signup", authCtrl.getSignup);
+router.post("/signup", authCtrl.postSignup);
 
-// Export router object
+// Exports
+// *******
 module.exports = router;

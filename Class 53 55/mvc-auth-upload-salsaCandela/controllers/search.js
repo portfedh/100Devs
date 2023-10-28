@@ -20,7 +20,7 @@ module.exports = {
       console.log(student);
       // If not found, render response
       if (student.length === 0) {
-        res.render("search.ejs", { errorText: "Alumno no encontrado" });
+        res.render("party_search.ejs", { errorText: "Alumno no encontrado" });
       } else {
         // If found, check access:
         console.log("Record found.");
@@ -55,7 +55,7 @@ module.exports = {
     }
   },
 
-  searchPerson: async (req, res) => {
+  searchClassPerson: async (req, res) => {
     try {
       // Get ID to search
       const myId = req.body.id_to_search;
@@ -63,7 +63,7 @@ module.exports = {
       const student = await Person.findById(myId);
       // If not found, render response
       if (!student) {
-        res.render("search.ejs", { errorText: "Alumno no encontrado" });
+        res.render("class_search.ejs", { errorText: "Alumno no encontrado" });
       } else {
         // If found, check access:
         console.log("Record found.");
@@ -81,7 +81,7 @@ module.exports = {
           var accessText = "Segundo acceso del dia";
         }
         // Render response
-        res.render("search_results.ejs", {
+        res.render("class_search_results.ejs", {
           idAlumno: student._id,
           firstName: student.first_name,
           lastName: student.last_name,

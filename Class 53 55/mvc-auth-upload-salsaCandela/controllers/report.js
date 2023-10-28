@@ -4,11 +4,11 @@ const PartyPerson = require("../models/partyPerson");
 
 // Object to export
 module.exports = {
-  getReport: async (req, res) => {
+  getClassReport: async (req, res) => {
     try {
       const myItems = await Person.find().exec();
       console.log(myItems);
-      res.render("party_report.ejs", { quotes: myItems });
+      res.render("class_report.ejs", { quotes: myItems });
     } catch (err) {
       console.log(err);
     }
