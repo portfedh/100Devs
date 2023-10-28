@@ -65,11 +65,11 @@ app.use(flash());
 
 // Routes:
 // =======
-// Imports
+// Route imports
 const homeRoutes = require("./routes/home");
 const searchRoutes = require("./routes/search");
 const reportRoutes = require("./routes/report");
-// Listening
+// Listening routes
 app.use("/", homeRoutes);
 app.use("/search", searchRoutes);
 app.use("/report", reportRoutes);

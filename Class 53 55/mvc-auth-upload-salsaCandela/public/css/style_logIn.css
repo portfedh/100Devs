@@ -16,7 +16,8 @@ select {
   margin-bottom: 30px;
 }
 
-button {
-  background-color: #a91d84;
-  border: 1px solid #821766;
+.alert,
+.alert-danger {
+  color: red;
+  margin-bottom: 3%;
 }

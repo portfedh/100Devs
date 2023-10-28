@@ -1,3 +1,5 @@
+<!-- Signup page to create an account: username, email, password. -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -21,19 +23,14 @@
       </a>
     </div>
 
-    <!-- Signup page where you add username, email, password and confirm password. -->
-
-    <!-- Error messages Section:
-    Password must be at least 8 char longs
-    Passwords don't match
-    etc -->
-    <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
-    <div class="alert alert-danger"><%= el.msg %></div>
-    <% }) %> <% } %>
-
     <!-- Section to add sign up information -->
     <form action="/signup" method="POST">
       <h1>Registrate</h1>
+
+      <!-- Error messages Section -->
+      <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
+      <div class="alert alert-danger"><%= el.msg %></div>
+      <% }) %> <% } %>
 
       <label for="userName"> Nombre:</label>
       <input type="text" name="userName" placeholder="Juan Perez" />
@@ -50,6 +47,7 @@
         name="confirmPassword"
         placeholder="Confirmar contraseña"
       />
+
       <button type="submit">Crear Cuenta</button>
     </form>
   </body>
