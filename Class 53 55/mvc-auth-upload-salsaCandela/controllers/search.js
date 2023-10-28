@@ -15,32 +15,35 @@ module.exports = {
       // Get ID to search
       const myId = req.body.id_to_search;
       // Search for ID in database
-      const student = await PartyPerson.findById(myId);
+      const student = await PartyPerson.find({ access_id: myId });
+      console.log("Resultado");
+      console.log(student);
       // If not found, render response
-      if (!student) {
+      if (student.length === 0) {
         res.render("search.ejs", { errorText: "Alumno no encontrado" });
       } else {
         // If found, check access:
         console.log("Record found.");
-        const checkAccess = student.accessed;
+        const checkAccess = student[0].accessed;
         if (checkAccess === false) {
           // Variables is access granted
           var accessButton = "welcome";
           var accessText = "Bienvenido";
           // Update access
-          student.accessed = true;
-          await student.save();
+          student[0].accessed = true;
+          await student[0].save();
         } else {
           // Variables if access denied
           var accessButton = "alreadyIn";
-          var accessText = "Segundo acceso del dia";
+          var accessText = "Acceso anterior";
         }
         // Render response
         res.render("party_search_results.ejs", {
-          idAlumno: student._id,
-          firstName: student.first_name,
-          lastName: student.last_name,
-          accessed: student.accessed,
+          idAlumno: student[0].access_id,
+          firstName: student[0].first_name,
+          lastName: student[0].last_name,
+          email: student[0].email,
+          cel: student[0].cel,
           buttonClass: accessButton,
           text: accessText,
         });

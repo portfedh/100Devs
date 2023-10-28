@@ -23,3 +23,15 @@
   padding-left: 30px;
   color: #384047;
 }
+
+h1 {
+  margin: 0.5rem;
+}
+
+h4 {
+  margin-bottom: 0.05rem;
+}
+
+p {
+  margin: 0.4rem;
+}
