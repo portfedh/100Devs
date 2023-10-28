@@ -20,7 +20,7 @@ module.exports = {
       console.log(student);
       // If not found, render response
       if (student.length === 0) {
-        res.render("party_search.ejs", { errorText: "Alumno no encontrado" });
+        res.render("party_search.ejs", { errorText: "Registro no encontrado" });
       } else {
         // If found, check access:
         console.log("Record found.");
