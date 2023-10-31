@@ -52,4 +52,19 @@ document.addEventListener("DOMContentLoaded", function () {
   // Attach the downloadCSV function to the button click event
   const downloadButton = document.getElementById("downloadButton");
   downloadButton.addEventListener("click", downloadCSV);
+
+  // Add an event listener to the Logout button
+  document
+    .getElementById("logoutButton")
+    .addEventListener("click", function () {
+      // Send a GET request to the /logout URL
+      fetch("/logout", {
+        method: "GET",
+      }),
+        fetch("/", {
+          method: "GET",
+        }).catch((error) => {
+          console.error("An error occurred:", error);
+        });
+    });
 });

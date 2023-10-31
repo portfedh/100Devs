@@ -13,7 +13,7 @@ const { ensureAuth } = require("../middleware/auth");
 const reportController = require("../controllers/report");
 
 //  Party report
-router.get("/party", ensureAuth, reportController.getPartyReport);
+router.get("/", ensureAuth, reportController.getPartyReport);
 //  Course report
 // router.get("/", ensureAuth, reportController.getReport);
 

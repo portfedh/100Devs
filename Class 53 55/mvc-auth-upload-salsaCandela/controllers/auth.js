@@ -85,8 +85,9 @@ exports.logout = (req, res) => {
   // Destroy method on user session
   req.session.destroy((err) => {
     // If there is an error
-    if (err)
+    if (err) {
       console.log("Error : Failed to destroy the session during logout.", err);
+    }
     // Sets user to null to ensure user is no longer authenticated even with an error.
     req.user = null;
     // Redirect to url
