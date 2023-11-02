@@ -42,6 +42,29 @@
       <!-- Display post description -->
       <p><%= post.caption %></p>
     </div>
+
+    <!-- Form to create comments -->
+    <div class="mt-5">
+      <h2>Add a comment</h2>
+      <!-- Form to create post using a POST request -->
+      <form action="/comment/createComment/<%=post._id%>" method="POST">
+        <div class="mb-3">
+            <!-- Set the post title -->
+            <label for="comment" class="form-label">Comment</label>
+            <input type="text" class="form-control" id="comment" name="comment">
+        </div>
+        <!-- Submit form -->
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    <!-- Display post comments -->
+    <ul>
+      <% for(var i=0; i<comments.length; i++) {%>
+        <li class="col-6 justify-content-between mt-5">
+          <%= comments[i].comment %>
+        </li>
+      <% } %>
+    </ul>
     <div class="col-6 mt-5">
       <!-- Link to profile page -->
       <a class="btn btn-primary" href="/profile">Return to Profile</a>

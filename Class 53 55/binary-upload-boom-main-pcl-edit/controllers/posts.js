@@ -2,6 +2,7 @@
 const cloudinary = require("../middleware/cloudinary");
 // Import Mongoose model
 const Post = require("../models/Post");
+const Comment = require("../models/Comments");
 
 module.exports = {
   // Async functions
@@ -33,9 +34,16 @@ module.exports = {
     try {
       // Search for a post in the database by its ID
       const post = await Post.findById(req.params.id);
+      const comments = await Comment.find({ post: req.params.id })
+        .sort({ createdAt: "desc" })
+        .lean();
       // Pass post data to template engine
       // Pass authenticated user data to template
-      res.render("post.ejs", { post: post, user: req.user });
+      res.render("post.ejs", {
+        post: post,
+        user: req.user,
+        comments: comments,
+      });
     } catch (err) {
       console.log(err);
     }
