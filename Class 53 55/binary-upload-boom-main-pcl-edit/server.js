@@ -13,7 +13,7 @@ const mainRoutes = require("./routes/main");
 const postRoutes = require("./routes/posts");
 const commentRoutes = require("./routes/comments");
 
-// Use .env file in config folder
+// Enviroment variables
 require("dotenv").config({ path: "./config/.env" });
 
 // Passport config
@@ -22,28 +22,25 @@ require("./config/passport")(passport);
 // Connect To Database
 connectDB();
 
-// Using EJS for views
+// Use EJS for views
 app.set("view engine", "ejs");
 
-// Static Folder
+// Serve static folder
 app.use(express.static("public"));
 
-// Body Parsing
+// Parse form data and handle JSON data
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Logging
 app.use(logger("dev"));
 
-// **************
-// ** New code **
-// **************
-// Use forms for put / delete
-// Middleware used to override the HTTP request method
-// Looks for the "_method" field in incoming requests and override HTTP method.
+// For PUT / DELETE requests in forms
+// Override the HTTP request method
+// Look for the "_method" field in incoming requests and override HTTP method.
 app.use(methodOverride("_method"));
 
-// Setup Sessions - stored in MongoDB
+// Setup Sessions - Store in MongoDB
 app.use(
   session({
     secret: "keyboard cat",
@@ -57,10 +54,10 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Use flash messages for errors, info, ect...
+// Use flash messages for errors, info, etc.
 app.use(flash());
 
-// Setup Routes For Which The Server Is Listening
+// Listen for routes
 app.use("/", mainRoutes);
 app.use("/post", postRoutes);
 app.use("/comment", commentRoutes);
