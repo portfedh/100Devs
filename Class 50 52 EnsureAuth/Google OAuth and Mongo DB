@@ -1,0 +1,148 @@
+Google OAuth and Mongo DB
+
+
+Source
+
+    https://www.youtube.com/watch?v=SBvmnHTQIPY
+
+
+Date
+
+    3 Nov 2023
+
+
+Create API key and API Secret With Google
+
+
+Set your authorized URL to:
+
+    http://localhost:2121/auth/google/callback
+
+
+Get ClientIT and Client Secret
+
+    GOOGLE_CLIENT_ID=100959252338-l901jjmn86rb6cbgbcslshh9tbki8pgo.apps.googleusercontent.com
+
+    GOOGLE_CLIENT_SECRET=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
+
+
+Save the variables in .env file
+
+    Make sure its ignored
+
+
+Install google-oauth20 passport.js strategy
+
+    npm install passport-google-oauth20
+
+
+Add a link or button that points to: /auth/google
+
+    <form class="signup" action="/auth/google" method="GET">
+      <button type="submit">Sign Up with Google</button>
+    </form>
+
+
+Create user model at Models/User.js:
+
+    // In the project I changed this name
+    // Original name was taken by local strategy
+
+    const mongoose = require("mongoose");
+
+    const UserSchema = new mongoose.Schema({
+      googleId: { type: String, required: true },
+      displayName: { type: String, required: true },
+      fistName: { type: String, required: true },
+      lastName: { type: String, required: true },
+      image: { type: String },
+      createdAt: { type: Date, default: Date.now },
+    });
+
+    module.exports = mongoose.model("User", UserSchema);
+
+
+
+Create config/passport.js file:
+
+    const GoogleStrategy = require("passport-google-oauth20").Strategy;
+    const mongoose = require("mongoose");
+    const User = require("../models/User");
+
+    // *** falta codigo aqui ***/ 
+
+
+
+
+Modify the server.js file to add the following:
+
+    Require passport.js:
+
+        const passport = require('passport')
+
+    Require the passport configuration file:
+
+        require('./config/passport')(passport)
+    
+    You can add more than one. For example:
+
+        require('./config/passport')(passport)
+        require("./config/googlePassport")(passport);
+
+    Import sessions:
+
+        const session = require('express-session')
+        const MongoStore = require('connect-mongo')(session)
+
+    Setup the session:
+
+        app.use(
+        session({
+          secret: 'keyboard cat',
+          resave: false,
+          saveUninitialized: false,
+          store: new MongoStore({ mongooseConnection: mongoose.connection }),
+        })
+        )
+
+    Setup the Passport middleware:
+
+        app.use(passport.initialize())
+        app.use(passport.session())
+
+    Add authentication routes:
+
+        const googleAuthRoutes = require("./routes/auth");
+        app.use("/auth", googleAuthRoutes);
+
+
+Create a routes/auth.js file and add the following:
+
+    const express = require("express");
+
+    const passport = require("passport");
+
+    const router = express.Router();
+
+    // Description: Authenticate with Google
+    // Route: GET /auth/google
+    router.get("/google", passport.authenticate("google", { scope: ["profile"] }));
+
+    // Description: Google auth callback
+    // Route: GET /auth/google/callback
+    router.get(
+      "/google/callback",
+      passport.authenticate("google", { failureRedirect: "/" }),
+      (req, res) => {
+        res.redirect("/dashboard");
+      }
+    );
+
+    module.exports = router;
+
+
+Create middleware auth.js:
+
+    Made to ensure authentication in pages before allowing access. 
+
+
