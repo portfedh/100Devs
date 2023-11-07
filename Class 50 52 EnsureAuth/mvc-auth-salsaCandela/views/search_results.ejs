@@ -1,0 +1,59 @@
+<!-- search-results.ejs -->
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up Form</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:400,300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="css/style_general.css" />
+    <link rel="stylesheet" href="css/style_search.css" />
+  </head>
+
+  <body>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="logo">
+          <a href="/">
+            <img src="salsaCandela.png" alt="LogoSalsaCandela" />
+          </a>
+        </div>
+        <!-- Search results section -->
+        <form action="/buscar" method="post" id="signup-form">
+          <button type="submit" class="<%= buttonClass %>"><%= text %></button>
+        </form>
+
+        <!-- Search section -->
+        <form action="/buscar" method="post" id="search-form">
+          <h1>Resultado de busqueda</h1>
+          <h4>Cuenta:</h4>
+          <p class="userValue" id="numero-cuenta"><%= idAlumno %></p>
+        </form>
+
+        <!-- User information -->
+        <form action="/inscribir" method="post" id="signup-form">
+          <h1>Informacion del Alumno</h1>
+          <fieldset>
+            <h4>Nombre:</h4>
+            <p class="userValue" id="first_name">
+              <%= firstName %> <%= lastName %>
+            </p>
+            <h4>Curso:</h4>
+            <p class="userValue"><%= curso %></p>
+            <h4>Sucursal:</h4>
+            <p class="userValue"><%= sucursal %></p>
+            <h4>Horario:</h4>
+            <p class="userValue"><%= horario %></p>
+            <h4>Last Loggin:</h4>
+            <p class="userValue"><%= last_loggin %></p>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
