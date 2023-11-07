@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formato para registro de alumnos</title>
+    <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/style_general.css">
+    <link rel="stylesheet" href="css/style_index.css">
+  </head>
+
+  <body>
+  <div class="col-md-12">
+
+    <div class="logo">
+      <img src="salsaCandela.png" alt="LogoSalsaCandela">
+    </div>
+
+    <form action="/enroll" method="post" id="signup-form" enctype="multipart/form-data">
+      <h1> Inscribir Alumno </h1>
+      
+      <fieldset>
+        <legend><span class="number">1</span> Informacion Basica</legend>
+      
+        <label for="first_name">Nombre:</label>
+        <input type="text" id="first_name" name="first_name" required>
+
+        <label for="last_name">Apellido:</label>
+        <input type="text" id="last_name" name="last_name" required>
+      
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="age">Edad:</label>
+        <input type="number" id="age" name="age" required>
+
+        <label>Sexo:</label>
+        <input type="radio" id="masculino" value="masculino" name="sexo"><label for="masculino" class="light">Masculino </label><br>
+        <input type="radio" id="femenino" value="femenino" name="sexo"><label for="femenino" class="light">Femenino</label><br>
+      </fieldset>
+
+      <fieldset>  
+        <legend><span class="number">2</span> Informacion del Curso</legend>
+        
+       <label for="curso">Curso:</label>
+        <select id="curso" name="curso" required>
+          <optgroup label="Salsa">
+            <option value="Salsa nivel 1">Salsa Nivel 1</option>
+            <option value="Salsa nivel 2">Salsa Nivel 2</option>
+            <option value="Salsa nivel 3">Salsa Nivel 3</option>
+            <option value="Salsa nivel 4">Salsa Nivel 4</option>
+            <option value="Salsa nivel 5">Salsa Nivel 5</option>
+          </optgroup>
+          <optgroup label="Bachata">
+            <option value="Bachata nivel 1">Bachata Nivel 1</option>
+            <option value="Bachata nivel 2">Bachata Nivel 2</option>
+            <option value="Bachata nivel 3">Bachata Nivel 3</option>
+          </optgroup>
+        </select>
+
+        <label for="sucursal">Sucursal:</label>
+        <select id="sucursal" name="sucursal" required>
+          <optgroup label="Sucursal">
+            <option value="Xola">Xola</option>
+            <option value="Claveria">Claveria</option>
+            <option value="Valle">Del Valle</option>
+            <option value="Coapa">Coapa</option>
+            <option value="Satelite">Satelite</option>
+          </optgroup>
+        </select>
+
+        <label>Horario:</label>
+        <input type="checkbox" id="L" value="Lunes y Miercoles" name="horario"><label class="light" for="L">Lunes y Miercoles 8.30pm - 9.30pm</label><br>
+        <input type="checkbox" id="M" value="Martes y Jueves" name="horario"><label class="light" for="M">Martes y Jueves 8.30pm - 9.30pm</label><br>
+        <input type="checkbox" id="S" value="Sabado" name="horario"><label class="light" for="S">Sabados 10am -12pm</label><br>
+        <input type="checkbox" id="D" value="Domingo" name="horario"><label class="light" for="D">Domingos 10am -12pm</label><br>
+       </fieldset>
+
+       <fieldset> 
+        <legend><span class="number">3</span> Pago</legend>
+        <label for="job">Forma de Pago:</label>
+        <select id="job" name="forma_pago" required>
+            <option value="efectivo">Efectivo</option>
+            <option value="deposito">Deposito Oxxo</option>
+            <option value="paypal">Paypal</option>
+            <option value="transferencia">Transferencia</option>
+            <option value="otro">Otro</option>
+          </optgroup>
+        </select>
+
+        <label for="suscripcion">Paquete a comprar:</label>
+        <select id="suscripcion" name="suscripcion" required>
+            <option value="individual">Individual</option>
+            <option value="pareja">Pareja</option>
+          </optgroup>
+        </select>
+
+        <label for="receipt_upload">Comprobante de pago:</label>
+            <input
+              type="file"
+              id="receipt" 
+              name="file"
+              accept=".pdf, .jpg, .png"
+              required
+            /><br />
+
+            <p>* El archivo puede ser pdf, jpg o png</p><br />
+
+      </fieldset>
+
+      <input type="hidden" id="date" name="last_loggin" value="2023-01-01">
+    
+      <button type="submit">Inscribirme</button>
+
+     </form>
+      </div>
+    </div>
+  </body>
+</html>

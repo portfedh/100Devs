@@ -1,0 +1,55 @@
+<!-- Include the header -->
+<%- include('partials/header') -%>
+
+<!-- Create bootstrap container -->
+<main class="container">
+  <div class="row justify-content-center">
+    <section class="col-6 mt-5">
+      <!-- Check if there are errors in a variable called "locals.messages.errors." -->
+      <% if (locals.messages.errors) { %>
+
+      <!-- Loop through each error message stored in "messages.errors" -->
+      <!-- Display alert and error message -->
+      <% messages.errors.forEach( el => { %>
+      <div class="alert alert-danger"><%= el.msg %></div>
+      <% }) %> <% } %>
+
+      <!-- Check for messages in "locals.messages.info." -->
+      <% if (locals.messages.info) { %> <% messages.info.forEach( el => { %>
+      <div class="alert alert-info"><%= el.msg %></div>
+      <% }) %> <% } %>
+
+      <!-- Create the login form -->
+      <form action="/login" method="POST">
+        <div class="mb-3">
+          <!-- Input the user email -->
+          <label for="exampleInputEmail1" class="form-label"
+            >Email address</label
+          >
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            name="email"
+          />
+        </div>
+        <div class="mb-3">
+          <!-- Input the user password -->
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="exampleInputPassword1"
+            name="password"
+          />
+        </div>
+        <!-- Submit login form -->
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </section>
+  </div>
+</main>
+
+<!-- Include the footer -->
+<%- include('partials/footer') -%>

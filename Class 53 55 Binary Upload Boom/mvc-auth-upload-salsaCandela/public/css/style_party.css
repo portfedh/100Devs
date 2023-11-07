@@ -1,0 +1,47 @@
+/* Styles specific for party.ejs */
+
+.number {
+  background-color: #5fcf80;
+  color: #fff;
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+  font-size: 0.8em;
+  margin-right: 4px;
+  line-height: 30px;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+  border-radius: 100%;
+}
+
+.submitButton {
+  background-color: #a91d84;
+  border: 1px solid #821766;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 480px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="number"],
+  button,
+  textarea,
+  select {
+    margin-bottom: 10px; /* Reduced margin */
+    padding: 10px; /* Reduced padding */
+    width: 95%; /* Make input fields shorter */
+    font-size: 14px; /* Adjust font size for smaller screens */
+  }
+
+  label {
+    width: 100%; /* Make labels full width on smaller screens */
+  }
+
+  p {
+    font-size: 90%;
+  }
+
+  input[type="file"] {
+    font-size: 75%;
+  }
+}

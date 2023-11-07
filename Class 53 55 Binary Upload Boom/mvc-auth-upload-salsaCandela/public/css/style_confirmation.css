@@ -1,0 +1,40 @@
+/* Styles specific for Confirmation.ejs */
+
+.confirmationSection {
+  max-width: 300px;
+  margin: 10px auto;
+  padding: 10px 20px;
+  background: #f4f7f8;
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.codigoQr,
+.titulo,
+.Texto {
+  max-width: 100%;
+}
+
+.idAlumno {
+  font-weight: bold;
+}
+
+#downloadButton {
+  background-color: #a91d84;
+  border: 1px solid #821766;
+}
+
+p {
+  font-weight: bold;
+  font-size: 1.3rem;
+  padding: 0rem;
+  margin: 0.1rem;
+}
+
+h1 {
+  margin: 0.4rem;
+}

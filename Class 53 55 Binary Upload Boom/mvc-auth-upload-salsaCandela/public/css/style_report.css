@@ -1,0 +1,58 @@
+/* Specific Styles that apply to report.ejs */
+
+.button-container {
+  display: flex;
+  justify-content: center; /* Horizontal centering */
+  align-items: center; /* Vertical centering */
+  margin-top: 20px; /* Adjust the margin as needed */
+}
+
+.report-table {
+  width: 100%; /* Make the table expand to 100% of its container */
+  table-layout: auto; /* Let the table adjust column widths based on content */
+  margin: 0 auto;
+  padding-bottom: 30px;
+}
+
+th {
+  font-size: 14px; /* Reduce font size for smaller screens if needed */
+  text-align: left; /* Align table headings to the left */
+}
+
+td {
+  padding-left: 5px; /* Reduce cell padding for smaller screens */
+  padding-right: 5px; /* Reduce cell padding for smaller screens */
+  max-width: 200px; /* Limit maximum cell width */
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide overflowing content */
+  text-overflow: ellipsis; /* Add ellipsis (...) for truncated text */
+  font-size: 14px; /* Reduce font size for smaller screens if needed */
+}
+
+@media screen and (max-width: 768px) {
+  th {
+    font-size: 10px; /* Reduce font size for smaller screens if needed */
+  }
+  td {
+    padding-left: 5px; /* Further reduce cell padding for smaller screens */
+    padding-right: 5px; /* Further reduce cell padding for smaller screens */
+    max-width: 100px; /* Reduce maximum cell width further */
+    font-size: 10px; /* Reduce font size for smaller screens if needed */
+  }
+}
+
+form {
+  max-width: none;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  padding: 19px 10px 18px 10px;
+  font-size: 18px;
+  width: 65%;
+  background-color: #a91d84;
+  border: 1px solid #821766;
+}

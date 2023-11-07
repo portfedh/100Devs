@@ -1,0 +1,49 @@
+<!-- confirmation.ejs -->
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Confirmacion de inscripcion</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:400,300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="css/style_general.css" />
+    <link rel="stylesheet" href="css/style_confirmation.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+  </head>
+
+  <body>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="logo">
+          <a href="/">
+            <img src="salsaCandela.png" alt="LogoSalsaCandela" />
+          </a>
+        </div>
+
+        <div class="confirmationSection" id="imagen-qr-confirmacion">
+          <h1 class="titulo">Codigo de confirmacion</h1>
+          <div class="codigoQr" id="qrcode">
+            <img id="qrCode-image" src="<%= qrWww %>" alt="" title="" />
+          </div>
+          <p class="Texto idAlumno"><%= idAlumno %></p>
+          <p class="Texto"><%= nombreAlumno %></p>
+        </div>
+
+        <div class="confirmationSection">
+          <button id="downloadButton">Guardar imagen</button>
+        </div>
+        <script>
+          var apiUrl = "<%= qrWww %>";
+          var userName = "<%= nombreAlumno %>";
+          var userId = "<%= idAlumno %>";
+        </script>
+        <script type="text/javascript" src="js/confirmation.js"></script>
+      </div>
+    </div>
+  </body>
+</html>

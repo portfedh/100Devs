@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reporte de Alumnos Inscritos</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:400,300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="/css/style_general.css" />
+    <link rel="stylesheet" href="/css/style_report.css" />
+  </head>
+
+  <body>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="logo">
+          <a href="/">
+            <img src="/salsaCandela.png" alt="LogoSalsaCandela" />
+          </a>
+        </div>
+        <div class="container">
+          <!-- Search section -->
+          <form action="/search_results" method="post" id="search-form">
+            <h1>Reporte de personas Inscritas:</h1>
+            <!-- Section  to Read quotes from Database and write them to the DOM-->
+            <section data-position="quotes">
+              <table id="report-table" class="report-table">
+                <thead>
+                  <tr>
+                    <th>No.</th>
+                    <th>Nombre</th>
+                    <th>ID.</th>
+                    <th>Registro</th>
+                    <th>Email</th>
+                    <th>Celular</th>
+                    <th>Pago</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% quotes.forEach(function(object, index) { %>
+                  <tr>
+                    <td><%= index + 1 %></td>
+                    <td><%= object.first_name + ' ' + object.last_name %></td>
+                    <td><%= object.access_id %></td>
+                    <td>
+                      <%= object.createdAt.toLocaleString('es-MX', { day:
+                      'numeric', month: 'numeric', year: 'numeric' }) %>
+                    </td>
+                    <td><%= object.email %></td>
+                    <td><%= object.cel %></td>
+                    <td>
+                      <a href="<%= object.image %>" target="_blank">
+                        <img
+                          src="../file-icon.png"
+                          alt="File Icon"
+                          width="20"
+                          height="20"
+                        />
+                      </a>
+                    </td>
+                  </tr>
+                  <% }); %>
+                </tbody>
+              </table>
+            </section>
+          </form>
+          <div class="button-container">
+            <button id="downloadButton">Download as CSV</button>
+          </div>
+          <!-- <div class="button-container">
+            <button id="logoutButton">Logout</button>
+          </div> -->
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="/js/partyReport.js"></script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+/* Specific styles that apply to search pages */
+
+.searchTitle {
+  font-weight: bold;
+}
+
+.welcome {
+  background-color: #3ac162;
+  border: 1px solid #3ac162;
+}
+
+.searchButton {
+  background-color: #a91d84;
+  border: 1px solid #821766;
+}
+
+.alreadyIn {
+  background-color: #f69235;
+  border: 1px solid #b86e29;
+}
+
+.userValue {
+  padding-left: 30px;
+  color: #384047;
+}
+
+h1 {
+  margin: 0.5rem;
+}
+
+h4 {
+  margin-bottom: 0.05rem;
+}
+
+p {
+  margin: 0.4rem;
+}

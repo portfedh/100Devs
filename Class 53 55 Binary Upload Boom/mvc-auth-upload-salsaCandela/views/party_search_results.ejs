@@ -1,0 +1,58 @@
+<!-- search-results.ejs -->
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up Form</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:400,300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="css/style_general.css" />
+    <link rel="stylesheet" href="css/style_search.css" />
+  </head>
+
+  <body>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="logo">
+          <a href="/">
+            <img src="salsaCandela.png" alt="LogoSalsaCandela" />
+          </a>
+        </div>
+        <!-- Search results button section -->
+        <form action="/buscar" method="post" id="signup-form">
+          <button type="submit" class="<%= buttonClass %>" disabled>
+            <%= text %>
+          </button>
+        </form>
+
+        <!-- Search section -->
+        <form action="/buscar" method="post" id="search-form">
+          <h1>Resultado de Busqueda</h1>
+          <fieldset>
+            <h4>Nombre:</h4>
+            <p class="userValue" id="first_name">
+              <%= firstName %> <%= lastName %>
+            </p>
+            <h4>email:</h4>
+            <p class="userValue" id="email"><%= email %></p>
+            <h4>Cel:</h4>
+            <p class="userValue" id="cel"><%= cel %></p>
+            <h4>Codigo:</h4>
+            <p class="userValue" id="numero-cuenta"><%= idAlumno %></p>
+            <h4>Creado:</h4>
+            <p class="userValue" id="numero-cuenta">
+              <%= createdAt.toLocaleString('es-MX', { day: 'numeric', month:
+              'short', year: 'numeric', hour: 'numeric', minute: 'numeric',
+              second: 'numeric', hour12: false, }) %>
+            </p>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

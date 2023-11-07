@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Noche Sensual Salsa Candela</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:400,300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="css/style_general.css" />
+    <link rel="stylesheet" href="css/style_party.css" />
+  </head>
+
+  <body>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="logo">
+          <a href="/"><img src="salsaCandela.png" alt="LogoSalsaCandela" /></a>
+          
+        </div>
+
+        <form action="/partySignup" method="post" enctype="multipart/form-data" id="signup-form">
+          <h1>Fiesta mensual</h1>
+
+          <h2>Formato de acceso</h2>
+
+          <fieldset>
+            <label for="first_name">Nombre:</label>
+            <input type="text" id="first_name" name="first_name" required />
+
+            <label for="last_name">Apellido:</label>
+            <input type="text" id="last_name" name="last_name" required />
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+
+            <label for="cel">Celular:</label>
+            <input type="number" id="cel" name="cel" required />
+
+            <label for="receipt_upload">Comprobante de pago:</label>
+            <input
+              type="file"
+              name="file"
+              id="receipt"
+              accept=".pdf, .jpg, .png"
+              required
+            /><br />
+            <p>* El archivo puede ser pdf, jpg o png</p><br />
+            
+            <input type="hidden" id="date" name="accessed" value="false">
+
+            <button type="submit" class="submitButton">Enviar registro</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

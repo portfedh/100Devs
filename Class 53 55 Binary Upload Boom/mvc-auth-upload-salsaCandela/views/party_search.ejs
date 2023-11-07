@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Control de Acceso</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:400,300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="css/style_general.css" />
+    <link rel="stylesheet" href="css/style_search.css" />
+  </head>
+
+  <body>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="logo">
+          <a href="/">
+            <img src="salsaCandela.png" alt="LogoSalsaCandela" />
+          </a>
+        </div>
+        <!-- Search section -->
+        <form action="/search" method="post" id="search-form">
+          <h1>Busqueda de Registro:</h1>
+          <fieldset>
+            <label for="id_search">Numero de cuenta:</label>
+            <input type="text" id="id_search" name="id_to_search" required />
+            <button type="submit" class="searchButton">Buscar</button>
+            <div id="usernameError" class="error"><%= errorText %></div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+    <script type="text/javascript" src="js/search.js"></script>
+  </body>
+</html>
