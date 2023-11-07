@@ -1,12 +1,10 @@
 // Import cloudinary connection
 const cloudinary = require("../middleware/cloudinary");
-// Import Mongoose model
+// Import Mongoose models
 const Post = require("../models/Post");
 const Comment = require("../models/Comments");
 
 module.exports = {
-  // Async functions
-
   getProfile: async (req, res) => {
     try {
       // Find posts from user id
@@ -21,7 +19,7 @@ module.exports = {
   getFeed: async (req, res) => {
     try {
       // Find all posts and sort descending
-      // .lean() transformas a Mongoose object into a JSON object
+      // .lean() transform a Mongoose object into a JSON object
       const posts = await Post.find().sort({ createdAt: "desc" }).lean();
       // Render feed.ejs passing data to the template
       res.render("feed.ejs", { posts: posts });

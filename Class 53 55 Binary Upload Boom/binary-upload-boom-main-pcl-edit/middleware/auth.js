@@ -1,5 +1,6 @@
-// ensureAuth allows authenticated users and redirects unauthenticated users to "/" URL
-// ensureGuest allows unauthenticated users and redirects authenticated users to  "/dashboard" URL
+// ensureAuth protects pages so only logged in users can access them.
+
+// ensureGuest makes sure logged in users don't see sign in pages if they are already logged in.
 
 // Export both functions
 module.exports = {
@@ -15,6 +16,7 @@ module.exports = {
     }
   },
   ensureGuest: function (req, res, next) {
+    // Opposite, checks that user is NOT authenticated
     if (!req.isAuthenticated()) {
       return next();
     } else {

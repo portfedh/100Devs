@@ -3,6 +3,7 @@ const express = require("express");
 const router = express.Router();
 const upload = require("../middleware/multer");
 const postsController = require("../controllers/posts");
+
 // Save as variable to call it directly
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 

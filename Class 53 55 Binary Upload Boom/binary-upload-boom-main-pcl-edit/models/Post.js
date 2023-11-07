@@ -23,8 +23,7 @@ const PostSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  // Object from another document
-  // Check
+  // Use the id of the user that created the post
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",

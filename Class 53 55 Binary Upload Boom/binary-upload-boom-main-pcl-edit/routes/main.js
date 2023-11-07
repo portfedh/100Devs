@@ -4,6 +4,7 @@ const router = express.Router();
 const authController = require("../controllers/auth");
 const homeController = require("../controllers/home");
 const postsController = require("../controllers/posts");
+
 // Save as variable to call it directly
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 

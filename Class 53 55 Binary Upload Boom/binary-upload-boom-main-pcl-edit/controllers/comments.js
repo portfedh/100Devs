@@ -9,6 +9,7 @@ module.exports = {
       await Comment.create({
         // Get the comment from the form body
         comment: req.body.comment,
+        // Set likes to 0. Hardcoded
         likes: 0,
         // Get the post id from the url id parameter
         post: req.params.id,
