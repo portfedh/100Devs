@@ -254,6 +254,9 @@ For loop:
     console.log(bigNumbers); 
     // Output: [10, 20, 30, 40, 50]
 
+    // Example 2
+    [1, 2, 3].map((x) => x * 2) // [2, 4, 6]
+
 
 
 .filter()

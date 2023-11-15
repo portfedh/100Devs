@@ -1,0 +1,82 @@
+
+Thinking in React
+
+Date: 13 Nov 2023
+
+URL: https://react.dev/learn/thinking-in-react
+
+
+Notes:
+
+    Start with the mockup:
+
+        Imagine you aleady have:
+
+            JSON API
+
+            Mockup from a designer.
+
+    Break the UI into a component hierarchy
+
+        Main div
+
+        Search bar
+
+        Product table
+
+            Product heading
+
+            Product row
+
+
+    Build a static version
+
+
+    Find the minimal changes to use varibles for data (State)
+
+
+    Identify where variables should live
+
+        Component or parent level
+
+
+    Add state with useState() hooks
+
+        hooks are react functions
+
+        Determine their initial state
+
+
+    ===
+
+    Adding react to an existing project
+
+    index.html
+
+        <!DOCTYPE html>
+        <html>
+          <head><title>My app</title></head>
+          <body>
+            <p>This paragraph is a part of HTML.</p>
+            <nav id="navigation"></nav>
+            <p>This paragraph is also a part of HTML.</p>
+          </body>
+        </html>
+
+
+    index.js
+
+        import { createRoot } from 'react-dom/client';
+
+        function NavigationBar() {
+          return <h1>Hello from React!</h1>;
+        }
+
+        const domNode = document.getElementById('navigation');
+        const root = createRoot(domNode);
+        root.render(<NavigationBar />);
+
+
+
+
+

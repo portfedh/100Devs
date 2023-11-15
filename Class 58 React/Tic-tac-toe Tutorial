@@ -1,0 +1,125 @@
+Tic-tac-toe Tutorial
+
+Source:
+    https://react.dev/learn/tutorial-tic-tac-toe
+
+Date: 9 Nov 2023
+
+
+To Review: 
+
+    useState();
+
+Notes:
+
+    // Approaches to changing data
+
+        mutate data: Change original array when updated. 
+
+        immutability: Create copy with update
+
+            Allows ability to undo and redo state
+
+            Makes it easy to compare if components changed
+
+            Take more memory
+
+
+
+    // Coding notes
+
+        export default function Square() {
+          return <button className="square">X</button>;
+        }
+
+        // Export: function accessible outside file.
+
+        // Default: informs its the main function of a file.
+
+        // React components must return a single jsx component.
+
+        // To return multiple components, wrap them in a html element (<> and </>).
+
+        // To add a parameter in a function, add it in curly brackets {x}
+
+        // To pass value add it as:
+        <Square value="4" />
+
+        // To remember things useState
+        import { useState } from 'react';
+
+          const [value, setValue] = useState(null);
+
+            Value stores the useState value
+
+            Starting value is:
+                value = useState(null)
+                value = null
+
+            setValue changes that value:
+                setValue('X')
+
+        // You can use it for arrays
+
+            const [squares, setSquares] = useState(Array(9).fill(null));
+
+            Creates an array of 9 with null value
+
+            To pass value to array use:
+                <Square value={squares[0]} />
+
+        // This will crate an infinite loop
+
+            <Square value={squares[0]} onSquareClick={handleClick(0)} />
+
+            // The function is called immediatelly
+
+            // You need to set it up as a function
+
+            Square value={squares[0]} onSquareClick= myFunction />
+
+            // To make it less verbose use arrow functions
+
+            Square value={squares[0]} onSquareClick={() => handleClick(0)} />
+
+        // Import react 
+        import { StrictMode } from 'react';
+
+        // React dom
+        import { createRoot } from 'react-dom/client';
+
+        // CSS styles
+        import './styles.css';
+
+        // Import app js
+        import App from './App';
+
+        // Handle click events
+        onClick={handleClick}
+
+        // To determine if 'X' or 'O' is next we use use a boolean
+
+            const [xIsNext, setXIsNext] = useState(true);
+
+            if (xIsNext) {
+              nextSquares[i] = "X";
+            } else {
+              nextSquares[i] = "O";
+            }
+
+        // To avoid updating the a square that has already been filled, check if its not null
+
+          if (squares[i]) {
+            return;
+          }
+
+        // It doesnt matter if you put your functions at the end. 
+
+
+        // Calculate winner returns the winner or null if nobody has won. 
+
+        // If winner his not null, and true, it displays winner, else it displays its turn. 
+
+        // To store history, you store your array inside another array. 
+
+        

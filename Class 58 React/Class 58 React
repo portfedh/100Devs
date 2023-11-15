@@ -1,0 +1,66 @@
+100 Devs: Class 58 React
+------------------------
+
+Date taken:
+
+    14 november 2023
+
+Link:
+
+    https://www.youtube.com/watch?v=edsuuCsiah0
+
+Twitter:
+
+    https://twitter.com/leonnoel/status/1575599063075987457
+
+Slides:
+
+    No slides
+
+
+Follow along materials:
+
+    No follow allong materials
+
+Homework:
+
+    Research the following string methods: charAt, charCodeAt, concat, includes, indexOf, match, repeat, replace, search, slice, split, substr, toLowerCase, toUpperCase, trim. Give a short description of what the method does, how it works, its time complexity (if appropriate - we'll cover this soon), and give three examples of it in action!
+
+    Watch Traversy React Crash CourseClass 58
+    https://www.youtube.com/watch?v=w7ejDZ8SWv8
+    
+    Do Kent C. Dodd's Beginner's Guide to ReactClass 58
+    https://egghead.io/courses/the-beginner-s-guide-to-react
+
+    Read the React documentation
+    https://reactjs.org/docs/hello-world.html
+
+    Watch Mayanwolfe's walkthrough of the React documentation/React basics
+    https://youtu.be/MFEmmHEm6nk
+    https://youtu.be/xzVggz2XJy4
+
+
+Notes
+
+    Array spread
+
+        const foo = ['a', 'b', 'c']
+        const bar = ['d', 'e', 'f']
+
+        console.log(...foo)
+
+    Object Spread
+        xx
+
+    Array Destructuring
+
+        xx
+
+    React is a library to handle your UI
+
+        Write components you can reuse and extend
+
+
+Transcript:
+
+    
