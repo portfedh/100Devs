@@ -1,0 +1,253 @@
+React Documentation
+
+Date:
+    9 November 2023
+
+Source:
+    react.dev/learn
+
+
+Notes:
+
+    Components:
+
+        JavaScript functions that return html markup.
+
+        You can have functions calling other functions. 
+
+        Functions must always start with capital letter to work.
+
+        Functions must be declared at root level (not nested).
+
+        To display, you have to use return
+
+        return statement must have parenthesis if more than one line.
+
+        'export' allows it to be imported in another file. Multiple exports are Ok.
+
+        'default' specifies it's the main function in a file.
+
+    Importing
+
+        import <functionName> from './file.js';
+
+        import { Profile } from './Gallery.js';
+        // Use if its not the default export
+
+
+    JSX templating language:
+
+        For html, css and JS
+
+        Stricter than html.
+
+        All elements must be explicitly closed
+
+        To return multiple elements wrap with a single parent tag:
+
+            <div> ... </div> or < > ... </>
+
+        Use camelCase
+
+        There are online html to JSX converters.
+
+        https://transform.tools/html-to-jsx
+
+
+    JSX & CSS: Adding Style:
+
+        CSS uses 'class' attribute
+
+        JSX uses 'className' attribute
+
+            className="avatar"
+
+        You write the CSS rules in a separate file
+
+
+    JSX & JS: Display Data:
+
+        Use curly braces to reference JS.
+
+            For example,  variables:
+
+                src={user.imageUrl}
+
+            String concatenations:
+                alt={'Photo of ' + user.name}
+
+            Objects will require double braces
+
+                style={{
+                  backgroundColor: 'black',
+                  color: 'white'
+                }}
+
+        Reference objects with dot notation.
+
+            const person = {
+              name: 'Gregorio Y. Zara',
+              theme: {
+                backgroundColor: 'black',
+                color: 'pink'
+              }
+            };
+
+            <div style={person.theme}>
+              <h1>{person.name}'s Todos</h1>
+
+
+    Conditionals:
+
+        Normal syntax:
+
+            let content;
+
+            if (isLoggedIn) {
+              content = <AdminPanel />;
+            } else {
+              content = <LoginForm />;
+            };
+
+        Conditional syntax:
+
+            {isLoggedIn ? (
+            <AdminPanel />
+            ) : (
+            <LoginForm />
+            )}
+
+        You can use for loops, map functions etc.
+
+
+    Event Responses:
+
+        You can create functions for event handlers. 
+
+
+    Updating the screen:
+
+        Import useState:
+
+            import { useState } from 'react';
+
+        Handle changes:
+
+            function MyButton() {
+              const [count, setCount] = useState(0);
+
+            // count = latest value
+
+            // setCount = subtotal value
+
+        To increase use:
+
+            setCount(count + 1);
+
+
+    Counters
+
+        Calling the function produces a new object.
+
+        Each counter updates separatelly
+
+        To update together make sure the variable is inside the function.
+
+
+    Hooks
+
+        Functions starting with 'use'
+
+        You can use pre built or make your own
+
+        They have to be called at the top of components.
+
+        Elements that use a map() function always need keys
+
+    Function best practices
+
+        Does not change variables outside the functions scope.
+
+
+
+    Props (passing properties)
+
+        Add properties to a Class
+
+        You can access them later to create instances
+
+
+    State
+
+        Data that changes over time (click events, etc)
+
+        They use event handlers (hover, click, form input, etc)
+
+        You can create your own.
+
+        Current value of variable is called state
+
+        useState Hook lets you declare a state variable
+
+
+
+
+    Conditional rendering
+
+        Nomal if else:
+            if (isPacked) {
+              return <li className="item">{name} ✔</li>;
+            }
+            return <li className="item">{name}</li>;
+
+        Ternary opperator:
+
+            return (
+              <li className="item">
+                {isPacked ? name + ' ✔' : name}
+              </li>
+            );
+
+        AND opperator:
+
+            return (
+              <li className="item">
+                {name} {isPacked && '✔'}
+              </li>
+            );
+
+            Returns the value of the right side (checkmark) if the left side (isPacked) is true.
+
+
+    Rendering Lists
+
+        Rendering data from arrays
+
+            Move the data into an array:
+
+                const people = [
+                  'Creola Katherine Johnson: mathematician',
+                  'Mario José Molina-Pasquel Henríquez: chemist',
+                  'Mohammad Abdus Salam: physicist',
+                  'Percy Lavon Julian: chemist',
+                  'Subrahmanyan Chandrasekhar: astrophysicist'
+                ];
+
+            Map the the array into list items:
+
+                const listItems = people.map(person => <li>{person}</li>);
+
+
+            Return listItems from your component mapped in a <ul>
+
+                return <ul>{listItems}</ul>;
+
+            Full code:
+
+                export default function List() {
+                  const listItems = people.map(person =>
+                    <li>{person}</li>
+                  );
+                  return <ul>{listItems}</ul>;
+                } 
+

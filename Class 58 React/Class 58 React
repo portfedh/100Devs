@@ -42,19 +42,45 @@ Homework:
 
 Notes
 
-    Array spread
+    Array spread:
 
         const foo = ['a', 'b', 'c']
         const bar = ['d', 'e', 'f']
+        console.log(...foo) --> 'a', 'b', 'c'
+        console.log([...foo, ...bar]) --> ['a', 'b', 'c', 'd', 'e', 'f']
 
-        console.log(...foo)
+    Object Spread:
 
-    Object Spread
-        xx
+        const defaultStyle = {
+            color: 'red',
+        }
+        
+        const style = {
+            ...defaultStyle, 
+            fontWeight: 'bold'
+        }
+
+        console.log(style)
+        
+        object{
+            color:'red',
+            fontWeight: 'bold',
+        }
 
     Array Destructuring
 
-        xx
+        let [name, team] = ['bob', '100Devs']
+
+        console.log(name) --> 'bob'
+        console.log(team) --> '100Devs'
+
+    Object Destructuring
+
+        let mascot = {name: 'Bob', team: '100Devs'}
+        let {name, team} = mascot
+
+        console.log(name) --> 'Bob'
+        console.log(team) --> '100Devs'
 
     React is a library to handle your UI
 

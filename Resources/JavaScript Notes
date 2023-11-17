@@ -261,9 +261,11 @@ For loop:
 
 .filter()
 
-  Takes an argument of a function and returns a new array with filtered elements.
+  This method takes an array of items.
 
-  The filter criteria should return true or false to work
+  Passes them through a “test” (a function that returns true or false).
+
+  Returns a new array of only those items that passed the test (returned true).
 
 
   Example:
