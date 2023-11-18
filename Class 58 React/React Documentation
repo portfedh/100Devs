@@ -7,7 +7,56 @@ Source:
     react.dev/learn
 
 
+Me quede en Extracting State Logic into a Reducer
+
 Notes:
+
+    Imperative Vs Declarative desgin
+
+        Imperative
+
+            Exact instructions
+
+            Exponentially difficult with more complexity
+
+        Declarative 
+
+            How the UI changes in response to user actions
+
+            This is how React works
+
+                Identifies visual states
+
+                    Empty
+                    Typing
+                    Submitting
+                    Success
+                    Error
+
+                Determine triggers for state changes
+
+                    Human inputs
+
+                        Clicking
+
+                        Typing
+
+                        Submiting
+
+                    Computer inputs
+
+                        network
+
+                        timeout
+
+                        image loading
+
+                Represent the state in memory 
+
+                    const [isEmpty, setIsEmpty] = useState(true);
+
+
+                Connect to event handlers
 
     Components:
 
@@ -26,6 +75,16 @@ Notes:
         'export' allows it to be imported in another file. Multiple exports are Ok.
 
         'default' specifies it's the main function in a file.
+
+        when React removes a component, it destroys its state
+
+        if you want to preserve the state between re-renders, the structure of your tree needs to “match up”
+
+        React keeps state for as long as the same component is rendered at the same position.
+
+        State is not kept in JSX tags. It’s associated with the tree position in which you put that JSX.
+
+
 
     Importing
 
@@ -187,7 +246,132 @@ Notes:
 
         Current value of variable is called state
 
-        useState Hook lets you declare a state variable
+        'useState' Hook(function) lets you declare a state variable
+
+        setState(state + 1) Does not update a variable, but triggers a re-render.
+
+        when you want to update an object and array
+
+            Create a a copy of an existing one with the change
+
+            Update the state to use that copy
+
+            Immer is a library that can help with that
+
+    Responding to events
+
+        <button onClick={handleClick}></button>
+
+        onClick={handleClick}
+        
+        onMouseEnter={handleMouseEnter}
+
+        handleSomthing is the naming convention
+
+        You can name functions or use arrow functions
+
+        Pass functions, dont call functions()
+
+        With nested events, the child will run firts, then the parent.
+
+        You can stop both from running with: 
+
+        e => {e.stopPropagation();}
+
+    State
+
+        Local variables dont persist between renders.
+
+        Changes to variables dont trigger renders
+
+        useState hook provides this feature.
+
+            Each component has its isolated variable like a class instance
+
+            If you want them to share state, give it to a parent component
+
+        Code:
+
+        const [index, setIndex] = useState(0);
+
+            index is state variable
+
+            setIndex is the setter function
+
+            setIndex(index+1) will increase index variable & re-render
+
+            const [something, setSomething] 
+
+            Can be named anything
+
+    Lifting State
+
+        Making two components share state
+
+        Remove state from both components
+
+        Add state to their closest common parent
+
+        Pass it down to them as a property
+
+    Rendering
+
+        Components have an initial render.
+
+        They re-render if the state has been updated.
+
+        You can perform multiple operations before a re-render.
+
+        Teact waits untill all code in the eventhandler runs before re-render.
+
+
+    Objects in State
+
+        To update an object make a copy of the object with the change.
+
+        Then set the state to use that copy.
+
+        Only mutate objects you have just created.
+
+        With new data:
+
+            Create it with a function
+
+            use setSomething({newObject})
+
+        Copying old data and modifying:
+
+            setPerson({
+              ...person, // Copy the old fields
+              firstName: e.target.value // But override this one
+            });
+
+            Spread syntax (... x) only copies things one level deep.
+
+
+    Arrays in State
+
+        Like objects, treat as unmutable. 
+
+        Dont
+
+            arr[0] = 'bird'
+            push()
+            unshift()
+            pop()
+            splice()
+            reverse
+            sort
+
+        Do
+            filter(id !== value)
+            slice()
+            map()
+            concat[...arr]
+
+    Managming State
+
+        Think of UI in the different visual states of your components.
 
 
 
