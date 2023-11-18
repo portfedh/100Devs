@@ -369,9 +369,89 @@ Notes:
             map()
             concat[...arr]
 
-    Managming State
+    Managing State
 
         Think of UI in the different visual states of your components.
+
+    Reducers
+
+        Consolidate all state logic outside a component in a function.
+
+        Called a reducer. 
+
+        Steps
+
+            Move from setting state to dispatching actions
+
+            Write a reducer function: useReducer()
+
+            Use the reducer from your component
+
+            Immer library can help make reducers
+
+    Context
+
+        Passing information from parent to child can be verbose if there are many commponents. 
+
+        Contexts makes infrmoation available without passing it explicitly
+
+        Context lets a parent component provide data to the entire tree below it.
+
+
+        Steps:
+
+            Create the context (Export it from a file)
+
+            Use the context
+
+                Import useContext Hook from react and pass the info
+
+                const level = useContext(LevelContext);
+
+    Escape hatches
+
+        Ways to escape from the React paradigm
+
+        Controling systems outside react.
+
+        Refs help remember information without triggering renders
+
+            const ref = useRef(0);
+
+            refs are mutable
+
+            used when communicating woth external API's
+
+            A ref is a plain JavaScript object with a single property called current, which you can read or set
+
+
+        Effects 
+
+            let you run some code after rendering.
+
+            Effects let you specify side effects that are caused by rendering itself, rather than by a particular event. 
+
+            Like a chat room, where uptdates happen without user events
+
+             APIs, third-party widgets, network, and so may need them
+
+            Unlike events, Effects are caused by rendering itself rather than a particular interaction.
+
+            Effects let you synchronize a component with some external system (third-party API, network, etc).
+
+            By default, Effects run after every render (including the initial one).
+
+            React will skip the Effect if all of its dependencies have the same values as during the last render.
+
+            You can’t “choose” your dependencies. They are determined by the code inside the Effect.
+
+            Empty dependency array ([]) corresponds to the component “mounting”, i.e. being added to the screen.
+
+            In Strict Mode, React mounts components twice (in development only!) to stress-test your Effects.
+
+            If your Effect breaks because of remounting, you need to implement a cleanup function.
+            
+            React will call your cleanup function before the Effect runs next time, and during the unmount.
 
 
 
