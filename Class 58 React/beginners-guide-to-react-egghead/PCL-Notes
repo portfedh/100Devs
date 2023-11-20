@@ -21,8 +21,16 @@ Notes:
 
         https://www.unpkg.com/
 
-        
+        Way to run code without using npm install
 
+        
+    React uses JSX templating language
+
+        Similar to html
+
+        The browser does not understand it natively
+
+        We use babel for this
 
 
     
