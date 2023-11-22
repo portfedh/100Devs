@@ -32,5 +32,12 @@ Notes:
 
         We use babel for this
 
+    Variables in jsx
+
+        {variable1}{variable2}
+
+    React fragments
+
+        <></> insted of divs
 
     
