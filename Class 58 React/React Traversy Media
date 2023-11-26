@@ -1,0 +1,70 @@
+React Traversy Media 
+
+Date:
+    22 Nov 2023
+
+Link:
+    https://www.youtube.com/watch?v=w7ejDZ8SWv8
+
+What is React
+
+    Library for building UI
+
+    Runs on the client, front end framework
+
+Why use it
+
+    Creates structure for the view layer of the application
+
+    Uses reusable components
+
+    Uses JSX dynamic markup
+
+    Interactive UI with virtualDOM avoids reloads
+
+    Very popular
+
+Components
+
+    You can create them as classes or functions
+
+    Have state that determines how the object renders and behaves
+
+Hooks
+
+    Functions that let use the react state
+
+        useState
+        useEffect
+        useContext
+        useReducer
+        usRef
+
+Instal React Developer tools in browser
+
+Create React App
+
+    $ npx create-react-app my-app
+    
+    Creates files and folders
+
+    npm i react-icons
+
+Build folder is where you serve your production
+
+       React dev tools icon will look blue
+
+       Anything in production build 
+
+JSON Server
+
+    Mock server to test the backend
+    npm i json-server
+    json-server --watch db.json --port5000
+
+React router dom
+
+    npm i 
+
+    use browserourter 
+
