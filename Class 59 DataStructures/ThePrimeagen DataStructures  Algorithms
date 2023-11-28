@@ -1,0 +1,56 @@
+DataStructures & Algorithms
+
+Date:
+27 Nov 2023
+
+Url:
+https://frontendmasters.com/courses/algorithms/introduction/
+
+Notes:
+
+
+Arrays are the simplest data structure
+
+Big O
+    Way to categorize time or memory as input grows.
+
+    Helps us make decision what data structures to use
+
+    We drop the constants O(n) == O(1) == O(2)
+
+
+Arrays
+
+    Blocking contiguous space.
+
+    Example 
+
+    Create an array of 3 bites:
+
+        a = int[3]
+
+    a[0]
+
+        Go to the memory address of A
+
+        Add in the offset of 0 multiplied by how big my type is (in this case 3)
+
+    Arrays cant be empty
+
+        You can fill them with a symbol
+
+        What if you want to use that symbol
+
+        Thats how 'null' was invented
+
+
+    Has O(1)
+
+        No matter how big the index is, it takes the same amount of time. 
+
+
+    insertAt, push(), pop()
+
+        Built on top of this
+
+        Where it is, how many boxes it has, unit size per box in bits.
