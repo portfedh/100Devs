@@ -54,3 +54,48 @@ Arrays
         Built on top of this
 
         Where it is, how many boxes it has, unit size per box in bits.
+
+
+Search
+
+    Linear search
+
+        IndexOf --> Linear search
+
+            Simplest form of search
+
+            O(n)
+
+
+Search in sorted arrays
+
+    Binary search
+
+        Always asked at google interviews
+
+        Learn to code this
+
+        [low, high)
+
+            low is inclusive
+            
+            high is exclusive
+
+        find midpoint (high - low)/2
+
+        Find value at midpoint
+
+        Check conditions
+
+            Value = midpoint --> return index
+
+            Value > midpoint --> low == midpoint +1
+
+            Value < midpoint --> high == midpoint
+
+            If low > high --> return 'not found'
+
+    Two crystal balls problem
+
+        Use sqrt n instead of binary search
+
