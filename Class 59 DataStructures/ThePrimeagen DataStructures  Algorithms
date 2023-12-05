@@ -97,5 +97,65 @@ Search in sorted arrays
 
     Two crystal balls problem
 
-        Use sqrt n instead of binary search
+        Use sqrt of n instead of binary search
+
+Bubble sort
+    
+    Check every number in an array against the next value. 
+
+    If the value is bigger, swap values
+
+    Uses double for loop. Easy to code. 
+
+Linked list
+
+    constant time
+
+    Node <t>
+
+    value = node t
+
+    next.value? = node x
+
+    prev.value? = node y
+
+    O(n)
+        Insertion
+        Deletion
+        Head/tail
+        prepend/append
+
+Que
+
+    Its an implementation of a linked list
+
+    Single list
+
+
+Arrays
+
+    Push are immediate because they add to the end
+
+    Shift needs to move the whole array O(n)
+
+    Knowing the array size is best
+
+Empirical Testing for O Notation
+
+    Push/Pop (from the end)
+
+    Shift/unshift (from the beggining)
+
+    Search a value based on index
+
+    Run for loop with n values 10, 100, 1000, 10000, 100000, 1000000
+
+    Check how the execution time changes
+
+    
+Recursion
+
+    Have a clear base case
+
+    Then recurse and change parameter until you reach it
 
