@@ -159,3 +159,15 @@ Recursion
 
     Then recurse and change parameter until you reach it
 
+
+QuickSort
+
+    Very simple and very good
+
+    Find a pivot in the middle value
+
+    check every number against the pivot
+
+    For each side, find new pivot in the middle
+
+    Do recursiveley until n=1
