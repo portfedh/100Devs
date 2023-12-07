@@ -1,0 +1,52 @@
+The Ultimate Guide to JavaScript Algorithms Courses
+
+Date
+7 December 2023
+
+http://web.archive.org/web/20210616161653/https://scotch.io/courses/the-ultimate-guide-to-javascript-algorithms
+
+Notes
+
+    Why
+
+        If not planned we can use data structures that wont scale. 
+
+        The best data structures consume minimal resources and store data in a meaningful way.
+
+        Performance is measured by time spent & energy used.
+
+
+    Data structures
+
+        A way of storing data
+
+    Algorithms
+
+        Set of rules to be followed to perform a calculation.
+
+        Usually a problem can be solved in more than one way.
+
+
+    Big O Notation
+
+        How execution time will as the input size changes.
+
+    Jest & JsBench
+
+        JS testing library for performance.
+
+    Running tests
+
+        $ npm run test <folder name>
+
+    Simple algorithms
+
+        String reversal
+
+    Arrays
+
+        Container object that is used to hold a list of items usually of same type.
+
+    Objects
+
+        Store a collection of data in the form of key-value pairs.
