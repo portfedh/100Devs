@@ -1,0 +1,27 @@
+
+Node JS Cheatsheet
+
+
+$ npm init
+
+$ npm install dotenv
+
+$ npm install express
+
+$ npm install express-session
+
+$ npm install express-flash
+
+$ npm install mongoose
+
+$ npm install connect-mongo
+
+$ npm install passport
+
+$ npm install bcrypt
+
+$ npm install passport-local
+
+$ npm install morgan
+
+$ 
