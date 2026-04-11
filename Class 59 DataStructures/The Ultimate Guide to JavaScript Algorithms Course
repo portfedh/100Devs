@@ -50,3 +50,7 @@ Notes
     Objects
 
         Store a collection of data in the form of key-value pairs.
+
+
+	Push and pop are constant time in arrays because they add to the end. 
+	Shift- unshift are O(n) because they move all the elements in an array.
